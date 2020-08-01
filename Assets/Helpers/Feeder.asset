@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Feeder
   Description: A farm hand that feeds a horse every 2 seconds.
   LevelRequirement: 1
-  Cost: 640
-  DynamicCost: 0
+  Cost: 10
+  DynamicCost: 10
   Increment: 1
   FrequencyPerSecond: 2
   Artwork: {fileID: 0}

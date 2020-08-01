@@ -244,7 +244,7 @@ MonoBehaviour:
     Prefab: {fileID: 9036238993690681546, guid: fc415e6ae235d4e4489c72bfcaba9048,
       type: 3}
     Parent: {fileID: 1015238784}
-    Size: 30
+    Size: 20
 --- !u!1 &64741681
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 137657022}
   - component: {fileID: 137657021}
   - component: {fileID: 137657020}
+  - component: {fileID: 137657019}
   m_Layer: 5
   m_Name: FarmButton
   m_TagString: Untagged
@@ -436,6 +437,22 @@ RectTransform:
   m_AnchoredPosition: {x: -2.6999512, y: 33}
   m_SizeDelta: {x: -970.84937, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &137657019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137657017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff58154b47f8d76489d7e7c2311b7613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helper: {fileID: 11400000, guid: ea536afbf1d718f4795a9f8771406818, type: 2}
+  NameText: {fileID: 746154891}
+  CostText: {fileID: 2054071265}
+  CountText: {fileID: 1994479851}
 --- !u!114 &137657020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,6 +1127,7 @@ Transform:
   m_Children:
   - {fileID: 702648486}
   - {fileID: 37500924}
+  - {fileID: 2115799159}
   - {fileID: 1015238788}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2829,7 +2847,7 @@ MonoBehaviour:
   Sounds:
   - Name: Theme
     Clip: {fileID: 8300000, guid: d4d0a77da387d604989bc76101529d51, type: 3}
-    Volume: 0.096
+    Volume: 0.057
     Pitch: 1.2
     Loop: 1
     Source: {fileID: 0}
@@ -2841,6 +2859,12 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: LevelUp
     Clip: {fileID: 8300000, guid: a57ce20a931ee144a91b326803839a62, type: 3}
+    Volume: 0.429
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: DoorBell
+    Clip: {fileID: 8300000, guid: 319fc72e8841a3d4489b2a3512218e4a, type: 3}
     Volume: 0.429
     Pitch: 1
     Loop: 0
@@ -3918,7 +3942,7 @@ RectTransform:
   - {fileID: 784571320}
   - {fileID: 34936974}
   m_Father: {fileID: 314338821}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4909,6 +4933,7 @@ GameObject:
   - component: {fileID: 1718088850}
   - component: {fileID: 1718088849}
   - component: {fileID: 1718088853}
+  - component: {fileID: 1718088852}
   m_Layer: 5
   m_Name: FeederButton
   m_TagString: Untagged
@@ -5029,6 +5054,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718088847}
   m_CullTransparentMesh: 0
+--- !u!114 &1718088852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718088847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff58154b47f8d76489d7e7c2311b7613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helper: {fileID: 11400000, guid: 7409856eb39f44e49b4aac9c8e2a4729, type: 2}
+  NameText: {fileID: 1841962966}
+  CostText: {fileID: 971160446}
+  CountText: {fileID: 585754586}
 --- !u!114 &1718088853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5125,13 +5166,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772376093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55a6fb6ee1f07604a85605da8eb48cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Feeder: {fileID: 11400000, guid: 7409856eb39f44e49b4aac9c8e2a4729, type: 2}
   Farm: {fileID: 11400000, guid: ea536afbf1d718f4795a9f8771406818, type: 2}
+  ShopPanel: {fileID: 0}
 --- !u!1 &1777269905
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,9 +5503,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1772376093}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2115799160}
+        m_MethodName: OpenShop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6835,3 +6877,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098535349}
   m_CullTransparentMesh: 0
+--- !u!1 &2115799158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115799159}
+  - component: {fileID: 2115799160}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115799159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115799158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 314338821}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115799160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115799158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a6fb6ee1f07604a85605da8eb48cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Feeder: {fileID: 11400000, guid: 7409856eb39f44e49b4aac9c8e2a4729, type: 2}
+  Farm: {fileID: 11400000, guid: ea536afbf1d718f4795a9f8771406818, type: 2}
+  ShopPanel: {fileID: 1772376093}

@@ -9,10 +9,28 @@ public class ShopManager : MonoBehaviour
     public Helper Feeder;
     public Helper Farm;
 
+    public GameObject ShopPanel;
+    
+    public static int Feeders = 0;
+    public static int Farms = 0;
+    public static int FeederFrequency; //seconds
+    public static int FarmFrequency;
+    // public 
+    private float _timeToFeedWithFeeder = 0;
+    private float _timeToFeedWithFarm = 0;
+
+    private AudioManager _audioManager;
+
     void Start()
     {
-        Monitor.FeederFrequency = Feeder.FrequencyPerSecond;
-        Monitor.FarmFrequency = Farm.FrequencyPerSecond;
+        FeederFrequency = Feeder.FrequencyPerSecond;
+        FarmFrequency = Farm.FrequencyPerSecond;
+        _audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    void Update()
+    {
+        HelperAction();
     }
     
     public void AddUpgrade(string upgrade)
@@ -22,19 +40,55 @@ public class ShopManager : MonoBehaviour
             case "feeder":
                 if (Monitor.Horses >= Feeder.Cost)
                 {
-                    Monitor.Feeders++;
+                    Feeders++;
                     Monitor.Horses -= Feeder.Cost;
-                    Feeder.Cost *= (int) Math.Round(1.5, 0); 
+                    Feeder.DynamicCost *= (int) Math.Round(1.5, 0); 
                 }
                 break;
             case "farm":
                 if (Monitor.Horses >= Farm.Cost)
                 {
-                    Monitor.Farms++;
+                    Farms++;
                     Monitor.Horses -= Farm.Cost;
-                    Farm.Cost *= (int) Math.Round(1.5, 0); 
+                    Farm.DynamicCost *= (int) Math.Round(1.5, 0); 
                 }
                 break;
         }
+    }
+
+    public void OpenShop()
+    {
+        _audioManager.Play("DoorBell");
+        ShopPanel.SetActive(true);
+    }
+    
+    private void HelperAction()
+    {
+        if (Feeders > 0)
+        {
+            _timeToFeedWithFeeder = IncrementWithHelper(_timeToFeedWithFeeder, Feeders, FeederFrequency);
+        }
+    
+        if (Farms > 0)
+        {
+            _timeToFeedWithFarm = IncrementWithHelper(_timeToFeedWithFarm, Farms * 10, FarmFrequency);
+        }
+    }
+    private float IncrementWithHelper(float timeToFeed, int incrementAmount, int timeTillHelperFeedsAgain)
+    {
+        if (timeToFeed == 0)
+        {
+            Monitor.IncrementHorses(incrementAmount);
+            timeToFeed = timeTillHelperFeedsAgain + Time.time;
+            return timeToFeed;
+        } 
+        if (Time.time > timeToFeed)
+        {
+            Monitor.IncrementHorses(incrementAmount);
+            timeToFeed += timeTillHelperFeedsAgain;
+            return timeToFeed;
+        }
+
+        return timeToFeed;
     }
 }

@@ -29,7 +29,6 @@ public class IncrementButton : MonoBehaviour
         
         //https://forum.unity.com/threads/hide-object-after-time.291287/
         StartCoroutine(RemoveAfterSeconds(1, obj));
-        Debug.Log("end");
     }
 
     private static IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)

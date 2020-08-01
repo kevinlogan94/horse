@@ -17,13 +17,12 @@ public class Score : MonoBehaviour
     
     private void UpdatePassiveIncomeText()
     {
-        if (Monitor.Feeders <= 0) return;
-        var feederRate = (double) Monitor.Feeders / Monitor.FeederFrequency;
+        if (ShopManager.Feeders <= 0) return;
+        var feederRate = (double) ShopManager.Feeders / ShopManager.FeederFrequency;
         var passiveIncomeRate = feederRate;
-        Debug.Log(passiveIncomeRate);
-        if (Monitor.Farms > 0)
+        if (ShopManager.Farms > 0)
         {
-            var farmRate = (double) Monitor.Farms * 10 / Monitor.FarmFrequency;
+            var farmRate = (double) ShopManager.Farms * 10 / ShopManager.FarmFrequency;
             passiveIncomeRate += farmRate;
         }
 
