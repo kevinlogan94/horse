@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     public Helper Farm;
 
     public GameObject ShopPanel;
+    public TextMeshProUGUI PassiveIncomeText;
     
     public static int Feeders = 0;
     public static int Farms = 0;
@@ -42,7 +43,8 @@ public class ShopManager : MonoBehaviour
                 {
                     Feeders++;
                     Monitor.Horses -= Feeder.Cost;
-                    Feeder.DynamicCost *= (int) Math.Round(1.5, 0); 
+                    Feeder.DynamicCost *= (int) Math.Round(1.5, 0);
+                    UpdatePassiveIncomeText();
                 }
                 break;
             case "farm":
@@ -50,7 +52,8 @@ public class ShopManager : MonoBehaviour
                 {
                     Farms++;
                     Monitor.Horses -= Farm.Cost;
-                    Farm.DynamicCost *= (int) Math.Round(1.5, 0); 
+                    Farm.DynamicCost *= (int) Math.Round(1.5, 0);
+                    UpdatePassiveIncomeText();
                 }
                 break;
         }
@@ -90,5 +93,18 @@ public class ShopManager : MonoBehaviour
         }
 
         return timeToFeed;
+    }
+    
+    public void UpdatePassiveIncomeText()
+    {
+        if (Feeders <= 0) return;
+        var feederRate = (double) Feeders / FeederFrequency;
+        var passiveIncomeRate = feederRate;
+        if (Farms > 0)
+        {
+            var farmRate = (double) Farms * 10 / FarmFrequency;
+            passiveIncomeRate += farmRate;
+        }
+        PassiveIncomeText.text = "per second: " + passiveIncomeRate;
     }
 }
