@@ -27,14 +27,14 @@ public class IncrementButton : MonoBehaviour
         obj.GetComponent<TextMeshProUGUI>().text = "+" + increment;
         Monitor.IncrementHorses(increment);
         
-        //https://forum.unity.com/threads/hide-object-after-time.291287/
-        StartCoroutine(RemoveAfterSeconds(1, obj));
+        // StartCoroutine(RemoveAfterSeconds(1, obj));
     }
 
-    private static IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
-    {
-        yield return new WaitForSeconds(seconds);
-        obj.SetActive(false);
-    }
+    //https://forum.unity.com/threads/hide-object-after-time.291287/
+    // private static IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
+    // {
+    //     yield return new WaitForSeconds(seconds);
+    //     obj.SetActive(false);
+    // }
 
 }

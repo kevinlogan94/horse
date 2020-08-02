@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scenes\IncrementButton.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\IncrementText.cs" />
      <Compile Include="Assets\Scripts\LevelUp.cs" />
      <Compile Include="Assets\Scripts\Model\Helper.cs" />
      <Compile Include="Assets\Scripts\Model\ShopHelper.cs" />
