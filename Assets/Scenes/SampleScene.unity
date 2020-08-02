@@ -245,6 +245,11 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 20
+  - Tag: Horse
+    Prefab: {fileID: 8822910380117077971, guid: 41e876d8d71f11d419a47e55100612ed,
+      type: 3}
+    Parent: {fileID: 1015238784}
+    Size: 30
 --- !u!1 &64741681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3918,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

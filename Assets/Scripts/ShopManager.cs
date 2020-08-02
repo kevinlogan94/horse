@@ -81,13 +81,13 @@ public class ShopManager : MonoBehaviour
     {
         if (timeToFeed == 0)
         {
-            Monitor.IncrementHorses(incrementAmount);
+            Monitor.Instance.IncrementHorses(incrementAmount);
             timeToFeed = timeTillHelperFeedsAgain + Time.time;
             return timeToFeed;
         } 
         if (Time.time > timeToFeed)
         {
-            Monitor.IncrementHorses(incrementAmount);
+            Monitor.Instance.IncrementHorses(incrementAmount);
             timeToFeed += timeTillHelperFeedsAgain;
             return timeToFeed;
         }

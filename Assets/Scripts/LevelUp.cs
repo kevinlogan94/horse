@@ -25,7 +25,7 @@ public class LevelUp : MonoBehaviour
             Slider.minValue = oldMax;
             
             // Level Up Character
-            Monitor.IncrementHorses(_levelUpReward);
+            Monitor.Instance.IncrementHorses(_levelUpReward);
             Monitor.PlayerLevel++;
             _levelUpReward = 5 * Monitor.PlayerLevel;
             LevelUpRewardText.text = _levelUpReward + " horses";

@@ -25,7 +25,7 @@ public class IncrementButton : MonoBehaviour
             increment*=3;
         }
         obj.GetComponent<TextMeshProUGUI>().text = "+" + increment;
-        Monitor.IncrementHorses(increment);
+        Monitor.Instance.IncrementHorses(increment);
         
         // StartCoroutine(RemoveAfterSeconds(1, obj));
     }
