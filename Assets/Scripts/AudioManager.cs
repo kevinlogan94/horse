@@ -18,15 +18,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        Play("Theme");
+    }
+    
     // FindObjectOfType<AudioManager>().Play();
-    public void Play(string songName, float pitch = 0)
+    public void Play(string songName, float? pitch = null)
     {
         var sound = Array.Find(Sounds, s => s.Name == songName);
         if (sound != null)
         {
             if (pitch>0)
             {
-                sound.Source.pitch = pitch;
+                sound.Source.pitch = (float) pitch;
             }
             sound.Source.Play();   
         }
@@ -35,11 +41,10 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("We couldn't find this sound to play: " + songName);
         }
     }
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public void PlaySong(string songName)
     {
-        Play("Theme");
+        Play(songName);
     }
 
     // Update is called once per frame

@@ -14,7 +14,6 @@ public class Monitor : MonoBehaviour
     public static int Horses = 0;
     public static int PlayerLevel = 1;
     private ObjectPooler _objectPooler;
-    private AudioManager _audioManager;
 
     #region Singleton
     public static Monitor Instance;
@@ -28,7 +27,6 @@ public class Monitor : MonoBehaviour
     public void Start()
     {
         _objectPooler = ObjectPooler.Instance;
-        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void IncrementHorses(int increment = 1)

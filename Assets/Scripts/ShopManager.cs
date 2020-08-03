@@ -39,19 +39,19 @@ public class ShopManager : MonoBehaviour
         switch (upgrade)
         {
             case "feeder":
-                if (Monitor.Horses >= Feeder.Cost)
+                if (Monitor.Horses >= Feeder.DynamicCost)
                 {
                     Feeders++;
-                    Monitor.Horses -= Feeder.Cost;
+                    Monitor.Horses -= Feeder.DynamicCost;
                     Feeder.DynamicCost *= (int) Math.Round(1.5, 0);
                     UpdatePassiveIncomeText();
                 }
                 break;
             case "farm":
-                if (Monitor.Horses >= Farm.Cost)
+                if (Monitor.Horses >= Farm.DynamicCost)
                 {
                     Farms++;
-                    Monitor.Horses -= Farm.Cost;
+                    Monitor.Horses -= Farm.DynamicCost;
                     Farm.DynamicCost *= (int) Math.Round(1.5, 0);
                     UpdatePassiveIncomeText();
                 }
