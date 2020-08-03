@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,15 @@ public class Monitor : MonoBehaviour
 
     public void TriggerHorse()
     {
-            _objectPooler.SpawnFromPool("Horse", new Vector3(0, Random.Range(350, 2000)));
+        _objectPooler.SpawnFromPool("Horse", new Vector3(0, Random.Range(350, 2000)));
+    }
+
+    public static void DestroyObject(string fingerPointerLabel)
+    {
+        var fingerPointer = GameObject.Find(fingerPointerLabel);
+        if (fingerPointer != null)
+        {
+            Destroy(fingerPointer);
+        }
     }
 }

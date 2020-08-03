@@ -26,7 +26,8 @@ public class IncrementButton : MonoBehaviour
         }
         obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
         Monitor.Instance.IncrementHorses(increment);
-        
+
+       Monitor.DestroyObject("FingerPointerIncrementButton");
         // StartCoroutine(RemoveAfterSeconds(1, obj));
     }
 
