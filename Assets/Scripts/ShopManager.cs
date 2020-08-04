@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
 
     public GameObject ShopPanel;
     public TextMeshProUGUI PassiveIncomeText;
+    public GameObject FingerPointerShop;
     
     public static int Feeders = 0;
     public static int Farms = 0;
@@ -32,6 +33,10 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         HelperAction();
+        if (Monitor.Horses >= Feeder.Cost && Feeders == 0)
+        {
+            FingerPointerShop.SetActive(true);
+        }
     }
     
     public void AddUpgrade(string upgrade)
@@ -45,6 +50,11 @@ public class ShopManager : MonoBehaviour
                     Monitor.Horses -= Feeder.DynamicCost;
                     Feeder.DynamicCost *= (int) Math.Round(1.5, 0);
                     UpdatePassiveIncomeText();
+                    
+                    if (Feeders==1)
+                    {
+                        Monitor.DestroyObject("FingerPointerShop");
+                    }
                 }
                 break;
             case "farm":

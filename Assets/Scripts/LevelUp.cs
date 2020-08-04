@@ -10,6 +10,7 @@ public class LevelUp : MonoBehaviour
     public Slider Slider;
     public GameObject LevelUpPanel;
     public TextMeshProUGUI LevelUpRewardText;
+    public GameObject FingerPointerLevel;
     private int _levelUpReward = 20;
 
     void Start()
@@ -29,6 +30,12 @@ public class LevelUp : MonoBehaviour
             Monitor.PlayerLevel++;
             _levelUpReward = 5 * Monitor.PlayerLevel;
             LevelUpRewardText.text = _levelUpReward + " horses";
+            
+            //close tutorial
+            if (Monitor.PlayerLevel==2)
+            {
+                Monitor.DestroyObject("FingerPointerLevel");
+            }
             
             // Close Panel
             LevelUpPanel.SetActive(false);
@@ -53,6 +60,11 @@ public class LevelUp : MonoBehaviour
         else
         {
             Slider.value = Slider.maxValue;
+        }
+
+        if (Slider.value >= Slider.maxValue && Monitor.PlayerLevel == 1)
+        {
+            FingerPointerLevel.SetActive(true);
         }
     }
 }
