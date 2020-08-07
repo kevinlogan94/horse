@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -23,18 +24,15 @@ public class ShopHelper : MonoBehaviour
     {
         CostText.text = Helper.DynamicCost.ToString();
 
-        var newCount = "";
-        switch (Helper.Name)
+        var newCount = "0";
+        var resultHelper = ShopManager.Instance.Helpers.FirstOrDefault(x => x.Name == Helper.Name);
+        if (resultHelper != null)
         {
-            case "Farm":
-                newCount = ShopManager.Farms.ToString();
-                break;
-            case "Feeder":
-                newCount = ShopManager.Feeders.ToString();
-                break;
-            default: 
-                //nothing
-                break;
+            newCount = resultHelper.AmountOwned.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("We couldn't find the helper: " + Helper.Name);
         }
 
         CountText.text = newCount;

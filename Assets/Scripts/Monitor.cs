@@ -39,7 +39,7 @@ public class Monitor : MonoBehaviour
 
     public void TriggerHorse()
     {
-        _objectPooler.SpawnFromPool("Horse", new Vector3(0, Random.Range(350, 2000)));
+        _objectPooler.SpawnFromPool("Horse", new Vector3(0, Random.Range(250, 1500)));
     }
 
     public static void DestroyObject(string fingerPointerLabel)

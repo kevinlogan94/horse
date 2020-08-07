@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 1229392296870582759}
   - component: {fileID: 1229392296870582681}
   - component: {fileID: 1229392296870582758}
+  - component: {fileID: 8950444798873648764}
   m_Layer: 5
   m_Name: FingerPointerPanel
   m_TagString: Untagged
@@ -169,3 +170,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8950444798873648764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229392296870582756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31865773e348b445afc18f25ce206e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

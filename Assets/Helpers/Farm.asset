@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Farm
   Description: A Farm that feeds horses every 10 seconds.
   LevelRequirement: 3
-  Cost: 600
-  DynamicCost: 0
+  Cost: 300
+  DynamicCost: 300
   Increment: 30
-  FrequencyPerSecond: 10
+  AmountOwned: 0
   Artwork: {fileID: 0}

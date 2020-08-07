@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,33 +10,49 @@ public class LevelUp : MonoBehaviour
     public TextMeshProUGUI LevelUpRewardText;
     public GameObject FingerPointerLevel;
     private int _levelUpReward = 20;
+    private int _horsesEarnedEveryLevelSoFar = 0;
+    private bool _jinglePlayedThisLevel = false;
 
     void Start()
     {
         LevelUpRewardText.text = _levelUpReward + " horses";
     }
 
-    public void LevelUpPlayer()
+    public void LevelUpPlayer(bool watchAd = false)
     {
-            //Update Level up progress bar
-            var oldMax = Slider.maxValue;
-            Slider.maxValue = (int) Math.Round(Slider.maxValue * 2);
-            Slider.minValue = oldMax;
-            
-            // Level Up Character
+        //level up reward 
+        if (!watchAd)
+        {
             Monitor.Instance.IncrementHorses(_levelUpReward);
-            Monitor.PlayerLevel++;
-            _levelUpReward = 5 * Monitor.PlayerLevel;
-            LevelUpRewardText.text = _levelUpReward + " horses";
+        }
+        else
+        {
+            var bonusReward = _levelUpReward * 3;
+            Monitor.Instance.IncrementHorses(bonusReward);
+        }
+        
+        //Update Level up progress bar
+        Slider.maxValue = (int) Math.Round(Slider.maxValue * 2);
+        Slider.value = 0; 
+        _horsesEarnedEveryLevelSoFar = Monitor.TotalHorsesEarned;
             
-            //close tutorial
-            if (Monitor.PlayerLevel==2)
-            {
-                Monitor.DestroyObject("FingerPointerLevel");
-            }
+        // Level Up Character
+        Monitor.PlayerLevel++;
+        _levelUpReward = 2 * _levelUpReward;
+        LevelUpRewardText.text = _levelUpReward + " horses";
+        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
             
-            // Close Panel
-            LevelUpPanel.SetActive(false);
+        //close tutorial
+        if (Monitor.PlayerLevel==2)
+        {
+            Monitor.DestroyObject("FingerPointerLevel");
+        }
+        
+        //reset jingle
+        _jinglePlayedThisLevel = false;
+            
+        // Close Panel
+        LevelUpPanel.SetActive(false);
     }
     
     public void OpenLevelUpPanel()
@@ -50,21 +64,34 @@ public class LevelUp : MonoBehaviour
         }
     }
 
+    private int HorsesEarnedThisLevel()
+    {
+        return Monitor.TotalHorsesEarned - _horsesEarnedEveryLevelSoFar;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Monitor.TotalHorsesEarned < Slider.maxValue)
+        if (HorsesEarnedThisLevel() < Slider.maxValue)
         {
-            Slider.value = Monitor.TotalHorsesEarned;
+            Slider.value = HorsesEarnedThisLevel();
         }
         else
         {
             Slider.value = Slider.maxValue;
         }
 
-        if (Slider.value >= Slider.maxValue && Monitor.PlayerLevel == 1)
+        if (Slider.value >= Slider.maxValue)
         {
-            FingerPointerLevel.SetActive(true);
+            if (Monitor.PlayerLevel == 1)
+            {
+                FingerPointerLevel.SetActive(true);
+            }
+            else if (!_jinglePlayedThisLevel)
+            {
+                FindObjectOfType<AudioManager>().Play("LevelUp2");
+                _jinglePlayedThisLevel = true;
+            }
         }
     }
 }

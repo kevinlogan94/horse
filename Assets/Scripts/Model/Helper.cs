@@ -11,6 +11,6 @@ public class Helper : ScriptableObject
     public int Cost;
     public int DynamicCost;
     public int Increment;
-    public int FrequencyPerSecond;
+    public int AmountOwned;
     public Sprite Artwork;
 }
