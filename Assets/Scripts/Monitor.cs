@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
@@ -34,12 +27,12 @@ public class Monitor : MonoBehaviour
     {
         Horses += increment;
         TotalHorsesEarned += increment;
-        TriggerHorse();
+        TriggerHorse(increment);
     }
 
-    public void TriggerHorse()
+    public void TriggerHorse(int increment)
     {
-        _objectPooler.SpawnFromPool("Horse", new Vector3(0, Random.Range(250, 1500)));
+        _objectPooler.SpawnFromPool(increment > 1 ? "Appaloosa" : "Horse", new Vector3(0, Random.Range(250, 1500)));
     }
 
     public static void DestroyObject(string fingerPointerLabel)

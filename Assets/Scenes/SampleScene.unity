@@ -175,6 +175,11 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 30
+  - Tag: Appaloosa
+    Prefab: {fileID: 3891538737297199071, guid: 376f975fd0a4bad4aa285095a660cd45,
+      type: 3}
+    Parent: {fileID: 1015238784}
+    Size: 10
 --- !u!1 &88296398
 GameObject:
   m_ObjectHideFlags: 0
