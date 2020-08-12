@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
 
 public class ShopHelper : MonoBehaviour
 {
@@ -11,6 +11,18 @@ public class ShopHelper : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI CountText;
+    public Button HelperButton;
+    public Image Avatar;
+    private Sprite _disabledImage;
+    private Sprite _activeImage;
+    private Sprite _lockedImage;
+
+    void Awake()
+    {
+        _disabledImage = Resources.Load<Sprite>("achiev_box_pressed");
+        _activeImage = Resources.Load<Sprite>("achiev_box");
+        _lockedImage = Resources.Load<Sprite>("lvl_lock_block");
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +34,21 @@ public class ShopHelper : MonoBehaviour
 
     void Update()
     {
+        if (Helper.LevelRequirement > Monitor.PlayerLevel)
+        {
+            HelperButton.image.sprite = _disabledImage;
+            Avatar.sprite = _lockedImage;
+            HelperButton.interactable = false;
+            CountText.text = "Lvl " + Helper.LevelRequirement;
+            CountText.fontSize = 18;
+            return;
+        }
+
+        Avatar.sprite = Helper.Artwork;
+        HelperButton.image.sprite = _activeImage;
+        HelperButton.interactable = true;
+        CountText.fontSize = 36;
+        
         CostText.text = Helper.DynamicCost.ToString();
 
         var newCount = "0";
