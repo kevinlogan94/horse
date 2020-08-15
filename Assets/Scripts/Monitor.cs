@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
@@ -23,16 +24,19 @@ public class Monitor : MonoBehaviour
         _objectPooler = ObjectPooler.Instance;
     }
 
-    public void IncrementHorses(int increment = 1)
+    public void IncrementHorses(int increment, string horseBreed, float lagSeconds = 0)
     {
         Horses += increment;
         TotalHorsesEarned += increment;
-        TriggerHorse(increment);
+        // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
+        StartCoroutine(RemoveAfterSeconds(lagSeconds, horseBreed));
     }
-
-    public void TriggerHorse(int increment)
+    
+    //https://forum.unity.com/threads/hide-object-after-time.291287/
+    IEnumerator RemoveAfterSeconds(float seconds, string horseBreed)
     {
-        _objectPooler.SpawnFromPool(increment > 1 ? "Appaloosa" : "Horse", new Vector3(0, Random.Range(250, 1500)));
+        yield return new WaitForSeconds(seconds);
+        _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
     }
 
     public static void DestroyObject(string fingerPointerLabel)

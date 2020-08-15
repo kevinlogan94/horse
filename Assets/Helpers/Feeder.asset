@@ -18,5 +18,6 @@ MonoBehaviour:
   Cost: 10
   DynamicCost: 10
   Increment: 1
-  FrequencyPerSecond: 2
-  Artwork: {fileID: 0}
+  AmountOwned: 0
+  HorseBreed: Horse
+  Artwork: {fileID: 21300000, guid: 1419f07ba46dc9d44a975d50d24cf3b9, type: 3}

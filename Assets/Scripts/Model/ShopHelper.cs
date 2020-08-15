@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ public class ShopHelper : MonoBehaviour
     void Start()
     {
         NameText.text = Helper.Name;
-        CostText.text = Helper.Cost.ToString();
+        CostText.text = String.Format("{0:n0}", Helper.Cost);
         Helper.DynamicCost = Helper.Cost;
     }
 
@@ -49,7 +50,7 @@ public class ShopHelper : MonoBehaviour
         HelperButton.interactable = true;
         CountText.fontSize = 36;
         
-        CostText.text = Helper.DynamicCost.ToString();
+        CostText.text = String.Format("{0:n0}", Helper.DynamicCost);
 
         var newCount = "0";
         var resultHelper = ShopManager.Instance.Helpers.FirstOrDefault(x => x.Name == Helper.Name);

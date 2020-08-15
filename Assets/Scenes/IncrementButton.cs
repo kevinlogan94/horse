@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class IncrementButton : MonoBehaviour
@@ -25,17 +22,15 @@ public class IncrementButton : MonoBehaviour
             increment*=3;
         }
         obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
-        Monitor.Instance.IncrementHorses(increment);
+        if (increment == 1)
+        {
+            Monitor.Instance.IncrementHorses(increment, "Horse");
+        }
+        else
+        {
+            Monitor.Instance.IncrementHorses(increment, "Appaloosa");
+        }
 
        Monitor.DestroyObject("FingerPointerIncrementButton");
-        // StartCoroutine(RemoveAfterSeconds(1, obj));
     }
-
-    //https://forum.unity.com/threads/hide-object-after-time.291287/
-    // private static IEnumerator RemoveAfterSeconds(int seconds, GameObject obj)
-    // {
-    //     yield return new WaitForSeconds(seconds);
-    //     obj.SetActive(false);
-    // }
-
 }

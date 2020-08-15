@@ -12,5 +12,6 @@ public class Helper : ScriptableObject
     public int DynamicCost;
     public int Increment;
     public int AmountOwned;
+    public string HorseBreed;
     public Sprite Artwork;
 }

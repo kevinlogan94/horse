@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Intro
   m_EditorClassIdentifier: 
   Name: Intro
-  Message: Got it to work
+  Message: The first of everything is always the hardest. You have a bright future
+    ahead of you!
   Displayed: 1

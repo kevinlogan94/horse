@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 867dde4c191e81349a5069a825feb6f8, type: 3}
-  m_Name: Plantation
+  m_Name: Barn
   m_EditorClassIdentifier: 
-  Name: Plantation
+  Name: Barn
   Description: 
   LevelRequirement: 7
   Cost: 1000
   DynamicCost: 1000
   Increment: 35
   AmountOwned: 0
-  Artwork: {fileID: 0}
+  HorseBreed: WaterHorse
+  Artwork: {fileID: 21300000, guid: 82eb9f2917d226c408f772f1ce7634b1, type: 3}

@@ -24,13 +24,13 @@ public class NewsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Monitor.Horses == 1 && !Logs[0].Displayed)
+        if (Monitor.PlayerLevel == 1 && !Logs[0].Displayed)
         {
             PlayNewsAndAddLog("Intro");
         }
-        if (Monitor.Horses == 2 && !Logs[1].Displayed)
+        if (Monitor.PlayerLevel == 4 && !Logs[1].Displayed)
         {
-            PlayNewsAndAddLog("Welcome");
+            PlayNewsAndAddLog("Noticed");
         }
     }
 

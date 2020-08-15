@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 867dde4c191e81349a5069a825feb6f8, type: 3}
-  m_Name: Farm
+  m_Name: Volcano
   m_EditorClassIdentifier: 
-  Name: Farm
+  Name: Volcano
   Description: 
-  LevelRequirement: 3
-  Cost: 100
-  DynamicCost: 100
-  Increment: 15
+  LevelRequirement: 12
+  Cost: 10000
+  DynamicCost: 10000
+  Increment: 100
   AmountOwned: 0
-  HorseBreed: Appaloosa
-  Artwork: {fileID: 0}
+  HorseBreed: FireHorse
+  Artwork: {fileID: 21300000, guid: bcd9d00a1d135514190b1a81d155df85, type: 3}

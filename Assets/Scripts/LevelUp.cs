@@ -23,12 +23,12 @@ public class LevelUp : MonoBehaviour
         //level up reward 
         if (!watchAd)
         {
-            Monitor.Instance.IncrementHorses(_levelUpReward);
+            Monitor.Instance.IncrementHorses(_levelUpReward, "Horse");
         }
         else
         {
             var bonusReward = _levelUpReward * 3;
-            Monitor.Instance.IncrementHorses(bonusReward);
+            Monitor.Instance.IncrementHorses(bonusReward, "Appaloosa");
         }
         
         //Update Level up progress bar
