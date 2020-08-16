@@ -24,7 +24,6 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
     
-    // FindObjectOfType<AudioManager>().Play();
     public void Play(string songName, float? pitch = null)
     {
         var sound = Array.Find(Sounds, s => s.Name == songName);

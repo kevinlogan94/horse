@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class IncrementButton : MonoBehaviour
@@ -12,25 +13,33 @@ public class IncrementButton : MonoBehaviour
         _audioManager = FindObjectOfType<AudioManager>();
     }
     
-    public void Increment(int increment = 1)
+    public void Increment()
     {
-        var randomNumber = Random.Range(0.0f, 3.0f);
-        _audioManager.Play("Cork", randomNumber);
-        var obj = _objectPooler.SpawnFromPool("IncrementText");
-        if (randomNumber<0.5)
+        var clickerUpgrade = ShopManager.Instance.Upgrades.FirstOrDefault(x => x.name == "Clicker");
+        if (clickerUpgrade == null)
         {
-            increment*=3;
+            Debug.LogWarning("We couldn't find the Clicker Upgrade on the ShopManager");
+            return;
         }
-        obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
-        if (increment == 1)
+        
+        var randomNumber = Random.Range(0.0f, 3.0f);
+        var increment = 1;
+        if (randomNumber < 0.5)
         {
-            Monitor.Instance.IncrementHorses(increment, "Horse");
+            var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level + 1].HorseBreed;
+            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 15 : 3;
+            Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
         else
         {
-            Monitor.Instance.IncrementHorses(increment, "Appaloosa");
+            var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level].HorseBreed;
+            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 10 : increment;
+            Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
-
-       Monitor.DestroyObject("FingerPointerIncrementButton");
+            
+        _audioManager.Play("Cork", randomNumber);
+        var obj = _objectPooler.SpawnFromPool("IncrementText");
+        obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
+        Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 }

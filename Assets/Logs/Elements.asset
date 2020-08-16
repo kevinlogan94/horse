@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
   m_Name: Elements
   m_EditorClassIdentifier: 
-  Name: 
-  Message: 
+  Name: Elements
+  Message: A wizard comes to you in a dream telling you of elemental horses to breed
+    in far away lands
   Displayed: 0

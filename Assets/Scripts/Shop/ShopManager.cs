@@ -8,6 +8,7 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public Helper[] Helpers;
+    public Upgrade[] Upgrades;
 
     public GameObject ShopPanel;
     public TextMeshProUGUI PassiveIncomeText;
@@ -39,22 +40,27 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         HelperAction();
-        var feeder = Helpers.FirstOrDefault(x => x.Name == "Feeder");
-        if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
+        
+        //shop tutorial
+        if (Monitor.PlayerLevel == 1)
         {
-            FingerPointerShop.SetActive(true);
+            var feeder = Helpers.FirstOrDefault(x => x.Name == "Feeder");
+            if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
+            {
+                FingerPointerShop.SetActive(true);
+            }
         }
     }
     
-    public void AddUpgrade(string upgrade)
+    public void AddHelper(string helperName)
     {
         foreach (var helper in Helpers)
         {
-            if (helper.Name == upgrade && helper.DynamicCost <= Monitor.Horses)
+            if (helper.Name == helperName && helper.DynamicCost <= Monitor.Horses)
             {
                 helper.AmountOwned++;
                 Monitor.Horses -= helper.DynamicCost;
-                helper.DynamicCost *= (int) Math.Round(1.5, 0);
+                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
                 UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
             }
@@ -66,6 +72,27 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
+    
+    public void AddUpgrade(string upgradeName)
+    {
+        foreach (var upgrade in Upgrades)
+        {
+            if (upgrade.Name == upgradeName && upgrade.DynamicCost <= Monitor.Horses)
+            {
+                upgrade.Level++;
+                Monitor.Horses -= upgrade.DynamicCost;
+                upgrade.DynamicCost *= 3;
+                _audioManager.Play("CoinToss");
+            }
+
+            // if (upgrade.Name == "Feeder" && upgrade.AmountOwned == 1)
+            // {
+            //     Monitor.DestroyObject("FingerPointerShop");
+            //     Monitor.DestroyObject("FingerPointerFeederButton");
+            // }
+        }
+    }
+    
 
     public void OpenShop()
     {
