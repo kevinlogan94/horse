@@ -34,6 +34,11 @@ public class ShopManager : MonoBehaviour
             helper.AmountOwned = 0;
         }
 
+        foreach (var upgrade in Upgrades)
+        {
+            upgrade.Level = 0;
+        }
+
         _audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -60,7 +65,7 @@ public class ShopManager : MonoBehaviour
             {
                 helper.AmountOwned++;
                 Monitor.Horses -= helper.DynamicCost;
-                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
+                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 2.5, 0);
                 UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
             }

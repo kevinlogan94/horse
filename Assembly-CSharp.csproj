@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Shop\ShopBackButton.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopHelper.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopManager.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopTabs.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopUpgrade.cs" />
      <Compile Include="Assets\Scripts\fingerPointer.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

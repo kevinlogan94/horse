@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,17 +52,17 @@ public class ShopUpgrade : MonoBehaviour
         
         CostText.text = String.Format("{0:n0}", Upgrade.DynamicCost);
 
-        // var newCount = "0";
-        // var resultUpgrade = ShopManager.Instance.Upgrades.FirstOrDefault(x => x.Name == Upgrade.Name);
-        // if (resultUpgrade != null)
-        // {
-        //     newCount = resultUpgrade.AmountOwned.ToString();
-        // }
-        // else
-        // {
-        //     Debug.LogWarning("We couldn't find the upgrade: " + Upgrade.Name);
-        // }
+        var newCount = "0";
+        var resultUpgrade = ShopManager.Instance.Upgrades.FirstOrDefault(x => x.Name == Upgrade.Name);
+        if (resultUpgrade != null)
+        {
+            newCount = resultUpgrade.Level.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("We couldn't find the upgrade: " + Upgrade.Name);
+        }
 
-        // CountText.text = newCount;
+        CountText.text = newCount;
     }
 }

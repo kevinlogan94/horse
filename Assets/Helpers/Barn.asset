@@ -17,7 +17,7 @@ MonoBehaviour:
   LevelRequirement: 7
   Cost: 1000
   DynamicCost: 1000
-  Increment: 35
+  Increment: 25
   AmountOwned: 0
-  HorseBreed: WaterHorse
+  HorseBreed: Palomino
   Artwork: {fileID: 21300000, guid: 82eb9f2917d226c408f772f1ce7634b1, type: 3}

@@ -24,13 +24,19 @@ public class NewsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Monitor.PlayerLevel == 1 && !Logs[0].Displayed)
+        if (Monitor.PlayerLevel == 2)
         {
             PlayNewsAndAddLog("Intro");
         }
-        if (Monitor.PlayerLevel == 4 && !Logs[1].Displayed)
+        
+        if (Monitor.PlayerLevel == 4)
         {
             PlayNewsAndAddLog("Noticed");
+        }
+
+        if (Monitor.PlayerLevel==10)
+        {
+            PlayNewsAndAddLog("PlayTest");
         }
     }
 
@@ -42,6 +48,8 @@ public class NewsManager : MonoBehaviour
             Debug.LogWarning("We couldn't find the log: " + logName);
             return;
         }
+        if (log.Displayed)
+            return;
         
         NewsText.GetComponent<TextMeshProUGUI>().text = log.Message;
         NewsText.gameObject.SetActive(true);
@@ -60,7 +68,7 @@ public class NewsManager : MonoBehaviour
             //move down the old logs
             foreach (var logGameObject in _logGameObjects)
             {
-                logGameObject.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y - 140, 0);
+                logGameObject.transform.position = new Vector3(logGameObject.transform.position.x, logGameObject.transform.position.y - 220, 0);
             }
         }
         //extend the height of the content container

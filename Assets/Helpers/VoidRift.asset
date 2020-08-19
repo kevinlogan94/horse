@@ -20,4 +20,4 @@ MonoBehaviour:
   Increment: 0
   AmountOwned: 0
   HorseBreed: 
-  Artwork: {fileID: 0}
+  Artwork: {fileID: 21300000, guid: 9174411d973eb6e4da575b4859bd5382, type: 3}

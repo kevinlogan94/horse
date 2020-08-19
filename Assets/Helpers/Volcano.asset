@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Volcano
   Description: 
-  LevelRequirement: 12
+  LevelRequirement: 17
   Cost: 10000
   DynamicCost: 10000
   Increment: 100
