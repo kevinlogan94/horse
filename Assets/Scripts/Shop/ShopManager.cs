@@ -114,12 +114,19 @@ public class ShopManager : MonoBehaviour
                 Monitor.Horses -= upgrade.DynamicCost;
                 upgrade.DynamicCost *= 3;
                 _audioManager.Play("CoinToss");
-            }
+                
+                if (upgrade.Name == "Clicker")
+                {
+                    if (upgrade.Level == 1)
+                    {
+                        Monitor.DestroyObject("FingerPointerShop");
+                        Monitor.DestroyObject("FingerPointerFeederButton");   
+                    }
 
-            if (upgrade.Name == "Clicker" && upgrade.Level == 1)
-            {
-                Monitor.DestroyObject("FingerPointerShop");
-                Monitor.DestroyObject("FingerPointerFeederButton");
+                    var coreHorse = Helpers[upgrade.Level].HorseBreed;
+                    var secondaryHorse = Helpers[upgrade.Level + 1].HorseBreed;
+                    ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
+                }
             }
         }
     }
