@@ -13,9 +13,13 @@ public class ShopManager : MonoBehaviour
     public GameObject ShopPanel;
     public TextMeshProUGUI PassiveIncomeText;
     public GameObject FingerPointerShop;
+    public GameObject FingerPointerUpgradeButton;
+    public GameObject FingerPointerFeederButton;
+    public GameObject UpgradeScrollView;
     
     private float _waitTime = 1.0f;
 
+    private Upgrade _clickerUpgradeReference;
     private AudioManager _audioManager;
     
     #region Singleton
@@ -39,6 +43,11 @@ public class ShopManager : MonoBehaviour
             upgrade.Level = 0;
         }
 
+        if (Upgrades != null)
+        {
+            _clickerUpgradeReference = Upgrades.FirstOrDefault(x => x.Name == "Clicker");
+        }
+
         _audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -53,6 +62,23 @@ public class ShopManager : MonoBehaviour
             if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
             {
                 FingerPointerShop.SetActive(true);
+            }
+        }
+        //upgrade tutorial
+        if (Monitor.PlayerLevel == _clickerUpgradeReference.LevelRequirement 
+            && Monitor.Horses >= _clickerUpgradeReference.Cost 
+            && _clickerUpgradeReference.Level == 0)
+        {
+            FingerPointerShop.SetActive(true);
+            if (!UpgradeScrollView.activeSelf)
+            {
+                FingerPointerUpgradeButton.SetActive(true);
+                FingerPointerFeederButton.SetActive(false);
+            }
+            else
+            {
+                FingerPointerUpgradeButton.SetActive(false);
+                FingerPointerFeederButton.SetActive(true);
             }
         }
     }
@@ -90,11 +116,11 @@ public class ShopManager : MonoBehaviour
                 _audioManager.Play("CoinToss");
             }
 
-            // if (upgrade.Name == "Feeder" && upgrade.AmountOwned == 1)
-            // {
-            //     Monitor.DestroyObject("FingerPointerShop");
-            //     Monitor.DestroyObject("FingerPointerFeederButton");
-            // }
+            if (upgrade.Name == "Clicker" && upgrade.Level == 1)
+            {
+                Monitor.DestroyObject("FingerPointerShop");
+                Monitor.DestroyObject("FingerPointerFeederButton");
+            }
         }
     }
     
