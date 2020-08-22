@@ -43,7 +43,7 @@ public class Monitor : MonoBehaviour
     IEnumerator RemoveAfterSeconds(float seconds, string horseBreed)
     {
         yield return new WaitForSeconds(seconds);
-        _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(_bottomHorseSpawnerRegion, _topHorseSpawnerRegion)));
+        _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, 500));
     }
 
     public static void DestroyObject(string fingerPointerLabel)

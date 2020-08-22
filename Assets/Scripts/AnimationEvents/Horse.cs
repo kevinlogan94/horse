@@ -8,4 +8,10 @@ public class Horse : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void TestSound()
+    {
+        var audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("LevelUp");
+    }
 }
