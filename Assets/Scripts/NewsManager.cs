@@ -9,9 +9,10 @@ public class NewsManager : MonoBehaviour
     public TextMeshProUGUI NewsText;
     public GameObject Prefab;
     public GameObject PrefabParent;
+    public GameObject ShopPanel;
     public Log[] Logs;
     private List<GameObject> _logGameObjects = new List<GameObject>();
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +25,30 @@ public class NewsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Monitor.PlayerLevel == 2)
+        switch (Monitor.PlayerLevel)
         {
-            PlayNewsAndAddLog("Intro");
-        }
-        
-        if (Monitor.PlayerLevel == 4)
-        {
-            PlayNewsAndAddLog("Noticed");
+            case 2:
+                PlayNewsAndAddLog("Intro");
+                break;
+            case 4:
+                PlayNewsAndAddLog("Noticed");
+                break;
+            case 7: 
+                PlayNewsAndAddLog("HorsesOrigin");
+                break;
+            case 10:
+                PlayNewsAndAddLog("PlayTest");
+                break;
         }
 
-        if (Monitor.PlayerLevel==10)
+        if (ShopManager.Instance.Helpers[1].AmountOwned == 1 && !ShopPanel.activeSelf)
         {
-            PlayNewsAndAddLog("PlayTest");
+            PlayNewsAndAddLog("Expansion");
+        }
+
+        if (ShopManager.Instance.Upgrades[0].Level == 1 && !ShopPanel.activeSelf)
+        {
+            PlayNewsAndAddLog("ButtonWorks");
         }
     }
 

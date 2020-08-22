@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Clicker
   Description: 
-  LevelRequirement: 2
+  LevelRequirement: 3
   Cost: 2000
-  DynamicCost: 2000
+  DynamicCost: 3
   Level: 0
   HighestLevel: 0
   UpgradeBy: 2
