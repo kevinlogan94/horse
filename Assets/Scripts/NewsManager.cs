@@ -109,7 +109,7 @@ public class NewsManager : MonoBehaviour
         {
             var prefabHeight = obj.GetComponent<RectTransform>().rect.height;
             var prefabParentRect = PrefabParent.GetComponent<RectTransform>();
-            prefabParentRect.sizeDelta = new Vector2(prefabParentRect.sizeDelta.x,prefabParentRect.sizeDelta.y + prefabHeight + 50);
+            prefabParentRect.sizeDelta = new Vector2(prefabParentRect.sizeDelta.x,prefabParentRect.sizeDelta.y + prefabHeight + 75);
         }
         //add this new log to the list for the future
         log.DateDisplayed = DateTime.Now;
