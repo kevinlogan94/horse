@@ -41,6 +41,27 @@ public class NewsManager : MonoBehaviour
                 break;
         }
 
+        if (Monitor.TotalHorsesEarned >= 1000 && Monitor.TotalHorsesEarned < 10000)
+        {
+            PlayNewsAndAddLog("1,000");
+        }
+        else if (Monitor.TotalHorsesEarned >= 10000 && Monitor.TotalHorsesEarned < 50000)
+        {
+            PlayNewsAndAddLog("10,000");
+        } else if (Monitor.TotalHorsesEarned >= 50000 && Monitor.TotalHorsesEarned < 100000)
+        {
+            PlayNewsAndAddLog("50,000");
+        } else if (Monitor.TotalHorsesEarned >= 100000 && Monitor.TotalHorsesEarned < 500000)
+        {
+            PlayNewsAndAddLog("100,000");
+        } else if (Monitor.TotalHorsesEarned >= 500000 && Monitor.TotalHorsesEarned < 1000000)
+        {
+            PlayNewsAndAddLog("500,000");
+        } else if (Monitor.TotalHorsesEarned >= 1000000)
+        {
+            PlayNewsAndAddLog("1,000,000");
+        } 
+
         if (ShopManager.Instance.Helpers[1].AmountOwned == 1 && !ShopPanel.activeSelf)
         {
             PlayNewsAndAddLog("Expansion");
