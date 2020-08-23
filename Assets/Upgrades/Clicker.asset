@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: Clicker
   Description: 
   LevelRequirement: 3
-  Cost: 2000
-  DynamicCost: 3
-  Level: 0
+  Cost: 1
+  DynamicCost: 1000
+  Level: 1
   HighestLevel: 0
   UpgradeBy: 2
   HelperToUpgrade: {fileID: 0}

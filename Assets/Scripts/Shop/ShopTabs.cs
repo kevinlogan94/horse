@@ -37,14 +37,14 @@ public class ShopTabs : MonoBehaviour
     private void SetTabbedDisplay(Button button)
     {
         var buttonRect = button.GetComponent<RectTransform>();
-        buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x,220);
+        buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x,275);
         // button.transform.position = new Vector3(button.transform.position.x, -48);
     }
 
     private void SetNonTabbedDisplay(Button button)
     {
         var buttonRect = button.GetComponent<RectTransform>();
-        buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x,165);
+        buttonRect.sizeDelta = new Vector2(buttonRect.sizeDelta.x,200);
         // button.transform.position = new Vector3(button.transform.position.x, -30);
     }
 }
