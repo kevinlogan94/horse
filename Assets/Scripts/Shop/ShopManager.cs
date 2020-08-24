@@ -62,14 +62,7 @@ public class ShopManager : MonoBehaviour
             if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
             {
                 FingerPointerShop.SetActive(true);
-                if (!UpgradeScrollView.activeSelf)
-                {
-                    FingerPointerFeederButton.SetActive(false);
-                }
-                else
-                {
-                    FingerPointerFeederButton.SetActive(true);
-                }
+                FingerPointerFeederButton.SetActive(ShopPanel.activeSelf);
             }
         }
         //upgrade tutorial

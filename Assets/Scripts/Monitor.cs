@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
 {
-
+    public GameObject FingerPointerIncrementButton;
     public static int TotalHorsesEarned = 0;
     public static int Horses = 0;
     public static int PlayerLevel = 1;
@@ -24,6 +24,12 @@ public class Monitor : MonoBehaviour
     public void Start()
     {
         _objectPooler = ObjectPooler.Instance;
+
+        //button click tutorial
+        if (TotalHorsesEarned == 0)
+        {
+            FingerPointerIncrementButton.SetActive(true);
+        }
         
         _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
         var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
