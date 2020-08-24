@@ -11,6 +11,7 @@ public class ShopUpgrade : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI CountText;
+    public TextMeshProUGUI PerSecondIncreaseText;
     public Button UpgradeButton;
     public Image Avatar;
     private Sprite _disabledImage;
@@ -29,6 +30,11 @@ public class ShopUpgrade : MonoBehaviour
     {
         NameText.text = Upgrade.Name;
         CostText.text = String.Format("{0:n0}", Upgrade.Cost);
+        if (Upgrade.Name == "Clicker")
+        {
+            Debug.Log("here");
+            PerSecondIncreaseText.text = Upgrade.Level > 0 ? (Upgrade.Level * 15) + " p/c" : 15 + " p/c";   
+        }
         Upgrade.DynamicCost = Upgrade.Cost;
     }
 

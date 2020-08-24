@@ -32,13 +32,13 @@ public class IncrementButton : MonoBehaviour
         else if (randomNumber <= 0.30)
         {
             var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level + 1].HorseBreed;
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 15 : 3;
+            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 45 : 3;
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
         else
         {
             var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level].HorseBreed;
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 10 : increment;
+            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 15 : increment;
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
             

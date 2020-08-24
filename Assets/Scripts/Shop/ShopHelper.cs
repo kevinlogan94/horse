@@ -12,6 +12,7 @@ public class ShopHelper : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI CountText;
+    public TextMeshProUGUI PerSecondIncreaseText;
     public Button HelperButton;
     public Image Avatar;
     private Sprite _disabledImage;
@@ -30,6 +31,7 @@ public class ShopHelper : MonoBehaviour
     {
         NameText.text = Helper.Name;
         CostText.text = String.Format("{0:n0}", Helper.Cost);
+        PerSecondIncreaseText.text = Helper.Increment + " p/s";
         Helper.DynamicCost = Helper.Cost;
     }
 

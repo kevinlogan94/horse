@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867dde4c191e81349a5069a825feb6f8, type: 3}
   m_Name: StormCastle
   m_EditorClassIdentifier: 
-  Name: Castle
+  Name: Storm Castle
   Description: 
   LevelRequirement: 13
   Cost: 0
