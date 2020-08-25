@@ -26,7 +26,7 @@ public class IncrementButton : MonoBehaviour
         var increment = 1;
         if (randomNumber <= 0.03)
         {
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 100 : 100;
+            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 1000 : 100;
             Monitor.Instance.IncrementHorses(increment, "Unicorn");
         } 
         else if (randomNumber <= 0.30)

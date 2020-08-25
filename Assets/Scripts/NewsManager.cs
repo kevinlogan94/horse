@@ -83,6 +83,8 @@ public class NewsManager : MonoBehaviour
         }
         if (log.Displayed)
             return;
+        if (NewsText.IsActive())
+            return;
         
         NewsText.GetComponent<TextMeshProUGUI>().text = log.Message;
         NewsText.gameObject.SetActive(true);

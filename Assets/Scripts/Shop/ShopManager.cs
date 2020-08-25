@@ -66,7 +66,7 @@ public class ShopManager : MonoBehaviour
             }
         }
         //upgrade tutorial
-        if (Monitor.PlayerLevel == _clickerUpgradeReference.LevelRequirement 
+        if (Monitor.PlayerLevel >= _clickerUpgradeReference.LevelRequirement 
             && Monitor.Horses >= _clickerUpgradeReference.Cost 
             && _clickerUpgradeReference.Level == 0)
         {
@@ -113,7 +113,7 @@ public class ShopManager : MonoBehaviour
             {
                 upgrade.Level++;
                 Monitor.Horses -= upgrade.DynamicCost;
-                upgrade.DynamicCost *= 3;
+                upgrade.DynamicCost *= 5;
                 _audioManager.Play("CoinToss");
                 
                 if (upgrade.Name == "Clicker")

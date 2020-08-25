@@ -32,7 +32,6 @@ public class ShopUpgrade : MonoBehaviour
         CostText.text = String.Format("{0:n0}", Upgrade.Cost);
         if (Upgrade.Name == "Clicker")
         {
-            Debug.Log("here");
             PerSecondIncreaseText.text = Upgrade.Level > 0 ? (Upgrade.Level * 15) + " p/c" : 15 + " p/c";   
         }
         Upgrade.DynamicCost = Upgrade.Cost;
