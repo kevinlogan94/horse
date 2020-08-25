@@ -105,11 +105,19 @@ public class NewsManager : MonoBehaviour
             }
         }
         //extend the height of the content container
-        if (_logGameObjects.Count > 4)
+        if (_logGameObjects.Count >= 3)
         {
             var prefabHeight = obj.GetComponent<RectTransform>().rect.height;
             var prefabParentRect = PrefabParent.GetComponent<RectTransform>();
-            prefabParentRect.sizeDelta = new Vector2(prefabParentRect.sizeDelta.x,prefabParentRect.sizeDelta.y + prefabHeight + 75);
+            prefabParentRect.sizeDelta = new Vector2(prefabParentRect.sizeDelta.x,prefabParentRect.sizeDelta.y + prefabHeight);
+            
+            //push up the logs after we extend the height.
+            const int pushUp = 100;
+            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pushUp, 0);
+            foreach (var logGameObject in _logGameObjects)
+            {
+                logGameObject.transform.position = new Vector3(logGameObject.transform.position.x, logGameObject.transform.position.y + pushUp, 0);
+            }
         }
         //add this new log to the list for the future
         log.DateDisplayed = DateTime.Now;
