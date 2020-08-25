@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: Storm Castle
   Description: 
   LevelRequirement: 13
-  Cost: 0
-  DynamicCost: 0
-  Increment: 0
+  Cost: 8000
+  DynamicCost: 8000
+  Increment: 800
   AmountOwned: 0
   HorseBreed: ThunderHorse
   Artwork: {fileID: 21300000, guid: cd9063845c7b293418952b0af229ea17, type: 3}
