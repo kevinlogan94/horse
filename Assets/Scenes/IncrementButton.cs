@@ -43,8 +43,16 @@ public class IncrementButton : MonoBehaviour
         }
             
         _audioManager.Play("Cork", randomNumber);
-        var obj = _objectPooler.SpawnFromPool("IncrementText");
-        obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
+        if (randomNumber <= 0.03)
+        {
+            var obj = _objectPooler.SpawnFromPool("IncrementBonusText");
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
+        }
+        else
+        {
+            var obj = _objectPooler.SpawnFromPool("IncrementText");
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
+        }
         Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 }

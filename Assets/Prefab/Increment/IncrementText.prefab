@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3878680694808208529}
   - component: {fileID: 8632711408902718026}
   - component: {fileID: 8925906056762540610}
-  - component: {fileID: 8676937523163641953}
   - component: {fileID: 5070024855942154545}
+  - component: {fileID: 5351138208408407413}
   m_Layer: 5
   m_Name: IncrementText
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 2617245696
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -159,7 +159,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!95 &8676937523163641953
+--- !u!114 &5070024855942154545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036238993690681546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3238a1f4458ceee4b993864ef0b01920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &5351138208408407413
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -178,15 +190,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5070024855942154545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9036238993690681546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3238a1f4458ceee4b993864ef0b01920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

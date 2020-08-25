@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29631867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1229392296473293273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &37500923
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +208,11 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 10
+  - Tag: IncrementBonusText
+    Prefab: {fileID: 8322749317668919444, guid: 874b4c4561fb6aa4886d1f7ba85c4ae7,
+      type: 3}
+    Parent: {fileID: 1015238784}
+    Size: 5
 --- !u!1 &44839141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df226fae2a5ed498174ebf02c7cf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FingerPointerIncrementButton: {fileID: 29631867}
 --- !u!224 &323479885 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 11678370928482434, guid: e318d3db9d75ed54d97f22ee20a1320c,
@@ -1571,8 +1583,8 @@ RectTransform:
   m_Father: {fileID: 892131744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.24984515}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.24984513}
+  m_AnchorMax: {x: 1, y: 0.99999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6950,7 +6962,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
@@ -9527,6 +9539,7 @@ MonoBehaviour:
   NameText: {fileID: 58048293}
   CostText: {fileID: 1323166713}
   CountText: {fileID: 145424799}
+  PerSecondIncreaseText: {fileID: 1979686742}
   UpgradeButton: {fileID: 1961421244}
   Avatar: {fileID: 1274663218}
 --- !u!114 &1961421244 stripped
@@ -9547,6 +9560,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1379602029}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979686742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2403443808796347755, guid: ec50ad507a156544e85e7a600aa2b313,
+    type: 3}
+  m_PrefabInstance: {fileID: 1604174363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017327021
 GameObject:
   m_ObjectHideFlags: 0
@@ -10402,7 +10427,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
