@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b008edaa92af44fa9fbaa07e0810b0, type: 3}
   m_Name: Feeder
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  LevelRequirement: 0
-  Cost: 0
-  DynamicCost: 0
+  Name: Feeder
+  LevelRequirement: 7
+  Cost: 15000
+  DynamicCost: 15000
   Level: 0
-  HighestLevel: 0
-  UpgradeBy: 0
-  HelperToUpgrade: {fileID: 0}
+  HelperToUpgrade: {fileID: 11400000, guid: 7409856eb39f44e49b4aac9c8e2a4729, type: 2}
   Artwork: {fileID: 0}
