@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
@@ -31,8 +32,9 @@ public class ShopHelper : MonoBehaviour
     {
         NameText.text = Helper.Name;
         CostText.text = String.Format("{0:n0}", Helper.Cost);
-        PerSecondIncreaseText.text = Helper.Increment + " p/s";
+        PerSecondIncreaseText.text = Helper.Increment + "/sec";
         Helper.DynamicCost = Helper.Cost;
+        Helper.DynamicIncrement = Helper.Increment;
     }
 
     void Update()
@@ -51,6 +53,11 @@ public class ShopHelper : MonoBehaviour
         HelperButton.image.sprite = _activeImage;
         HelperButton.interactable = true;
         CountText.fontSize = 36;
+
+        if (Helper.DynamicIncrement > Helper.Increment)
+        {
+            PerSecondIncreaseText.text = Helper.DynamicIncrement + "/sec";
+        }
         
         CostText.text = String.Format("{0:n0}", Helper.DynamicCost);
 

@@ -9,6 +9,7 @@ public class Helper : ScriptableObject
     public int Cost;
     public int DynamicCost;
     public int Increment;
+    public int DynamicIncrement;
     public int AmountOwned;
     public string HorseBreed;
     public Sprite Artwork;

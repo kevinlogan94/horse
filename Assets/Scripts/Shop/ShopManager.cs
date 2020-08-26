@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -100,7 +101,7 @@ public class ShopManager : MonoBehaviour
             if (helper.Name == "Feeder" && helper.AmountOwned == 1)
             {
                 FingerPointerShop.SetActive(false);
-                Monitor.DestroyObject("FingerPointerFeederButton");
+                FingerPointerFeederButton.SetActive(false);
             }
         }
     }
@@ -113,8 +114,7 @@ public class ShopManager : MonoBehaviour
             {
                 upgrade.Level++;
                 Monitor.Horses -= upgrade.DynamicCost;
-                upgrade.DynamicCost *= 5;
-                _audioManager.Play("CoinToss");
+                upgrade.DynamicCost *= 7;
                 
                 if (upgrade.Name == "Clicker")
                 {
@@ -128,11 +128,25 @@ public class ShopManager : MonoBehaviour
                     var secondaryHorse = Helpers[upgrade.Level + 1].HorseBreed;
                     ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
                 }
+                else
+                {
+                    var helperInstanceToUpgrade = Helpers.FirstOrDefault(x => x.Name == upgrade.HelperToUpgrade.Name);
+                    if (helperInstanceToUpgrade != null)
+                    {
+                        helperInstanceToUpgrade.DynamicIncrement *= 3;
+                        UpdatePassiveIncomeText();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("We couldn't find the helper " + upgrade.HelperToUpgrade.Name);
+                    }
+                }
+                
+                _audioManager.Play("CoinToss");
             }
         }
     }
     
-
     public void OpenShop()
     {
         _audioManager.Play("DoorBell");
@@ -149,7 +163,10 @@ public class ShopManager : MonoBehaviour
                 var helper = Helpers[index];    
                 if (helper.AmountOwned > 0)
                 {
-                    Monitor.Instance.IncrementHorses(helper.Increment * helper.AmountOwned, helper.HorseBreed, index*.25f);
+                    var increment = helper.DynamicIncrement > helper.Increment
+                        ? helper.DynamicIncrement
+                        : helper.Increment;
+                    Monitor.Instance.IncrementHorses(increment * helper.AmountOwned, helper.HorseBreed, index*.25f);
                 }
             }
         }
@@ -157,7 +174,8 @@ public class ShopManager : MonoBehaviour
     
     public void UpdatePassiveIncomeText()
     {
-        var passiveIncomeRate = Helpers.Where(helper => helper.AmountOwned > 0).Sum(helper => helper.AmountOwned * helper.Increment);
+        var passiveIncomeRate = Helpers.Where(helper => helper.AmountOwned > 0)
+            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
         PassiveIncomeText.text = "per second: " + String.Format("{0:n0}", passiveIncomeRate);
     }
 }

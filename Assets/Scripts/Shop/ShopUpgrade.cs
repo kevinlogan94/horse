@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ShopUpgrade : MonoBehaviour
 {
     public Upgrade Upgrade;
+    private Helper _helperToUpgrade;
 
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI CostText;
@@ -32,7 +33,20 @@ public class ShopUpgrade : MonoBehaviour
         CostText.text = String.Format("{0:n0}", Upgrade.Cost);
         if (Upgrade.Name == "Clicker")
         {
-            PerSecondIncreaseText.text = Upgrade.Level > 0 ? (Upgrade.Level * 15) + " p/c" : 15 + " p/c";   
+            PerSecondIncreaseText.text = Upgrade.Level > 0 ? (Upgrade.Level * 15) + "/click" : 15 + "/click";   
+        }
+        else
+        {
+            var helperInstanceToUpgrade = ShopManager.Instance.Helpers.FirstOrDefault(x => x.Name == Upgrade.HelperToUpgrade.Name);
+            if (helperInstanceToUpgrade != null)
+            {
+                _helperToUpgrade = helperInstanceToUpgrade;
+                PerSecondIncreaseText.text = (helperInstanceToUpgrade.DynamicIncrement * 3 + "/sec");
+            }
+            else
+            {
+                PerSecondIncreaseText.text = (Upgrade.HelperToUpgrade.Increment * 3 + "/sec");
+            }
         }
         Upgrade.DynamicCost = Upgrade.Cost;
     }
@@ -54,7 +68,19 @@ public class ShopUpgrade : MonoBehaviour
         UpgradeButton.image.sprite = _activeImage;
         UpgradeButton.interactable = true;
         CountText.fontSize = 36;
-        
+
+        if (Upgrade.Level >= 1)
+        {
+            if (Upgrade.Name == "Clicker")
+            {
+                PerSecondIncreaseText.text = Upgrade.Level+1 * 15 + "/click";  
+            }
+            else
+            {
+                PerSecondIncreaseText.text = _helperToUpgrade.DynamicIncrement * 3 + "/sec";   
+            }
+        }
+         
         CostText.text = String.Format("{0:n0}", Upgrade.DynamicCost);
 
         var newCount = "0";
