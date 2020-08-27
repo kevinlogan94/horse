@@ -6,6 +6,8 @@ public class IncrementButton : MonoBehaviour
 {
     private ObjectPooler _objectPooler;
     private AudioManager _audioManager;
+    public static int ClickerLevel = 0;
+    public static int ClickCount = 0;
 
     public void Start()
     {
@@ -53,6 +55,8 @@ public class IncrementButton : MonoBehaviour
             var obj = _objectPooler.SpawnFromPool("IncrementText");
             obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
         }
+
+        ClickCount++;
         Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 }
