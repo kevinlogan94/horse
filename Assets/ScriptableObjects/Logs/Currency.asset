@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
   m_Name: Currency
   m_EditorClassIdentifier: 
-  Name: 
-  Message: 
+  Name: Currency
+  Message: Breaking News! Due to the increasing surplus of horses. Horses are now
+    an official form of currency.
   Displayed: 0

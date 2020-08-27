@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0776c76cf5a1d44eb4d7309267dca2f, type: 3}
-  m_Name: LogIn
+  m_Name: Login
   m_EditorClassIdentifier: 
-  Name: 
-  Title: 
-  RewardDescription: 
+  Name: Login
+  Title: Log in for 2 days
+  RewardDescription: 1 hour worth of horses
+  Artwork: {fileID: 21300000, guid: e38c3a9ad9477f94f92b4dbc87784db5, type: 3}
   GoalForProgressBar: 0

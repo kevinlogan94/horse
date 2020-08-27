@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0776c76cf5a1d44eb4d7309267dca2f, type: 3}
   m_Name: Clicker
   m_EditorClassIdentifier: 
-  Name: 
-  Title: 
-  RewardDescription: 
+  Name: Clicker
+  Title: Click the main button 500 times
+  RewardDescription: 3x the horses per click
   Artwork: {fileID: 0}
   GoalForProgressBar: 0
