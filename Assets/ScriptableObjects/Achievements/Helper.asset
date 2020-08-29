@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0776c76cf5a1d44eb4d7309267dca2f, type: 3}
   m_Name: Helper
   m_EditorClassIdentifier: 
-  Name: 
-  Title: 
-  RewardDescription: 
-  Artwork: {fileID: 0}
+  Name: Helper
+  Title: Purchase 50 Helpers
+  RewardDescription: 2x horses from helpers
+  Artwork: {fileID: 21300000, guid: 82eb9f2917d226c408f772f1ce7634b1, type: 3}
   GoalForProgressBar: 0

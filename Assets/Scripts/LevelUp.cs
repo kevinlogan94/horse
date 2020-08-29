@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,17 @@ public class LevelUp : MonoBehaviour
     private int _horsesEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
+    private TextMeshProUGUI _perSecondCounter;
+
     void Start()
     {
+        _perSecondCounter = GameObject.Find("PassiveIncome").GetComponent<TextMeshProUGUI>();
+    }
+    
+    public void UpdateRewardCounter()
+    {
+        var incrementPerSecond = int.Parse(Regex.Replace(_perSecondCounter.text, "[^0-9]", ""));
+        _levelUpReward = incrementPerSecond * 600;
         LevelUpRewardText.text = _levelUpReward + " horses";
     }
 
@@ -83,6 +93,7 @@ public class LevelUp : MonoBehaviour
 
         if (Slider.value >= Slider.maxValue)
         {
+            UpdateRewardCounter();
             if (Monitor.PlayerLevel == 1)
             {
                 FingerPointerLevel.SetActive(true);

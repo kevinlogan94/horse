@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Clicker
   Title: Click the main button 500 times
   RewardDescription: 3x the horses per click
-  Artwork: {fileID: 0}
+  Artwork: {fileID: 21300000, guid: 883f7ed3a33d4e74b9f385f4a618341d, type: 3}
   GoalForProgressBar: 0
