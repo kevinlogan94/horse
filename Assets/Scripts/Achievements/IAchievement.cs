@@ -2,4 +2,5 @@
     {
         void UpdateTitle();
         void Receive();
+        // void ManageReceivable();
     }

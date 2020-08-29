@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
     public Helper[] Helpers;
-    public Upgrade[] Upgrades;
 
     public GameObject ShopPanel;
     public TextMeshProUGUI PassiveIncomeText;
     public GameObject FingerPointerShop;
-    public GameObject FingerPointerUpgradeButton;
     public GameObject FingerPointerFeederButton;
-    public GameObject UpgradeScrollView;
     
     private float _waitTime = 1.0f;
 
@@ -39,16 +33,6 @@ public class ShopManager : MonoBehaviour
             helper.AmountOwned = 0;
         }
 
-        foreach (var upgrade in Upgrades)
-        {
-            upgrade.Level = 0;
-        }
-
-        if (Upgrades != null)
-        {
-            _clickerUpgradeReference = Upgrades.FirstOrDefault(x => x.Name == "Clicker");
-        }
-
         _audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -64,23 +48,6 @@ public class ShopManager : MonoBehaviour
             {
                 FingerPointerShop.SetActive(true);
                 FingerPointerFeederButton.SetActive(ShopPanel.activeSelf);
-            }
-        }
-        //upgrade tutorial
-        if (Monitor.PlayerLevel >= _clickerUpgradeReference.LevelRequirement 
-            && Monitor.Horses >= _clickerUpgradeReference.Cost 
-            && _clickerUpgradeReference.Level == 0)
-        {
-            FingerPointerShop.SetActive(true);
-            if (!UpgradeScrollView.activeSelf)
-            {
-                FingerPointerUpgradeButton.SetActive(true);
-                FingerPointerFeederButton.SetActive(false);
-            }
-            else
-            {
-                FingerPointerUpgradeButton.SetActive(false);
-                FingerPointerFeederButton.SetActive(true);
             }
         }
     }
@@ -105,48 +72,7 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    
-    public void AddUpgrade(string upgradeName)
-    {
-        foreach (var upgrade in Upgrades)
-        {
-            if (upgrade.Name == upgradeName && upgrade.DynamicCost <= Monitor.Horses)
-            {
-                upgrade.Level++;
-                Monitor.Horses -= upgrade.DynamicCost;
-                upgrade.DynamicCost *= 7;
-                
-                if (upgrade.Name == "Clicker")
-                {
-                    if (upgrade.Level == 1)
-                    {
-                        Monitor.DestroyObject("FingerPointerShop");
-                        Monitor.DestroyObject("FingerPointerFeederButton");   
-                    }
 
-                    var coreHorse = Helpers[upgrade.Level].HorseBreed;
-                    var secondaryHorse = Helpers[upgrade.Level + 1].HorseBreed;
-                    ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
-                }
-                else
-                {
-                    var helperInstanceToUpgrade = Helpers.FirstOrDefault(x => x.Name == upgrade.HelperToUpgrade.Name);
-                    if (helperInstanceToUpgrade != null)
-                    {
-                        helperInstanceToUpgrade.DynamicIncrement *= 3;
-                        UpdatePassiveIncomeText();
-                    }
-                    else
-                    {
-                        Debug.LogWarning("We couldn't find the helper " + upgrade.HelperToUpgrade.Name);
-                    }
-                }
-                
-                _audioManager.Play("CoinToss");
-            }
-        }
-    }
-    
     public void OpenShop()
     {
         _audioManager.Play("DoorBell");

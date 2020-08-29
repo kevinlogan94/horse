@@ -67,7 +67,7 @@ public class NewsManager : MonoBehaviour
             PlayNewsAndAddLog("Expansion");
         }
 
-        if (ShopManager.Instance.Upgrades[0].Level == 1 && !ShopPanel.activeSelf)
+        if (IncrementButton.ClickerLevel == 1 && !ShopPanel.activeSelf)
         {
             PlayNewsAndAddLog("ButtonWorks");
         }

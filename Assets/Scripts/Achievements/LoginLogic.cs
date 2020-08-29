@@ -22,7 +22,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
         Title.text = AchievementObject.Title;
         Image.sprite = AchievementObject.Artwork;
         _perSecondCounter = GameObject.Find("PassiveIncome").GetComponent<TextMeshProUGUI>();
-        ProgressBar.value = 1;
+        ProgressBar.value = AchievementManager.Instance.LoginCount;
     }
 
     // Update is called once per frame
@@ -46,14 +46,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        if (ProgressBar.maxValue == 1)
-        {
-            Title.text = "Log in for 1 day";
-        }
-        else
-        {
             Title.text = "Log in for " + ProgressBar.maxValue + " days";
-        }
     }
 
     public void UpdateRewardCounter()

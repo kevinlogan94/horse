@@ -17,30 +17,23 @@ public class IncrementButton : MonoBehaviour
     
     public void Increment()
     {
-        var clickerUpgrade = ShopManager.Instance.Upgrades.FirstOrDefault(x => x.name == "Clicker");
-        if (clickerUpgrade == null)
-        {
-            Debug.LogWarning("We couldn't find the Clicker Upgrade on the ShopManager");
-            return;
-        }
-        
         var randomNumber = Random.Range(0.0f, 3.0f);
         var increment = 1;
         if (randomNumber <= 0.03)
         {
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 1000 : 100;
+            increment = ClickerLevel > 0 ? ClickerLevel * 1000 : 300;
             Monitor.Instance.IncrementHorses(increment, "Unicorn");
         } 
         else if (randomNumber <= 0.30)
         {
-            var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level + 1].HorseBreed;
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 45 : 3;
+            var helperHorse = ShopManager.Instance.Helpers[ClickerLevel + 1].HorseBreed;
+            increment = ClickerLevel > 0 ? ClickerLevel * 45 : 3;
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
         else
         {
-            var helperHorse = ShopManager.Instance.Helpers[clickerUpgrade.Level].HorseBreed;
-            increment = clickerUpgrade.Level > 0 ? clickerUpgrade.Level * 15 : increment;
+            var helperHorse = ShopManager.Instance.Helpers[ClickerLevel].HorseBreed;
+            increment = ClickerLevel > 0 ? ClickerLevel * 15 : increment;
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
             
