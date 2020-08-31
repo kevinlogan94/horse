@@ -12,6 +12,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
     public Image Image;
+    public GameObject PersonalPointer;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,12 @@ public class HelperLogic : MonoBehaviour, IAchievement
     {
         UpdateTitle();
         UpdateHelperCount();
+    }
+    
+    public void Tutorial()
+    {
+        //show the tutorial but we also want to wait for them to finish the shop tutorial.
+        PersonalPointer.SetActive(!AchievementManager.Instance.TutorialCompleted && ProgressBar.value >= ProgressBar.maxValue);
     }
 
     public void UpdateHelperCount()
@@ -52,7 +59,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
                 helper.DynamicIncrement *= 2;
             }
             Monitor.Instance.UpdatePassiveIncomeText();
-            
+            AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
         }
     }
