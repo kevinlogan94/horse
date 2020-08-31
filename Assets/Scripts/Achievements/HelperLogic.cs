@@ -21,7 +21,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = 0;
         ProgressBar.maxValue = AchievementManager.Instance.HelperGoal;
-        triggerBarRefresh();
+        TriggerBarRefresh();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Purchase " + ProgressBar.maxValue + " Helpers";
+        Title.text = "Buy " + ProgressBar.maxValue + " Helpers";
     }
 
     public void Receive()
@@ -51,17 +51,16 @@ public class HelperLogic : MonoBehaviour, IAchievement
             {
                 helper.DynamicIncrement *= 2;
             }
+            Monitor.Instance.UpdatePassiveIncomeText();
             
-            //trigger bar change
-            ProgressBar.value = ProgressBar.value--;
-            ProgressBar.value = ProgressBar.value++;
+            TriggerBarRefresh();
         }
     }
     
-    public void triggerBarRefresh()
+    public void TriggerBarRefresh()
     {
         //trigger bar change
-        ProgressBar.value = ProgressBar.value--;
-        ProgressBar.value = ProgressBar.value++;
+        ProgressBar.value--;
+        ProgressBar.value++;
     }
 }

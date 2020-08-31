@@ -53,6 +53,6 @@ public class LoginLogic : MonoBehaviour, IAchievement
     {
         var incrementPerSecond = int.Parse(Regex.Replace(_perSecondCounter.text, "[^0-9]", ""));
         _rewardValue = incrementPerSecond * 3600;
-        RewardDescription.text = AchievementObject.RewardDescription + "\n(" + _rewardValue + " horses)";
+        RewardDescription.text = AchievementObject.RewardDescription + "\n(" + Monitor.FormatNumberToString(_rewardValue) + " horses)";
     }
 }

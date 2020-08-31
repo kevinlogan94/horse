@@ -16,8 +16,9 @@ MonoBehaviour:
   Description: 
   LevelRequirement: 7
   Cost: 1000
-  DynamicCost: 1000
-  Increment: 150
-  AmountOwned: 0
+  DynamicCost: 194612
+  Increment: 100
+  DynamicIncrement: 400
+  AmountOwned: 13
   HorseBreed: Palomino
   Artwork: {fileID: 21300000, guid: c63f632e667c02d4fa8868f0a5506bff, type: 3}

@@ -24,8 +24,8 @@ public class LevelUp : MonoBehaviour
     public void UpdateRewardCounter()
     {
         var incrementPerSecond = int.Parse(Regex.Replace(_perSecondCounter.text, "[^0-9]", ""));
-        _levelUpReward = incrementPerSecond * 600;
-        LevelUpRewardText.text = _levelUpReward + " horses";
+        _levelUpReward = incrementPerSecond * 60;
+        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " horses";
     }
 
     public void LevelUpPlayer(bool watchAd = false)
@@ -42,7 +42,7 @@ public class LevelUp : MonoBehaviour
         }
         
         //Update Level up progress bar
-        Slider.maxValue = (int) Math.Round(Slider.maxValue * 2);
+        Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
         Slider.value = 0; 
         _horsesEarnedEveryLevelSoFar = Monitor.TotalHorsesEarned;
             
@@ -82,15 +82,7 @@ public class LevelUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HorsesEarnedThisLevel() < Slider.maxValue)
-        {
-            Slider.value = HorsesEarnedThisLevel();
-        }
-        else
-        {
-            Slider.value = Slider.maxValue;
-        }
-
+        UpdateSliderProgress();
         if (Slider.value >= Slider.maxValue)
         {
             UpdateRewardCounter();
@@ -103,6 +95,18 @@ public class LevelUp : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("LevelUp2");
                 _jinglePlayedThisLevel = true;
             }
+        }
+    }
+
+    private void UpdateSliderProgress()
+    {
+        if (HorsesEarnedThisLevel() < Slider.maxValue)
+        {
+            Slider.value = HorsesEarnedThisLevel();
+        }
+        else
+        {
+            Slider.value = Slider.maxValue;
         }
     }
 }

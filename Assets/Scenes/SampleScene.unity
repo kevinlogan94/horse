@@ -634,7 +634,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 50
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -1658,6 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FingerPointerIncrementButton: {fileID: 29631867}
+  PassiveIncomeText: {fileID: 1798112441}
 --- !u!224 &323479885 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 11678370928482434, guid: e318d3db9d75ed54d97f22ee20a1320c,
@@ -5952,12 +5953,12 @@ PrefabInstance:
     - target: {fileID: 5596048976368194435, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 7.1493
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976368194435, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 429.59848
+      value: 444.2371
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976401227271, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -6193,17 +6194,17 @@ PrefabInstance:
     - target: {fileID: 5596048977679468173, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.01886791
       objectReference: {fileID: 0}
     - target: {fileID: 5596048977679468173, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.01886791
       objectReference: {fileID: 0}
     - target: {fileID: 5596048977679468173, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.01886791
       objectReference: {fileID: 0}
     - target: {fileID: 5596048977736375156, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -10135,7 +10136,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e32159bb4a8f4bb428606ebdcf3d81e9, type: 2}
   - {fileID: 11400000, guid: 8bdab7dac02f5fe49bb1b4d170346e2f, type: 2}
   ShopPanel: {fileID: 1694319519}
-  PassiveIncomeText: {fileID: 1798112441}
   FingerPointerShop: {fileID: 698076569}
   FingerPointerFeederButton: {fileID: 424059507}
 --- !u!1001 &11678371631225281

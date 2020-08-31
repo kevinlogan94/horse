@@ -20,7 +20,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = 0;
         ProgressBar.maxValue = AchievementManager.Instance.ClickerGoal;
-        triggerBarRefresh();
+        TriggerBarRefresh();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Click the carrot button " + ProgressBar.maxValue + " times";
+        Title.text = "Click the carrot " + ProgressBar.maxValue + " times";
     }
     
     public void Tutorial()
@@ -60,14 +60,14 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             var coreHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel].HorseBreed;
             var secondaryHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel + 1].HorseBreed;
             ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
-            triggerBarRefresh();
+            TriggerBarRefresh();
         }
     }
 
-    public void triggerBarRefresh()
+    public void TriggerBarRefresh()
     {
         //trigger bar change
-        ProgressBar.value = ProgressBar.value--;
-        ProgressBar.value = ProgressBar.value++;
+        ProgressBar.value--;
+        ProgressBar.value++;
     }
 }

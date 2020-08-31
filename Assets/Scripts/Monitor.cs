@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
 {
     public GameObject FingerPointerIncrementButton;
+    public TextMeshProUGUI PassiveIncomeText;
     public static int TotalHorsesEarned = 0;
     public static int Horses = 0;
     public static int PlayerLevel = 1;
@@ -61,5 +65,22 @@ public class Monitor : MonoBehaviour
         {
             Destroy(fingerPointer);
         }
+    }
+
+    public static string FormatNumberToString(int intToConvertAndFormat)
+    {
+        if (intToConvertAndFormat > 1000000)
+        {
+            var newInt = Math.Round((double)intToConvertAndFormat / 1000000, 00);
+            return newInt + "mil";
+        }
+        return String.Format("{0:n0}", intToConvertAndFormat);
+    }
+    
+    public void UpdatePassiveIncomeText()
+    {
+        var passiveIncomeRate = ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
+            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
+        PassiveIncomeText.text = "per second: " + FormatNumberToString(passiveIncomeRate);
     }
 }

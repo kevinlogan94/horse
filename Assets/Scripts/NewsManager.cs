@@ -85,6 +85,8 @@ public class NewsManager : MonoBehaviour
             return;
         if (NewsText.IsActive())
             return;
+        if (ShopPanel.activeSelf)
+            return;
         
         NewsText.GetComponent<TextMeshProUGUI>().text = log.Message;
         NewsText.gameObject.SetActive(true);

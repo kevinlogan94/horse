@@ -12,11 +12,11 @@ public class AchievementManager : MonoBehaviour
     
     //clicker
     public int CurrentClickedAmount;
-    public float ClickerGoal = 0;
+    public float ClickerGoal;
     
     //helper
     public int CurrentHelperAmount;
-    public float HelperGoal = 10;
+    public float HelperGoal;
     
     //tutorial
     public bool TutorialCompleted = false;
@@ -33,7 +33,8 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ClickerGoal = 250;
+        ClickerGoal = 200;
+        HelperGoal = 15;
     }
 
     // Update is called once per frame

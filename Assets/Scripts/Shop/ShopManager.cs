@@ -8,7 +8,6 @@ public class ShopManager : MonoBehaviour
     public Helper[] Helpers;
 
     public GameObject ShopPanel;
-    public TextMeshProUGUI PassiveIncomeText;
     public GameObject FingerPointerShop;
     public GameObject FingerPointerFeederButton;
     
@@ -60,8 +59,8 @@ public class ShopManager : MonoBehaviour
             {
                 helper.AmountOwned++;
                 Monitor.Horses -= helper.DynamicCost;
-                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 2.5, 0);
-                UpdatePassiveIncomeText();
+                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
+                Monitor.Instance.UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
             }
 
@@ -96,12 +95,5 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
-    }
-    
-    public void UpdatePassiveIncomeText()
-    {
-        var passiveIncomeRate = Helpers.Where(helper => helper.AmountOwned > 0)
-            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
-        PassiveIncomeText.text = "per second: " + String.Format("{0:n0}", passiveIncomeRate);
     }
 }
