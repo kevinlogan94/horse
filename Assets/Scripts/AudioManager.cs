@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Audio;
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -46,9 +47,18 @@ public class AudioManager : MonoBehaviour
         Play(songName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MuteBackgroundMusic(bool mute)
     {
-        
+        var theme = Array.Find(Sounds, sound => sound.Name == "Theme");
+        theme.Source.mute = !mute;
+    }
+
+    public void MuteSoundEffects(bool mute)
+    {
+        var soundEffectSounds = Sounds.Where(x => x.Name != "Theme");
+        foreach (var soundEffectSound in soundEffectSounds)
+        {
+            soundEffectSound.Source.mute = !mute;
+        }
     }
 }
