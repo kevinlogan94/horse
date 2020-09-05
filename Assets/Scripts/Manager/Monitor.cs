@@ -79,9 +79,20 @@ public class Monitor : MonoBehaviour
     
     public void UpdatePassiveIncomeText()
     {
-        var passiveIncomeRate = ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
-            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
+        var passiveIncomeRate = GetHelperPassiveIncome();
         passiveIncomeRate += IncrementButton.IncrementsThisSecond;
         PassiveIncomeText.text = "per second: " + FormatNumberToString(passiveIncomeRate);
+    }
+
+    public int GetHelperPassiveIncome()
+    {
+        return ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
+            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
+    }
+
+    public int GetHorseReceivedOverTime(int seconds)
+    {
+        var incrementPerSecond = GetHelperPassiveIncome();
+        return incrementPerSecond * seconds; 
     }
 }

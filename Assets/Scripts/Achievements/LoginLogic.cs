@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +41,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
             //trigger bar change
             ProgressBar.value = ProgressBar.value--;
             ProgressBar.value = ProgressBar.value++;
+            SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
         }
     }
 
@@ -50,8 +52,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
 
     public void UpdateRewardCounter()
     {
-        var incrementPerSecond = int.Parse(Regex.Replace(_perSecondCounter.text, "[^0-9]", ""));
-        _rewardValue = incrementPerSecond * 3600;
+        _rewardValue = Monitor.Instance.GetHorseReceivedOverTime(3600); // 1 hour
         RewardDescription.text = AchievementObject.RewardDescription + "\n(" + Monitor.FormatNumberToString(_rewardValue) + " horses)";
     }
 }

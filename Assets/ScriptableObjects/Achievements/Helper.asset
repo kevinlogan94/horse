@@ -16,4 +16,3 @@ MonoBehaviour:
   Title: Purchase 50 Helpers
   RewardDescription: 2x horses from helpers
   Artwork: {fileID: 21300000, guid: 4dbe18aac251f754c88b1552b0aef5a6, type: 3}
-  GoalForProgressBar: 0

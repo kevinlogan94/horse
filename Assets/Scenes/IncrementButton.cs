@@ -41,19 +41,19 @@ public class IncrementButton : MonoBehaviour
         var increment = 1;
         if (randomNumber <= 0.03)
         {
-            increment = ClickerLevel > 0 ? (int)Math.Pow(135, ClickerLevel) : 9;
+            increment = GetIncrement(ClickerLevel, 9);
             Monitor.Instance.IncrementHorses(increment, "Unicorn");
         } 
         else if (randomNumber <= 0.30)
         {
             var helperHorse = ShopManager.Instance.Helpers[ClickerLevel + 1].HorseBreed;
-            increment = ClickerLevel > 0 ? (int)Math.Pow(45, ClickerLevel) : 3;
+            increment = GetIncrement(ClickerLevel, 3);
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
         else
         {
             var helperHorse = ShopManager.Instance.Helpers[ClickerLevel].HorseBreed;
-            increment = ClickerLevel > 0 ? (int)Math.Pow(15, ClickerLevel) : increment;
+            increment = GetIncrement(ClickerLevel, 1);
             Monitor.Instance.IncrementHorses(increment, helperHorse);
         }
             
@@ -72,5 +72,10 @@ public class IncrementButton : MonoBehaviour
         ClickCount++;
         IncrementsThisSecond+=increment;
         Monitor.DestroyObject("FingerPointerIncrementButton");
+    }
+
+    public static int GetIncrement(int clickerLevel, int multIncrease)
+    {
+        return clickerLevel > 0 ? (int)Math.Pow(15*multIncrease, clickerLevel) : 1*multIncrease;
     }
 }

@@ -14,16 +14,13 @@ public class LevelUp : MonoBehaviour
     private int _horsesEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
-    private TextMeshProUGUI _perSecondCounter;
-
     void Start()
     {
-        _perSecondCounter = GameObject.Find("PassiveIncome").GetComponent<TextMeshProUGUI>();
     }
     
     public void UpdateRewardCounter()
     {
-        var incrementPerSecond = int.Parse(Regex.Replace(_perSecondCounter.text, "[^0-9]", ""));
+        var incrementPerSecond = Monitor.Instance.GetHelperPassiveIncome();
         _levelUpReward = incrementPerSecond * 60;
         LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " horses";
     }

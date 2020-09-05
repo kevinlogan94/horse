@@ -7,5 +7,4 @@ public class Achievement : ScriptableObject
     public string Title;
     public string RewardDescription;
     public Sprite Artwork;
-    public int GoalForProgressBar;
 }

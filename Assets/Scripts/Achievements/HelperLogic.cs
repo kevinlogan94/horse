@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,6 +61,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             // Monitor.Instance.UpdatePassiveIncomeText();
             AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
+            SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
         }
     }
     

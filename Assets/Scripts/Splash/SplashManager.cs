@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -7,7 +8,6 @@ using UnityEngine.UI;
 public class SplashManager : MonoBehaviour
 {
     public GameObject SplashPanel;
-    public GameObject RevealPanel;
     public GameObject AchievementPanel;
     public GameObject HorsePanel;
 
@@ -37,15 +37,22 @@ public class SplashManager : MonoBehaviour
     public void TriggerSplash(string type, string scriptableObjectName)
     {
         SplashPanel.SetActive(true);
-        RevealPanel.SetActive(true);
         if (type == "Achievement")
         {
             AchievementPanel.SetActive(true);
-            // AchievementPanelScript.UpdateAchievementObject(scriptableObjectName);
+            AchievementPanelScript.Instance.Achievement =
+                Achievements.FirstOrDefault(x => x.Name == scriptableObjectName);
         }
         else
         {
             HorsePanel.SetActive(true);
         }
+    }
+
+    public void CloseSplash()
+    {
+        AchievementPanel.SetActive(false);
+        HorsePanel.SetActive(false);
+        SplashPanel.SetActive(false);
     }
 }

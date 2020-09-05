@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Assets.Scripts.Model;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,6 +61,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             var secondaryHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel + 1].HorseBreed;
             ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
+            SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
         }
     }
 
