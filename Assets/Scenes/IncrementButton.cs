@@ -2,19 +2,37 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class IncrementButton : MonoBehaviour
 {
     private ObjectPooler _objectPooler;
     private AudioManager _audioManager;
+    private float _waitTime;
     public static int ClickerLevel = 0;
     public static int ClickCount = 0;
+    public static int IncrementsThisSecond = 0;
 
     public void Start()
     {
         _objectPooler = ObjectPooler.Instance;
         _audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    void Update()
+    {
+        UpdatePassiveIncomeAndRefresh();
+    }
+
+    private void UpdatePassiveIncomeAndRefresh()
+    {
+        if (Time.time > _waitTime)
+        {
+            _waitTime = Time.time + 1.0f;
+            Monitor.Instance.UpdatePassiveIncomeText();
+            IncrementsThisSecond = 0;
+        }
     }
     
     public void Increment()
@@ -52,6 +70,7 @@ public class IncrementButton : MonoBehaviour
         // }
 
         ClickCount++;
+        IncrementsThisSecond+=increment;
         Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 }

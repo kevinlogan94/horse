@@ -81,6 +81,7 @@ public class Monitor : MonoBehaviour
     {
         var passiveIncomeRate = ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
             .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
+        passiveIncomeRate += IncrementButton.IncrementsThisSecond;
         PassiveIncomeText.text = "per second: " + FormatNumberToString(passiveIncomeRate);
     }
 }

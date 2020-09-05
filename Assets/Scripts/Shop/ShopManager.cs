@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
                 helper.AmountOwned++;
                 Monitor.Horses -= helper.DynamicCost;
                 helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
-                Monitor.Instance.UpdatePassiveIncomeText();
+                // Monitor.Instance.UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
             }
 

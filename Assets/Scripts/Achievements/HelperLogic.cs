@@ -58,7 +58,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             {
                 helper.DynamicIncrement *= 2;
             }
-            Monitor.Instance.UpdatePassiveIncomeText();
+            // Monitor.Instance.UpdatePassiveIncomeText();
             AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
         }
