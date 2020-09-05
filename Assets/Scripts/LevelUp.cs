@@ -83,9 +83,15 @@ public class LevelUp : MonoBehaviour
     void Update()
     {
         UpdateSliderProgress();
+        ReadyToLevelUp();
+    }
+
+    private void ReadyToLevelUp()
+    {
         if (Slider.value >= Slider.maxValue)
         {
             UpdateRewardCounter();
+            gameObject.GetComponent<Button>().interactable = true;
             if (Monitor.PlayerLevel == 1)
             {
                 FingerPointerLevel.SetActive(true);
@@ -95,6 +101,10 @@ public class LevelUp : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("LevelUp2");
                 _jinglePlayedThisLevel = true;
             }
+        }
+        else
+        {
+            gameObject.GetComponent<Button>().interactable = false; 
         }
     }
 
