@@ -2,7 +2,6 @@
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using Assets.Scripts.Model;
 using UnityEngine.UI;
 
 public class LoginLogic : MonoBehaviour, IAchievement

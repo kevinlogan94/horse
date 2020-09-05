@@ -13,7 +13,6 @@ public class ShopManager : MonoBehaviour
     
     private float _waitTime = 1.0f;
 
-    private Upgrade _clickerUpgradeReference;
     private AudioManager _audioManager;
     
     #region Singleton

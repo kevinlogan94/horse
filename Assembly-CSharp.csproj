@@ -81,7 +81,6 @@
      <Compile Include="Assets\Scripts\Model\Helper.cs" />
      <Compile Include="Assets\Scripts\Model\Log.cs" />
      <Compile Include="Assets\Scripts\Model\Sound.cs" />
-     <Compile Include="Assets\Scripts\Model\Upgrade.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopBackButton.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopHelper.cs" />

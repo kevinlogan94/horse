@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
-using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
