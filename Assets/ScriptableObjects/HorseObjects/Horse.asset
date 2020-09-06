@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5ccd47c4988b43ade0533b8db9865, type: 3}
   m_Name: Horse
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Thoroughbred
+  Description: The Thoroughbred known today was developed in 17th and 18th century
+    England. They are best known for their use in horse racing.
   HorseAnimationInt: 0

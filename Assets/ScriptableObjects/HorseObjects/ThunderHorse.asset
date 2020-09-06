@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5ccd47c4988b43ade0533b8db9865, type: 3}
   m_Name: ThunderHorse
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Thunder Horse
   Description: 
-  HorseAnimationInt: 0
+  HorseAnimationInt: 4

@@ -426,7 +426,7 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 20
-  - Tag: Horse
+  - Tag: Thoroughbred
     Prefab: {fileID: 8822910380117077971, guid: 41e876d8d71f11d419a47e55100612ed,
       type: 3}
     Parent: {fileID: 1015238784}
@@ -1615,6 +1615,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e318d3db9d75ed54d97f22ee20a1320c, type: 3}
+--- !u!1 &248016317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
+    type: 3}
+  m_PrefabInstance: {fileID: 1356479943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &274514322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3303,7 @@ GameObject:
   - component: {fileID: 511336425}
   - component: {fileID: 511336424}
   - component: {fileID: 511336423}
+  - component: {fileID: 511336426}
   m_Layer: 5
   m_Name: Lock
   m_TagString: Untagged
@@ -3379,6 +3386,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511336421}
   m_CullTransparentMesh: 0
+--- !u!114 &511336426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511336421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fda757229c04b449ac123d90f5258f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HorseUIPanel: {fileID: 248016317}
 --- !u!1 &519085578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,6 +4229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7479c426901081549b377eb737d8d04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Horse: {fileID: 11400000, guid: b59b8309470613e4db11c38119457d6c, type: 2}
+  Image: {fileID: 33560495}
+  Title: {fileID: 665217520}
+  Description: {fileID: 2082098292}
 --- !u!1 &647321185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,12 +4706,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SplashPanel: {fileID: 910994502}
   AchievementPanel: {fileID: 1591354206}
+  LockAnimationObject: {fileID: 511336421}
   HorsePanel: {fileID: 625308121}
+  HorseUIPanel: {fileID: 248016317}
   Achievements:
   - {fileID: 11400000, guid: bcc76565f009c704abf1ba7325d805ca, type: 2}
   - {fileID: 11400000, guid: c596d3a02f19e7f4ea08005d51934a60, type: 2}
   - {fileID: 11400000, guid: 1bc49c329f62ecf429647441b4f7921e, type: 2}
-  Helpers: []
+  HorseObjects:
+  - {fileID: 11400000, guid: 6cc37e91bfc1cbf49a44182216821553, type: 2}
+  - {fileID: 11400000, guid: b59b8309470613e4db11c38119457d6c, type: 2}
 --- !u!1 &700050159
 GameObject:
   m_ObjectHideFlags: 0
@@ -5433,8 +5461,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1082882179}
   - {fileID: 1887820414}
+  - {fileID: 1082882179}
   - {fileID: 511336422}
   m_Father: {fileID: 1015238788}
   m_RootOrder: 16
@@ -8289,6 +8317,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 910994503}
     m_Modifications:
+    - target: {fileID: 4392039248882422114, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 698360987}
+    - target: {fileID: 4392039248882422114, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSplash
+      objectReference: {fileID: 0}
     - target: {fileID: 7068082349690646097, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -8319,10 +8357,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -80.91211
       objectReference: {fileID: 0}
+    - target: {fileID: 9088865344972675524, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9088865344972675525, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 6.300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_Name
+      value: HorseUIPanel
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058360, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -8367,7 +8420,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12810,7 +12863,7 @@ PrefabInstance:
     - target: {fileID: 9088865344972675525, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.7999878
+      value: 1.8000488
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344972675525, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12826,6 +12879,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: -247.12384
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_Name
+      value: AchievementUIPanel
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058360, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12870,7 +12933,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12945,7 +13008,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058362, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
