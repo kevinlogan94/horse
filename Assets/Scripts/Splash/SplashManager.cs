@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
 
 public class SplashManager : MonoBehaviour
 {
     public GameObject SplashPanel;
     public GameObject AchievementPanel;
+    public GameObject LockAnimationObject;
     public GameObject HorsePanel;
+    public GameObject HorseUIPanel;
 
     public Achievement[] Achievements;
-    public Helper[] Helpers;
+    public HorseObject[] HorseObjects;
     public static SplashManager Instance;
 
      #region Singleton
@@ -40,19 +38,36 @@ public class SplashManager : MonoBehaviour
         if (type == "Achievement")
         {
             AchievementPanel.SetActive(true);
-            AchievementPanelScript.Instance.Achievement =
-                Achievements.FirstOrDefault(x => x.Name == scriptableObjectName);
+            var achievementObject = Achievements.FirstOrDefault(x => x.Name == scriptableObjectName);
+            if (achievementObject == null)
+            {
+                Debug.LogWarning("We couldn't find the Achievement with the name: " + scriptableObjectName);
+                return;
+            }
+            AchievementPanelScript.Instance.Achievement = achievementObject; 
         }
         else
         {
             HorsePanel.SetActive(true);
+            // I have an animation event at the end of this that turns on the horse panel
+            var horseObject = HorseObjects.FirstOrDefault(x => x.Name == scriptableObjectName);
+            if (horseObject == null)
+            {
+                Debug.LogWarning("We couldn't find the horse object with the name: " + scriptableObjectName);
+                return;
+            }
+
+            NewHorseScript.Instance.Horse = horseObject;
+            LockAnimationObject.SetActive(true);
         }
     }
 
     public void CloseSplash()
     {
+        SplashPanel.SetActive(false);
         AchievementPanel.SetActive(false);
         HorsePanel.SetActive(false);
-        SplashPanel.SetActive(false);
+        HorseUIPanel.SetActive(false);
+        // AchievementUIPanel.SetActive(false);
     }
 }

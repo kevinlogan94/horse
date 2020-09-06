@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 
@@ -56,11 +57,15 @@ public class ShopManager : MonoBehaviour
         {
             if (helper.Name == helperName && helper.DynamicCost <= Monitor.Horses)
             {
-                helper.AmountOwned++;
                 Monitor.Horses -= helper.DynamicCost;
                 helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
                 // Monitor.Instance.UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
+                if (helper.AmountOwned == 0)
+                {
+                    SplashManager.Instance.TriggerSplash(SplashType.Horse.ToString(), helper.HorseBreed);
+                }
+                helper.AmountOwned++;
             }
 
             if (helper.Name == "Feeder" && helper.AmountOwned == 1)

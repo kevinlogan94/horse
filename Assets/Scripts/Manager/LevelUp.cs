@@ -30,7 +30,7 @@ public class LevelUp : MonoBehaviour
         //level up reward 
         if (!watchAd)
         {
-            Monitor.Instance.IncrementHorses(_levelUpReward, "Horse");
+            Monitor.Instance.IncrementHorses(_levelUpReward, "Thoroughbred");
         }
         else
         {
