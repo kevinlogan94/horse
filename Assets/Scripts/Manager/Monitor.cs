@@ -91,7 +91,7 @@ public class Monitor : MonoBehaviour
     {
         var passiveIncomeRate = GetHelperPassiveIncome();
         passiveIncomeRate += IncrementButton.IncrementsThisSecond;
-        PassiveIncomeText.text = "per second: " + FormatNumberToString(passiveIncomeRate);
+        PassiveIncomeText.text = FormatNumberToString(passiveIncomeRate) + "/sec";
     }
 
     public int GetHelperPassiveIncome()
