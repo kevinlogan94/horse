@@ -11,7 +11,7 @@ public class LevelUp : MonoBehaviour
     public TextMeshProUGUI LevelUpRewardText;
     public GameObject FingerPointerLevel;
     private int _levelUpReward = 20;
-    private int _horsesEarnedEveryLevelSoFar = 0;
+    private long _horsesEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
     void Start()
@@ -71,8 +71,8 @@ public class LevelUp : MonoBehaviour
         }
     }
 
-    private int HorsesEarnedThisLevel()
-    {
+    private long HorsesEarnedThisLevel()
+    { 
         return Monitor.TotalHorsesEarned - _horsesEarnedEveryLevelSoFar;
     }
 

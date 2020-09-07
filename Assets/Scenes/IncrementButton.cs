@@ -58,16 +58,16 @@ public class IncrementButton : MonoBehaviour
         }
             
         _audioManager.Play("Cork", randomNumber);
-        // if (randomNumber <= 0.03)
-        // {
-        //     var obj = _objectPooler.SpawnFromPool("IncrementBonusText");
-        //     obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + increment;
-        // }
-        // else
-        // {
+        if (randomNumber <= 0.03)
+        {
+            var obj = _objectPooler.SpawnFromPool("IncrementBonusText");
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+        }
+        else
+        {
             var obj = _objectPooler.SpawnFromPool("IncrementText");
             obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
-        // }
+        }
 
         ClickCount++;
         IncrementsThisSecond+=increment;

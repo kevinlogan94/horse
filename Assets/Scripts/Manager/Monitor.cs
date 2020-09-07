@@ -9,8 +9,8 @@ public class Monitor : MonoBehaviour
 {
     public GameObject FingerPointerIncrementButton;
     public TextMeshProUGUI PassiveIncomeText;
-    public static int TotalHorsesEarned = 0;
-    public static int Horses = 1000000;
+    public static long TotalHorsesEarned = 0;
+    public static long Horses = 0;
     public static int PlayerLevel = 1;
     private ObjectPooler _objectPooler;
     private float _bottomHorseSpawnerRegion;
@@ -67,12 +67,22 @@ public class Monitor : MonoBehaviour
         }
     }
 
-    public static string FormatNumberToString(int intToConvertAndFormat)
+    public static string FormatNumberToString(long intToConvertAndFormat)
     {
-        if (intToConvertAndFormat >= 1000000)
+        if (intToConvertAndFormat >= 1000000 && intToConvertAndFormat < 1000000000)
         {
-            var newInt = Math.Round((double)intToConvertAndFormat / 1000000, 00);
+            var newInt = Math.Round((double)intToConvertAndFormat / 1000000, 2);
             return newInt + "mill";
+        }  
+        if (intToConvertAndFormat >= 1000000000 && intToConvertAndFormat < 1000000000000)
+        {
+            var newInt = Math.Round((double)intToConvertAndFormat / 1000000000, 2);
+            return newInt + "bill";
+        }
+        if (intToConvertAndFormat >= 1000000000000)
+        {
+            var newInt = Math.Round((double)intToConvertAndFormat / 1000000000000, 2);
+            return newInt + "trill";
         }
         return String.Format("{0:n0}", intToConvertAndFormat);
     }
