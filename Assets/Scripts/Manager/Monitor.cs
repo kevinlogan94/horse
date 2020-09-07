@@ -10,7 +10,7 @@ public class Monitor : MonoBehaviour
     public GameObject FingerPointerIncrementButton;
     public TextMeshProUGUI PassiveIncomeText;
     public static int TotalHorsesEarned = 0;
-    public static int Horses = 0;
+    public static int Horses = 1000000;
     public static int PlayerLevel = 1;
     private ObjectPooler _objectPooler;
     private float _bottomHorseSpawnerRegion;
@@ -69,10 +69,10 @@ public class Monitor : MonoBehaviour
 
     public static string FormatNumberToString(int intToConvertAndFormat)
     {
-        if (intToConvertAndFormat > 1000000)
+        if (intToConvertAndFormat >= 1000000)
         {
             var newInt = Math.Round((double)intToConvertAndFormat / 1000000, 00);
-            return newInt + "mil";
+            return newInt + "mill";
         }
         return String.Format("{0:n0}", intToConvertAndFormat);
     }
