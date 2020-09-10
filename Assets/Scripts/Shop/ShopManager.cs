@@ -9,9 +9,10 @@ public class ShopManager : MonoBehaviour
     public Helper[] Helpers;
 
     public GameObject ShopPanel;
+    public GameObject ShopTutorialPanel;
     public GameObject FingerPointerShop;
     public GameObject FingerPointerFeederButton;
-    
+
     private float _waitTime = 1.0f;
 
     private AudioManager _audioManager;
@@ -46,6 +47,7 @@ public class ShopManager : MonoBehaviour
             if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
             {
                 FingerPointerShop.SetActive(true);
+                ShopTutorialPanel.SetActive(true);
                 FingerPointerFeederButton.SetActive(ShopPanel.activeSelf);
             }
         }
@@ -72,6 +74,7 @@ public class ShopManager : MonoBehaviour
             {
                 FingerPointerShop.SetActive(false);
                 FingerPointerFeederButton.SetActive(false);
+                ShopTutorialPanel.SetActive(false);
             }
         }
     }

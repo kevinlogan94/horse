@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94e5ccd47c4988b43ade0533b8db9865, type: 3}
-  m_Name: Palomino
+  m_Name: Morgan
   m_EditorClassIdentifier: 
-  Name: Palomino
-  Description: 
+  Name: Morgan
+  Description: Morgan was one of the earliest horse breeds developed in the United
+    States. This horse has influenced several horse breeds and served various roles,
+    including being used as Calvary in the civil war.
   HorseAnimationInt: 2

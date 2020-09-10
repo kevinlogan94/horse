@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: WaterHorse
   m_EditorClassIdentifier: 
   Name: Water Horse
-  Description: 
+  Description: 'Hippocampus is commonly spotted pulling the Chariot of the Greek
+    God of the sea, Poseidon. The water horse is best known for its fierce loyalty
+    and ability to calm soldiers'' minds before going off into battle. '
   HorseAnimationInt: 3

@@ -46,11 +46,11 @@ public class Monitor : MonoBehaviour
         Horses += increment;
         TotalHorsesEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
-        StartCoroutine(RemoveAfterSeconds(lagSeconds, horseBreed));
+        StartCoroutine(SpawnHorseAfterSeconds(lagSeconds, horseBreed));
     }
     
     //https://forum.unity.com/threads/hide-object-after-time.291287/
-    IEnumerator RemoveAfterSeconds(float seconds, string horseBreed)
+    IEnumerator SpawnHorseAfterSeconds(float seconds, string horseBreed)
     {
         yield return new WaitForSeconds(seconds);
         // Debug.Log(_bottomHorseSpawnerRegion);

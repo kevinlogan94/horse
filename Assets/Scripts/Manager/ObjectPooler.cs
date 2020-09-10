@@ -55,6 +55,12 @@ public class ObjectPooler : MonoBehaviour
             objectToSpawn.transform.position = (Vector3) position;
             objectToSpawn.transform.SetSiblingIndex(1); // 0 is the background
         }
+        else
+        {
+            //this is for the numberIncrement
+            var index = GameObject.Find("TopNav").transform.GetSiblingIndex();
+            objectToSpawn.transform.SetSiblingIndex(index); // 0 is the background   
+        }
 
         PoolDictionary[poolTag].Enqueue(objectToSpawn);
 
