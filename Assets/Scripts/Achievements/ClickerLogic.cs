@@ -38,7 +38,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Click the carrot " + ProgressBar.maxValue + " times";
+        Title.text = "Cast " + ProgressBar.maxValue + " spells";
     }
     
     public void Tutorial()
