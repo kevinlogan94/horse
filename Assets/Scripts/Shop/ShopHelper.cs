@@ -33,8 +33,6 @@ public class ShopHelper : MonoBehaviour
         NameText.text = Helper.Name;
         CostText.text = String.Format("{0:n0}", Helper.Cost);
         PerSecondIncreaseText.text = Helper.Increment + "/sec";
-        Helper.DynamicCost = Helper.Cost;
-        Helper.DynamicIncrement = Helper.Increment;
     }
 
     void Update()

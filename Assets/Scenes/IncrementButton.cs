@@ -11,7 +11,7 @@ public class IncrementButton : MonoBehaviour
     private AudioManager _audioManager;
     private float _waitTime;
     public static int ClickerLevel = 0;
-    public static int ClickCount = 0;
+    public static long ClickCount = 0;
     public static int IncrementsThisSecond = 0;
 
     public void Start()

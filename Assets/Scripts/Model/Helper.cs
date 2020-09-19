@@ -7,7 +7,7 @@ public class Helper : ScriptableObject
     public string Description;
     public int LevelRequirement;
     public int Cost;
-    public int DynamicCost;
+    public long DynamicCost;
     public int Increment;
     public int DynamicIncrement;
     public int AmountOwned;

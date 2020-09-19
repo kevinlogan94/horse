@@ -27,6 +27,8 @@ public class Monitor : MonoBehaviour
 
     public void Start()
     {
+        SaveGame.Load();
+        
         _objectPooler = ObjectPooler.Instance;
 
         //button click tutorial
@@ -43,6 +45,7 @@ public class Monitor : MonoBehaviour
 
     public void IncrementHorses(int increment, string horseBreed, float lagSeconds = 0)
     {
+        SaveGame.Save();
         Horses += increment;
         TotalHorsesEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));

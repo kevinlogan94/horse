@@ -11,7 +11,7 @@ public class AchievementManager : MonoBehaviour
     public int LoginCount = 1;
     
     //clicker
-    public int CurrentClickedAmount;
+    public long CurrentClickedAmount;
     public float ClickerGoal;
     
     //helper

@@ -28,11 +28,6 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        foreach (var helper in Helpers)
-        {
-            helper.AmountOwned = 0;
-        }
-
         _audioManager = FindObjectOfType<AudioManager>();
     }
 

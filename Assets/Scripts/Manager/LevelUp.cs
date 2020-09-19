@@ -11,9 +11,18 @@ public class LevelUp : MonoBehaviour
     public TextMeshProUGUI LevelUpRewardText;
     public GameObject FingerPointerLevel;
     private int _levelUpReward = 20;
-    private long _horsesEarnedEveryLevelSoFar = 0;
+    public long HorsesEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
+    #region Singleton
+    public static LevelUp Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
+    
     void Start()
     {
     }
@@ -41,13 +50,13 @@ public class LevelUp : MonoBehaviour
         //Update Level up progress bar
         Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
         Slider.value = 0; 
-        _horsesEarnedEveryLevelSoFar = Monitor.TotalHorsesEarned;
+        HorsesEarnedEveryLevelSoFar = Monitor.TotalHorsesEarned;
             
         // Level Up Character
         Monitor.PlayerLevel++;
         _levelUpReward = 2 * _levelUpReward;
         LevelUpRewardText.text = _levelUpReward + " horses";
-        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
+        // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
             
         //close tutorial
         if (Monitor.PlayerLevel==2)
@@ -73,12 +82,13 @@ public class LevelUp : MonoBehaviour
 
     private long HorsesEarnedThisLevel()
     { 
-        return Monitor.TotalHorsesEarned - _horsesEarnedEveryLevelSoFar;
+        return Monitor.TotalHorsesEarned - HorsesEarnedEveryLevelSoFar;
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
         UpdateSliderProgress();
         ReadyToLevelUp();
     }
