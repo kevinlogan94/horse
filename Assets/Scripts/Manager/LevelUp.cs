@@ -10,6 +10,7 @@ public class LevelUp : MonoBehaviour
     public GameObject LevelUpPanel;
     public TextMeshProUGUI LevelUpRewardText;
     public GameObject FingerPointerLevel;
+    public GameObject LevelExclamationPoint;
     private int _levelUpReward = 20;
     public long HorsesEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
@@ -97,6 +98,7 @@ public class LevelUp : MonoBehaviour
     {
         if (Slider.value >= Slider.maxValue)
         {
+            LevelExclamationPoint.SetActive(true);
             UpdateRewardCounter();
             gameObject.GetComponent<Button>().interactable = true;
             if (Monitor.PlayerLevel == 1)
@@ -111,7 +113,8 @@ public class LevelUp : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<Button>().interactable = false; 
+            gameObject.GetComponent<Button>().interactable = false;
+            LevelExclamationPoint.SetActive(false);
         }
     }
 

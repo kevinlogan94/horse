@@ -10,7 +10,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
     public Image Image;
-    public GameObject PersonalPointer;
+    public GameObject ClickerExclamationPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +26,9 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     // Update is called once per frame
     void Update()
     {
+        ManageExclamationPoint();
         UpdateTitle();
         UpdateProgressValue();
-        Tutorial();
     }
 
     public void UpdateProgressValue()
@@ -39,12 +39,6 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     public void UpdateTitle()
     {
         Title.text = "Cast " + ProgressBar.maxValue + " spells";
-    }
-    
-    public void Tutorial()
-    {
-        //show the tutorial but we also want to wait for them to finish the shop tutorial.
-        PersonalPointer.SetActive(!AchievementManager.Instance.TutorialCompleted && ProgressBar.value >= ProgressBar.maxValue);
     }
 
     public void Receive()
@@ -70,5 +64,17 @@ public class ClickerLogic : MonoBehaviour, IAchievement
         //trigger bar change
         ProgressBar.value--;
         ProgressBar.value++;
+    }
+    
+    public void ManageExclamationPoint()
+    {
+        if (ProgressBar.value >= ProgressBar.maxValue)
+        {
+            ClickerExclamationPoint.SetActive(true);
+        }
+        else
+        {
+            ClickerExclamationPoint.SetActive(false);
+        }
     }
 }

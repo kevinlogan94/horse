@@ -24,8 +24,8 @@ public static class SaveGame
     public static void Load()
     {
 
-        // SavedData.RefreshData();
-        // return;
+        SavedData.RefreshData();
+        return;
         
         if (File.Exists(Path))
         {

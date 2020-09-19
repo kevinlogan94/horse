@@ -12,6 +12,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
     public Image Image;
+    public GameObject LoginExclamationPoint;
 
     private TextMeshProUGUI _perSecondCounter;
     private int _rewardValue;
@@ -23,11 +24,13 @@ public class LoginLogic : MonoBehaviour, IAchievement
         Image.sprite = AchievementObject.Artwork;
         _perSecondCounter = GameObject.Find("PassiveIncome").GetComponent<TextMeshProUGUI>();
         ProgressBar.value = AchievementManager.Instance.LoginCount;
+        ProgressBar.maxValue = AchievementManager.Instance.LoginGoal;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ManageExclamationPoint();
         UpdateRewardCounter();
         UpdateTitle();
     }
@@ -38,10 +41,23 @@ public class LoginLogic : MonoBehaviour, IAchievement
         {
             Monitor.Horses += _rewardValue;
             ProgressBar.maxValue++;
+            AchievementManager.Instance.LoginGoal = ProgressBar.maxValue;
             //trigger bar change
             ProgressBar.value = ProgressBar.value--;
             ProgressBar.value = ProgressBar.value++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+        }
+    }
+
+    public void ManageExclamationPoint()
+    {
+        if (ProgressBar.value >= ProgressBar.maxValue)
+        {
+            LoginExclamationPoint.SetActive(true);
+        }
+        else
+        {
+            LoginExclamationPoint.SetActive(false);
         }
     }
 

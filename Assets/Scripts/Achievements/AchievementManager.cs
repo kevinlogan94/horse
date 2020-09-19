@@ -6,9 +6,11 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     public GameObject AchievementPointer;
+    public GameObject AchievementExclamationPoint;
     
     //login
     public int LoginCount = 1;
+    public float LoginGoal = 2;
     
     //clicker
     public long CurrentClickedAmount;
@@ -42,6 +44,7 @@ public class AchievementManager : MonoBehaviour
     {
         ClickerProgress();
         HelperProgress();
+        ManageExclamationPoint();
         Tutorial();
     }
 
@@ -56,6 +59,28 @@ public class AchievementManager : MonoBehaviour
         {
             AchievementPointer.SetActive(false);
         }
+    }
+
+    public void ManageExclamationPoint()
+    {
+        var showExclamationPoint = AchievementReady();
+        AchievementExclamationPoint.SetActive(showExclamationPoint);
+    }
+
+    public bool AchievementReady()
+    {
+        var ready = false;
+        if (ClickerGoal <= CurrentClickedAmount)
+        {
+            ready = true;
+        } else if (HelperGoal <= CurrentHelperAmount)
+        {
+            ready = true;
+        } else if (LoginGoal <= LoginCount)
+        {
+            ready = true;
+        }
+        return ready;
     }
     
     public void ClickerProgress()

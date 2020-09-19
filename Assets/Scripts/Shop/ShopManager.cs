@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
     public GameObject ShopTutorialPanel;
     public GameObject FingerPointerShop;
     public GameObject FingerPointerFeederButton;
+    public GameObject ShopExclamationPoint;
 
     private float _waitTime = 1.0f;
 
@@ -33,6 +34,7 @@ public class ShopManager : MonoBehaviour
 
     void Update()
     {
+        ManageExclamationPoint();
         HelperAction();
         
         //shop tutorial
@@ -78,6 +80,25 @@ public class ShopManager : MonoBehaviour
     {
         _audioManager.Play("DoorBell");
         ShopPanel.SetActive(true);
+    }
+
+    public void ManageExclamationPoint()
+    {
+        var showExclamationPoint = false;
+        foreach (var helper in Helpers)
+        {
+            if (helper.LevelRequirement <= Monitor.PlayerLevel 
+                && helper.DynamicCost <= Monitor.Horses)
+            {
+                showExclamationPoint = true;
+                ShopExclamationPoint.SetActive(true);
+            }
+        }
+
+        if (!showExclamationPoint)
+        {
+            ShopExclamationPoint.SetActive(false);
+        }
     }
     
     private void HelperAction()

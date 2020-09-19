@@ -12,7 +12,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
     public Image Image;
-    public GameObject PersonalPointer;
+    public GameObject HelperExclamationPoint;
     
     // Start is called before the first frame update
     void Start()
@@ -28,16 +28,11 @@ public class HelperLogic : MonoBehaviour, IAchievement
     // Update is called once per frame
     void Update()
     {
+        ManageExclamationPoint();
         UpdateTitle();
         UpdateHelperCount();
     }
     
-    public void Tutorial()
-    {
-        //show the tutorial but we also want to wait for them to finish the shop tutorial.
-        PersonalPointer.SetActive(!AchievementManager.Instance.TutorialCompleted && ProgressBar.value >= ProgressBar.maxValue);
-    }
-
     public void UpdateHelperCount()
     {
         ProgressBar.value = ShopManager.Instance.Helpers.Select(x => x.AmountOwned).Sum();
@@ -62,6 +57,18 @@ public class HelperLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+        }
+    }
+
+    public void ManageExclamationPoint()
+    {
+        if (ProgressBar.value >= ProgressBar.maxValue)
+        {
+            HelperExclamationPoint.SetActive(true);
+        }
+        else
+        {
+            HelperExclamationPoint.SetActive(false);
         }
     }
     

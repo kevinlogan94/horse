@@ -24,6 +24,7 @@ public class SavedData
     
     // AchievementManager
     public int LoginCount;
+    public float LoginGoal;
     public long CurrentClickedAmount;
     public float ClickerGoal;
     public int CurrentHelperAmount;
@@ -57,6 +58,7 @@ public class SavedData
         
         // AchievementManager
         LoginCount = AchievementManager.Instance.LoginCount;
+        LoginGoal = AchievementManager.Instance.LoginGoal;
         CurrentClickedAmount = AchievementManager.Instance.CurrentClickedAmount;
         ClickerGoal = AchievementManager.Instance.ClickerGoal;
         CurrentHelperAmount = AchievementManager.Instance.CurrentHelperAmount;
@@ -92,6 +94,7 @@ public class SavedData
         
         // Achievement Manager
         AchievementManager.Instance.LoginCount = LoginCount;
+        AchievementManager.Instance.LoginGoal = LoginGoal;
         AchievementManager.Instance.CurrentClickedAmount = CurrentClickedAmount;
         AchievementManager.Instance.ClickerGoal = ClickerGoal;
         AchievementManager.Instance.CurrentHelperAmount = CurrentHelperAmount;
