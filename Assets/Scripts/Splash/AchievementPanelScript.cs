@@ -41,8 +41,8 @@ public class AchievementPanelScript : MonoBehaviour
                 AfterText.text = IncrementButton.GetIncrement(IncrementButton.ClickerLevel, 1) + "/click";
                 break;
             default:
-                BeforeText.text = Monitor.Horses - Monitor.Instance.GetHorseReceivedOverTime(3600) + " horses"; // 1 hour
-                AfterText.text = Monitor.Horses + " horses";
+                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(3600) + " horses"; // 1 hour
+                AfterText.text = Monitor.Influence + " horses";
                 break;
         }
     }

@@ -39,7 +39,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
     {
         if (ProgressBar.value >= ProgressBar.maxValue)
         {
-            Monitor.Horses += _rewardValue;
+            Monitor.Influence += _rewardValue;
             ProgressBar.maxValue++;
             AchievementManager.Instance.LoginGoal = ProgressBar.maxValue;
             //trigger bar change
@@ -68,7 +68,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
 
     public void UpdateRewardCounter()
     {
-        _rewardValue = Monitor.Instance.GetHorseReceivedOverTime(3600); // 1 hour
+        _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(3600); // 1 hour
         RewardDescription.text = AchievementObject.RewardDescription + "\n(" + Monitor.FormatNumberToString(_rewardValue) + " horses)";
     }
 }

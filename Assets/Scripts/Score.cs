@@ -8,6 +8,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = Monitor.FormatNumberToString(Monitor.Horses);
+        ScoreText.text = Monitor.FormatNumberToString(Monitor.Influence);
     }
 }

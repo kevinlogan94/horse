@@ -7,12 +7,12 @@ using UnityEngine;
 public class SavedData
 {
     // Monitor
-    public long Horses;
-    public long TotalHorsesEarned;
+    public long Influence;
+    public long TotalInfluenceEarned;
     public int PlayerLevel;
     
     // LevelUp
-    public long HorsesEarnedEveryLevelSoFar;
+    public long InfluenceEarnedEveryLevelSoFar;
     public float ExperienceRequiredToReachNextLevel;
     
     // IncrementButton
@@ -34,12 +34,12 @@ public class SavedData
     public SavedData()
     {
         // Monitor
-        Horses = Monitor.Horses;
-        TotalHorsesEarned = Monitor.TotalHorsesEarned;
+        Influence = Monitor.Influence;
+        TotalInfluenceEarned = Monitor.TotalInfluenceEarned;
         PlayerLevel = Monitor.PlayerLevel;
 
         // LevelUp
-        HorsesEarnedEveryLevelSoFar = LevelUp.Instance.HorsesEarnedEveryLevelSoFar;
+        InfluenceEarnedEveryLevelSoFar = LevelUp.Instance.InfluenceEarnedEveryLevelSoFar;
         ExperienceRequiredToReachNextLevel = LevelUp.Instance.Slider.maxValue;
         
         // IncrementButton
@@ -69,12 +69,12 @@ public class SavedData
     public void DistributeLoadData()
     {
         // Monitor
-        Monitor.Horses = Horses;
-        Monitor.TotalHorsesEarned = TotalHorsesEarned;
+        Monitor.Influence = Influence;
+        Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
         Monitor.PlayerLevel = PlayerLevel;
         
         // Level Up
-        LevelUp.Instance.HorsesEarnedEveryLevelSoFar = HorsesEarnedEveryLevelSoFar;
+        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar;
         LevelUp.Instance.Slider.maxValue = ExperienceRequiredToReachNextLevel;
         
         // Increment Button

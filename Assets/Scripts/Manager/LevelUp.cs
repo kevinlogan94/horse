@@ -12,7 +12,7 @@ public class LevelUp : MonoBehaviour
     public GameObject FingerPointerLevel;
     public GameObject LevelExclamationPoint;
     private int _levelUpReward = 20;
-    public long HorsesEarnedEveryLevelSoFar = 0;
+    public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
     #region Singleton
@@ -40,18 +40,18 @@ public class LevelUp : MonoBehaviour
         //level up reward 
         if (!watchAd)
         {
-            Monitor.Instance.IncrementHorses(_levelUpReward, "Thoroughbred");
+            Monitor.Instance.IncrementInfluence(_levelUpReward, "Thoroughbred");
         }
         else
         {
             var bonusReward = _levelUpReward * 3;
-            Monitor.Instance.IncrementHorses(bonusReward, "Appaloosa");
+            Monitor.Instance.IncrementInfluence(bonusReward, "Appaloosa");
         }
         
         //Update Level up progress bar
         Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
         Slider.value = 0; 
-        HorsesEarnedEveryLevelSoFar = Monitor.TotalHorsesEarned;
+        InfluenceEarnedEveryLevelSoFar = Monitor.TotalInfluenceEarned;
             
         // Level Up Character
         Monitor.PlayerLevel++;
@@ -83,7 +83,7 @@ public class LevelUp : MonoBehaviour
 
     private long HorsesEarnedThisLevel()
     { 
-        return Monitor.TotalHorsesEarned - HorsesEarnedEveryLevelSoFar;
+        return Monitor.TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
     }
 
     // Update is called once per frame

@@ -42,19 +42,19 @@ public class IncrementButton : MonoBehaviour
         if (randomNumber <= 0.03)
         {
             increment = GetIncrement(ClickerLevel, 9);
-            Monitor.Instance.IncrementHorses(increment, "Unicorn");
+            Monitor.Instance.IncrementInfluence(increment, "Unicorn");
         } 
         else if (randomNumber <= 0.30)
         {
             var helperHorse = ShopManager.Instance.Helpers[ClickerLevel + 1].HorseBreed;
             increment = GetIncrement(ClickerLevel, 3);
-            Monitor.Instance.IncrementHorses(increment, helperHorse);
+            Monitor.Instance.IncrementInfluence(increment, helperHorse);
         }
         else
         {
             var helperHorse = ShopManager.Instance.Helpers[ClickerLevel].HorseBreed;
             increment = GetIncrement(ClickerLevel, 1);
-            Monitor.Instance.IncrementHorses(increment, helperHorse);
+            Monitor.Instance.IncrementInfluence(increment, helperHorse);
         }
             
         _audioManager.Play("Cork", randomNumber);

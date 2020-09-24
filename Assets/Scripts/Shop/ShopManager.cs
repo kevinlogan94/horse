@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
         if (Monitor.PlayerLevel == 1)
         {
             var feeder = Helpers.FirstOrDefault(x => x.Name == "Feeder");
-            if (Monitor.Horses >= feeder?.Cost && feeder?.AmountOwned == 0)
+            if (Monitor.Influence >= feeder?.Cost && feeder?.AmountOwned == 0)
             {
                 FingerPointerShop.SetActive(true);
                 ShopTutorialPanel.SetActive(true);
@@ -54,9 +54,9 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var helper in Helpers)
         {
-            if (helper.Name == helperName && helper.DynamicCost <= Monitor.Horses)
+            if (helper.Name == helperName && helper.DynamicCost <= Monitor.Influence)
             {
-                Monitor.Horses -= helper.DynamicCost;
+                Monitor.Influence -= helper.DynamicCost;
                 helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
                 // Monitor.Instance.UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
@@ -82,7 +82,7 @@ public class ShopManager : MonoBehaviour
         foreach (var helper in Helpers)
         {
             if (helper.LevelRequirement <= Monitor.PlayerLevel 
-                && helper.DynamicCost <= Monitor.Horses)
+                && helper.DynamicCost <= Monitor.Influence)
             {
                 showExclamationPoint = true;
                 ShopExclamationPoint.SetActive(true);
@@ -108,7 +108,7 @@ public class ShopManager : MonoBehaviour
                     var increment = helper.DynamicIncrement > helper.Increment
                         ? helper.DynamicIncrement
                         : helper.Increment;
-                    Monitor.Instance.IncrementHorses(increment * helper.AmountOwned, helper.HorseBreed, index*.25f);
+                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.HorseBreed, index*.25f);
                 }
             }
         }

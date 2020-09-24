@@ -9,8 +9,8 @@ public class Monitor : MonoBehaviour
 {
     public GameObject FingerPointerIncrementButton;
     public TextMeshProUGUI PassiveIncomeText;
-    public static long TotalHorsesEarned = 0;
-    public static long Horses = 0;
+    public static long TotalInfluenceEarned = 0;
+    public static long Influence = 0;
     public static int PlayerLevel = 1;
     private ObjectPooler _objectPooler;
     private float _bottomHorseSpawnerRegion;
@@ -32,7 +32,7 @@ public class Monitor : MonoBehaviour
         _objectPooler = ObjectPooler.Instance;
 
         //button click tutorial
-        if (TotalHorsesEarned == 0)
+        if (TotalInfluenceEarned == 0)
         {
             FingerPointerIncrementButton.SetActive(true);
         }
@@ -43,11 +43,11 @@ public class Monitor : MonoBehaviour
         _topHorseSpawnerRegion = backgroundHeight - _bottomHorseSpawnerRegion - scorePanelHeight;
     }
 
-    public void IncrementHorses(int increment, string horseBreed, float lagSeconds = 0)
+    public void IncrementInfluence(int increment, string horseBreed, float lagSeconds = 0)
     {
         SaveGame.Save();
-        Horses += increment;
-        TotalHorsesEarned += increment;
+        Influence += increment;
+        TotalInfluenceEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
         StartCoroutine(SpawnHorseAfterSeconds(lagSeconds, horseBreed));
     }
@@ -103,7 +103,7 @@ public class Monitor : MonoBehaviour
             .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
     }
 
-    public int GetHorseReceivedOverTime(int seconds)
+    public int GetInfluenceReceivedOverTime(int seconds)
     {
         var incrementPerSecond = GetHelperPassiveIncome();
         return incrementPerSecond * seconds; 
