@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Model\HorseObject.cs" />
      <Compile Include="Assets\Scripts\Model\Log.cs" />
      <Compile Include="Assets\Scripts\Model\SavedHelper.cs" />
+     <Compile Include="Assets\Scripts\Model\SavedLog.cs" />
      <Compile Include="Assets\Scripts\Model\Sound.cs" />
      <Compile Include="Assets\Scripts\Model\SplashType.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />

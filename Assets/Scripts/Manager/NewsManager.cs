@@ -7,19 +7,21 @@ using UnityEngine;
 public class NewsManager : MonoBehaviour
 {
     public TextMeshProUGUI NewsText;
-    public GameObject Prefab;
-    public GameObject PrefabParent;
     public GameObject ShopPanel;
     public Log[] Logs;
-    private List<GameObject> _logGameObjects = new List<GameObject>();
+    
+    #region Singleton
+    public static NewsManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var log in Logs)
-        {
-            log.Displayed = false;
-        }
     }
 
     // Update is called once per frame
@@ -28,52 +30,52 @@ public class NewsManager : MonoBehaviour
         switch (Monitor.PlayerLevel)
         {
             case 2:
-                PlayNewsAndAddLog("Intro");
+                PlayNews("Intro");
                 break;
             case 4:
-                PlayNewsAndAddLog("Noticed");
+                PlayNews("Noticed");
                 break;
             case 7: 
-                PlayNewsAndAddLog("HorsesOrigin");
+                PlayNews("HorsesOrigin");
                 break;
             case 10:
-                PlayNewsAndAddLog("PlayTest");
+                PlayNews("PlayTest");
                 break;
         }
 
         if (Monitor.TotalInfluenceEarned >= 1000 && Monitor.TotalInfluenceEarned < 10000)
         {
-            PlayNewsAndAddLog("1,000");
+            PlayNews("1,000");
         }
         else if (Monitor.TotalInfluenceEarned >= 10000 && Monitor.TotalInfluenceEarned < 50000)
         {
-            PlayNewsAndAddLog("10,000");
+            PlayNews("10,000");
         } else if (Monitor.TotalInfluenceEarned >= 50000 && Monitor.TotalInfluenceEarned < 100000)
         {
-            PlayNewsAndAddLog("50,000");
+            PlayNews("50,000");
         } else if (Monitor.TotalInfluenceEarned >= 100000 && Monitor.TotalInfluenceEarned < 500000)
         {
-            PlayNewsAndAddLog("100,000");
+            PlayNews("100,000");
         } else if (Monitor.TotalInfluenceEarned >= 500000 && Monitor.TotalInfluenceEarned < 1000000)
         {
-            PlayNewsAndAddLog("500,000");
+            PlayNews("500,000");
         } else if (Monitor.TotalInfluenceEarned >= 1000000)
         {
-            PlayNewsAndAddLog("1,000,000");
+            PlayNews("1,000,000");
         } 
 
         if (ShopManager.Instance.Helpers[1].AmountOwned == 1 && !ShopPanel.activeSelf)
         {
-            PlayNewsAndAddLog("Expansion");
+            PlayNews("Expansion");
         }
 
         if (IncrementButton.ClickerLevel == 1 && !ShopPanel.activeSelf)
         {
-            PlayNewsAndAddLog("ButtonWorks");
+            PlayNews("ButtonWorks");
         }
     }
 
-    void PlayNewsAndAddLog(string logName)
+    public void PlayNews(string logName)
     {
         var log = Logs.FirstOrDefault(x => x.Name == logName);
         if (log == null)
@@ -85,47 +87,11 @@ public class NewsManager : MonoBehaviour
             return;
         if (NewsText.IsActive())
             return;
-        if (ShopPanel.activeSelf)
+        if (BottomNavManager.Instance.ActiveView != "outlook")
             return;
         
         NewsText.GetComponent<TextMeshProUGUI>().text = log.Message;
         NewsText.gameObject.SetActive(true);
         log.Displayed = true;
-        AddLog(log);
-    }
-
-    void AddLog(Log log)
-    {
-        //define and add the log
-        var obj = Instantiate(Prefab);   
-        obj.GetComponentInChildren<TextMeshProUGUI>().text = log.Message;
-        obj.transform.SetParent(PrefabParent.transform, false);
-        if (_logGameObjects.Any())
-        {
-            //move down the old logs
-            foreach (var logGameObject in _logGameObjects)
-            {
-                logGameObject.transform.position = new Vector3(logGameObject.transform.position.x, logGameObject.transform.position.y - 220, 0);
-            }
-        }
-        //extend the height of the content container
-        if (_logGameObjects.Count >= 3)
-        {
-            var prefabHeight = obj.GetComponent<RectTransform>().rect.height;
-            var prefabParentRect = PrefabParent.GetComponent<RectTransform>();
-            prefabParentRect.sizeDelta = new Vector2(prefabParentRect.sizeDelta.x,prefabParentRect.sizeDelta.y + prefabHeight);
-            
-            //push up the logs after we extend the height.
-            const int pushUp = 100;
-            obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y + pushUp, 0);
-            foreach (var logGameObject in _logGameObjects)
-            {
-                logGameObject.transform.position = new Vector3(logGameObject.transform.position.x, logGameObject.transform.position.y + pushUp, 0);
-            }
-        }
-        //add this new log to the list for the future
-        log.DateDisplayed = DateTime.Now;
-        _logGameObjects.Add(obj);
-        
     }
 }

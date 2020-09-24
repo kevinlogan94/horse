@@ -15,11 +15,22 @@ public class BottomNavManager : MonoBehaviour
     public Button SceneButton;
     public Button OutlookButton;
     public Button ShopButton;
+
+    public string ActiveView;
     
     private Sprite _basicImage;
     private Sprite _activeImage;
 
     private AudioManager _audioManager;
+    
+    #region Singleton
+    public static BottomNavManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +45,7 @@ public class BottomNavManager : MonoBehaviour
     public void SelectView(string view)
     {
         TurnOffEverything();
+        ActiveView = view;
         switch (view)
         {
             case "settings":

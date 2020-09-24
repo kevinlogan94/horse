@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 [Serializable]
 public class SavedData
 {
+    public DateTime SavedDateTime = DateTime.Now;
+    
     // Monitor
     public long Influence;
     public long TotalInfluenceEarned;
@@ -21,6 +22,9 @@ public class SavedData
     
     // ShopManager
     public List<SavedHelper> Helpers = new List<SavedHelper>();
+    
+    // NewsManager
+    public List<SavedLog> Logs = new List<SavedLog>();
     
     // AchievementManager
     public int LoginCount;
@@ -56,6 +60,14 @@ public class SavedData
             Helpers.Add(savedHelper);
         }
         
+        // NewsManager
+        foreach (var log in NewsManager.Instance.Logs)
+        {
+            var savedLog = new SavedLog();
+            savedLog.Name = log.Name;
+            savedLog.Displayed = log.Displayed;
+        }
+        
         // AchievementManager
         LoginCount = AchievementManager.Instance.LoginCount;
         LoginGoal = AchievementManager.Instance.LoginGoal;
@@ -85,11 +97,19 @@ public class SavedData
         foreach (var localHelper in ShopManager.Instance.Helpers)
         {
             // Debug.Log(Helpers);
-            foreach (var loadedHelper in Helpers.Where(loadedHelper => loadedHelper.Name == localHelper.Name))
+            var loadedMatchedHelper = Helpers.FirstOrDefault(loadedHelper => loadedHelper.Name == localHelper.Name);
+            if (loadedMatchedHelper != null)
             {
-                localHelper.DynamicCost = loadedHelper.DynamicCost;
-                localHelper.AmountOwned = loadedHelper.AmountOwned;
+                localHelper.DynamicCost = loadedMatchedHelper.DynamicCost;
+                localHelper.AmountOwned = loadedMatchedHelper.AmountOwned;
             }
+        }
+        
+        // NewsManager
+        foreach (var localLog in NewsManager.Instance.Logs)
+        {
+            var loadedMatchedLog = Logs.FirstOrDefault(loadedLog => loadedLog.Name == localLog.Name);
+            if (loadedMatchedLog != null) localLog.Displayed = loadedMatchedLog.Displayed;
         }
         
         // Achievement Manager
@@ -109,6 +129,10 @@ public class SavedData
             helper.AmountOwned = 0;
             helper.DynamicCost = helper.Cost;
             helper.DynamicIncrement = helper.Increment;
+        }
+        foreach (var log in NewsManager.Instance.Logs)
+        {
+            log.Displayed = false;
         }
     }
 }
