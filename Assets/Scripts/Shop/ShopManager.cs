@@ -76,12 +76,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void OpenShop()
-    {
-        _audioManager.Play("DoorBell");
-        ShopPanel.SetActive(true);
-    }
-
     public void ManageExclamationPoint()
     {
         var showExclamationPoint = false;
