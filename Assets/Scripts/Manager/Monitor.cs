@@ -61,6 +61,21 @@ public class Monitor : MonoBehaviour
         _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(350, 1400)));
     }
 
+    /* TODO
+     * I need to finish this.
+     * https://www.youtube.com/watch?v=nBkiSJ5z-hE
+     */
+    private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, string newAnimation)
+    {
+        var animator = gameObjectToTriggerAnimation.GetComponent<Animator>();
+        if (animator == null)
+        {
+          Debug.LogWarning("We couldn't find an animator on the object: " + gameObjectToTriggerAnimation.name);
+          return;
+        }
+        animator.Play(newAnimation);
+    }
+
     public static void DestroyObject(string fingerPointerLabel)
     {
         var fingerPointer = GameObject.Find(fingerPointerLabel);

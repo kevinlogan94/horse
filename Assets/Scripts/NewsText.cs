@@ -5,11 +5,12 @@ using UnityEngine;
 public class NewsText : MonoBehaviour
 {
     private float _waitTime = 15.0f;
+    private float _currentWaitTime = 15.0f;
     private bool _justTurnedOn = true;
     
     public void Start()
     {
-        _waitTime = Time.time + _waitTime;
+        _currentWaitTime = Time.time + _waitTime;
     }
 
     public void Update()
@@ -21,12 +22,10 @@ public class NewsText : MonoBehaviour
     {
         if (_justTurnedOn)
         {    
-            Debug.Log(_waitTime);
-            _waitTime = Time.time + _waitTime;
-            Debug.Log(_waitTime);
+            _currentWaitTime = Time.time + _waitTime;
             _justTurnedOn = false;
         }
-        if (Time.time > _waitTime)
+        if (Time.time > _currentWaitTime)
         {
             _justTurnedOn = true;
             gameObject.SetActive(false);

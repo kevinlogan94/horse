@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     public GameObject ShopExclamationPoint;
 
     private float _waitTime = 1.0f;
+    private float _currentWaitTime = 1.0f;
 
     private AudioManager _audioManager;
     
@@ -97,9 +98,9 @@ public class ShopManager : MonoBehaviour
     
     private void HelperAction()
     {
-        if (Time.time > _waitTime)
+        if (Time.time > _currentWaitTime)
         {
-            _waitTime = Time.time + _waitTime;
+            _currentWaitTime = Time.time + _waitTime;
             for (var index = 0; index < Helpers.Length; index++)
             {
                 var helper = Helpers[index];    
