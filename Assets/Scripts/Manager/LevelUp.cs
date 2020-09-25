@@ -89,7 +89,7 @@ public class LevelUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
+        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = "Lvl " + Monitor.PlayerLevel;
         UpdateSliderProgress();
         ReadyToLevelUp();
     }

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Login
   m_EditorClassIdentifier: 
   Name: Login
-  Title: Log in for 2 days
-  RewardDescription: 1 hour worth of horses
+  RewardDescription: 1 hour worth of influence
   Artwork: {fileID: 21300000, guid: 45072b4b989a38745956fd7399cbd710, type: 3}

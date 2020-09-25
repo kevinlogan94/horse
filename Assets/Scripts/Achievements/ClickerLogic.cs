@@ -15,7 +15,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     // Start is called before the first frame update
     void Start()
     {
-        Title.text = AchievementObject.Title;
+        UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = 0;

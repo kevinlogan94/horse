@@ -20,7 +20,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
     // Start is called before the first frame update
     void Start()
     {
-        Title.text = AchievementObject.Title;
+        UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         _perSecondCounter = GameObject.Find("PassiveIncome").GetComponent<TextMeshProUGUI>();
         ProgressBar.value = AchievementManager.Instance.LoginCount;

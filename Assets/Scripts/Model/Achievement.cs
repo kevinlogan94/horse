@@ -4,7 +4,6 @@
 public class Achievement : ScriptableObject
 {
     public string Name;
-    public string Title;
     public string RewardDescription;
     public Sprite Artwork;
 }

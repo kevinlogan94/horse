@@ -17,7 +17,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
     // Start is called before the first frame update
     void Start()
     {
-        Title.text = AchievementObject.Title;
+        UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = 0;
@@ -40,7 +40,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Buy " + ProgressBar.maxValue + " Helpers";
+        Title.text = "Buy " + ProgressBar.maxValue + " Tomes";
     }
 
     public void Receive()
