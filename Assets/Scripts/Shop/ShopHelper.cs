@@ -14,7 +14,6 @@ public class ShopHelper : MonoBehaviour
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI CountText;
     public TextMeshProUGUI PerSecondIncreaseText;
-    public Button HelperButton;
     public Image Avatar;
     private Sprite _disabledImage;
     private Sprite _activeImage;
@@ -39,17 +38,17 @@ public class ShopHelper : MonoBehaviour
     {
         if (Helper.LevelRequirement > Monitor.PlayerLevel)
         {
-            HelperButton.image.sprite = _disabledImage;
+            gameObject.GetComponent<Button>().image.sprite = _disabledImage;
             Avatar.sprite = _lockedImage;
-            HelperButton.interactable = false;
+            gameObject.GetComponent<Button>().interactable = false;
             CountText.text = "Lvl " + Helper.LevelRequirement;
             CountText.fontSize = 18;
             return;
         }
 
         Avatar.sprite = Helper.Artwork;
-        HelperButton.image.sprite = _activeImage;
-        HelperButton.interactable = true;
+        gameObject.GetComponent<Button>().image.sprite = _activeImage;
+        gameObject.GetComponent<Button>().interactable = true;
         CountText.fontSize = 36;
 
         if (Helper.DynamicIncrement > Helper.Increment)
