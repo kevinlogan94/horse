@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
-  m_Name: 1,000
+  m_Name: LoginAchievement
   m_EditorClassIdentifier: 
-  Name: 1,000
-  Message: You have collected 1000 influence. Keep buying Tomes from Xal to keep
-    it going even when you leave this realm.
+  Name: LoginAchievement
+  Message: Returning to the realm everyday will greatly influence the people.
   Displayed: 0

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
-  m_Name: Expansion
+  m_Name: Origin
   m_EditorClassIdentifier: 
-  Name: Expansion
-  Message: You are starting to expand your horse breeds. You must be pretty smart.
-  Displayed: 1
+  Name: Origin
+  Message: People are starting to wonder who the new caster is.
+  Displayed: 0

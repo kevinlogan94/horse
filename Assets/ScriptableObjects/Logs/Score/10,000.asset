@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 10,000
   m_EditorClassIdentifier: 
   Name: 10,000
-  Message: You have bred 10,000 horses. Way to go!
+  Message: You have collected 10,000 influence. Way to go!
   Displayed: 0

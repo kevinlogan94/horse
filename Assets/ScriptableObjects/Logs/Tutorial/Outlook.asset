@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
-  m_Name: Intro
+  m_Name: Outlook
   m_EditorClassIdentifier: 
-  Name: Intro
-  Message: The first of everything is always the hardest. You have a bright future
-    ahead of you!
-  Displayed: 1
+  Name: Outlook
+  Message: Here, you can see the full view of the land outside of Xal's study.
+  Displayed: 0

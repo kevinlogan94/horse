@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewsText : MonoBehaviour
 {
-    private float _waitTime = 20.0f;
+    private float _waitTime = 15.0f;
     private bool _justTurnedOn = true;
     
     public void Start()

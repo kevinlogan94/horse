@@ -522,6 +522,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 732498643e34ccd45b97b509b8d9d49d, type: 2}
   - {fileID: 11400000, guid: 6826f66b81d3ee543ad67967c4d86316, type: 2}
   - {fileID: 11400000, guid: 49995af0cf8d6ab4ab1c5beb3bf6f7fb, type: 2}
+  - {fileID: 11400000, guid: 07e3db715bb410a4a991f048c62f7dd7, type: 2}
+  - {fileID: 11400000, guid: a43023a782927964c98c9dad338a9393, type: 2}
+  - {fileID: 11400000, guid: bfb105d6e59972b49950be2fd19082f7, type: 2}
+  - {fileID: 11400000, guid: 5c1a86d69da8ddf4eb5f80fc0d9a03bf, type: 2}
+  - {fileID: 11400000, guid: 447510c499d343d4d94acf050fb6dfb4, type: 2}
 --- !u!224 &59935494 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 11678370928482434, guid: e318d3db9d75ed54d97f22ee20a1320c,
@@ -1358,22 +1363,22 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 361
+      value: 349
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 811
+      value: 747
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -942.412
+      value: -1167.3975
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -2246.1733
+      value: -2499.6453
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
@@ -5602,6 +5607,7 @@ GameObject:
   - component: {fileID: 887232960}
   - component: {fileID: 887232962}
   - component: {fileID: 887232961}
+  - component: {fileID: 887232963}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -5665,6 +5671,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887232959}
   m_CullTransparentMesh: 0
+--- !u!114 &887232963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887232959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 887232961}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 439122359}
+        m_MethodName: OpenLevelUpPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &910994502
 GameObject:
   m_ObjectHideFlags: 0
@@ -13404,7 +13464,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

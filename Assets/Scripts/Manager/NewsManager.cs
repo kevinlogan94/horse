@@ -27,22 +27,76 @@ public class NewsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TutorialNews();
+        StoryNews();
+        LevelNews();
+        ScoreNews();
+        AchievementNews();
+    }
+
+    private void StoryNews()
+    {
+        
+    }
+
+    private void TutorialNews()
+    {
+        if (ShopManager.Instance.Helpers[1].AmountOwned == 1)
+        {
+            PlayNews("Tomes");
+        }
+        if (BottomNavManager.Instance.ActiveView == "outlook")
+        {
+            PlayNews("Outlook");
+        }
+        if (Monitor.Influence >= 2)
+        {
+            PlayNews("Spells");
+        }
+        // When you can revisit Xal
+        if (Monitor.PlayerLevel >= 3)
+        {
+            PlayNews("Xal");
+        }
+    }
+
+    private void AchievementNews()
+    {
+        if (AchievementManager.Instance.CurrentClickedAmount >= AchievementManager.Instance.ClickerGoal)
+        {
+            PlayNews("ClickerAchievement");
+        }
+        if (AchievementManager.Instance.LoginCount >= AchievementManager.Instance.LoginGoal)
+        {
+            PlayNews("LoginAchievement");
+        }
+        if (AchievementManager.Instance.CurrentHelperAmount >= AchievementManager.Instance.HelperGoal)
+        {
+            PlayNews("TomeAchievement");
+        }
+    }
+
+    private void LevelNews()
+    {
         switch (Monitor.PlayerLevel)
         {
             case 2:
-                PlayNews("Intro");
+                PlayNews("Level2");
                 break;
             case 4:
                 PlayNews("Noticed");
                 break;
             case 7: 
-                PlayNews("HorsesOrigin");
+                PlayNews("Origin");
                 break;
             case 10:
                 PlayNews("PlayTest");
                 break;
         }
+    }
 
+    private void ScoreNews()
+    {
         if (Monitor.TotalInfluenceEarned >= 1000 && Monitor.TotalInfluenceEarned < 10000)
         {
             PlayNews("1,000");
@@ -63,19 +117,9 @@ public class NewsManager : MonoBehaviour
         {
             PlayNews("1,000,000");
         } 
-
-        if (ShopManager.Instance.Helpers[1].AmountOwned == 1)
-        {
-            PlayNews("Expansion");
-        }
-
-        if (IncrementButton.ClickerLevel == 1)
-        {
-            PlayNews("ButtonWorks");
-        }
     }
 
-    public void PlayNews(string logName)
+    private void PlayNews(string logName)
     {
         var log = Logs.FirstOrDefault(x => x.Name == logName);
         if (log == null)

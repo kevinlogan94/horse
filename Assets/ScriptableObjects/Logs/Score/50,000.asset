@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 50,000
   m_EditorClassIdentifier: 
   Name: 50,000
-  Message: You have bred 50,000 horses. You're starting to get the hang of this!
+  Message: You have collected 50,000 influence. You're starting to get the hang of
+    this!
   Displayed: 0
