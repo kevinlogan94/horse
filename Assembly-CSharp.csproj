@@ -58,7 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scenes\IncrementButton.cs" />
      <Compile Include="Assets\Scripts\Achievements\AchievementLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\AchievementManager.cs" />
      <Compile Include="Assets\Scripts\Achievements\ClickerLogic.cs" />
@@ -71,6 +70,7 @@
      <Compile Include="Assets\Scripts\AnimationEvents\Horse.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />
+     <Compile Include="Assets\Scripts\IncrementButton.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Manager\BottomNavManager.cs" />
      <Compile Include="Assets\Scripts\Manager\LevelUp.cs" />
