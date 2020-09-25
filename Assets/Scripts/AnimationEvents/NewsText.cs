@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class NewsText : MonoBehaviour
 {
-    private AudioManager _audioManager;
+    private float _waitTime = 5.0f;
+    private bool _justTurnedOn = true;
     
     public void Start()
     {
-        _audioManager = FindObjectOfType<AudioManager>();
-    }
-    
-    public void DisableActiveState()
-    {
-        gameObject.SetActive(false);
+        _waitTime = Time.time + _waitTime;
     }
 
-    public void PlayIntro()
+    public void Update()
     {
-        _audioManager.Play("LevelUp2");
+        WaitThenDisableObject();
     }
 
-    public void PlayOutro()
+    public void WaitThenDisableObject()
     {
-        _audioManager.Play("Whoosh");
+        if (_justTurnedOn)
+        {    
+            Debug.Log(_waitTime);
+            _waitTime = Time.time + _waitTime;
+            Debug.Log(_waitTime);
+            _justTurnedOn = false;
+        }
+        if (Time.time > _waitTime)
+        {
+            _justTurnedOn = true;
+            gameObject.SetActive(false);
+        }
     }
 }

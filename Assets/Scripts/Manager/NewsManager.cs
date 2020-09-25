@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class NewsManager : MonoBehaviour
 {
+    public GameObject NewsPanel;
     public TextMeshProUGUI NewsText;
-    public GameObject ShopPanel;
     public Log[] Logs;
     
     #region Singleton
@@ -64,12 +64,12 @@ public class NewsManager : MonoBehaviour
             PlayNews("1,000,000");
         } 
 
-        if (ShopManager.Instance.Helpers[1].AmountOwned == 1 && !ShopPanel.activeSelf)
+        if (ShopManager.Instance.Helpers[1].AmountOwned == 1)
         {
             PlayNews("Expansion");
         }
 
-        if (IncrementButton.ClickerLevel == 1 && !ShopPanel.activeSelf)
+        if (IncrementButton.ClickerLevel == 1)
         {
             PlayNews("ButtonWorks");
         }
@@ -85,13 +85,13 @@ public class NewsManager : MonoBehaviour
         }
         if (log.Displayed)
             return;
-        if (NewsText.IsActive())
+        if (NewsPanel.activeSelf)
             return;
         if (BottomNavManager.Instance.ActiveView != "outlook")
             return;
         
+        NewsPanel.gameObject.SetActive(true);
         NewsText.GetComponent<TextMeshProUGUI>().text = log.Message;
-        NewsText.gameObject.SetActive(true);
         log.Displayed = true;
     }
 }

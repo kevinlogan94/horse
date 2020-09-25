@@ -99,7 +99,7 @@ public class ShopManager : MonoBehaviour
     {
         if (Time.time > _waitTime)
         {
-            _waitTime = Time.time + 1.0f;
+            _waitTime = Time.time + _waitTime;
             for (var index = 0; index < Helpers.Length; index++)
             {
                 var helper = Helpers[index];    
