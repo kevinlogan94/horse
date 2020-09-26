@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Manager\SavedData.cs" />
      <Compile Include="Assets\Scripts\Manager\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Model\Achievement.cs" />
+     <Compile Include="Assets\Scripts\Model\Chapter.cs" />
      <Compile Include="Assets\Scripts\Model\Helper.cs" />
      <Compile Include="Assets\Scripts\Model\HorseObject.cs" />
      <Compile Include="Assets\Scripts\Model\Log.cs" />

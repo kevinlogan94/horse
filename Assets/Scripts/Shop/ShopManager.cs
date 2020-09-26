@@ -44,8 +44,8 @@ public class ShopManager : MonoBehaviour
             var feeder = Helpers.FirstOrDefault(x => x.Name == "Feeder");
             if (Monitor.Influence >= feeder?.Cost && feeder?.AmountOwned == 0)
             {
-                FingerPointerShop.SetActive(true);
-                ShopTutorialPanel.SetActive(true);
+                FingerPointerShop.SetActive(!ShopPanel.activeSelf);
+                // ShopTutorialPanel.SetActive(true);
                 FingerPointerFeederButton.SetActive(ShopPanel.activeSelf);
             }
         }
@@ -98,7 +98,7 @@ public class ShopManager : MonoBehaviour
     
     private void HelperAction()
     {
-        if (Time.time > _currentWaitTime)
+        if (Time.time > _currentWaitTime && !SceneManager.Instance.TutorialActive)
         {
             _currentWaitTime = Time.time + _waitTime;
             for (var index = 0; index < Helpers.Length; index++)

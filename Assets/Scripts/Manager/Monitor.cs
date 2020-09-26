@@ -30,17 +30,15 @@ public class Monitor : MonoBehaviour
         SaveGame.Load();
         
         _objectPooler = ObjectPooler.Instance;
+        // _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
+        // var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
+        // var scorePanelHeight = GameObject.Find("ScorePanel").GetComponent<RectTransform>().rect.height;
+        // _topHorseSpawnerRegion = backgroundHeight - _bottomHorseSpawnerRegion - scorePanelHeight;
+    }
 
-        //button click tutorial
-        if (TotalInfluenceEarned == 0)
-        {
-            FingerPointerIncrementButton.SetActive(true);
-        }
-        
-        _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
-        var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
-        var scorePanelHeight = GameObject.Find("ScorePanel").GetComponent<RectTransform>().rect.height;
-        _topHorseSpawnerRegion = backgroundHeight - _bottomHorseSpawnerRegion - scorePanelHeight;
+    public void TriggerOutlookTutorial()
+    {
+        FingerPointerIncrementButton.SetActive(true);
     }
 
     public void IncrementInfluence(int increment, string horseBreed, float lagSeconds = 0)

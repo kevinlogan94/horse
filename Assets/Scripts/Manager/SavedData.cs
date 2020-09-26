@@ -134,5 +134,9 @@ public class SavedData
         {
             log.Displayed = false;
         }
+        foreach (var chapter in SceneManager.Instance.Chapters)
+        {
+            chapter.SceneViewed = false;
+        }
     }
 }

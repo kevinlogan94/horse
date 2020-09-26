@@ -40,6 +40,7 @@ public class BottomNavManager : MonoBehaviour
         _activeImage = Resources.Load<Sprite>("Pixel/ActiveNavButton");
         
         SelectView("outlook");
+        SceneManager.Instance.CheckAndTriggerFirstChapter();
     }
 
     public void SelectView(string view)

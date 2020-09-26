@@ -4688,7 +4688,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1310888976}
-        m_MethodName: TriggerBanter
+        m_MethodName: TriggerChat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5904,8 +5904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.8, y: 55.3}
-  m_SizeDelta: {x: 989.67236, y: 317.03113}
+  m_AnchoredPosition: {x: -22.8, y: 40.5}
+  m_SizeDelta: {x: 989.67236, y: 228.1101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925461930
 MonoBehaviour:
@@ -9298,6 +9298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f1f4ab807aaf44ba6e5cc32cf1941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Chapters:
+  - {fileID: 11400000, guid: 818e40a7e6fb5c74d900220ddd8fe4fb, type: 2}
   TextBox: {fileID: 381601095}
   Banter:
   - Yes?
@@ -9314,6 +9316,19 @@ MonoBehaviour:
   - Get out of here!
   - Go collect more influence.
   - Stop.
+  Tutorial:
+  - I'll go ahead gift you some influence. This is based on your influence over the
+    land.
+  - Alright, now use your influence to purchase a tome from my inventory.
+  - Influence is important because that defines how the realm views us.
+  - 'By giving me the influence you earn, I''ll continue to make you stronger and
+    grant '
+  - Tomes can be very powerful for they summon all manner of creatures.
+  - With each tome you purchase, you trigger an incantation that tames creatures
+    over time.
+  - Now, you are going to want to also cast some spells yourself.
+  - I'm going to send you to the outlook. Come back and see me after you have gathered
+    enough influence and reached a high enough level.
 --- !u!1 &1338520530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
