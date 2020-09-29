@@ -7,6 +7,6 @@ public class fingerPointer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     FindObjectOfType<AudioManager>().Play("LevelUp2");   
+     // FindObjectOfType<AudioManager>().Play("LevelUp2");   
     }
 }

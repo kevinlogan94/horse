@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Monitor : MonoBehaviour
 {
     public GameObject FingerPointerIncrementButton;
+    public GameObject FingerPointerOutlook;
     public TextMeshProUGUI PassiveIncomeText;
     public static long TotalInfluenceEarned = 0;
     public static long Influence = 0;
@@ -39,6 +40,7 @@ public class Monitor : MonoBehaviour
     public void TriggerOutlookTutorial()
     {
         FingerPointerIncrementButton.SetActive(true);
+        FingerPointerOutlook.SetActive(true);
     }
 
     public void IncrementInfluence(int increment, string horseBreed, float lagSeconds = 0)

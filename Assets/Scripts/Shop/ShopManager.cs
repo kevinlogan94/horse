@@ -9,10 +9,10 @@ public class ShopManager : MonoBehaviour
     public Helper[] Helpers;
 
     public GameObject ShopPanel;
-    public GameObject ShopTutorialPanel;
     public GameObject FingerPointerShop;
     public GameObject FingerPointerFeederButton;
     public GameObject ShopExclamationPoint;
+    public GameObject FingerPointerXal;
 
     private float _waitTime = 1.0f;
     private float _currentWaitTime = 1.0f;
@@ -72,7 +72,11 @@ public class ShopManager : MonoBehaviour
             {
                 FingerPointerShop.SetActive(false);
                 FingerPointerFeederButton.SetActive(false);
-                ShopTutorialPanel.SetActive(false);
+                // ShopTutorialPanel.SetActive(false);
+                if (SceneManager.Instance.TutorialActive)
+                {
+                    FingerPointerXal.SetActive(true);
+                }
             }
         }
     }

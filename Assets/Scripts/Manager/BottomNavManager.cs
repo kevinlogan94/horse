@@ -9,6 +9,7 @@ public class BottomNavManager : MonoBehaviour
     public GameObject AchievementPanel;
     public GameObject ScenePanel;
     public GameObject SettingsPanel;
+    public GameObject FingerPointerOutlook;
 
     public Button SettingsButton;
     public Button AchievementButton;
@@ -73,6 +74,11 @@ public class BottomNavManager : MonoBehaviour
                 OutlookButton.image.sprite = _activeImage;
                 _audioManager.Play("Pop");
                 break;
+        }
+
+        if (view == "outlook" && FingerPointerOutlook.activeSelf)
+        {
+            FingerPointerOutlook.SetActive(false);
         }
     }
 

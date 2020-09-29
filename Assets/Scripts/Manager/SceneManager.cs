@@ -16,6 +16,7 @@ public class SceneManager : MonoBehaviour
 
     public string[] Tutorial;
     public GameObject ScenePanel;
+    public GameObject FingerPointerXal;
 
     private int _chapterIndex;
     private int _activeChapter;
@@ -47,6 +48,7 @@ public class SceneManager : MonoBehaviour
         if (_tutorialIndex == 2 && ShopManager.Instance.Helpers[0].AmountOwned >= 1 && ScenePanel.activeSelf)
         {
             TriggerTutorial();
+            FingerPointerXal.SetActive(false);
         }
     }
 
