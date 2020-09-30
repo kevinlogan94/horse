@@ -64,6 +64,7 @@ public class ShopManager : MonoBehaviour
                 if (helper.AmountOwned == 0)
                 {
                     SplashManager.Instance.TriggerSplash(SplashType.Horse.ToString(), helper.HorseBreed);
+                    ObjectPooler.Instance.ReOptimizeHorsePools(helper.HorseBreed);
                 }
                 helper.AmountOwned++;
             }
@@ -102,7 +103,7 @@ public class ShopManager : MonoBehaviour
     
     private void HelperAction()
     {
-        if (Time.time > _currentWaitTime && !SceneManager.Instance.TutorialActive)
+        if (Time.time > _currentWaitTime && !SceneManager.Instance.TutorialActive && !Monitor.Instance.FingerPointerIncrementButton.activeSelf)
         {
             _currentWaitTime = Time.time + _waitTime;
             for (var index = 0; index < Helpers.Length; index++)

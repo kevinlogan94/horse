@@ -50,10 +50,10 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.ClickerGoal = ProgressBar.maxValue;
             
-            //update horses
-            var coreHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel].HorseBreed;
-            var secondaryHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel + 1].HorseBreed;
-            ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
+            // update horses
+            // var coreHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel].HorseBreed;
+            // var secondaryHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel + 1].HorseBreed;
+            // ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
         }

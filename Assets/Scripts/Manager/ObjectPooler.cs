@@ -112,27 +112,22 @@ public class ObjectPooler : MonoBehaviour
         return objectPool;
     }
 
-    public void ReOptimizeHorsePools(string coreHorseBreedTag, string secondaryHorseBreedTag)
+    public void ReOptimizeHorsePools(string coreHorseBreedTag)
     {
-        if (Pools.All(x => x.Tag != coreHorseBreedTag) || Pools.All(x => x.Tag != secondaryHorseBreedTag))
+        if (Pools.All(x => x.Tag != coreHorseBreedTag))
         {
-            Debug.LogWarning("We couldn't find the pools for " + coreHorseBreedTag + " and " + secondaryHorseBreedTag + ".");
+            Debug.LogWarning("We couldn't find the pools for " + coreHorseBreedTag + ".");
             return;
         }
         
         const int topSize = 30;
-        const int midSize = 10;
         const int bottomSize = 3;
         foreach (var pool in Pools.Where(pool => pool.Tag != "IncrementText"))
         {
             if (pool.Tag == coreHorseBreedTag)
             {
                 ManipulatePoolSize(pool, topSize);
-            } else if (pool.Tag == secondaryHorseBreedTag)
-            {
-                ManipulatePoolSize(pool, midSize);
-            }
-            else if (PoolDictionary[pool.Tag].Count > bottomSize)
+            } else if (PoolDictionary[pool.Tag].Count > bottomSize)
             {
                 ManipulatePoolSize(pool, bottomSize);
             }

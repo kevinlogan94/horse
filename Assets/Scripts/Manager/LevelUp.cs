@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -38,14 +39,15 @@ public class LevelUp : MonoBehaviour
     public void LevelUpPlayer(bool watchAd = false)
     {
         //level up reward 
+        var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
         if (!watchAd)
         {
-            Monitor.Instance.IncrementInfluence(_levelUpReward, "Thoroughbred");
+            Monitor.Instance.IncrementInfluence(_levelUpReward, helperHorse);
         }
         else
         {
             var bonusReward = _levelUpReward * 3;
-            Monitor.Instance.IncrementInfluence(bonusReward, "Appaloosa");
+            Monitor.Instance.IncrementInfluence(bonusReward, helperHorse);
         }
         
         //Update Level up progress bar
@@ -56,7 +58,7 @@ public class LevelUp : MonoBehaviour
         // Level Up Character
         Monitor.PlayerLevel++;
         _levelUpReward = 2 * _levelUpReward;
-        LevelUpRewardText.text = _levelUpReward + " horses";
+        LevelUpRewardText.text = _levelUpReward + " influence";
         // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
             
         //close tutorial

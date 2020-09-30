@@ -2,6 +2,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class SceneManager : MonoBehaviour
     public string[] Tutorial;
     public GameObject ScenePanel;
     public GameObject FingerPointerXal;
+    public Button OutlookButton;
+    public GameObject ChapterButton;
 
     private int _chapterIndex;
     private int _activeChapter;
@@ -43,12 +46,24 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
         DisableBanterAfterNoInteraction();
-        
+        ManageButton();
         //progress in the tutorial after player purchases from the shop.
         if (_tutorialIndex == 2 && ShopManager.Instance.Helpers[0].AmountOwned >= 1 && ScenePanel.activeSelf)
         {
             TriggerTutorial();
             FingerPointerXal.SetActive(false);
+        }
+    }
+
+    private void ManageButton()
+    {
+        if (_activeChapter != 0 || TutorialActive)
+        {
+            ChapterButton.SetActive(false);
+        }
+        else
+        {
+            ChapterButton.SetActive(true);
         }
     }
 
@@ -68,7 +83,7 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    private void TriggerChapter(int chapterNumber)
+    public void TriggerChapter(int chapterNumber)
     {
         var chapter = Chapters.FirstOrDefault(x => x.Number == chapterNumber);
         if (chapter == null)
@@ -105,7 +120,7 @@ public class SceneManager : MonoBehaviour
     private void TriggerTutorial()
     {
         TutorialActive = true;
-        if (_tutorialIndex < Tutorial.Length - 1)
+        if (_tutorialIndex < Tutorial.Length)
         {
             var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
             switch (_tutorialIndex)
@@ -134,6 +149,7 @@ public class SceneManager : MonoBehaviour
         }
         else
         {
+            OutlookButton.interactable = true;
             Monitor.Instance.TriggerOutlookTutorial();
             _tutorialIndex = 0;
             TutorialActive = false;
@@ -180,6 +196,7 @@ public class SceneManager : MonoBehaviour
         {
             BottomNavManager.Instance.SelectView("scene");
             TriggerChapter(1);
+            OutlookButton.interactable = false;
         }
     }
 }

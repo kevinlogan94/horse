@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d06a22a8ff5f1ee4998fa0163314e78a, type: 3}
-  m_Name: Tomes
+  m_Script: {fileID: 11500000, guid: 30e8920b4ffffef498626c001915380f, type: 3}
+  m_Name: Chapter 2
   m_EditorClassIdentifier: 
-  Name: Tomes
-  Message: Remember, each tome will continue to help you even when you leave this
-    realm.
-  Displayed: 0
+  Name: Voltaire's motion
+  Number: 2
+  LevelRequirement: 5
+  SceneViewed: 0
+  Quotes: []

@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\AnimationEvents\Horse.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />
+     <Compile Include="Assets\Scripts\CreatureScript.cs" />
      <Compile Include="Assets\Scripts\IncrementButton.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Manager\BottomNavManager.cs" />
@@ -79,7 +80,6 @@
      <Compile Include="Assets\Scripts\Manager\ObjectPooler.cs" />
      <Compile Include="Assets\Scripts\Manager\SaveGame.cs" />
      <Compile Include="Assets\Scripts\Manager\SavedData.cs" />
-     <Compile Include="Assets\Scripts\Manager\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Model\Achievement.cs" />
      <Compile Include="Assets\Scripts\Model\Chapter.cs" />
      <Compile Include="Assets\Scripts\Model\Helper.cs" />
@@ -90,6 +90,8 @@
      <Compile Include="Assets\Scripts\Model\Sound.cs" />
      <Compile Include="Assets\Scripts\Model\SplashType.cs" />
      <Compile Include="Assets\Scripts\NewsText.cs" />
+     <Compile Include="Assets\Scripts\Scene\ChapterButton.cs" />
+     <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopBackButton.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopHelper.cs" />
