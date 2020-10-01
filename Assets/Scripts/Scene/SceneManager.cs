@@ -57,7 +57,7 @@ public class SceneManager : MonoBehaviour
 
     private void ManageButton()
     {
-        if (_activeChapter != 0 || TutorialActive)
+        if ((_activeChapter != 0 || TutorialActive) && Chapters.Any(x=>x.SceneViewed == false))
         {
             ChapterButton.SetActive(false);
         }
@@ -69,7 +69,12 @@ public class SceneManager : MonoBehaviour
 
     public void TriggerChat()
     {
-        if (TutorialActive)
+        var chapter1 = Chapters.FirstOrDefault(chapter => chapter.Number == 1);
+        if (chapter1 != null && !chapter1.SceneViewed)
+        {
+            TriggerChapter(1);
+        }
+        else if (TutorialActive)
         {
             TriggerTutorial();
         }
@@ -133,6 +138,7 @@ public class SceneManager : MonoBehaviour
                     _tutorialIndex++;
                 
                     // Trigger the shop tutorial
+                    BottomNavManager.Instance.HidePanel.SetActive(false);
                     Monitor.Influence = ShopManager.Instance.Helpers[0].DynamicCost;
                     break;
                 }
@@ -194,8 +200,9 @@ public class SceneManager : MonoBehaviour
         }
         if (!chapter1.SceneViewed)
         {
+            BottomNavManager.Instance.HidePanel.SetActive(true);
             BottomNavManager.Instance.SelectView("scene");
-            TriggerChapter(1);
+            // TriggerChapter(1);
             OutlookButton.interactable = false;
         }
     }

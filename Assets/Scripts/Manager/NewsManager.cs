@@ -54,7 +54,7 @@ public class NewsManager : MonoBehaviour
             PlayNews("Spells");
         }
         // When you can revisit Xal
-        if (Monitor.PlayerLevel >= 3)
+        if (Monitor.PlayerLevel >= SceneManager.Instance.Chapters.Where(x => x.Number == 2).Select(x => x.LevelRequirement).FirstOrDefault())
         {
             PlayNews("Xal");
         }

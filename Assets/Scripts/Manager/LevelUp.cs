@@ -12,6 +12,7 @@ public class LevelUp : MonoBehaviour
     public TextMeshProUGUI LevelUpRewardText;
     public GameObject FingerPointerLevel;
     public GameObject LevelExclamationPoint;
+    public GameObject LevelUpTutorialPanel;
     private int _levelUpReward = 20;
     public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
@@ -33,7 +34,7 @@ public class LevelUp : MonoBehaviour
     {
         var incrementPerSecond = Monitor.Instance.GetHelperPassiveIncome();
         _levelUpReward = incrementPerSecond * 60;
-        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " horses";
+        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
     }
 
     public void LevelUpPlayer(bool watchAd = false)
@@ -65,6 +66,7 @@ public class LevelUp : MonoBehaviour
         if (Monitor.PlayerLevel==2)
         {
             Monitor.DestroyObject("FingerPointerLevel");
+            LevelUpTutorialPanel.SetActive(false);
         }
         
         //reset jingle
@@ -83,7 +85,7 @@ public class LevelUp : MonoBehaviour
         }
     }
 
-    private long HorsesEarnedThisLevel()
+    private long InfluenceEarnedThisLevel()
     { 
         return Monitor.TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
     }
@@ -101,6 +103,7 @@ public class LevelUp : MonoBehaviour
         if (Slider.value >= Slider.maxValue)
         {
             LevelExclamationPoint.SetActive(true);
+            LevelUpTutorialPanel.SetActive(true);
             UpdateRewardCounter();
             gameObject.GetComponent<Button>().interactable = true;
             if (Monitor.PlayerLevel == 1)
@@ -122,9 +125,9 @@ public class LevelUp : MonoBehaviour
 
     private void UpdateSliderProgress()
     {
-        if (HorsesEarnedThisLevel() < Slider.maxValue)
+        if (InfluenceEarnedThisLevel() < Slider.maxValue)
         {
-            Slider.value = HorsesEarnedThisLevel();
+            Slider.value = InfluenceEarnedThisLevel();
         }
         else
         {

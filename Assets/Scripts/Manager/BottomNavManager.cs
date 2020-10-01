@@ -10,6 +10,7 @@ public class BottomNavManager : MonoBehaviour
     public GameObject ScenePanel;
     public GameObject SettingsPanel;
     public GameObject FingerPointerOutlook;
+    public GameObject HidePanel;
 
     public Button SettingsButton;
     public Button AchievementButton;

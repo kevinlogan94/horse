@@ -12,8 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e8920b4ffffef498626c001915380f, type: 3}
   m_Name: Chapter 2
   m_EditorClassIdentifier: 
-  Name: Voltaire's motion
+  Name: A Blinding Need
   Number: 2
   LevelRequirement: 5
   SceneViewed: 0
-  Quotes: []
+  Quotes:
+  - Hello
+  - "I hope things haven\u2019t been too confusing around here."
+  - "Wait\u2026"
+  - Who are you again?
+  - 'Oh yes! '
+  - "You\u2019re the traveler that\u2019s showing the world what we\u2019ve got."
+  - 'It seems that you have been doing good so far. '
+  - You may be just the person I need.
+  - "You see\u2026 "
+  - 'Nothing makes me happier than knowing that the people are satisfied with me. '
+  - "What you\u2019re doing is starting to turn some heads."
+  - "It\u2019s only a matter of time before we are the talk of the realm again."
+  - I can see it now!
+  - Xal, the royal protector of the realm! Breaker of expectations!
+  - Keep going, and we can make it!
+  - Come back after you collected more influence and have raised a couple of levels.

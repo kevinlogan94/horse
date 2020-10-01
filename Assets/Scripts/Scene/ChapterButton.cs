@@ -9,6 +9,7 @@ public class ChapterButton : MonoBehaviour
 {
     public TextMeshProUGUI ChapterNameText;
     public TextMeshProUGUI ChapterNumberText;
+    public TextMeshProUGUI LevelRequirementText;
     public Image Avatar;
     private Sprite _disabledImage;
     private Sprite _activeImage;
@@ -49,16 +50,18 @@ public class ChapterButton : MonoBehaviour
         }
         ChapterNumberText.text = "Chapter " + _nextChapter.Number;
         ChapterNameText.text = _nextChapter.Name;
-
-        if (Monitor.PlayerLevel > _nextChapter.LevelRequirement)
+        
+        if (Monitor.PlayerLevel < _nextChapter.LevelRequirement)
         {
             gameObject.GetComponent<Image>().sprite = _disabledImage;
             Avatar.sprite = _lockedImage;
+            LevelRequirementText.text = "Lvl " + _nextChapter.LevelRequirement;
         }
         else
         { 
             gameObject.GetComponent<Image>().sprite = _activeImage;
             Avatar.sprite = _portalImage;
+            LevelRequirementText.text = "";
         }
     }
 }
