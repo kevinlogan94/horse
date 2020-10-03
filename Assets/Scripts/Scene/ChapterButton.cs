@@ -9,6 +9,7 @@ public class ChapterButton : MonoBehaviour
 {
     public TextMeshProUGUI ChapterNameText;
     public TextMeshProUGUI ChapterNumberText;
+    public TextMeshProUGUI ClickerRewardText;
     public TextMeshProUGUI LevelRequirementText;
     public Image Avatar;
     private Sprite _disabledImage;
@@ -45,6 +46,10 @@ public class ChapterButton : MonoBehaviour
         var nextChapter = SceneManager.Instance.NextChapter;
         if (Monitor.PlayerLevel >= nextChapter.LevelRequirement)
         {
+            if (nextChapter.Number != 1)
+            {
+                IncrementButton.ClickerIncrement *= SceneManager.ClickerIncrease;
+            }
             SceneManager.Instance.TriggerChapter(nextChapter.Number);
         }
     }
@@ -71,6 +76,16 @@ public class ChapterButton : MonoBehaviour
             gameObject.GetComponent<Image>().sprite = _activeImage;
             Avatar.sprite = _portalImage;
             LevelRequirementText.text = "";
+        }
+
+        //Manage how the clicker reward text displays
+        if (nextChapter.Number == 1)
+        {
+            ClickerRewardText.text = "";
+        }
+        else
+        {
+            ClickerRewardText.text = SceneManager.ClickerIncrease + "x Influence per Click";   
         }
     }
 }

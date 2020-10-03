@@ -14,7 +14,7 @@ public class LevelUp : MonoBehaviour
     public GameObject LevelExclamationPoint;
     public GameObject LevelUpTutorialPanel;
     public GameObject BottomNavHidePanel;
-    private int _levelUpReward = 20;
+    private long _levelUpReward = 20;
     public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
 
@@ -94,7 +94,7 @@ public class LevelUp : MonoBehaviour
             }
             UpdateRewardCounter();
             gameObject.GetComponent<Button>().interactable = true;
-            if (Monitor.PlayerLevel == 1 && !Monitor.Instance.PanelsAreDisplaying())
+            if (Monitor.PlayerLevel == 1 && BottomNavManager.Instance.ActiveView == Views.outlook.ToString())
             {
                 BottomNavHidePanel.SetActive(true);
                 LevelUpTutorialPanel.SetActive(true);

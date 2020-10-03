@@ -37,7 +37,7 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         ClickerGoal = 200;
-        HelperGoal = 15;
+        HelperGoal = 30;
     }
 
     // Update is called once per frame
@@ -51,8 +51,10 @@ public class AchievementManager : MonoBehaviour
 
     public void Tutorial()
     {
-        if (CurrentClickedAmount >= ClickerGoal 
-             || CurrentHelperAmount >= HelperGoal)
+        if ((CurrentClickedAmount >= ClickerGoal 
+             || CurrentHelperAmount >= HelperGoal) 
+            && !AchievementPanel.activeSelf
+            && !TutorialCompleted)
         {
             AchievementPointer.SetActive(true);
         }

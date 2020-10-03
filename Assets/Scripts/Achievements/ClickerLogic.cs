@@ -11,6 +11,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     public Slider ProgressBar;
     public Image Image;
     public GameObject ClickerExclamationPoint;
+    public const int ClickerIncrease = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     {
         if (ProgressBar.value >= ProgressBar.maxValue)
         {
-            IncrementButton.ClickerLevel++;
+            IncrementButton.ClickerIncrement *= ClickerIncrease;
             ProgressBar.maxValue *= 2;
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.ClickerGoal = ProgressBar.maxValue;

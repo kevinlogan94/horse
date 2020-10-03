@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: Barn
   Description: 
   LevelRequirement: 3
-  Cost: 100
-  DynamicCost: 98618
+  Cost: 250
+  DynamicCost: 9598
   Increment: 10
-  DynamicIncrement: 40
-  AmountOwned: 17
+  DynamicIncrement: 20
+  AmountOwned: 9
   HorseBreed: Appaloosa
   Artwork: {fileID: 21300000, guid: 82eb9f2917d226c408f772f1ce7634b1, type: 3}

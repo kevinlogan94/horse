@@ -4,12 +4,11 @@ using UnityEngine;
 
 public static class SaveGame
 {
-    private static readonly string Path = Application.persistentDataPath + "/StableDashGame.data";
+    private static readonly string Path = Application.persistentDataPath + "/XalsPathGame.data";
     
     public static void Save()
     {
         var formatter = new BinaryFormatter();
-        // var path = Application.persistentDataPath + "/StableDashGame.data";
         var stream = new FileStream(Path, FileMode.Create);
         
         //store all the saved data we need here.
@@ -23,7 +22,6 @@ public static class SaveGame
 
     public static void Load()
     {
-
         SavedData.RefreshData();
         return;
         
@@ -31,7 +29,7 @@ public static class SaveGame
         {
             var formatter = new BinaryFormatter();
             var stream = new FileStream(Path, FileMode.Open);
-
+        
             var savedData = formatter.Deserialize(stream) as SavedData;
             
             //take our load data and load it into the managers across the app that need this data.
@@ -41,6 +39,7 @@ public static class SaveGame
         else
         {
             Debug.LogError("Save file not found at:" + Path);
+            Debug.Log("Starting fresh saved file.");
         }
     }
 }

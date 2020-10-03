@@ -37,8 +37,12 @@ public class AchievementPanelScript : MonoBehaviour
                 AfterText.text = Monitor.Instance.GetHelperPassiveIncome() + "/sec";
                 break;
             case "Clicker":
-                BeforeText.text = IncrementButton.GetIncrement(IncrementButton.ClickerLevel - 1, 1) + "/click";
-                AfterText.text = IncrementButton.GetIncrement(IncrementButton.ClickerLevel, 1) + "/click";
+                BeforeText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement / ClickerLogic.ClickerIncrease, 1) + "/click";
+                AfterText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement, 1) + "/click";
+                break;
+            case "Xal":
+                BeforeText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement / SceneManager.ClickerIncrease, 1) + "/click";
+                AfterText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement, 1) + "/click";
                 break;
             default:
                 BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(3600) + " horses"; // 1 hour

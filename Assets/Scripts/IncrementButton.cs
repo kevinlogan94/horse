@@ -10,9 +10,9 @@ public class IncrementButton : MonoBehaviour
     private ObjectPooler _objectPooler;
     private AudioManager _audioManager;
     private float _waitTime;
-    public static int ClickerLevel = 0;
+    public static long ClickerIncrement = 1;
     public static long ClickCount = 0;
-    public static int IncrementsThisSecond = 0;
+    public static long IncrementsThisSecond = 0;
 
     #region Singleton
     public static IncrementButton Instance;
@@ -47,20 +47,20 @@ public class IncrementButton : MonoBehaviour
     public void Increment()
     {
         var randomNumber = Random.Range(0.0f, 3.0f);
-        var increment = 1;
+        long increment;
         var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
         
         if (randomNumber <= 0.03)
         {
-            increment = GetIncrement(ClickerLevel, 9);
+            increment = GetClickerIncrement(ClickerIncrement, 9);
         } 
         else if (randomNumber <= 0.30)
         {
-            increment = GetIncrement(ClickerLevel, 3);
+            increment = GetClickerIncrement(ClickerIncrement, 3);
         }
         else
         {
-            increment = GetIncrement(ClickerLevel, 1);
+            increment = GetClickerIncrement(ClickerIncrement, 1);
         }
             
         _audioManager.Play("Cork", randomNumber);
@@ -86,8 +86,8 @@ public class IncrementButton : MonoBehaviour
         // Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 
-    public static int GetIncrement(int clickerLevel, int multIncrease)
+    public static long GetClickerIncrement(long clickerIncrement, int multIncrease)
     {
-        return clickerLevel > 0 ? (int)Math.Pow(15*multIncrease, clickerLevel) : 1*multIncrease;
+        return clickerIncrement * multIncrease;
     }
 }

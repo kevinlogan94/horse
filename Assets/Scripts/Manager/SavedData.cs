@@ -18,7 +18,7 @@ public class SavedData
     
     // IncrementButton
     public long ClickCount;
-    public int ClickerLevel;
+    public long ClickerIncrement;
     
     // ShopManager
     public List<SavedHelper> Helpers = new List<SavedHelper>();
@@ -34,6 +34,9 @@ public class SavedData
     public int CurrentHelperAmount;
     public float HelperGoal;
     public bool TutorialCompleted;
+    
+    // SceneManager
+    public List<SavedChapter> Chapters = new List<SavedChapter>();
 
     public SavedData()
     {
@@ -48,7 +51,7 @@ public class SavedData
         
         // IncrementButton
         ClickCount = IncrementButton.ClickCount;
-        ClickerLevel = IncrementButton.ClickerLevel;
+        ClickerIncrement = IncrementButton.ClickerIncrement;
         
         // ShopManager
         foreach (var helper in ShopManager.Instance.Helpers)
@@ -57,6 +60,7 @@ public class SavedData
             savedHelper.Name = helper.Name;
             savedHelper.AmountOwned = helper.AmountOwned;
             savedHelper.DynamicCost = helper.DynamicCost;
+            savedHelper.DynamicIncrement = helper.DynamicIncrement;
             Helpers.Add(savedHelper);
         }
         
@@ -66,6 +70,7 @@ public class SavedData
             var savedLog = new SavedLog();
             savedLog.Name = log.Name;
             savedLog.Displayed = log.Displayed;
+            Logs.Add(savedLog);
         }
         
         // AchievementManager
@@ -76,6 +81,15 @@ public class SavedData
         CurrentHelperAmount = AchievementManager.Instance.CurrentHelperAmount;
         HelperGoal = AchievementManager.Instance.HelperGoal;
         TutorialCompleted = AchievementManager.Instance.TutorialCompleted;
+        
+        // SceneManager
+        foreach (var chapter in SceneManager.Instance.Chapters)
+        {
+            var savedChapter = new SavedChapter();
+            savedChapter.Number = chapter.Number;
+            savedChapter.SceneViewed = chapter.SceneViewed;
+            Chapters.Add(savedChapter);
+        }
     }
 
     public void DistributeLoadData()
@@ -91,7 +105,7 @@ public class SavedData
         
         // Increment Button
         IncrementButton.ClickCount = ClickCount;
-        IncrementButton.ClickerLevel = ClickerLevel;
+        IncrementButton.ClickerIncrement = ClickerIncrement;
         
         // Shop Manager
         foreach (var localHelper in ShopManager.Instance.Helpers)
@@ -102,6 +116,7 @@ public class SavedData
             {
                 localHelper.DynamicCost = loadedMatchedHelper.DynamicCost;
                 localHelper.AmountOwned = loadedMatchedHelper.AmountOwned;
+                localHelper.DynamicIncrement = loadedMatchedHelper.DynamicIncrement;
             }
         }
         
@@ -120,6 +135,14 @@ public class SavedData
         AchievementManager.Instance.CurrentHelperAmount = CurrentHelperAmount;
         AchievementManager.Instance.HelperGoal = HelperGoal;
         AchievementManager.Instance.TutorialCompleted = TutorialCompleted;
+        
+        // SceneManager
+        foreach (var localChapter in SceneManager.Instance.Chapters)
+        {
+            var loadedMatchedChapter =
+                Chapters.FirstOrDefault(loadedChapter => loadedChapter.Number == localChapter.Number);
+            if (loadedMatchedChapter != null) localChapter.SceneViewed = loadedMatchedChapter.SceneViewed;
+        }
     }
 
     public static void RefreshData()

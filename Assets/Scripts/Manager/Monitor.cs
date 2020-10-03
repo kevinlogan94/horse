@@ -45,7 +45,7 @@ public class Monitor : MonoBehaviour
         FingerPointerOutlook.SetActive(true);
     }
 
-    public void IncrementInfluence(int increment, string horseBreed, float lagSeconds = 0)
+    public void IncrementInfluence(long increment, string horseBreed, float lagSeconds = 0)
     {
         SaveGame.Save();
         Influence += increment;
@@ -87,38 +87,38 @@ public class Monitor : MonoBehaviour
 
     #region Helper Functions
     
-    public bool PanelsAreDisplaying()
-    {
-        if (SceneManager.Instance.ScenePanel.activeSelf)
-        {
-            return true;
-        }
-        if (ShopManager.Instance.ShopPanel.activeSelf)
-        {
-            return true;
-        }
-        if (SplashManager.Instance.SplashPanel.activeSelf)
-        {
-            return true;
-        }
-        if (AchievementManager.Instance.AchievementPanel.activeSelf)
-        {
-            return true;
-        }
-        if (LevelUp.Instance.LevelUpPanel.activeSelf)
-        {
-            return true;
-        }
-        if (CreditsPanel.activeSelf)
-        {
-            return true;
-        }
-        if (SettingsPanel.activeSelf)
-        {
-            return true;
-        }
-        return false;
-    }
+    // public bool PanelsAreDisplaying()
+    // {
+    //     if (SceneManager.Instance.ScenePanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (ShopManager.Instance.ShopPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (SplashManager.Instance.SplashPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (AchievementManager.Instance.AchievementPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (LevelUp.Instance.LevelUpPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (CreditsPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     if (SettingsPanel.activeSelf)
+    //     {
+    //         return true;
+    //     }
+    //     return false;
+    // }
     
     public static void DestroyObject(string fingerPointerLabel)
     {
@@ -149,13 +149,13 @@ public class Monitor : MonoBehaviour
         return String.Format("{0:n0}", intToConvertAndFormat);
     }
 
-    public int GetHelperPassiveIncome()
+    public long GetHelperPassiveIncome()
     {
         return ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
             .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
     }
 
-    public int GetInfluenceReceivedOverTime(int seconds)
+    public long GetInfluenceReceivedOverTime(int seconds)
     {
         var incrementPerSecond = GetHelperPassiveIncome();
         return incrementPerSecond * seconds; 

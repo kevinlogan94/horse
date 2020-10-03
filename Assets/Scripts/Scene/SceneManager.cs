@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,9 @@ public class SceneManager : MonoBehaviour
 
     public bool TutorialActive;
     private int _tutorialIndex;
-    
+
+    public const int ClickerIncrease = 50;
+
     #region Singleton
     public static SceneManager Instance;
 
@@ -103,6 +106,19 @@ public class SceneManager : MonoBehaviour
             if (chapterNumber == 1)
             {
                 TriggerTutorial();
+            }
+            else
+            {
+                var xalAchievement = SplashManager.Instance.Achievements.FirstOrDefault(x => x.Name == "Xal");
+                if (xalAchievement != null)
+                {
+                    xalAchievement.RewardDescription = ClickerIncrease + "x Influence per Click"; 
+                    SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), xalAchievement.Name);   
+                }
+                else
+                {
+                    Debug.LogWarning("We couldn't find the Xal achievement to display in the splash panel.");
+                }
             }
         }
     }

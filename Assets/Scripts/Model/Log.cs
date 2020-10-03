@@ -6,5 +6,4 @@ public class Log : ScriptableObject
     public string Name;
     public string Message;
     public bool Displayed;
-    public DateTime DateDisplayed;
 }

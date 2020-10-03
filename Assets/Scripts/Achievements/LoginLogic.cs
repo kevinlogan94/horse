@@ -15,7 +15,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
     public GameObject LoginExclamationPoint;
 
     private TextMeshProUGUI _perSecondCounter;
-    private int _rewardValue;
+    private long _rewardValue;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
         {
             Monitor.Influence += _rewardValue;
             ProgressBar.maxValue++;
+            AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.LoginGoal = ProgressBar.maxValue;
             //trigger bar change
             ProgressBar.value = ProgressBar.value--;

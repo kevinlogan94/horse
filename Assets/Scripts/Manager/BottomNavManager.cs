@@ -9,6 +9,7 @@ public class BottomNavManager : MonoBehaviour
     public GameObject AchievementPanel;
     public GameObject ScenePanel;
     public GameObject SettingsPanel;
+    public GameObject CreditsPanel;
     public GameObject FingerPointerOutlook;
     public GameObject HidePanel;
 
@@ -85,14 +86,26 @@ public class BottomNavManager : MonoBehaviour
 
     private void TurnOffEverything()
     {
+        //turn off panels
         ShopPanel.SetActive(false);
         AchievementPanel.SetActive(false);
         ScenePanel.SetActive(false);
         SettingsPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
+        
+        // reset bottom nav buttons
         SettingsButton.image.sprite = _basicImage;
         AchievementButton.image.sprite = _basicImage;
         SceneButton.image.sprite = _basicImage;
         OutlookButton.image.sprite = _basicImage;
         ShopButton.image.sprite = _basicImage;
     }
+}
+
+public enum Views {
+    settings,
+    outlook,
+    shop,
+    achievements,
+    scene,
 }

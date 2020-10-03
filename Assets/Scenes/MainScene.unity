@@ -1472,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
@@ -4635,7 +4635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20 horses
+  m_text: 20 Influence
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -4705,7 +4705,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 589018945}
-    characterCount: 9
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -5012,7 +5012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &657037168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5027,7 +5027,7 @@ RectTransform:
   - {fileID: 381601096}
   - {fileID: 1301536329}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5482,6 +5482,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcc76565f009c704abf1ba7325d805ca, type: 2}
   - {fileID: 11400000, guid: c596d3a02f19e7f4ea08005d51934a60, type: 2}
   - {fileID: 11400000, guid: 1bc49c329f62ecf429647441b4f7921e, type: 2}
+  - {fileID: 11400000, guid: 6339835f9893df147a3ecbb3553c373c, type: 2}
   HorseObjects:
   - {fileID: 11400000, guid: 6cc37e91bfc1cbf49a44182216821553, type: 2}
   - {fileID: 11400000, guid: b59b8309470613e4db11c38119457d6c, type: 2}
@@ -5666,12 +5667,12 @@ RectTransform:
   m_Children:
   - {fileID: 1375509838}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 5
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 99.676}
+  m_SizeDelta: {x: 0, y: -199.35254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784571321
 MonoBehaviour:
@@ -5944,7 +5945,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -7576,7 +7577,6 @@ RectTransform:
   - {fileID: 985911627}
   - {fileID: 323923463}
   - {fileID: 1060306277}
-  - {fileID: 784571320}
   - {fileID: 1694319520}
   - {fileID: 1298386580}
   - {fileID: 1379602030}
@@ -7585,6 +7585,7 @@ RectTransform:
   - {fileID: 431427058}
   - {fileID: 657037168}
   - {fileID: 1480275291}
+  - {fileID: 784571320}
   - {fileID: 910994503}
   - {fileID: 1411093841}
   - {fileID: 689904403}
@@ -8094,7 +8095,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -8184,7 +8185,7 @@ PrefabInstance:
     - target: {fileID: 4875891330039396786, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_text
-      value: Achievements
+      value: Rewards
       objectReference: {fileID: 0}
     - target: {fileID: 4875891330039396786, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -10062,6 +10063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChapterNameText: {fileID: 1499341118}
   ChapterNumberText: {fileID: 291435576}
+  ClickerRewardText: {fileID: 1476302504}
   LevelRequirementText: {fileID: 1849242245}
   Avatar: {fileID: 826438536}
 --- !u!114 &1301536332
@@ -10548,7 +10550,7 @@ PrefabInstance:
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -10558,7 +10560,7 @@ PrefabInstance:
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -10568,12 +10570,17 @@ PrefabInstance:
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_text
-      value: New Horse Unlocked
+      value: New Creature Unlocked
       objectReference: {fileID: 0}
     - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088865345166720686, guid: 68cef713d17601d4bb976efbd2908799,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 65.45
       objectReference: {fileID: 0}
     - target: {fileID: 9088865345166720687, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -10815,7 +10822,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -11936,7 +11943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1476302503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11975,7 +11982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10x Influence per click
+  m_text: 50x Influence per click
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -12117,7 +12124,7 @@ RectTransform:
   - {fileID: 384291062}
   - {fileID: 1650264860}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -12177,6 +12184,7 @@ MonoBehaviour:
   AchievementPanel: {fileID: 1298386579}
   ScenePanel: {fileID: 657037167}
   SettingsPanel: {fileID: 1971269557}
+  CreditsPanel: {fileID: 912054425}
   FingerPointerOutlook: {fileID: 1793168346}
   HidePanel: {fileID: 1650264859}
   SettingsButton: {fileID: 2083611433}
@@ -12864,7 +12872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747c95b5a48472459ce478954ded0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementPanel: {fileID: 0}
+  AchievementPanel: {fileID: 1298386579}
   AchievementPointer: {fileID: 1021633254}
   AchievementExclamationPoint: {fileID: 1523805011}
   LoginCount: 1
@@ -14134,7 +14142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yes!! Way to go!
+  m_text: Yes!! Way to go!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -14163,12 +14171,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 70
+  m_fontSize: 90
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 45
+  m_fontSizeMax: 90
   m_fontStyle: 1
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -14204,7 +14212,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1757958371}
-    characterCount: 16
+    characterCount: 17
     spriteCount: 0
     spaceCount: 3
     wordCount: 4
@@ -15158,8 +15166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.9, y: 10.24}
-  m_SizeDelta: {x: 595.4643, y: 89.44318}
+  m_AnchoredPosition: {x: -0.7, y: 0.0000019073486}
+  m_SizeDelta: {x: 387.64728, y: 89.44318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874283004
 MonoBehaviour:
@@ -15190,8 +15198,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15209,7 +15217,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 52.1
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16779,10 +16787,10 @@ RectTransform:
   m_Father: {fileID: 1375509838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -80.912}
-  m_SizeDelta: {x: 0.00024414062, y: 161.95691}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 1, y: -25}
+  m_SizeDelta: {x: 461.84644, y: 161.95691}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098535351
 MonoBehaviour:
@@ -16803,7 +16811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce7c59375fc312d4a97d7bb78a31d348, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0fbdf4432a776040b540d062a2f6b13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17186,7 +17194,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -17455,7 +17463,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
