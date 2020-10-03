@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
 {
+    public GameObject SettingsPanel;
+    public GameObject CreditsPanel;
     public GameObject FingerPointerIncrementButton;
     public GameObject FingerPointerOutlook;
     public TextMeshProUGUI PassiveIncomeText;
@@ -75,7 +77,49 @@ public class Monitor : MonoBehaviour
         }
         animator.Play(newAnimation);
     }
+    
+    public void UpdatePassiveIncomeText()
+    {
+        var passiveIncomeRate = GetHelperPassiveIncome();
+        passiveIncomeRate += IncrementButton.IncrementsThisSecond;
+        PassiveIncomeText.text = FormatNumberToString(passiveIncomeRate) + "/sec";
+    }
 
+    #region Helper Functions
+    
+    public bool PanelsAreDisplaying()
+    {
+        if (SceneManager.Instance.ScenePanel.activeSelf)
+        {
+            return true;
+        }
+        if (ShopManager.Instance.ShopPanel.activeSelf)
+        {
+            return true;
+        }
+        if (SplashManager.Instance.SplashPanel.activeSelf)
+        {
+            return true;
+        }
+        if (AchievementManager.Instance.AchievementPanel.activeSelf)
+        {
+            return true;
+        }
+        if (LevelUp.Instance.LevelUpPanel.activeSelf)
+        {
+            return true;
+        }
+        if (CreditsPanel.activeSelf)
+        {
+            return true;
+        }
+        if (SettingsPanel.activeSelf)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     public static void DestroyObject(string fingerPointerLabel)
     {
         var fingerPointer = GameObject.Find(fingerPointerLabel);
@@ -104,13 +148,6 @@ public class Monitor : MonoBehaviour
         }
         return String.Format("{0:n0}", intToConvertAndFormat);
     }
-    
-    public void UpdatePassiveIncomeText()
-    {
-        var passiveIncomeRate = GetHelperPassiveIncome();
-        passiveIncomeRate += IncrementButton.IncrementsThisSecond;
-        PassiveIncomeText.text = FormatNumberToString(passiveIncomeRate) + "/sec";
-    }
 
     public int GetHelperPassiveIncome()
     {
@@ -123,4 +160,6 @@ public class Monitor : MonoBehaviour
         var incrementPerSecond = GetHelperPassiveIncome();
         return incrementPerSecond * seconds; 
     }
+
+    #endregion
 }

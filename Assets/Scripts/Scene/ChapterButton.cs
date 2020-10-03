@@ -15,7 +15,15 @@ public class ChapterButton : MonoBehaviour
     private Sprite _activeImage;
     private Sprite _lockedImage;
     private Sprite _portalImage;
-    private Chapter _nextChapter;
+    
+    #region Singleton
+    public static ChapterButton Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
     
     // Start is called before the first frame update
     void Start()
@@ -29,33 +37,34 @@ public class ChapterButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _nextChapter = SceneManager.Instance.Chapters.FirstOrDefault(chapter => !chapter.SceneViewed);
         UpdateButton();
     }
 
     public void TriggerChapter()
     {
-        if (Monitor.PlayerLevel <= _nextChapter.LevelRequirement)
+        var nextChapter = SceneManager.Instance.NextChapter;
+        if (Monitor.PlayerLevel >= nextChapter.LevelRequirement)
         {
-            SceneManager.Instance.TriggerChapter(_nextChapter.Number);
+            SceneManager.Instance.TriggerChapter(nextChapter.Number);
         }
     }
 
     private void UpdateButton()
     {
-        if (_nextChapter == null)
+        var nextChapter = SceneManager.Instance.NextChapter;
+        if (nextChapter == null)
         {
             Debug.LogWarning("We couldn't find the next chapter to show");
             return;
         }
-        ChapterNumberText.text = "Chapter " + _nextChapter.Number;
-        ChapterNameText.text = _nextChapter.Name;
+        ChapterNumberText.text = "Chapter " + nextChapter.Number;
+        ChapterNameText.text = nextChapter.Name;
         
-        if (Monitor.PlayerLevel < _nextChapter.LevelRequirement)
+        if (Monitor.PlayerLevel < nextChapter.LevelRequirement)
         {
             gameObject.GetComponent<Image>().sprite = _disabledImage;
             Avatar.sprite = _lockedImage;
-            LevelRequirementText.text = "Lvl " + _nextChapter.LevelRequirement;
+            LevelRequirementText.text = "Lvl " + nextChapter.LevelRequirement;
         }
         else
         { 

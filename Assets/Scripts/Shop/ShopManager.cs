@@ -88,7 +88,8 @@ public class ShopManager : MonoBehaviour
         foreach (var helper in Helpers)
         {
             if (helper.LevelRequirement <= Monitor.PlayerLevel 
-                && helper.DynamicCost <= Monitor.Influence)
+                && helper.DynamicCost <= Monitor.Influence
+                && SceneManager.Instance.ActiveChapter == 0)
             {
                 showExclamationPoint = true;
                 ShopExclamationPoint.SetActive(true);

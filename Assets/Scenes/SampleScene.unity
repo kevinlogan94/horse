@@ -560,7 +560,7 @@ RectTransform:
   m_GameObject: {fileID: 63562436}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2032495364}
   m_RootOrder: 1
@@ -583,13 +583,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea61005a2198f714382706acfc38be8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c6ff2393b781f24b8b215de970178d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1472,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
@@ -2666,6 +2666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df226fae2a5ed498174ebf02c7cf4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SettingsPanel: {fileID: 1971269557}
+  CreditsPanel: {fileID: 912054425}
   FingerPointerIncrementButton: {fileID: 29631867}
   FingerPointerOutlook: {fileID: 1793168346}
   PassiveIncomeText: {fileID: 1798112441}
@@ -2709,7 +2711,7 @@ RectTransform:
   - {fileID: 439122355}
   - {fileID: 1983115470}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3333,6 +3335,7 @@ MonoBehaviour:
   FingerPointerLevel: {fileID: 1338520530}
   LevelExclamationPoint: {fileID: 1125930347}
   LevelUpTutorialPanel: {fileID: 985911626}
+  BottomNavHidePanel: {fileID: 1650264859}
   InfluenceEarnedEveryLevelSoFar: 0
 --- !u!1 &454776584
 GameObject:
@@ -3368,7 +3371,7 @@ RectTransform:
   m_Children:
   - {fileID: 849208362}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.256}
   m_AnchorMax: {x: 0.5, y: 0.256}
@@ -4570,6 +4573,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563911109}
   m_CullTransparentMesh: 0
+--- !u!1 &581150486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5858429602257484965, guid: d0976705932228647978cce4220b7de7,
+    type: 3}
+  m_PrefabInstance: {fileID: 525060240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589018943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,7 +5027,7 @@ RectTransform:
   - {fileID: 381601096}
   - {fileID: 1301536329}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5657,7 +5666,7 @@ RectTransform:
   m_Children:
   - {fileID: 1375509838}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5935,7 +5944,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -5960,7 +5969,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99.698
+      value: 252.67
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -5970,7 +5979,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -199.31006
+      value: -524.6449
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -7032,7 +7041,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 13
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7563,8 +7572,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1087526415}
-  - {fileID: 323923463}
   - {fileID: 454776585}
+  - {fileID: 985911627}
+  - {fileID: 323923463}
   - {fileID: 1060306277}
   - {fileID: 784571320}
   - {fileID: 1694319520}
@@ -7575,7 +7585,6 @@ RectTransform:
   - {fileID: 431427058}
   - {fileID: 657037168}
   - {fileID: 1480275291}
-  - {fileID: 985911627}
   - {fileID: 910994503}
   - {fileID: 1411093841}
   - {fileID: 689904403}
@@ -7800,7 +7809,7 @@ RectTransform:
   m_Children:
   - {fileID: 1757958369}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8085,7 +8094,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -10140,6 +10149,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83f59228bc058e544a1f829ff75b42be, type: 2}
   - {fileID: 11400000, guid: 0b6ed51875acfbd4badf83983b8f6f91, type: 2}
   TextBox: {fileID: 381601095}
+  NextChapter: {fileID: 0}
   Banter:
   - Yes?
   - Don't you have better things to do?
@@ -10170,8 +10180,10 @@ MonoBehaviour:
     high enough level.'
   ScenePanel: {fileID: 657037167}
   FingerPointerXal: {fileID: 744495390}
+  ExclamationPointXal: {fileID: 581150486}
   OutlookButton: {fileID: 1587151722}
-  ChapterButton: {fileID: 1301536328}
+  ChapterButtonGameObject: {fileID: 1301536328}
+  ActiveChapter: 0
   TutorialActive: 0
 --- !u!1 &1338520530 stripped
 GameObject:
@@ -10803,7 +10815,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12105,7 +12117,7 @@ RectTransform:
   - {fileID: 384291062}
   - {fileID: 1650264860}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -12852,6 +12864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747c95b5a48472459ce478954ded0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AchievementPanel: {fileID: 0}
   AchievementPointer: {fileID: 1021633254}
   AchievementExclamationPoint: {fileID: 1523805011}
   LoginCount: 1
@@ -13224,7 +13237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5372549}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15927,13 +15940,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dbe18aac251f754c88b1552b0aef5a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 799dc42efa800da478d57b9b266e954f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17173,7 +17186,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -17442,7 +17455,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}

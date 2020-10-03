@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    public GameObject AchievementPanel;
     public GameObject AchievementPointer;
     public GameObject AchievementExclamationPoint;
     
@@ -64,7 +65,10 @@ public class AchievementManager : MonoBehaviour
     public void ManageExclamationPoint()
     {
         var showExclamationPoint = AchievementReady();
-        AchievementExclamationPoint.SetActive(showExclamationPoint);
+        if (SceneManager.Instance.ActiveChapter == 0)
+        {
+            AchievementExclamationPoint.SetActive(showExclamationPoint);
+        }
     }
 
     public bool AchievementReady()

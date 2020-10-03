@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: The beginning
   Number: 1
+  LevelRequirement: 1
   SceneViewed: 1
   Quotes:
   - OH MY GOSH!
   - Oh, I'm sorry.
   - You startled me; I wasn't expecting any travelers today.
-  - Did anyone teach you not to wake an old man?
+  - Did anyone teach you not to bother an old man?
   - See, its only been...
   - oh...
   - It's been...
@@ -29,7 +30,7 @@ MonoBehaviour:
   - You're the new apprentice in search of knowledge.
   - Haha! What else could you be, right?
   - Excuse me! I have yet to introduce myself!
-  - I am Xal, guardian of this realm, tamer of monsters, and elder of the kingdom.
+  - I am Xal, guardian of this realm.
   - But you may call me...
   - Xal
   - But, I'm sure you already know all of that.

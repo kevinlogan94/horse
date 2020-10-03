@@ -13,6 +13,7 @@ public class LevelUp : MonoBehaviour
     public GameObject FingerPointerLevel;
     public GameObject LevelExclamationPoint;
     public GameObject LevelUpTutorialPanel;
+    public GameObject BottomNavHidePanel;
     private int _levelUpReward = 20;
     public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
@@ -30,11 +31,12 @@ public class LevelUp : MonoBehaviour
     {
     }
     
-    public void UpdateRewardCounter()
+    // Update is called once per frame
+    void Update()
     {
-        var incrementPerSecond = Monitor.Instance.GetHelperPassiveIncome();
-        _levelUpReward = incrementPerSecond * 60;
-        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
+        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = "Lvl " + Monitor.PlayerLevel;
+        UpdateSliderProgress();
+        ReadyToLevelUp();
     }
 
     public void LevelUpPlayer(bool watchAd = false)
@@ -67,6 +69,7 @@ public class LevelUp : MonoBehaviour
         {
             Monitor.DestroyObject("FingerPointerLevel");
             LevelUpTutorialPanel.SetActive(false);
+            BottomNavHidePanel.SetActive(false);
         }
         
         //reset jingle
@@ -75,39 +78,26 @@ public class LevelUp : MonoBehaviour
         // Close Panel
         LevelUpPanel.SetActive(false);
     }
-    
-    public void OpenLevelUpPanel()
-    {
-        if (Slider.value >= Slider.maxValue)
-        {
-            FindObjectOfType<AudioManager>().Play("LevelUp");
-            LevelUpPanel.SetActive(true);
-        }
-    }
 
     private long InfluenceEarnedThisLevel()
     { 
         return Monitor.TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = "Lvl " + Monitor.PlayerLevel;
-        UpdateSliderProgress();
-        ReadyToLevelUp();
-    }
-
     private void ReadyToLevelUp()
     {
         if (Slider.value >= Slider.maxValue)
         {
-            LevelExclamationPoint.SetActive(true);
-            LevelUpTutorialPanel.SetActive(true);
+            if (SceneManager.Instance.ActiveChapter == 0)
+            {
+                LevelExclamationPoint.SetActive(true);
+            }
             UpdateRewardCounter();
             gameObject.GetComponent<Button>().interactable = true;
-            if (Monitor.PlayerLevel == 1)
+            if (Monitor.PlayerLevel == 1 && !Monitor.Instance.PanelsAreDisplaying())
             {
+                BottomNavHidePanel.SetActive(true);
+                LevelUpTutorialPanel.SetActive(true);
                 FingerPointerLevel.SetActive(true);
             }
             else if (!_jinglePlayedThisLevel)
@@ -123,6 +113,24 @@ public class LevelUp : MonoBehaviour
         }
     }
 
+    #region UI Methods
+    
+    public void UpdateRewardCounter()
+    {
+        var incrementPerSecond = Monitor.Instance.GetHelperPassiveIncome();
+        _levelUpReward = incrementPerSecond * 60;
+        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
+    }
+    
+    public void OpenLevelUpPanel()
+    {
+        if (Slider.value >= Slider.maxValue)
+        {
+            FindObjectOfType<AudioManager>().Play("LevelUp");
+            LevelUpPanel.SetActive(true);
+        }
+    }
+
     private void UpdateSliderProgress()
     {
         if (InfluenceEarnedThisLevel() < Slider.maxValue)
@@ -134,4 +142,6 @@ public class LevelUp : MonoBehaviour
             Slider.value = Slider.maxValue;
         }
     }
+    
+    #endregion
 }
