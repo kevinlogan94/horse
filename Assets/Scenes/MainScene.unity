@@ -5012,7 +5012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &657037168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12875,6 +12875,9 @@ MonoBehaviour:
   AchievementPanel: {fileID: 1298386579}
   AchievementPointer: {fileID: 1021633254}
   AchievementExclamationPoint: {fileID: 1523805011}
+  TwitterUrl: 
+  InstagramUrl: 
+  FacebookUrl: 
   LoginCount: 1
   LoginGoal: 2
   CurrentClickedAmount: 0
@@ -12882,6 +12885,7 @@ MonoBehaviour:
   CurrentHelperAmount: 0
   HelperGoal: 10
   TutorialCompleted: 0
+  AppStoreReviewed: 0
 --- !u!1 &1599321513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5858429602257484965, guid: d0976705932228647978cce4220b7de7,

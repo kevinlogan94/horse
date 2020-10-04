@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
@@ -8,6 +9,10 @@ public class AchievementManager : MonoBehaviour
     public GameObject AchievementPanel;
     public GameObject AchievementPointer;
     public GameObject AchievementExclamationPoint;
+    
+    public string TwitterUrl = "";
+    public string InstagramUrl = "";
+    public string FacebookUrl = "";
     
     //login
     public int LoginCount = 1;
@@ -24,6 +29,10 @@ public class AchievementManager : MonoBehaviour
     //tutorial
     public bool TutorialCompleted = false;
     
+    //sharing and/or reviewing the app
+    public const int ShareGoal = 1;
+    public bool AppStoreReviewed = false;
+
     #region Singleton
     public static AchievementManager Instance;
 

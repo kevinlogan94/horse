@@ -58,15 +58,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Achievements\AchievementLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\AchievementManager.cs" />
-     <Compile Include="Assets\Scripts\Achievements\ClickerLogic.cs" />
-     <Compile Include="Assets\Scripts\Achievements\HelperLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\IAchievement.cs" />
-     <Compile Include="Assets\Scripts\Achievements\LevelLogic.cs" />
-     <Compile Include="Assets\Scripts\Achievements\LoginLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\AchievementLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\AppStoreReviewLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\ClickerLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\HelperLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\LevelLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\LoginLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\VideoLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\ProgressBar.cs" />
-     <Compile Include="Assets\Scripts\Achievements\VideoLogic.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Horse.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />

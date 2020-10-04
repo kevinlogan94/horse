@@ -70,6 +70,6 @@ public class LoginLogic : MonoBehaviour, IAchievement
     public void UpdateRewardCounter()
     {
         _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(3600); // 1 hour
-        RewardDescription.text = AchievementObject.RewardDescription + "\n(" + Monitor.FormatNumberToString(_rewardValue) + " horses)";
+        RewardDescription.text = AchievementObject.RewardDescription + "\n(" + Monitor.FormatNumberToString(_rewardValue) + " influence)";
     }
 }
