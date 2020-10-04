@@ -45,7 +45,7 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ClickerGoal = 200;
+        ClickerGoal = 300;
         HelperGoal = 30;
     }
 
