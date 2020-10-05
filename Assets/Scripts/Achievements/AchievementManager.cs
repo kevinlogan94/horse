@@ -29,9 +29,14 @@ public class AchievementManager : MonoBehaviour
     //tutorial
     public bool TutorialCompleted = false;
     
+    //video
+    public int CurrentVideoAmount;
+    public float VideoGoal;
+    
     //sharing and/or reviewing the app
     public const int ShareGoal = 1;
     public bool AppStoreReviewed = false;
+    public bool FollowedOnTwitter = false;
 
     #region Singleton
     public static AchievementManager Instance;
@@ -73,16 +78,13 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
-    public void ManageExclamationPoint()
+    private void ManageExclamationPoint()
     {
         var showExclamationPoint = AchievementReady();
-        if (SceneManager.Instance.ActiveChapter == 0)
-        {
-            AchievementExclamationPoint.SetActive(showExclamationPoint);
-        }
+        AchievementExclamationPoint.SetActive(SceneManager.Instance.ActiveChapter == 0 && showExclamationPoint);
     }
 
-    public bool AchievementReady()
+    private bool AchievementReady()
     {
         var ready = false;
         if (ClickerGoal <= CurrentClickedAmount)
@@ -94,16 +96,19 @@ public class AchievementManager : MonoBehaviour
         } else if (LoginGoal <= LoginCount)
         {
             ready = true;
+        } else if (VideoGoal <= CurrentVideoAmount)
+        {
+            ready = true;
         }
         return ready;
     }
-    
-    public void ClickerProgress()
+
+    private void ClickerProgress()
     {
         CurrentClickedAmount = IncrementButton.ClickCount;
     }
 
-    public void HelperProgress()
+    private void HelperProgress()
     {
         CurrentHelperAmount = ShopManager.Instance.Helpers.Sum(x => x.AmountOwned);
     }

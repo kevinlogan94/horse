@@ -34,7 +34,11 @@ public class SavedData
     public int CurrentHelperAmount;
     public float HelperGoal;
     public bool TutorialCompleted;
-    
+    public int CurrentVideoAmount;
+    public float VideoGoal;
+    public bool AppStoreReviewed;
+    public bool FollowedOnTwitter;
+
     // SceneManager
     public List<SavedChapter> Chapters = new List<SavedChapter>();
 
@@ -81,6 +85,10 @@ public class SavedData
         CurrentHelperAmount = AchievementManager.Instance.CurrentHelperAmount;
         HelperGoal = AchievementManager.Instance.HelperGoal;
         TutorialCompleted = AchievementManager.Instance.TutorialCompleted;
+        CurrentVideoAmount = AchievementManager.Instance.CurrentVideoAmount;
+        VideoGoal = AchievementManager.Instance.VideoGoal;
+        AppStoreReviewed = AchievementManager.Instance.AppStoreReviewed;
+        FollowedOnTwitter = AchievementManager.Instance.FollowedOnTwitter;
         
         // SceneManager
         foreach (var chapter in SceneManager.Instance.Chapters)
@@ -135,6 +143,10 @@ public class SavedData
         AchievementManager.Instance.CurrentHelperAmount = CurrentHelperAmount;
         AchievementManager.Instance.HelperGoal = HelperGoal;
         AchievementManager.Instance.TutorialCompleted = TutorialCompleted;
+        AchievementManager.Instance.CurrentVideoAmount = CurrentVideoAmount;
+        AchievementManager.Instance.VideoGoal = VideoGoal;
+        AchievementManager.Instance.AppStoreReviewed = AppStoreReviewed;
+        AchievementManager.Instance.FollowedOnTwitter = FollowedOnTwitter;
         
         // SceneManager
         foreach (var localChapter in SceneManager.Instance.Chapters)

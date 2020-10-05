@@ -64,7 +64,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-            Title.text = "Log in for " + ProgressBar.maxValue + " days";
+        Title.text = "Log in for " + ProgressBar.maxValue + " days";
     }
 
     public void UpdateRewardCounter()

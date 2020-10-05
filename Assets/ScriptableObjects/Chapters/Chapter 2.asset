@@ -15,19 +15,18 @@ MonoBehaviour:
   Name: A Blinding Need
   Number: 2
   LevelRequirement: 5
-  SceneViewed: 0
+  SceneViewed: 1
   Quotes:
   - Hello
   - "I hope things haven\u2019t been too confusing around here."
   - "Wait\u2026"
   - Who are you again?
   - 'Oh yes! '
-  - "You\u2019re the traveler that\u2019s showing the world what we\u2019ve got."
+  - "You\u2019re my new apprentice!"
   - 'It seems that you have been doing good so far. '
   - You may be just the person I need.
   - "You see\u2026 "
-  - 'Nothing makes me happier than know that people are completely satisfied with
-    our work. '
+  - 'Nothing makes me happier than when the people are delighted with our work. '
   - "What you\u2019re doing is starting to turn some heads."
   - "It\u2019s only a matter of time before we are the talk of the realm again."
   - I can see it now!
