@@ -10435,7 +10435,7 @@ PrefabInstance:
     - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344972675526, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -12900,7 +12900,10 @@ MonoBehaviour:
   CurrentHelperAmount: 0
   HelperGoal: 10
   TutorialCompleted: 0
+  CurrentVideoAmount: 0
+  VideoGoal: 0
   AppStoreReviewed: 0
+  FollowedOnTwitter: 0
 --- !u!1 &1599321513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5858429602257484965, guid: d0976705932228647978cce4220b7de7,
@@ -16440,7 +16443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 89.339}
+  m_AnchoredPosition: {x: 0, y: 89.33911}
   m_SizeDelta: {x: 0, y: -1556.407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032495365

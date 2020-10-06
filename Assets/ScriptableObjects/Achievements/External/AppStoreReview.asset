@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: AppStoreReview
   RewardDescription: 1 hour worth of influence
-  Artwork: {fileID: 0}
+  Artwork: {fileID: 21300000, guid: 9179c61db6bf9c24f8a46cf9a4c950de, type: 3}

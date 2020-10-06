@@ -52,6 +52,7 @@ public class AchievementManager : MonoBehaviour
     {
         ClickerGoal = 300;
         HelperGoal = 30;
+        VideoGoal = 10;
     }
 
     // Update is called once per frame

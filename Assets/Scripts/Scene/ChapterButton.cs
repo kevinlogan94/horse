@@ -32,7 +32,7 @@ public class ChapterButton : MonoBehaviour
         _disabledImage = Resources.Load<Sprite>("achiev_box_pressed");
         _activeImage = Resources.Load<Sprite>("achiev_box");
         _lockedImage = Resources.Load<Sprite>("lvl_lock_block");
-        _portalImage = Resources.Load<Sprite>("Pixel/portal");
+        _portalImage = Resources.Load<Sprite>("Pixel/Achievements/portal");
     }
 
     // Update is called once per frame
