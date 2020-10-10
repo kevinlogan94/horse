@@ -36,6 +36,8 @@ public class SavedData
     public bool TutorialCompleted;
     public int CurrentVideoAmount;
     public float VideoGoal;
+    public int CurrentWatchedAdvertisements;
+    public int AdvertisementGoal;
     public bool AppStoreReviewed;
     public bool FollowedOnTwitter;
 
@@ -87,6 +89,8 @@ public class SavedData
         TutorialCompleted = AchievementManager.Instance.TutorialCompleted;
         CurrentVideoAmount = AchievementManager.Instance.CurrentVideoAmount;
         VideoGoal = AchievementManager.Instance.VideoGoal;
+        CurrentWatchedAdvertisements = AchievementManager.Instance.CurrentWatchedAdvertisements;
+        AdvertisementGoal = AchievementManager.Instance.AdvertisementGoal;
         AppStoreReviewed = AchievementManager.Instance.AppStoreReviewed;
         FollowedOnTwitter = AchievementManager.Instance.FollowedOnTwitter;
         
@@ -145,6 +149,8 @@ public class SavedData
         AchievementManager.Instance.TutorialCompleted = TutorialCompleted;
         AchievementManager.Instance.CurrentVideoAmount = CurrentVideoAmount;
         AchievementManager.Instance.VideoGoal = VideoGoal;
+        AchievementManager.Instance.CurrentWatchedAdvertisements = CurrentWatchedAdvertisements;
+        AchievementManager.Instance.AdvertisementGoal = AdvertisementGoal;
         AchievementManager.Instance.AppStoreReviewed = AppStoreReviewed;
         AchievementManager.Instance.FollowedOnTwitter = FollowedOnTwitter;
         

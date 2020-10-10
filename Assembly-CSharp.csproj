@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />
      <Compile Include="Assets\Scripts\CreatureScript.cs" />
      <Compile Include="Assets\Scripts\IncrementButton.cs" />
+     <Compile Include="Assets\Scripts\Manager\AdvertisementManager.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Manager\BottomNavManager.cs" />
      <Compile Include="Assets\Scripts\Manager\LevelUp.cs" />
@@ -204,6 +205,15 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Monetization">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements.Editor">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

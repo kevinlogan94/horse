@@ -50,7 +50,7 @@ public class LevelUp : MonoBehaviour
         else
         {
             var bonusReward = _levelUpReward * 3;
-            Monitor.Instance.IncrementInfluence(bonusReward, helperHorse);
+            AdvertisementManager.Instance.ShowRewardedAd(bonusReward);
         }
         
         //Update Level up progress bar

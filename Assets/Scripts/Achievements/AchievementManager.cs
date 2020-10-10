@@ -33,6 +33,10 @@ public class AchievementManager : MonoBehaviour
     public int CurrentVideoAmount;
     public float VideoGoal;
     
+    //advertisement
+    public int CurrentWatchedAdvertisements;
+    public int AdvertisementGoal;
+    
     //sharing and/or reviewing the app
     public const int ShareGoal = 1;
     public bool AppStoreReviewed = false;
@@ -53,6 +57,7 @@ public class AchievementManager : MonoBehaviour
         ClickerGoal = 300;
         HelperGoal = 30;
         VideoGoal = 10;
+        AdvertisementGoal = 10;
     }
 
     // Update is called once per frame
