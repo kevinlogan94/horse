@@ -115,10 +115,9 @@ public class LevelUp : MonoBehaviour
 
     #region UI Methods
     
-    public void UpdateRewardCounter()
+    private void UpdateRewardCounter()
     {
-        var incrementPerSecond = Monitor.Instance.GetHelperPassiveIncome();
-        _levelUpReward = incrementPerSecond * 60;
+        _levelUpReward = Monitor.Instance.GetInfluenceReceivedOverTime(600); // 10 minutes
         LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
     }
     

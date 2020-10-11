@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Model;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.iOS;
 using UnityEngine.UI;

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Model;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +19,6 @@ public class VideoLogic : MonoBehaviour, IAchievement
         UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         ProgressBar.value = AchievementManager.Instance.CurrentVideoAmount;
-        Debug.Log(AchievementManager.Instance.VideoGoal);
         ProgressBar.maxValue = AchievementManager.Instance.VideoGoal;
         TriggerBarRefresh();
     }

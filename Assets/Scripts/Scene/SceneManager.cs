@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +21,7 @@ public class SceneManager : MonoBehaviour
     public GameObject FingerPointerXal;
     public GameObject ExclamationPointXal;
     public Button OutlookButton;
+    public GameObject InfluenceCrystal;
     public GameObject ChapterButtonGameObject;
 
     private int _chapterIndex;
@@ -51,7 +51,7 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
         DisableBanterAfterNoInteraction();
-        ManageButton();
+        ManageButtons();
         //progress in the tutorial after player purchases from the shop.
         if (_tutorialIndex == 2 && ShopManager.Instance.Helpers[0].AmountOwned >= 1 && ScenePanel.activeSelf)
         {
@@ -125,15 +125,17 @@ public class SceneManager : MonoBehaviour
     
     #region UI Interaction methods
 
-    private void ManageButton()
+    private void ManageButtons()
     {
         if ((ActiveChapter != 0 || TutorialActive) && Chapters.Any(x=>x.SceneViewed == false))
         {
             ChapterButtonGameObject.SetActive(false);
+            InfluenceCrystal.SetActive(false);
         }
         else
         {
             ChapterButtonGameObject.SetActive(true);
+            InfluenceCrystal.SetActive(true);
         }
     }
 
@@ -156,6 +158,11 @@ public class SceneManager : MonoBehaviour
         {
             TriggerChapter(ActiveChapter);
         }
+    }
+
+    public void ClickInfluenceCrystal()
+    {
+        SplashManager.Instance.TriggerSplash(SplashType.Advertisement.ToString(), "Ad");
     }
     
     #endregion

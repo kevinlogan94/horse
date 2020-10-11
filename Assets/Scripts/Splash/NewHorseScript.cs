@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.Animations;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +8,8 @@ public class NewHorseScript : MonoBehaviour
     public Image Image;
     public TextMeshProUGUI Title;
     public TextMeshProUGUI Description;
+
+    private Animator _animator;
     
     #region Singleton
     public static NewHorseScript Instance;
@@ -20,6 +19,11 @@ public class NewHorseScript : MonoBehaviour
         Instance = this;
     }
     #endregion
+
+    void Start()
+    {
+        
+    }
     
     // Update is called once per frame
     void Update()
@@ -28,11 +32,11 @@ public class NewHorseScript : MonoBehaviour
         Description.text = Horse.Description;
         if (Image.IsActive())
         {
-            var animator = Image.GetComponent<Animator>();
-            if (animator != null)
+            if (_animator == null)
             {
-                animator.SetInteger("HorseAnimationInt", Horse.HorseAnimationInt);
-            }   
+                _animator = Image.GetComponent<Animator>();
+            }
+            _animator.SetInteger("HorseAnimationInt", Horse.HorseAnimationInt);
         }
     }
 }

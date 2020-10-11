@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.Model;
-using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
