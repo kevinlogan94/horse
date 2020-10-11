@@ -10,10 +10,6 @@ public class AchievementManager : MonoBehaviour
     public GameObject AchievementPointer;
     public GameObject AchievementExclamationPoint;
     
-    public string TwitterUrl = "";
-    public string InstagramUrl = "";
-    public string FacebookUrl = "";
-    
     //login
     public int LoginCount = 1;
     public float LoginGoal = 2;
@@ -25,22 +21,25 @@ public class AchievementManager : MonoBehaviour
     //helper
     public int CurrentHelperAmount;
     public float HelperGoal;
-    
-    //tutorial
-    public bool TutorialCompleted = false;
-    
-    //video
+
+    //video/advertisement
     public int CurrentVideoAmount;
     public float VideoGoal;
     
-    //advertisement
-    public int CurrentWatchedAdvertisements;
-    public int AdvertisementGoal;
+    //achievements
+    public int CurrentAchievementAmount;
+    public float AchievementGoal;
     
+    //story - not saving this in saved file because this is just total chapters
+    public float StoryGoal; 
+
     //sharing and/or reviewing the app
     public const int ShareGoal = 1;
     public bool AppStoreReviewed = false;
     public bool FollowedOnTwitter = false;
+    
+    //tutorial
+    public bool TutorialCompleted = false;
 
     #region Singleton
     public static AchievementManager Instance;
@@ -57,7 +56,8 @@ public class AchievementManager : MonoBehaviour
         ClickerGoal = 300;
         HelperGoal = 30;
         VideoGoal = 10;
-        AdvertisementGoal = 10;
+        AchievementGoal = 10;
+        StoryGoal = 1;
     }
 
     // Update is called once per frame

@@ -10,9 +10,8 @@ public class VideoLogic : MonoBehaviour, IAchievement
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
     public Image Image;
-    public GameObject LoginExclamationPoint;
+    public GameObject VideoExclamationPoint;
 
-    // private TextMeshProUGUI _perSecondCounter;
     private long _rewardValue;
     
     // Start is called before the first frame update
@@ -21,7 +20,9 @@ public class VideoLogic : MonoBehaviour, IAchievement
         UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         ProgressBar.value = AchievementManager.Instance.CurrentVideoAmount;
+        Debug.Log(AchievementManager.Instance.VideoGoal);
         ProgressBar.maxValue = AchievementManager.Instance.VideoGoal;
+        TriggerBarRefresh();
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class VideoLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Watch " + ProgressBar.maxValue + " projections.";
+        Title.text = "Watch " + ProgressBar.maxValue + " projections";
     }
 
     public void Receive()
@@ -47,6 +48,7 @@ public class VideoLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.VideoGoal = ProgressBar.maxValue;
             TriggerBarRefresh();
+            AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
         }
     }
@@ -58,14 +60,7 @@ public class VideoLogic : MonoBehaviour, IAchievement
     
     private void ManageExclamationPoint()
     {
-        if (ProgressBar.value >= ProgressBar.maxValue)
-        {
-            LoginExclamationPoint.SetActive(true);
-        }
-        else
-        {
-            LoginExclamationPoint.SetActive(false);
-        }
+        VideoExclamationPoint.SetActive(ProgressBar.value >= ProgressBar.maxValue);
     }
 
     private void TriggerBarRefresh()

@@ -64,8 +64,9 @@
      <Compile Include="Assets\Scripts\Achievements\Logic\AppStoreReviewLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\ClickerLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\HelperLogic.cs" />
-     <Compile Include="Assets\Scripts\Achievements\Logic\LevelLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\LoginLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\StoryLogic.cs" />
+     <Compile Include="Assets\Scripts\Achievements\Logic\TwitterLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\VideoLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Horse.cs" />
@@ -128,6 +129,9 @@
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.Monetization">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.2D.Animation.Runtime">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
  </Reference>
@@ -136,6 +140,9 @@
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Editor">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
@@ -191,6 +198,9 @@
  <Reference Include="Unity.2D.Animation.Editor">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.Advertisements.Editor">
+ <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Mathematics.Editor">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
@@ -205,15 +215,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Monetization">
- <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements.Editor">
- <HintPath>C:/Users/kevin/UnityProjects/horse/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -69,13 +69,6 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     
     public void ManageExclamationPoint()
     {
-        if (ProgressBar.value >= ProgressBar.maxValue)
-        {
-            ClickerExclamationPoint.SetActive(true);
-        }
-        else
-        {
-            ClickerExclamationPoint.SetActive(false);
-        }
+        ClickerExclamationPoint.SetActive(ProgressBar.value >= ProgressBar.maxValue);
     }
 }

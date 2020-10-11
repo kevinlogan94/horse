@@ -33,13 +33,13 @@ public class SavedData
     public float ClickerGoal;
     public int CurrentHelperAmount;
     public float HelperGoal;
-    public bool TutorialCompleted;
     public int CurrentVideoAmount;
     public float VideoGoal;
-    public int CurrentWatchedAdvertisements;
-    public int AdvertisementGoal;
+    public int CurrentAchievementAmount;
+    public float AchievementGoal;
     public bool AppStoreReviewed;
     public bool FollowedOnTwitter;
+    public bool TutorialCompleted;
 
     // SceneManager
     public List<SavedChapter> Chapters = new List<SavedChapter>();
@@ -86,13 +86,13 @@ public class SavedData
         ClickerGoal = AchievementManager.Instance.ClickerGoal;
         CurrentHelperAmount = AchievementManager.Instance.CurrentHelperAmount;
         HelperGoal = AchievementManager.Instance.HelperGoal;
-        TutorialCompleted = AchievementManager.Instance.TutorialCompleted;
         CurrentVideoAmount = AchievementManager.Instance.CurrentVideoAmount;
         VideoGoal = AchievementManager.Instance.VideoGoal;
-        CurrentWatchedAdvertisements = AchievementManager.Instance.CurrentWatchedAdvertisements;
-        AdvertisementGoal = AchievementManager.Instance.AdvertisementGoal;
+        CurrentAchievementAmount = AchievementManager.Instance.CurrentAchievementAmount;
+        AchievementGoal = AchievementManager.Instance.AchievementGoal;
         AppStoreReviewed = AchievementManager.Instance.AppStoreReviewed;
         FollowedOnTwitter = AchievementManager.Instance.FollowedOnTwitter;
+        TutorialCompleted = AchievementManager.Instance.TutorialCompleted;
         
         // SceneManager
         foreach (var chapter in SceneManager.Instance.Chapters)
@@ -146,13 +146,13 @@ public class SavedData
         AchievementManager.Instance.ClickerGoal = ClickerGoal;
         AchievementManager.Instance.CurrentHelperAmount = CurrentHelperAmount;
         AchievementManager.Instance.HelperGoal = HelperGoal;
-        AchievementManager.Instance.TutorialCompleted = TutorialCompleted;
         AchievementManager.Instance.CurrentVideoAmount = CurrentVideoAmount;
         AchievementManager.Instance.VideoGoal = VideoGoal;
-        AchievementManager.Instance.CurrentWatchedAdvertisements = CurrentWatchedAdvertisements;
-        AchievementManager.Instance.AdvertisementGoal = AdvertisementGoal;
+        AchievementManager.Instance.CurrentAchievementAmount = CurrentAchievementAmount;
+        AchievementManager.Instance.AchievementGoal = AchievementGoal;
         AchievementManager.Instance.AppStoreReviewed = AppStoreReviewed;
         AchievementManager.Instance.FollowedOnTwitter = FollowedOnTwitter;
+        AchievementManager.Instance.TutorialCompleted = TutorialCompleted;
         
         // SceneManager
         foreach (var localChapter in SceneManager.Instance.Chapters)

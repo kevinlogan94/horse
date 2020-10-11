@@ -29,6 +29,9 @@ public class AchievementPanelScript : MonoBehaviour
 
     private void DefineBeforeAndAfterText()
     {
+        const int tenHoursInSeconds = 36000;
+        const int hourInSeconds = 3600;
+        
         //by the time we hit this part, we have already received the bonus. Keep that in mind.
         switch (Achievement.Name)
         {
@@ -44,9 +47,13 @@ public class AchievementPanelScript : MonoBehaviour
                 BeforeText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement / SceneManager.ClickerIncrease, 1) + "/click";
                 AfterText.text = IncrementButton.GetClickerIncrement(IncrementButton.ClickerIncrement, 1) + "/click";
                 break;
+            case "Video": case "Story":
+                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(tenHoursInSeconds) + " influence"; // 10 hours
+                AfterText.text = Monitor.Influence + " influence";
+                break;
             default:
-                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(3600) + " horses"; // 1 hour
-                AfterText.text = Monitor.Influence + " horses";
+                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(hourInSeconds) + " influence"; // 1 hour
+                AfterText.text = Monitor.Influence + " influence";
                 break;
         }
     }

@@ -8,6 +8,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     private const string AndroidGameId = "3857319";
     private const string RewardVideoPlacementId = "rewardedVideo";
     private const string SkippableAdPlacementId = "video";
+    //TODO turn ad testmode off
     public const bool TestMode = true;
 
     private long _reward;
@@ -53,11 +54,11 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished when placementId == RewardVideoPlacementId:
                 Debug.Log("Reward the player");
                 TriggerReward();
-                AchievementManager.Instance.CurrentWatchedAdvertisements++;
+                AchievementManager.Instance.CurrentVideoAmount++;
                 break;
             case ShowResult.Finished when placementId == SkippableAdPlacementId:
                 Debug.Log("Finished skippable ad");
-                AchievementManager.Instance.CurrentWatchedAdvertisements++;
+                AchievementManager.Instance.CurrentVideoAmount++;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped");

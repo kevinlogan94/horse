@@ -62,14 +62,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
 
     public void ManageExclamationPoint()
     {
-        if (ProgressBar.value >= ProgressBar.maxValue)
-        {
-            HelperExclamationPoint.SetActive(true);
-        }
-        else
-        {
-            HelperExclamationPoint.SetActive(false);
-        }
+        HelperExclamationPoint.SetActive(ProgressBar.value >= ProgressBar.maxValue);
     }
     
     public void TriggerBarRefresh()
