@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class ShopManager : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class ShopManager : MonoBehaviour
                     ObjectPooler.Instance.ReOptimizeHorsePools(helper.HorseBreed);
                 }
                 helper.AmountOwned++;
+                AnalyticsEvent.AchievementStep(Helpers.Sum(x=>x.AmountOwned), "HelperCount");
             }
 
             if (helper.Name == "Feeder" && helper.AmountOwned == 1)

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -83,6 +85,8 @@ public class IncrementButton : MonoBehaviour
         {
             pointer.SetActive(false);
         }
+
+        AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
         // Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 

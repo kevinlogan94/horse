@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
@@ -83,6 +85,13 @@ public class SceneManager : MonoBehaviour
             Debug.LogWarning("We couldn't find Chapter " + chapterNumber);
             return;   
         }
+        if (ActiveChapter == 0)
+        {
+            Analytics.CustomEvent("ChapterTriggered", new Dictionary<string, object>
+            {
+                {"Chapter", chapterNumber}
+            });
+        }
 
         ActiveChapter = chapterNumber;
         _banterActive = false;
@@ -145,10 +154,12 @@ public class SceneManager : MonoBehaviour
         if (chapter1 != null && !chapter1.SceneViewed)
         {
             TriggerChapter(1);
+            AnalyticsEvent.FirstInteraction();
         } 
         else if (TutorialActive)
         {
             TriggerTutorial();
+            // AnalyticsEvent.TutorialStart();
         }
         else if (ActiveChapter == 0)
         {

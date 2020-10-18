@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class SplashManager : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class SplashManager : MonoBehaviour
         else
         {
             AdvertisementPanel.SetActive(true);
+            AnalyticsEvent.AdOffer(true);
         }
     }
 

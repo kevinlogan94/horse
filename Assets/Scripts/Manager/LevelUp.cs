@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class LevelUp : MonoBehaviour
@@ -60,8 +61,9 @@ public class LevelUp : MonoBehaviour
             
         // Level Up Character
         Monitor.PlayerLevel++;
-        _levelUpReward = 2 * _levelUpReward;
-        LevelUpRewardText.text = _levelUpReward + " influence";
+        AnalyticsEvent.LevelStart(Monitor.PlayerLevel);
+        // _levelUpReward = 2 * _levelUpReward;
+        // LevelUpRewardText.text = _levelUpReward + " influence";
         // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
             
         //close tutorial
@@ -127,6 +129,7 @@ public class LevelUp : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("LevelUp");
             LevelUpPanel.SetActive(true);
+            AnalyticsEvent.AdOffer(true);
         }
     }
 

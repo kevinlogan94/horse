@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Analytics;
 
 public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 {
@@ -53,14 +54,19 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished when placementId == RewardVideoPlacementId:
                 Debug.Log("Reward the player");
                 TriggerReward();
+                AnalyticsEvent.AdComplete(true);
                 AchievementManager.Instance.CurrentVideoAmount++;
+                AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
                 break;
             case ShowResult.Finished when placementId == SkippableAdPlacementId:
                 Debug.Log("Finished skippable ad");
+                AnalyticsEvent.AdComplete(false);
                 AchievementManager.Instance.CurrentVideoAmount++;
+                AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped");
+                AnalyticsEvent.AdSkip(false);
                 break;
             case ShowResult.Failed:
                 Debug.LogWarning("The ad didn't finish due to an error");
@@ -80,6 +86,13 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidStart(string placementId)
     {
-        //Analytics
+        if (placementId == RewardVideoPlacementId)
+        {
+            AnalyticsEvent.AdStart(true);
+        }
+        else
+        {
+            AnalyticsEvent.AdStart(false);
+        }
     }
 }
