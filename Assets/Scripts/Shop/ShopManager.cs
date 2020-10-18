@@ -61,7 +61,7 @@ public class ShopManager : MonoBehaviour
                 _audioManager.Play("CoinToss");
                 if (helper.AmountOwned == 0)
                 {
-                    SplashManager.Instance.TriggerSplash(SplashType.Horse.ToString(), helper.HorseBreed);
+                    SplashManager.Instance.TriggerSplash(SplashType.Creature.ToString(), helper.HorseBreed);
                     ObjectPooler.Instance.ReOptimizeHorsePools(helper.HorseBreed);
                 }
                 helper.AmountOwned++;

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewHorseScript : MonoBehaviour
+public class CreaturePanelScript : MonoBehaviour
 {
     public HorseObject Horse;
     public Image Image;
@@ -12,7 +12,7 @@ public class NewHorseScript : MonoBehaviour
     private Animator _animator;
     
     #region Singleton
-    public static NewHorseScript Instance;
+    public static CreaturePanelScript Instance;
 
     private void Awake()
     {

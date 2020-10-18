@@ -8,8 +8,8 @@ public class SplashManager : MonoBehaviour
     public GameObject AdvertisementPanel;
     public GameObject InfluenceOverTimePanel;
     public GameObject LockAnimationObject;
-    public GameObject HorsePanel;
-    public GameObject HorseUIPanel;
+    public GameObject CreaturePanel;
+    public GameObject CreatureUIPanel;
 
     public Achievement[] Achievements;
     public HorseObject[] HorseObjects;
@@ -48,9 +48,9 @@ public class SplashManager : MonoBehaviour
             }
             AchievementPanelScript.Instance.Achievement = achievementObject; 
         }
-        else if (type == SplashType.Horse.ToString())
+        else if (type == SplashType.Creature.ToString())
         {
-            HorsePanel.SetActive(true);
+            CreaturePanel.SetActive(true);
             // I have an animation event at the end of this that turns on the horse panel
             var horseObject = HorseObjects.FirstOrDefault(x => x.Name == objectName);
             if (horseObject == null)
@@ -59,7 +59,7 @@ public class SplashManager : MonoBehaviour
                 return;
             }
 
-            NewHorseScript.Instance.Horse = horseObject;
+            CreaturePanelScript.Instance.Horse = horseObject;
             LockAnimationObject.SetActive(true);
         }
         else if (type == SplashType.InfluenceOverTime.ToString())
@@ -76,8 +76,8 @@ public class SplashManager : MonoBehaviour
     {
         SplashPanel.SetActive(false);
         AchievementPanel.SetActive(false);
-        HorsePanel.SetActive(false);
-        HorseUIPanel.SetActive(false);
+        CreaturePanel.SetActive(false);
+        CreatureUIPanel.SetActive(false);
         AdvertisementPanel.SetActive(false);
         InfluenceOverTimePanel.SetActive(false);
         
@@ -93,7 +93,7 @@ public class SplashManager : MonoBehaviour
 
 public enum SplashType
 {
-    Horse,
+    Creature,
     Achievement,
     Advertisement,
     InfluenceOverTime
