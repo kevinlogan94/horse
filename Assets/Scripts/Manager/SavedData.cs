@@ -46,6 +46,8 @@ public class SavedData
 
     public SavedData()
     {
+        SavedDateTime = DateTime.Now;
+        
         // Monitor
         Influence = Monitor.Influence;
         TotalInfluenceEarned = Monitor.TotalInfluenceEarned;
@@ -110,6 +112,7 @@ public class SavedData
         Monitor.Influence = Influence;
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
         Monitor.PlayerLevel = PlayerLevel;
+        Monitor.LastSavedDateTime = SavedDateTime;
         
         // Level Up
         LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar;

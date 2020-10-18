@@ -6,6 +6,7 @@ public class SplashManager : MonoBehaviour
     public GameObject SplashPanel;
     public GameObject AchievementPanel;
     public GameObject AdvertisementPanel;
+    public GameObject InfluenceOverTimePanel;
     public GameObject LockAnimationObject;
     public GameObject HorsePanel;
     public GameObject HorseUIPanel;
@@ -33,10 +34,10 @@ public class SplashManager : MonoBehaviour
         
     }
 
-    public void TriggerSplash(string type, string objectName)
+    public void TriggerSplash(string type, string objectName = null)
     {
         SplashPanel.SetActive(true);
-        if (type == "Achievement")
+        if (type == SplashType.Achievement.ToString())
         {
             AchievementPanel.SetActive(true);
             var achievementObject = Achievements.FirstOrDefault(x => x.Name == objectName);
@@ -47,7 +48,7 @@ public class SplashManager : MonoBehaviour
             }
             AchievementPanelScript.Instance.Achievement = achievementObject; 
         }
-        else if (type == "Horse")
+        else if (type == SplashType.Horse.ToString())
         {
             HorsePanel.SetActive(true);
             // I have an animation event at the end of this that turns on the horse panel
@@ -60,6 +61,10 @@ public class SplashManager : MonoBehaviour
 
             NewHorseScript.Instance.Horse = horseObject;
             LockAnimationObject.SetActive(true);
+        }
+        else if (type == SplashType.InfluenceOverTime.ToString())
+        {
+            InfluenceOverTimePanel.SetActive(true);
         }
         else
         {
@@ -74,6 +79,7 @@ public class SplashManager : MonoBehaviour
         HorsePanel.SetActive(false);
         HorseUIPanel.SetActive(false);
         AdvertisementPanel.SetActive(false);
+        InfluenceOverTimePanel.SetActive(false);
         
         // show ad after speaking to Xal
         if (AchievementPanelScript.Instance != null 
@@ -89,5 +95,6 @@ public enum SplashType
 {
     Horse,
     Achievement,
-    Advertisement
+    Advertisement,
+    InfluenceOverTime
 }

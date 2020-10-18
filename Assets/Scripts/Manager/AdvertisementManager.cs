@@ -43,8 +43,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 
     private void TriggerReward()
     {
-        var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
-        Monitor.Instance.IncrementInfluence(_reward, helperHorse);
+        Monitor.Instance.IncrementInfluence(_reward);
     }
     
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)

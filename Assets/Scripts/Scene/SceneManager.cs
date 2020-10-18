@@ -162,7 +162,7 @@ public class SceneManager : MonoBehaviour
 
     public void ClickInfluenceCrystal()
     {
-        SplashManager.Instance.TriggerSplash(SplashType.Advertisement.ToString(), "Ad");
+        SplashManager.Instance.TriggerSplash(SplashType.Advertisement.ToString());
     }
     
     #endregion

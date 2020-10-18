@@ -101,6 +101,7 @@
      <Compile Include="Assets\Scripts\Shop\ShopManager.cs" />
      <Compile Include="Assets\Scripts\Splash\AchievementPanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\AdvertisementPanelScript.cs" />
+     <Compile Include="Assets\Scripts\Splash\InfluenceOverTimePanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\NewHorseScript.cs" />
      <Compile Include="Assets\Scripts\Splash\SplashManager.cs" />
      <Compile Include="Assets\Scripts\fingerPointer.cs" />

@@ -15,6 +15,7 @@ public class Monitor : MonoBehaviour
     public static long TotalInfluenceEarned = 0;
     public static long Influence = 0;
     public static int PlayerLevel = 1;
+    public static DateTime? LastSavedDateTime;
     private ObjectPooler _objectPooler;
     private float _bottomHorseSpawnerRegion;
     private float _topHorseSpawnerRegion;
@@ -32,6 +33,10 @@ public class Monitor : MonoBehaviour
     void Start()
     {
         SaveGame.Load();
+        if (LastSavedDateTime != null)
+        {
+            SplashManager.Instance.TriggerSplash(SplashType.InfluenceOverTime.ToString());
+        }
         _timeOfLastFrame = DateTime.Now; // Need to have it start somewhere
         _objectPooler = ObjectPooler.Instance;
         // _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
@@ -51,13 +56,16 @@ public class Monitor : MonoBehaviour
         FingerPointerOutlook.SetActive(true);
     }
 
-    public void IncrementInfluence(long increment, string horseBreed, float lagSeconds = 0)
+    public void IncrementInfluence(long increment, string horseBreed = null, float lagSeconds = 0)
     {
         SaveGame.Save();
         Influence += increment;
         TotalInfluenceEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
-        StartCoroutine(SpawnHorseAfterSeconds(lagSeconds, horseBreed));
+        if (horseBreed != null)
+        {
+            StartCoroutine(SpawnHorseAfterSeconds(lagSeconds, horseBreed));
+        }
     }
     
     //https://forum.unity.com/threads/hide-object-after-time.291287/
@@ -96,12 +104,11 @@ public class Monitor : MonoBehaviour
     private void IncrementInfluenceForTimeAwayFromGameWithoutKillingApp()
     {
         var now = DateTime.Now;
-        long timeAwayFromGame = now.Subtract(_timeOfLastFrame).Seconds;
+        var timeAwayFromGame = (long) Math.Round(now.Subtract(_timeOfLastFrame).TotalSeconds);
         if (timeAwayFromGame > 5)
         {
             Debug.Log("Giving influence for time since last frame processed.");
-            var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
-            IncrementInfluence(GetInfluenceReceivedOverTime(timeAwayFromGame), helperHorse);
+            IncrementInfluence(GetInfluenceReceivedOverTime(timeAwayFromGame));
         }
         _timeOfLastFrame = now;
     }
