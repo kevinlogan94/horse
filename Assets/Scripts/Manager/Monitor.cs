@@ -37,7 +37,7 @@ public class Monitor : MonoBehaviour
         {
             SplashManager.Instance.TriggerSplash(SplashType.InfluenceOverTime.ToString());
         }
-        _timeOfLastFrame = DateTime.Now; // Need to have it start somewhere
+        _timeOfLastFrame = DateTime.UtcNow; // Need to have it start somewhere
         _objectPooler = ObjectPooler.Instance;
         // _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
         // var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
@@ -103,7 +103,7 @@ public class Monitor : MonoBehaviour
     //This is if the player closes the app to go to a different one then comes back to it later without killing the app.
     private void IncrementInfluenceForTimeAwayFromGameWithoutKillingApp()
     {
-        var now = DateTime.Now;
+        var now = DateTime.UtcNow;
         var timeAwayFromGame = (long) Math.Round(now.Subtract(_timeOfLastFrame).TotalSeconds);
         if (timeAwayFromGame > 5)
         {

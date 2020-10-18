@@ -32,7 +32,7 @@ public class InfluenceOverTimePanelScript : MonoBehaviour
     {
         if (Monitor.LastSavedDateTime == null) return;
 
-        var now = DateTime.Now;
+        var now = DateTime.UtcNow;
         var timeSinceLastSave = (long) Math.Round(now.Subtract((DateTime) Monitor.LastSavedDateTime).TotalSeconds);
         _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(timeSinceLastSave);
         RewardText.text = Monitor.FormatNumberToString(_rewardValue) + " influence";

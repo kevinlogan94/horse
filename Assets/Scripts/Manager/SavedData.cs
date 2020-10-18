@@ -5,7 +5,7 @@ using System.Linq;
 [Serializable]
 public class SavedData
 {
-    public DateTime SavedDateTime = DateTime.Now;
+    public DateTime SavedDateTime;
     
     // Monitor
     public long Influence;
@@ -46,7 +46,7 @@ public class SavedData
 
     public SavedData()
     {
-        SavedDateTime = DateTime.Now;
+        SavedDateTime = DateTime.UtcNow;
         
         // Monitor
         Influence = Monitor.Influence;
