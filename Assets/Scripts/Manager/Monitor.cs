@@ -18,6 +18,7 @@ public class Monitor : MonoBehaviour
     private ObjectPooler _objectPooler;
     private float _bottomHorseSpawnerRegion;
     private float _topHorseSpawnerRegion;
+    private DateTime _timeOfLastFrame;
 
     #region Singleton
     public static Monitor Instance;
@@ -28,15 +29,20 @@ public class Monitor : MonoBehaviour
     }
     #endregion
 
-    public void Start()
+    void Start()
     {
         SaveGame.Load();
-        
+        _timeOfLastFrame = DateTime.Now; // Need to have it start somewhere
         _objectPooler = ObjectPooler.Instance;
         // _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
         // var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
         // var scorePanelHeight = GameObject.Find("ScorePanel").GetComponent<RectTransform>().rect.height;
         // _topHorseSpawnerRegion = backgroundHeight - _bottomHorseSpawnerRegion - scorePanelHeight;
+    }
+
+    void Update()
+    {
+        IncrementInfluenceForTimeAwayFromGameWithoutKillingApp();
     }
 
     public void TriggerOutlookTutorial()
@@ -85,7 +91,24 @@ public class Monitor : MonoBehaviour
         PassiveIncomeText.text = FormatNumberToString(passiveIncomeRate) + "/sec";
     }
 
-    #region Helper Functions
+    #region Private Methods
+    //This is if the player closes the app to go to a different one then comes back to it later without killing the app.
+    private void IncrementInfluenceForTimeAwayFromGameWithoutKillingApp()
+    {
+        var now = DateTime.Now;
+        long timeAwayFromGame = now.Subtract(_timeOfLastFrame).Seconds;
+        if (timeAwayFromGame > 5)
+        {
+            Debug.Log("Giving influence for time since last frame processed.");
+            var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
+            IncrementInfluence(GetInfluenceReceivedOverTime(timeAwayFromGame), helperHorse);
+        }
+        _timeOfLastFrame = now;
+    }
+
+    #endregion
+
+    #region Helper Methods
     
     // public bool PanelsAreDisplaying()
     // {
@@ -152,10 +175,12 @@ public class Monitor : MonoBehaviour
     public long GetHelperPassiveIncome()
     {
         return ShopManager.Instance.Helpers.Where(helper => helper.AmountOwned > 0)
-            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment ? helper.DynamicIncrement : helper.Increment));
+            .Sum(helper => helper.AmountOwned * (helper.DynamicIncrement > helper.Increment 
+                ? helper.DynamicIncrement 
+                : helper.Increment));
     }
 
-    public long GetInfluenceReceivedOverTime(int seconds)
+    public long GetInfluenceReceivedOverTime(long seconds)
     {
         var incrementPerSecond = GetHelperPassiveIncome();
         return incrementPerSecond * seconds; 
