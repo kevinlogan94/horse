@@ -16,9 +16,9 @@ MonoBehaviour:
   Description: 
   LevelRequirement: 3
   Cost: 250
-  DynamicCost: 9598
+  DynamicCost: 250
   Increment: 10
-  DynamicIncrement: 20
-  AmountOwned: 9
-  HorseBreed: Appaloosa
+  DynamicIncrement: 10
+  AmountOwned: 0
+  Creature: {fileID: 11400000, guid: 3498d53ebaafa4245b74cc984f19d8bc, type: 2}
   Artwork: {fileID: 21300000, guid: 82eb9f2917d226c408f772f1ce7634b1, type: 3}

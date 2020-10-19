@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CreaturePanelScript : MonoBehaviour
 {
-    public HorseObject Horse;
+    public Creature Creature;
     public Image Image;
     public TextMeshProUGUI Title;
     public TextMeshProUGUI Description;
@@ -28,15 +28,15 @@ public class CreaturePanelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Title.text = Horse.Name;
-        Description.text = Horse.Description;
+        Title.text = Creature.Name;
+        Description.text = Creature.Description;
         if (Image.IsActive())
         {
             if (_animator == null)
             {
                 _animator = Image.GetComponent<Animator>();
             }
-            _animator.SetInteger("HorseAnimationInt", Horse.HorseAnimationInt);
+            _animator.Play(Creature.CreatureAnimation.ToString());
         }
     }
 }

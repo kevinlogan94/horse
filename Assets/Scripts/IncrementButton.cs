@@ -50,7 +50,7 @@ public class IncrementButton : MonoBehaviour
     {
         var randomNumber = Random.Range(0.0f, 3.0f);
         long increment;
-        var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
+        var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature.CreatureAnimation;
         
         if (randomNumber <= 0.03)
         {
@@ -77,7 +77,10 @@ public class IncrementButton : MonoBehaviour
             obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
         }
 
-        Monitor.Instance.IncrementInfluence(increment, helperHorse);
+        if (creatureToSpawn != null)
+        {
+            Monitor.Instance.IncrementInfluence(increment, (CreatureAnimations) creatureToSpawn);
+        }
         ClickCount++;
         IncrementsThisSecond+=increment;
         var pointer = GameObject.Find("FingerPointerIncrementButton");
@@ -86,7 +89,10 @@ public class IncrementButton : MonoBehaviour
             pointer.SetActive(false);
         }
 
-        AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
+        if (ClickCount%10 == 0)
+        {
+            AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
+        }
         // Monitor.DestroyObject("FingerPointerIncrementButton");
     }
 

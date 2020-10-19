@@ -92,45 +92,4 @@ public class ObjectPooler : MonoBehaviour
 
         return obj;
     }
-
-    private Queue<GameObject> ManipulatePoolSize(Pool pool, int newSize)
-    {
-        var objectPool = PoolDictionary[pool.Tag];
-        while (objectPool.Count != newSize)
-        {
-            if (objectPool.Count < newSize)
-            {
-                var obj = InstantiatePoolPrefab(pool);
-                objectPool.Enqueue(obj);
-            }
-            else
-            {
-                var objectToDestroy = PoolDictionary[pool.Tag].Dequeue();
-                Destroy(objectToDestroy);
-            }
-        }
-        return objectPool;
-    }
-
-    public void ReOptimizeHorsePools(string coreHorseBreedTag)
-    {
-        if (Pools.All(x => x.Tag != coreHorseBreedTag))
-        {
-            Debug.LogWarning("We couldn't find the pools for " + coreHorseBreedTag + ".");
-            return;
-        }
-        
-        const int topSize = 30;
-        const int bottomSize = 3;
-        foreach (var pool in Pools.Where(pool => pool.Tag != "IncrementText"))
-        {
-            if (pool.Tag == coreHorseBreedTag)
-            {
-                ManipulatePoolSize(pool, topSize);
-            } else if (PoolDictionary[pool.Tag].Count > bottomSize)
-            {
-                ManipulatePoolSize(pool, bottomSize);
-            }
-        }
-    }
 }

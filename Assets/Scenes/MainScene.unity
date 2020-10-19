@@ -455,43 +455,16 @@ MonoBehaviour:
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 20
-  - Tag: Thoroughbred
-    Prefab: {fileID: 8822910380117077971, guid: 41e876d8d71f11d419a47e55100612ed,
-      type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 30
-  - Tag: Appaloosa
-    Prefab: {fileID: 3891538737297199071, guid: 376f975fd0a4bad4aa285095a660cd45,
-      type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 10
-  - Tag: FireHorse
-    Prefab: {fileID: 699702002973254934, guid: 1d981cc7017cb0845b342c2c07793ebf, type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 3
-  - Tag: WaterHorse
-    Prefab: {fileID: 745311826802815782, guid: 7e3a18d69789249499c32d36706e5a0b, type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 3
-  - Tag: Unicorn
-    Prefab: {fileID: 283567699607397652, guid: 73488c75e9dec5e48b3d8a0ac29e5918, type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 3
-  - Tag: ThunderHorse
-    Prefab: {fileID: 5816363188935774385, guid: b6af8fc09a1e4e64cbf432e094de164a,
-      type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 3
-  - Tag: Morgan
-    Prefab: {fileID: 6312955105972305635, guid: 8f8ed01bbb3354e4692e77dff706c99f,
-      type: 3}
-    Parent: {fileID: 1015238784}
-    Size: 3
   - Tag: IncrementBonusText
     Prefab: {fileID: 8322749317668919444, guid: 874b4c4561fb6aa4886d1f7ba85c4ae7,
       type: 3}
     Parent: {fileID: 1015238784}
     Size: 5
+  - Tag: Creature
+    Prefab: {fileID: 4009011510284718884, guid: 043f02459cf0d3e49a9cd34f93359cfe,
+      type: 3}
+    Parent: {fileID: 1015238784}
+    Size: 35
 --- !u!1 &44839141
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,7 +5464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fda757229c04b449ac123d90f5258f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorseUIPanel: {fileID: 9088865343634301953}
+  CreatureUIPanel: {fileID: 9088865343634301953}
 --- !u!1 &519085578
 GameObject:
   m_ObjectHideFlags: 0
@@ -6272,7 +6245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7860ef1435ed6464fbc26b3910561558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Horse: {fileID: 11400000, guid: b59b8309470613e4db11c38119457d6c, type: 2}
+  Creature: {fileID: 0}
   Image: {fileID: 33560495}
   Title: {fileID: 665217520}
   Description: {fileID: 2082098292}
@@ -6826,113 +6799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &689904402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 689904403}
-  - component: {fileID: 689904407}
-  - component: {fileID: 689904406}
-  - component: {fileID: 689904405}
-  - component: {fileID: 689904404}
-  m_Layer: 5
-  m_Name: Creature
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &689904403
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689904402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1015238788}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -761.4, y: 77.2}
-  m_SizeDelta: {x: 336.70117, y: 323.6764}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &689904404
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689904402}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62a550d770011d14896fc858bc73f2fe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &689904405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689904402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c1035b25f29eb49b3979aef9642334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &689904406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689904402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 05f4f2d13a5da5c4487e46df772cf921, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &689904407
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689904402}
-  m_CullTransparentMesh: 0
 --- !u!114 &691884523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5596048977012266124, guid: e3922af1de80a124c85386562f2f4766,
@@ -7018,13 +6884,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c596d3a02f19e7f4ea08005d51934a60, type: 2}
   - {fileID: 11400000, guid: 1bc49c329f62ecf429647441b4f7921e, type: 2}
   - {fileID: 11400000, guid: 6339835f9893df147a3ecbb3553c373c, type: 2}
-  HorseObjects:
-  - {fileID: 11400000, guid: 6cc37e91bfc1cbf49a44182216821553, type: 2}
-  - {fileID: 11400000, guid: b59b8309470613e4db11c38119457d6c, type: 2}
-  - {fileID: 11400000, guid: 5739895b5d6df3a44a40dae6b0b73ace, type: 2}
-  - {fileID: 11400000, guid: 84524aa745244074b9eee8cf95bb0f6f, type: 2}
-  - {fileID: 11400000, guid: d2d6294db419ff54294fe3265f793d30, type: 2}
-  - {fileID: 11400000, guid: d71785c845ff8634989f5593a974cbd5, type: 2}
+  Creatures:
+  - {fileID: 11400000, guid: 09ba1a54b612421469d197581f89596f, type: 2}
+  - {fileID: 11400000, guid: 3498d53ebaafa4245b74cc984f19d8bc, type: 2}
+  - {fileID: 11400000, guid: ab74168c832ea454c835c0d78a74da2d, type: 2}
+  - {fileID: 11400000, guid: 491b25042a9d8f54289e61da8f9df045, type: 2}
+  - {fileID: 11400000, guid: d707e015ddf5ac045b6f2f83f5ebeb82, type: 2}
+  - {fileID: 11400000, guid: d838f913fe838b44cbdc426d80060ca9, type: 2}
 --- !u!1 &702648485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9784,7 +9650,6 @@ RectTransform:
   - {fileID: 1480275291}
   - {fileID: 784571320}
   - {fileID: 910994503}
-  - {fileID: 689904403}
   m_Father: {fileID: 314338821}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

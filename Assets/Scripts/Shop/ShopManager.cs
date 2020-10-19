@@ -62,8 +62,7 @@ public class ShopManager : MonoBehaviour
                 _audioManager.Play("CoinToss");
                 if (helper.AmountOwned == 0)
                 {
-                    SplashManager.Instance.TriggerSplash(SplashType.Creature.ToString(), helper.HorseBreed);
-                    ObjectPooler.Instance.ReOptimizeHorsePools(helper.HorseBreed);
+                    SplashManager.Instance.TriggerSplash(SplashType.Creature.ToString(), helper.Creature.Name);
                 }
                 helper.AmountOwned++;
                 AnalyticsEvent.AchievementStep(Helpers.Sum(x=>x.AmountOwned), "HelperCount");
@@ -115,7 +114,7 @@ public class ShopManager : MonoBehaviour
                     var increment = helper.DynamicIncrement > helper.Increment
                         ? helper.DynamicIncrement
                         : helper.Increment;
-                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.HorseBreed, index*.25f);
+                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.Creature.CreatureAnimation, index*.25f);
                 }
             }
         }

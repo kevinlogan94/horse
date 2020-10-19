@@ -43,10 +43,9 @@ public class LevelUp : MonoBehaviour
     public void LevelUpPlayer(bool watchAd = false)
     {
         //level up reward 
-        var helperHorse = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.HorseBreed;
         if (!watchAd)
         {
-            Monitor.Instance.IncrementInfluence(_levelUpReward, helperHorse);
+            Monitor.Instance.IncrementInfluence(_levelUpReward);
         }
         else
         {

@@ -69,10 +69,9 @@
      <Compile Include="Assets\Scripts\Achievements\Logic\TwitterLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\VideoLogic.cs" />
      <Compile Include="Assets\Scripts\Achievements\ProgressBar.cs" />
-     <Compile Include="Assets\Scripts\AnimationEvents\Horse.cs" />
+     <Compile Include="Assets\Scripts\AnimationEvents\CreatureScript.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />
-     <Compile Include="Assets\Scripts\CreatureScript.cs" />
      <Compile Include="Assets\Scripts\IncrementButton.cs" />
      <Compile Include="Assets\Scripts\Manager\AdvertisementManager.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
@@ -85,8 +84,8 @@
      <Compile Include="Assets\Scripts\Manager\SavedData.cs" />
      <Compile Include="Assets\Scripts\Model\Achievement.cs" />
      <Compile Include="Assets\Scripts\Model\Chapter.cs" />
+     <Compile Include="Assets\Scripts\Model\Creature.cs" />
      <Compile Include="Assets\Scripts\Model\Helper.cs" />
-     <Compile Include="Assets\Scripts\Model\HorseObject.cs" />
      <Compile Include="Assets\Scripts\Model\Log.cs" />
      <Compile Include="Assets\Scripts\Model\Serializable\SavedChapter.cs" />
      <Compile Include="Assets\Scripts\Model\Serializable\SavedHelper.cs" />

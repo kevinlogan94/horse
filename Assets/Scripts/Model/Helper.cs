@@ -11,6 +11,6 @@ public class Helper : ScriptableObject
     public int Increment;
     public long DynamicIncrement;
     public int AmountOwned;
-    public string HorseBreed;
+    public Creature Creature;
     public Sprite Artwork;
 }

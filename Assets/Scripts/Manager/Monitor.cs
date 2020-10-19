@@ -56,32 +56,30 @@ public class Monitor : MonoBehaviour
         FingerPointerOutlook.SetActive(true);
     }
 
-    public void IncrementInfluence(long increment, string horseBreed = null, float lagSeconds = 0)
+    public void IncrementInfluence(long increment, CreatureAnimations creatureAnimation = CreatureAnimations.None, float lagSeconds = 0)
     {
         SaveGame.Save();
         Influence += increment;
         TotalInfluenceEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
-        if (horseBreed != null)
+        if (creatureAnimation != CreatureAnimations.None)
         {
-            StartCoroutine(SpawnHorseAfterSeconds(lagSeconds, horseBreed));
+            StartCoroutine(SpawnCreatureAfterSeconds(lagSeconds, creatureAnimation));
         }
     }
     
     //https://forum.unity.com/threads/hide-object-after-time.291287/
-    IEnumerator SpawnHorseAfterSeconds(float seconds, string horseBreed)
+    IEnumerator SpawnCreatureAfterSeconds(float seconds, CreatureAnimations creatureAnimation)
     {
         yield return new WaitForSeconds(seconds);
         // Debug.Log(_bottomHorseSpawnerRegion);
         // Debug.Log(_topHorseSpawnerRegion);
-        _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(350, 1400)));
+        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(350, 1400)));
+        PlayAnimationOnGameObject(spawnedGameObject, creatureAnimation);
     }
 
-    /* TODO
-     * I need to finish this.
-     * https://www.youtube.com/watch?v=nBkiSJ5z-hE
-     */
-    private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, string newAnimation)
+    // https://www.youtube.com/watch?v=nBkiSJ5z-hE
+    private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, CreatureAnimations creatureAnimation)
     {
         var animator = gameObjectToTriggerAnimation.GetComponent<Animator>();
         if (animator == null)
@@ -89,7 +87,7 @@ public class Monitor : MonoBehaviour
           Debug.LogWarning("We couldn't find an animator on the object: " + gameObjectToTriggerAnimation.name);
           return;
         }
-        animator.Play(newAnimation);
+        animator.Play(creatureAnimation.ToString());
     }
     
     public void UpdatePassiveIncomeText()
@@ -194,4 +192,16 @@ public class Monitor : MonoBehaviour
     }
 
     #endregion
+}
+
+public enum CreatureAnimations
+{
+    ThoroughbredRunAnimation = 0,
+    AppaloosaRunAnimation = 1,
+    PalominoRunAnimation = 2,
+    WaterHorseAnimation = 3,
+    FireHorseAnimation = 4,
+    ThunderHorseRunAnimation = 5,
+    UnicornRunAnimation = 6,
+    None = 99
 }

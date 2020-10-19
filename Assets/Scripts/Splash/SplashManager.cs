@@ -13,7 +13,7 @@ public class SplashManager : MonoBehaviour
     public GameObject CreatureUIPanel;
 
     public Achievement[] Achievements;
-    public HorseObject[] HorseObjects;
+    public Creature[] Creatures;
     public static SplashManager Instance;
 
     #region Singleton
@@ -53,14 +53,14 @@ public class SplashManager : MonoBehaviour
         {
             CreaturePanel.SetActive(true);
             // I have an animation event at the end of this that turns on the horse panel
-            var horseObject = HorseObjects.FirstOrDefault(x => x.Name == objectName);
-            if (horseObject == null)
+            var creature = Creatures.FirstOrDefault(x => x.Name == objectName);
+            if (creature == null)
             {
-                Debug.LogWarning("We couldn't find the horse object with the name: " + objectName);
+                Debug.LogWarning("We couldn't find the creature with the name: " + objectName);
                 return;
             }
 
-            CreaturePanelScript.Instance.Horse = horseObject;
+            CreaturePanelScript.Instance.Creature = creature;
             LockAnimationObject.SetActive(true);
         }
         else if (type == SplashType.InfluenceOverTime.ToString())
