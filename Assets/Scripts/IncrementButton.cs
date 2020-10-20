@@ -68,12 +68,12 @@ public class IncrementButton : MonoBehaviour
         _audioManager.Play("Cork", randomNumber);
         if (randomNumber <= 0.03)
         {
-            var obj = _objectPooler.SpawnFromPool("IncrementBonusText");
+            var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
         }
         else
         {
-            var obj = _objectPooler.SpawnFromPool("IncrementText");
+            var obj = _objectPooler.SpawnFromPool("IncrementText", Input.mousePosition);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
         }
 
@@ -93,7 +93,21 @@ public class IncrementButton : MonoBehaviour
         {
             AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
         }
+
+        SpawnIncrementAnimation();
         // Monitor.DestroyObject("FingerPointerIncrementButton");
+    }
+
+    private void SpawnIncrementAnimation()
+    {
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            _objectPooler.SpawnFromPool("Cast", Input.GetTouch(0).position);
+        }
+        else
+        {
+            _objectPooler.SpawnFromPool("Cast", Input.mousePosition);   
+        }
     }
 
     public static long GetClickerIncrement(long clickerIncrement, int multIncrease)

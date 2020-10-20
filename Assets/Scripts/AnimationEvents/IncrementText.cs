@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class IncrementText : MonoBehaviour
 {
+    public GameObject ParentPanel;
+    
     public void DisableActiveState()
     {
-        gameObject.SetActive(false);
+        ParentPanel.SetActive(false);
     }
 }
