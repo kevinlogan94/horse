@@ -16,7 +16,7 @@ public class SavedData
     public long InfluenceEarnedEveryLevelSoFar;
     public float ExperienceRequiredToReachNextLevel;
     
-    // IncrementButton
+    // IncrementPanel
     public long ClickCount;
     public long ClickerIncrement;
     
@@ -57,9 +57,9 @@ public class SavedData
         InfluenceEarnedEveryLevelSoFar = LevelUp.Instance.InfluenceEarnedEveryLevelSoFar;
         ExperienceRequiredToReachNextLevel = LevelUp.Instance.Slider.maxValue;
         
-        // IncrementButton
-        ClickCount = IncrementButton.ClickCount;
-        ClickerIncrement = IncrementButton.ClickerIncrement;
+        // IncrementPanel
+        ClickCount = IncrementPanel.ClickCount;
+        ClickerIncrement = IncrementPanel.ClickerIncrement;
         
         // ShopManager
         foreach (var helper in ShopManager.Instance.Helpers)
@@ -119,8 +119,8 @@ public class SavedData
         LevelUp.Instance.Slider.maxValue = ExperienceRequiredToReachNextLevel;
         
         // Increment Button
-        IncrementButton.ClickCount = ClickCount;
-        IncrementButton.ClickerIncrement = ClickerIncrement;
+        IncrementPanel.ClickCount = ClickCount;
+        IncrementPanel.ClickerIncrement = ClickerIncrement;
         
         // Shop Manager
         foreach (var localHelper in ShopManager.Instance.Helpers)

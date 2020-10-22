@@ -33,7 +33,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
 
     public void UpdateProgressValue()
     {
-        ProgressBar.value = IncrementButton.ClickCount;
+        ProgressBar.value = IncrementPanel.ClickCount;
     }
 
     public void UpdateTitle()
@@ -45,14 +45,14 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     {
         if (ProgressBar.value >= ProgressBar.maxValue)
         {
-            IncrementButton.ClickerIncrement *= ClickerIncrease;
+            IncrementPanel.ClickerIncrement *= ClickerIncrease;
             ProgressBar.maxValue *= 2;
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.ClickerGoal = ProgressBar.maxValue;
             
             // update horses
-            // var coreHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel].HorseBreed;
-            // var secondaryHorse = ShopManager.Instance.Helpers[IncrementButton.ClickerLevel + 1].HorseBreed;
+            // var coreHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel].HorseBreed;
+            // var secondaryHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel + 1].HorseBreed;
             // ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);

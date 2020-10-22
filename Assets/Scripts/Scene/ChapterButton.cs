@@ -48,7 +48,7 @@ public class ChapterButton : MonoBehaviour
         {
             if (nextChapter.Number != 1)
             {
-                IncrementButton.ClickerIncrement *= SceneManager.ClickerIncrease;
+                IncrementPanel.ClickerIncrement *= SceneManager.ClickerIncrease;
             }
             SceneManager.Instance.TriggerChapter(nextChapter.Number);
         }

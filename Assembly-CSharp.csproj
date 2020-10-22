@@ -72,7 +72,8 @@
      <Compile Include="Assets\Scripts\AnimationEvents\CreatureScript.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\AnimationEvents\Lock.cs" />
-     <Compile Include="Assets\Scripts\IncrementButton.cs" />
+     <Compile Include="Assets\Scripts\Increment\IncrementPanel.cs" />
+     <Compile Include="Assets\Scripts\Increment\ManaBar.cs" />
      <Compile Include="Assets\Scripts\Manager\AdvertisementManager.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Manager\BottomNavManager.cs" />

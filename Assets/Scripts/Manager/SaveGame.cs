@@ -22,24 +22,24 @@ public static class SaveGame
 
     public static void Load()
     {
-        SavedData.RefreshData();
-        return;
+        // SavedData.RefreshData();
+        // return;
         
-        // if (File.Exists(Path))
-        // {
-        //     var formatter = new BinaryFormatter();
-        //     var stream = new FileStream(Path, FileMode.Open);
-        //
-        //     var savedData = formatter.Deserialize(stream) as SavedData;
-        //     
-        //     //take our load data and load it into the managers across the app that need this data.
-        //     savedData?.DistributeLoadData();
-        //     stream.Close();
-        // }
-        // else
-        // {
-        //     Debug.LogError("Save file not found at:" + Path);
-        //     Debug.Log("Starting fresh saved file.");
-        // }
+        if (File.Exists(Path))
+        {
+            var formatter = new BinaryFormatter();
+            var stream = new FileStream(Path, FileMode.Open);
+        
+            var savedData = formatter.Deserialize(stream) as SavedData;
+            
+            //take our load data and load it into the managers across the app that need this data.
+            savedData?.DistributeLoadData();
+            stream.Close();
+        }
+        else
+        {
+            Debug.LogError("Save file not found at:" + Path);
+            Debug.Log("Starting fresh saved file.");
+        }
     }
 }

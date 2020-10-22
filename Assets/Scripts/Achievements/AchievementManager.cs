@@ -111,7 +111,7 @@ public class AchievementManager : MonoBehaviour
 
     private void ClickerProgress()
     {
-        CurrentClickedAmount = IncrementButton.ClickCount;
+        CurrentClickedAmount = IncrementPanel.ClickCount;
     }
 
     private void HelperProgress()

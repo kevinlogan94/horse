@@ -7,7 +7,7 @@ using UnityEngine.Analytics;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class IncrementButton : MonoBehaviour
+public class IncrementPanel : MonoBehaviour
 {
     private ObjectPooler _objectPooler;
     private AudioManager _audioManager;
@@ -17,7 +17,7 @@ public class IncrementButton : MonoBehaviour
     public static long IncrementsThisSecond = 0;
 
     #region Singleton
-    public static IncrementButton Instance;
+    public static IncrementPanel Instance;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class IncrementButton : MonoBehaviour
         }
     }
     
-    public void Increment()
+    private void PerformIncrement()
     {
         var randomNumber = Random.Range(0.0f, 3.0f);
         long increment;
@@ -69,12 +69,20 @@ public class IncrementButton : MonoBehaviour
         if (randomNumber <= 0.03)
         {
             var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+            var child = obj.transform.Find("IncrementBonusTextChild")?.gameObject;
+            if (child != null)
+            {
+                child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+            }
         }
         else
         {
             var obj = _objectPooler.SpawnFromPool("IncrementText", Input.mousePosition);
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+            var child = obj.transform.Find("IncrementTextChild")?.gameObject;
+            if (child != null)
+            {
+                child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+            }
         }
 
         if (creatureToSpawn != null)
@@ -83,7 +91,7 @@ public class IncrementButton : MonoBehaviour
         }
         ClickCount++;
         IncrementsThisSecond+=increment;
-        var pointer = GameObject.Find("FingerPointerIncrementButton");
+        var pointer = GameObject.Find("FingerPointerIncrementPanel");
         if (pointer)
         {
             pointer.SetActive(false);
@@ -93,9 +101,18 @@ public class IncrementButton : MonoBehaviour
         {
             AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
         }
-
+        
+        ManaBar.Instance.DeductMana();
         SpawnIncrementAnimation();
-        // Monitor.DestroyObject("FingerPointerIncrementButton");
+        // Monitor.DestroyObject("FingerPointerIncrementPanel");
+    }
+
+    public void Increment()
+    {
+        if (ManaBar.Instance.HasEnoughMana())
+        {
+            PerformIncrement();
+        }
     }
 
     private void SpawnIncrementAnimation()
