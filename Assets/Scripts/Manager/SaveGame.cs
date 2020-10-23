@@ -8,22 +8,22 @@ public static class SaveGame
     
     public static void Save()
     {
-        // var formatter = new BinaryFormatter();
-        // var stream = new FileStream(Path, FileMode.Create);
-        //
-        // //store all the saved data we need here.
-        // var savedData = new SavedData();
-        //
-        // Debug.Log("Saving game at: " + Path);
-        // //store all the saved data on a new file on the path above.
-        // formatter.Serialize(stream, savedData);
-        // stream.Close();
+        var formatter = new BinaryFormatter();
+        var stream = new FileStream(Path, FileMode.Create);
+        
+        //store all the saved data we need here.
+        var savedData = new SavedData();
+        
+        Debug.Log("Saving game at: " + Path);
+        //store all the saved data on a new file on the path above.
+        formatter.Serialize(stream, savedData);
+        stream.Close();
     }
 
     public static void Load()
     {
-        // SavedData.RefreshData();
-        // return;
+        SavedData.RefreshData();
+        return;
         
         if (File.Exists(Path))
         {

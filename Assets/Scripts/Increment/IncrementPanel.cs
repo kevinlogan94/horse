@@ -97,9 +97,9 @@ public class IncrementPanel : MonoBehaviour
             pointer.SetActive(false);
         }
 
-        if (ClickCount%10 == 0)
+        if (ClickCount%10 == 0 && Monitor.UseAnalytics)
         {
-            AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
+                AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
         }
         
         ManaBar.Instance.DeductMana();

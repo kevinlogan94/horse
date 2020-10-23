@@ -21,6 +21,8 @@ public class Monitor : MonoBehaviour
     private float _topHorseSpawnerRegion;
     private DateTime _timeOfLastFrame;
 
+    public static bool UseAnalytics = false;
+
     #region Singleton
     public static Monitor Instance;
 

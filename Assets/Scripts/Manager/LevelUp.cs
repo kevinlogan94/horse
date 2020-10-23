@@ -60,7 +60,10 @@ public class LevelUp : MonoBehaviour
             
         // Level Up Character
         Monitor.PlayerLevel++;
-        AnalyticsEvent.LevelStart(Monitor.PlayerLevel);
+        if (Monitor.UseAnalytics)
+        {
+            AnalyticsEvent.LevelStart(Monitor.PlayerLevel);
+        }
         // _levelUpReward = 2 * _levelUpReward;
         // LevelUpRewardText.text = _levelUpReward + " influence";
         // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
@@ -128,7 +131,10 @@ public class LevelUp : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("LevelUp");
             LevelUpPanel.SetActive(true);
-            AnalyticsEvent.AdOffer(true);
+            if (Monitor.UseAnalytics)
+            {
+                AnalyticsEvent.AdOffer(true);
+            }
         }
     }
 

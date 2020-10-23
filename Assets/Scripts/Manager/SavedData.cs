@@ -43,6 +43,9 @@ public class SavedData
 
     // SceneManager
     public List<SavedChapter> Chapters = new List<SavedChapter>();
+    
+    //ManaBar
+    public int ManaLevel;
 
     public SavedData()
     {
@@ -104,6 +107,9 @@ public class SavedData
             savedChapter.SceneViewed = chapter.SceneViewed;
             Chapters.Add(savedChapter);
         }
+        
+        //ManaBar
+        ManaLevel = ManaBar.Instance.ManaLevel;
     }
 
     public void DistributeLoadData()
@@ -164,6 +170,9 @@ public class SavedData
                 Chapters.FirstOrDefault(loadedChapter => loadedChapter.Number == localChapter.Number);
             if (loadedMatchedChapter != null) localChapter.SceneViewed = loadedMatchedChapter.SceneViewed;
         }
+        
+        //ManaBar
+        ManaBar.Instance.ManaLevel = ManaLevel;
     }
 
     public static void RefreshData()

@@ -65,7 +65,10 @@ public class ShopManager : MonoBehaviour
                     SplashManager.Instance.TriggerSplash(SplashType.Creature.ToString(), helper.Creature.Name);
                 }
                 helper.AmountOwned++;
-                AnalyticsEvent.AchievementStep(Helpers.Sum(x=>x.AmountOwned), "HelperCount");
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.AchievementStep(Helpers.Sum(x=>x.AmountOwned), "HelperCount");
+                }
             }
 
             if (helper.Name == "Feeder" && helper.AmountOwned == 1)

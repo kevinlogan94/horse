@@ -54,19 +54,28 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished when placementId == RewardVideoPlacementId:
                 Debug.Log("Reward the player");
                 TriggerReward();
-                AnalyticsEvent.AdComplete(true);
                 AchievementManager.Instance.CurrentVideoAmount++;
-                AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
+                if(Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.AdComplete(true);
+                    AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
+                }
                 break;
             case ShowResult.Finished when placementId == SkippableAdPlacementId:
                 Debug.Log("Finished skippable ad");
-                AnalyticsEvent.AdComplete(false);
                 AchievementManager.Instance.CurrentVideoAmount++;
-                AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.AdComplete(false);
+                    AnalyticsEvent.AchievementStep(AchievementManager.Instance.CurrentVideoAmount, "AdsWatched");
+                }
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped");
-                AnalyticsEvent.AdSkip(false);
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.AdSkip(false);
+                }
                 break;
             case ShowResult.Failed:
                 Debug.LogWarning("The ad didn't finish due to an error");
@@ -86,13 +95,16 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidStart(string placementId)
     {
-        if (placementId == RewardVideoPlacementId)
+        if (Monitor.UseAnalytics)
         {
-            AnalyticsEvent.AdStart(true);
-        }
-        else
-        {
-            AnalyticsEvent.AdStart(false);
+            if (placementId == RewardVideoPlacementId)
+            {
+                AnalyticsEvent.AdStart(true);
+            }
+            else
+            {
+                AnalyticsEvent.AdStart(false);
+            }
         }
     }
 }

@@ -70,7 +70,10 @@ public class SplashManager : MonoBehaviour
         else
         {
             AdvertisementPanel.SetActive(true);
-            AnalyticsEvent.AdOffer(true);
+            if (Monitor.UseAnalytics)
+            {
+                AnalyticsEvent.AdOffer(true);
+            }
         }
     }
 

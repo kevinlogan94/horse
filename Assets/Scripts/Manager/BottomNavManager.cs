@@ -54,30 +54,45 @@ public class BottomNavManager : MonoBehaviour
             case "settings":
                 SettingsPanel.SetActive(true);
                 SettingsButton.image.sprite = _activeImage;
-                AnalyticsEvent.ScreenVisit(Views.settings.ToString());
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.ScreenVisit(Views.settings.ToString());
+                }
                 _audioManager.Play("Pop");
                 break;
             case "shop":
                 ShopPanel.SetActive(true);
                 ShopButton.image.sprite = _activeImage;
-                AnalyticsEvent.ScreenVisit(Views.shop.ToString());
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.ScreenVisit(Views.shop.ToString());
+                }
                 _audioManager.Play("DoorBell");
                 break;
             case "achievements":
                 AchievementPanel.SetActive(true);
                 AchievementButton.image.sprite = _activeImage;
-                AnalyticsEvent.ScreenVisit(Views.achievements.ToString());
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.ScreenVisit(Views.achievements.ToString());
+                }
                 _audioManager.Play("Pop");
                 break;
             case "scene":
                 ScenePanel.SetActive(true);
                 SceneButton.image.sprite = _activeImage;
-                AnalyticsEvent.ScreenVisit(Views.scene.ToString());
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.ScreenVisit(Views.scene.ToString());
+                }
                 _audioManager.Play("Pop");
                 break;
             default:
                 OutlookButton.image.sprite = _activeImage;
-                AnalyticsEvent.ScreenVisit(Views.outlook.ToString());
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.ScreenVisit(Views.outlook.ToString());
+                }
                 _audioManager.Play("Pop");
                 break;
         }

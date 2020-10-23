@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -17,11 +16,16 @@ public class SceneManager : MonoBehaviour
     private readonly float _banterWaitTime = 5f;
     private float _currentBanterWaitTime = 5f;
     private bool _banterActive = false;
+    
+    private readonly float _pointerWaitTime = 10f;
+    private float _currentPointerWaitTime = 10f;
+    private bool _waitingOnPlayer; 
 
     public string[] Tutorial;
     public GameObject ScenePanel;
     public GameObject FingerPointerXal;
     public GameObject ExclamationPointXal;
+    public GameObject StartChapterOneFingerPointer;
     public Button OutlookButton;
     public GameObject InfluenceCrystal;
     public GameObject ChapterButtonGameObject;
@@ -54,27 +58,16 @@ public class SceneManager : MonoBehaviour
     {
         DisableBanterAfterNoInteraction();
         ManageButtons();
+        ManageStartChapterOneFingerPointer();
         //progress in the tutorial after player purchases from the shop.
         if (_tutorialIndex == 2 && ShopManager.Instance.Helpers[0].AmountOwned >= 1 && ScenePanel.activeSelf)
         {
             TriggerTutorial();
             FingerPointerXal.SetActive(false);
         }
-
+        //Keep the next chapter up to date
         NextChapter = Chapters.FirstOrDefault(chapter => !chapter.SceneViewed);
-        
-        // manage exclamation point
-        if (NextChapter != null)
-        {
-            if (Monitor.PlayerLevel >= NextChapter.LevelRequirement && ActiveChapter == 0 && Monitor.PlayerLevel != 1)
-            {
-                ExclamationPointXal.SetActive(true);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("We couldn't find the next chapter in the story.");
-        }
+        ManageExclamationPoint();
     }
     
     public void TriggerChapter(int chapterNumber)
@@ -85,7 +78,7 @@ public class SceneManager : MonoBehaviour
             Debug.LogWarning("We couldn't find Chapter " + chapterNumber);
             return;   
         }
-        if (ActiveChapter == 0)
+        if (ActiveChapter == 0 && Monitor.UseAnalytics)
         {
             Analytics.CustomEvent("ChapterTriggered", new Dictionary<string, object>
             {
@@ -148,13 +141,31 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    private void ManageExclamationPoint()
+    {
+        if (NextChapter != null)
+        {
+            if (Monitor.PlayerLevel >= NextChapter.LevelRequirement && ActiveChapter == 0 && Monitor.PlayerLevel != 1)
+            {
+                ExclamationPointXal.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("We couldn't find the next chapter in the story.");
+        }
+    }
+
     public void TriggerChat()
     {
         var chapter1 = Chapters.FirstOrDefault(chapter => chapter.Number == 1);
         if (chapter1 != null && !chapter1.SceneViewed)
         {
             TriggerChapter(1);
-            AnalyticsEvent.FirstInteraction();
+            if (Monitor.UseAnalytics)
+            {
+                AnalyticsEvent.FirstInteraction();
+            }
         } 
         else if (TutorialActive)
         {
@@ -173,7 +184,14 @@ public class SceneManager : MonoBehaviour
 
     public void ClickInfluenceCrystal()
     {
-        SplashManager.Instance.TriggerSplash(SplashType.Advertisement.ToString());
+        if (Chapters.Any(x=>x.SceneViewed))
+        {
+            SplashManager.Instance.TriggerSplash(SplashType.Advertisement.ToString());
+        }
+        else
+        {
+            TriggerChat();
+        }
     }
     
     #endregion
@@ -234,6 +252,30 @@ public class SceneManager : MonoBehaviour
             BottomNavManager.Instance.SelectView("scene");
             // TriggerChapter(1);
             OutlookButton.interactable = false;
+        }
+    }
+
+    private void ManageStartChapterOneFingerPointer()
+    {
+        //no chapters have been viewed and we aren't in the middle of a chapter.
+        if (!Chapters.Any(x=>x.SceneViewed) && ActiveChapter == 0)
+        {
+            //Start the waiting session
+            if (!StartChapterOneFingerPointer.activeSelf && !_waitingOnPlayer)
+            {
+                _currentPointerWaitTime = Time.time + _pointerWaitTime;
+                _waitingOnPlayer = true;
+            }
+            //If we have waited longer than the defined time, prompt the pointer.
+            if (Time.time > _currentPointerWaitTime)
+            {
+              StartChapterOneFingerPointer.SetActive(true);
+            }
+        } 
+        else
+        {
+            StartChapterOneFingerPointer.SetActive(false);
+            _waitingOnPlayer = false;
         }
     }
     #endregion
