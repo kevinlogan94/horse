@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.iOS;
 using UnityEngine.UI;
 
 public class AppStoreReviewLogic : MonoBehaviour, IAchievement
@@ -49,15 +48,12 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
             if (Application.platform == RuntimePlatform.Android)
             {
                 Debug.Log("Android App Store Review Prompt");
-                //TODO Integrate the Android Review Prompt
-                // https://medium.com/the-innovation/dont-let-players-leave-your-unity-game-with-google-play-in-app-reviews-d9d91b685cff
+                Application.OpenURL(AndroidAppStoreReviewUrl);
             }
             else
             {
-                //https://developer.apple.com/documentation/storekit/skstorereviewcontroller/2851536-requestreview
-                //https://forum.unity.com/threads/using-requeststorereview-and-how-it-works.517841/
                 Debug.Log("Apple App Store Review Prompt");
-                Device.RequestStoreReview();
+                Application.OpenURL(IosAppStoreReviewUrl);
             }
 
             AchievementManager.Instance.AchievementGoal++;
