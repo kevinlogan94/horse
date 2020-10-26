@@ -2503,6 +2503,12 @@ MonoBehaviour:
   ProgressBar: {fileID: 190725130}
   Image: {fileID: 190725129}
   StoryExclamationPoint: {fileID: 190725128}
+--- !u!1 &195877936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
+    type: 3}
+  m_PrefabInstance: {fileID: 125837174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &195877937 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
@@ -7428,6 +7434,7 @@ MonoBehaviour:
   CountDownStarted: 0
   BuffActive: 0
   BuffTutorialCompleted: 0
+  BuffedThisLevel: 0
 --- !u!1 &698076569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1229392296870582756, guid: 5c2d422dd337dc94d849610addd0adad,
@@ -19437,7 +19444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a39a240a1c5a0c4e9e828b8b5adfab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FingerPointer: {fileID: 0}
+  FingerPointer: {fileID: 195877936}
 --- !u!95 &1760107725
 Animator:
   serializedVersion: 3

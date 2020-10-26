@@ -117,7 +117,7 @@ public class ShopManager : MonoBehaviour
                     var increment = helper.DynamicIncrement > helper.Increment
                         ? helper.DynamicIncrement
                         : helper.Increment;
-                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.Creature.CreatureAnimation, index*.25f);
+                    // Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.Creature.CreatureAnimation, index*.25f);
                 }
             }
         }

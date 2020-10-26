@@ -48,7 +48,7 @@ public class ChapterButton : MonoBehaviour
         {
             if (nextChapter.Number != 1)
             {
-                IncrementPanel.ClickerIncrement *= SceneManager.ClickerIncrease;
+                ManaBar.Instance.ManaLevel++;
             }
             SceneManager.Instance.TriggerChapter(nextChapter.Number);
         }
@@ -85,7 +85,7 @@ public class ChapterButton : MonoBehaviour
         }
         else
         {
-            ClickerRewardText.text = SceneManager.ClickerIncrease + "x Influence per Click";   
+            ClickerRewardText.text = "2x Mana Increase";
         }
     }
 }

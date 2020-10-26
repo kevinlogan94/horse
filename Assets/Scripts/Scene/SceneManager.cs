@@ -36,8 +36,6 @@ public class SceneManager : MonoBehaviour
     public bool TutorialActive;
     private int _tutorialIndex;
 
-    public const int ClickerIncrease = 50;
-
     #region Singleton
     public static SceneManager Instance;
 
@@ -114,7 +112,6 @@ public class SceneManager : MonoBehaviour
                 var xalAchievement = SplashManager.Instance.Achievements.FirstOrDefault(x => x.Name == "Xal");
                 if (xalAchievement != null)
                 {
-                    xalAchievement.RewardDescription = ClickerIncrease + "x Influence per Click"; 
                     SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), xalAchievement.Name);   
                 }
                 else

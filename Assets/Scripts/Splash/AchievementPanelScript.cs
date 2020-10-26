@@ -44,8 +44,8 @@ public class AchievementPanelScript : MonoBehaviour
                 AfterText.text = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1) + "/click";
                 break;
             case "Xal":
-                BeforeText.text = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement / SceneManager.ClickerIncrease, 1) + "/click";
-                AfterText.text = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1) + "/click";
+                BeforeText.text = 100 * (ManaBar.Instance.ManaLevel - 1) + " Mana";
+                AfterText.text = 100 * ManaBar.Instance.ManaLevel + " Mana";
                 break;
             case "Video": case "Story":
                 BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(tenHoursInSeconds) + " influence"; // 10 hours
