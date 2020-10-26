@@ -49,21 +49,7 @@ public class ManaBar : MonoBehaviour
 
     private float GetManaDeduction()
     {
-        switch (ManaLevel)
-        {
-            case 1:
-                return _manabar.maxValue / 4;
-            case 2:
-                return _manabar.maxValue / 8;
-            case 3:
-                return _manabar.maxValue / 12;
-            case 4:
-                return _manabar.maxValue / 16;
-            case 5:
-                return _manabar.maxValue / 20;
-            default:
-                return 1;
-        }
+        return _manabar.maxValue / (ManaLevel * 3);
     }
 
     public bool HasEnoughMana()
