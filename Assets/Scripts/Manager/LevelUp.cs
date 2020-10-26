@@ -50,7 +50,7 @@ public class LevelUp : MonoBehaviour
         else
         {
             var bonusReward = _levelUpReward * 3;
-            AdvertisementManager.Instance.ShowRewardedAd(bonusReward);
+            AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
         }
         
         //Update Level up progress bar
@@ -64,6 +64,8 @@ public class LevelUp : MonoBehaviour
         {
             AnalyticsEvent.LevelStart(Monitor.PlayerLevel);
         }
+
+        BuffManager.Instance.BuffedThisLevel = false;
         // _levelUpReward = 2 * _levelUpReward;
         // LevelUpRewardText.text = _levelUpReward + " influence";
         // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();

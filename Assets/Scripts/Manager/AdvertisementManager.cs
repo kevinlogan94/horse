@@ -31,9 +31,15 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Initialize(gameId, TestMode);
     }
 
-    public void ShowRewardedAd(long reward)
+    public void ShowStandardRewardAd(long reward)
     {
         _reward = reward;
+        Advertisement.Show(RewardVideoPlacementId);
+    }
+
+    public void ShowBuffRewardAd(BuffType buffType, int seconds)
+    {
+        BuffManager.Instance.TriggerBuff(buffType, seconds);
         Advertisement.Show(RewardVideoPlacementId);
     }
 
@@ -107,4 +113,10 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             }
         }
     }
+}
+
+public enum RewardType
+{
+    Influence,
+    Mana
 }

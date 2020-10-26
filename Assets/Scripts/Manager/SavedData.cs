@@ -46,6 +46,10 @@ public class SavedData
     
     //ManaBar
     public int ManaLevel;
+    
+    //BuffManager
+    public bool BuffTutorialCompleted;
+    public bool BuffedThisLevel;
 
     public SavedData()
     {
@@ -110,6 +114,10 @@ public class SavedData
         
         //ManaBar
         ManaLevel = ManaBar.Instance.ManaLevel;
+        
+        //BuffManager
+        BuffTutorialCompleted = BuffManager.Instance.BuffTutorialCompleted;
+        BuffedThisLevel = BuffManager.Instance.BuffedThisLevel;
     }
 
     public void DistributeLoadData()
@@ -124,7 +132,7 @@ public class SavedData
         LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar;
         LevelUp.Instance.Slider.maxValue = ExperienceRequiredToReachNextLevel;
         
-        // Increment Button
+        // Increment Panel
         IncrementPanel.ClickCount = ClickCount;
         IncrementPanel.ClickerIncrement = ClickerIncrement;
         
@@ -173,6 +181,10 @@ public class SavedData
         
         //ManaBar
         ManaBar.Instance.ManaLevel = ManaLevel;
+        
+        //BuffManager
+        BuffManager.Instance.BuffTutorialCompleted = BuffTutorialCompleted;
+        BuffManager.Instance.BuffedThisLevel = BuffedThisLevel;
     }
 
     public static void RefreshData()

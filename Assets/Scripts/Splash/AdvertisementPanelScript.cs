@@ -23,7 +23,7 @@ public class AdvertisementPanelScript : MonoBehaviour
 
     public void WatchAdAndCloseSplash()
     {
-        AdvertisementManager.Instance.ShowRewardedAd(_rewardValue);
+        AdvertisementManager.Instance.ShowStandardRewardAd(_rewardValue);
         SplashManager.Instance.CloseSplash();
     }
     

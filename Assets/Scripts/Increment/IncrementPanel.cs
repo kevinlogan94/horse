@@ -113,6 +113,10 @@ public class IncrementPanel : MonoBehaviour
         {
             PerformIncrement();
         }
+        if (BuffManager.Instance.BuffActive)
+        {
+            BuffManager.Instance.CountDownStarted = true;
+        }
     }
 
     private void SpawnIncrementAnimation()

@@ -7,6 +7,7 @@ public class ManaBar : MonoBehaviour
 {
     private Slider _manabar;
     public int ManaLevel;
+    public bool InfiniteManaBuffActive;
     
     #region Singleton
     public static ManaBar Instance;
@@ -73,7 +74,7 @@ public class ManaBar : MonoBehaviour
 
     public void DeductMana()
     {
-        var manaDeduction = GetManaDeduction();
+        var manaDeduction = InfiniteManaBuffActive ? 0 : GetManaDeduction();
         if (_manabar.value - manaDeduction >= 0)
         {
             _manabar.value -= manaDeduction;
