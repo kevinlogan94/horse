@@ -7,7 +7,6 @@ public class Creature : ScriptableObject
 {
     public string Name;
     public string Description;
-    public int AnimationInt;
     public CreatureAnimations CreatureAnimation;
 }
 

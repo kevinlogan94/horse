@@ -21,6 +21,7 @@ public class Monitor : MonoBehaviour
     private float _topHorseSpawnerRegion;
     private DateTime _timeOfLastFrame;
 
+    //TODO turn analytics back on
     public static bool UseAnalytics = false;
 
     #region Singleton
@@ -205,5 +206,6 @@ public enum CreatureAnimations
     FireHorseAnimation = 4,
     ThunderHorseRunAnimation = 5,
     UnicornRunAnimation = 6,
+    RaijuRunAnimation = 7,
     None = 99
 }
