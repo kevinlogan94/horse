@@ -16,5 +16,4 @@ MonoBehaviour:
   Description: 'Hippocampus is commonly spotted pulling the Chariot of the Greek
     God of the sea, Poseidon. The water horse is best known for its fierce loyalty
     and ability to calm soldiers'' minds before going off into battle. '
-  AnimationInt: 3
-  CreatureAnimation: 3
+  CreatureAnimation: 1

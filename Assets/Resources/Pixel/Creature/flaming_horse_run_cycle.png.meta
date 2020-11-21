@@ -117,7 +117,7 @@ TextureImporter:
       name: flaming_horse_run_cycle_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
         width: 75
         height: 66
@@ -138,7 +138,7 @@ TextureImporter:
       name: flaming_horse_run_cycle_1
       rect:
         serializedVersion: 2
-        x: 91
+        x: 81
         y: 0
         width: 75
         height: 66
@@ -159,7 +159,7 @@ TextureImporter:
       name: flaming_horse_run_cycle_2
       rect:
         serializedVersion: 2
-        x: 174
+        x: 163
         y: 0
         width: 75
         height: 66
@@ -180,7 +180,7 @@ TextureImporter:
       name: flaming_horse_run_cycle_3
       rect:
         serializedVersion: 2
-        x: 254
+        x: 244
         y: 0
         width: 75
         height: 66
@@ -201,7 +201,7 @@ TextureImporter:
       name: flaming_horse_run_cycle_4
       rect:
         serializedVersion: 2
-        x: 334
+        x: 326
         y: 0
         width: 75
         height: 66

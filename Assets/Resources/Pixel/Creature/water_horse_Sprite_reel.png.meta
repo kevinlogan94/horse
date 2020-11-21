@@ -117,7 +117,7 @@ TextureImporter:
       name: water_horse_Sprite_reel_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
         width: 75
         height: 66
@@ -138,7 +138,7 @@ TextureImporter:
       name: water_horse_Sprite_reel_1
       rect:
         serializedVersion: 2
-        x: 91
+        x: 79
         y: 0
         width: 75
         height: 66
@@ -159,7 +159,7 @@ TextureImporter:
       name: water_horse_Sprite_reel_2
       rect:
         serializedVersion: 2
-        x: 174
+        x: 161
         y: 0
         width: 75
         height: 66
@@ -180,7 +180,7 @@ TextureImporter:
       name: water_horse_Sprite_reel_3
       rect:
         serializedVersion: 2
-        x: 254
+        x: 244
         y: 0
         width: 75
         height: 66
@@ -201,7 +201,7 @@ TextureImporter:
       name: water_horse_Sprite_reel_4
       rect:
         serializedVersion: 2
-        x: 334
+        x: 325
         y: 0
         width: 75
         height: 66

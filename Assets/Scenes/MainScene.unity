@@ -184,15 +184,15 @@ RectTransform:
   m_GameObject: {fileID: 33560492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519085579}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.23909, y: 0}
-  m_SizeDelta: {x: 0.47817993, y: -0.36035156}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.7, y: -0}
+  m_SizeDelta: {x: 340.90347, y: 281.8058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &33560494
 Animator:
@@ -5868,8 +5868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.2, y: 313.8}
-  m_SizeDelta: {x: 344.6781, y: 265.96606}
+  m_AnchoredPosition: {x: -12.479, y: 343.8}
+  m_SizeDelta: {x: 394.06543, y: 326.07538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519085580
 MonoBehaviour:
@@ -7498,13 +7498,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1bc49c329f62ecf429647441b4f7921e, type: 2}
   - {fileID: 11400000, guid: 6339835f9893df147a3ecbb3553c373c, type: 2}
   Creatures:
-  - {fileID: 11400000, guid: 09ba1a54b612421469d197581f89596f, type: 2}
-  - {fileID: 11400000, guid: 3498d53ebaafa4245b74cc984f19d8bc, type: 2}
-  - {fileID: 11400000, guid: ab74168c832ea454c835c0d78a74da2d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 491b25042a9d8f54289e61da8f9df045, type: 2}
-  - {fileID: 11400000, guid: d707e015ddf5ac045b6f2f83f5ebeb82, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: d838f913fe838b44cbdc426d80060ca9, type: 2}
   - {fileID: 11400000, guid: f2dc8ef9b9c350e45b6aea97ee26d564, type: 2}
+  - {fileID: 11400000, guid: 61fe3e1ce5de07147a0dcc324856a84e, type: 2}
+  - {fileID: 11400000, guid: 6d1807075b2912448b5dcc1925634b4d, type: 2}
+  - {fileID: 11400000, guid: 2639c556e27faca4e8bcc33a7a034dc0, type: 2}
 --- !u!1 &698562780
 GameObject:
   m_ObjectHideFlags: 0
@@ -16775,7 +16778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fed426a9a2e9f14408c8deaeca81ddb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 368b032003026f44abcd905cab73613f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

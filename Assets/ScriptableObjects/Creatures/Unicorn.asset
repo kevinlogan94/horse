@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Unicorn
   Description: 
-  AnimationInt: 0
-  CreatureAnimation: 6
+  CreatureAnimation: 3

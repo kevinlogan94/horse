@@ -199,13 +199,16 @@ public class Monitor : MonoBehaviour
 
 public enum CreatureAnimations
 {
-    ThoroughbredRunAnimation = 0,
-    AppaloosaRunAnimation = 1,
-    PalominoRunAnimation = 2,
-    WaterHorseAnimation = 3,
-    FireHorseAnimation = 4,
-    ThunderHorseRunAnimation = 5,
-    UnicornRunAnimation = 6,
-    RaijuRunAnimation = 7,
+    WaterHorseAnimation = 1,
+    FireHorseAnimation = 2,
+    UnicornRunAnimation = 3,
+    RaijuRunAnimation = 4,
+    WraithAnimation = 5,
+    ElkAnimation = 6,
+    WispAnimation = 7,
+    GriffinAnimation = 8,
+    BasiliskAnimation = 9,
+    PhoenixAnimation = 10,
+    VoidSpawnAnimation = 11,
     None = 99
 }
