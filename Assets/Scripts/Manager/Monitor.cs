@@ -77,7 +77,7 @@ public class Monitor : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         // Debug.Log(_bottomHorseSpawnerRegion);
         // Debug.Log(_topHorseSpawnerRegion);
-        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(350, 1400)));
+        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(350, 1200)));
         PlayAnimationOnGameObject(spawnedGameObject, creatureAnimation);
     }
 

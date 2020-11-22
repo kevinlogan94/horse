@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.iOS;
 
 public class ShopManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ShopManager : MonoBehaviour
 
     public GameObject ShopPanel;
     public GameObject FingerPointerShop;
-    public GameObject FingerPointerFeederButton;
+    public GameObject FingerPointerNatureButton;
     public GameObject ShopExclamationPoint;
     public GameObject FingerPointerXal;
 
@@ -40,12 +41,12 @@ public class ShopManager : MonoBehaviour
         //shop tutorial
         if (Monitor.PlayerLevel == 1)
         {
-            var feeder = Helpers.FirstOrDefault(x => x.Name == "Feeder");
-            if (Monitor.Influence >= feeder?.Cost && feeder?.AmountOwned == 0)
+            var nature = Helpers.FirstOrDefault(x => x.Name == "Nature");
+            if (Monitor.Influence >= nature?.Cost && nature?.AmountOwned == 0)
             {
                 FingerPointerShop.SetActive(!ShopPanel.activeSelf);
                 // ShopTutorialPanel.SetActive(true);
-                FingerPointerFeederButton.SetActive(ShopPanel.activeSelf);
+                FingerPointerNatureButton.SetActive(ShopPanel.activeSelf);
             }
         }
     }
@@ -71,10 +72,10 @@ public class ShopManager : MonoBehaviour
                 }
             }
 
-            if (helper.Name == "Feeder" && helper.AmountOwned == 1)
+            if (helper.Name == "Nature" && helper.AmountOwned == 1)
             {
                 FingerPointerShop.SetActive(false);
-                FingerPointerFeederButton.SetActive(false);
+                FingerPointerNatureButton.SetActive(false);
                 // ShopTutorialPanel.SetActive(false);
                 if (SceneManager.Instance.TutorialActive)
                 {
