@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Xal
   RewardDescription: 2x Mana Increase
-  Artwork: {fileID: 21300000, guid: 372b653446efbda4b8b668b75839c91a, type: 3}
+  Artwork: {fileID: 21300000, guid: 3a137201e9464dc458a12a12d08b3654, type: 3}
