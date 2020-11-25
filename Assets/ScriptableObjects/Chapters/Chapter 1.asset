@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: The beginning
   Number: 1
   LevelRequirement: 1
-  SceneViewed: 1
+  SceneViewed: 0
   Quotes:
   - OH MY GOSH!
   - Oh, I'm sorry.
@@ -44,3 +44,4 @@ MonoBehaviour:
     your worth.
   - There are always creatures trying to disrupt the realm.
   - Now, let's leave this crusty place and get you started.
+  Expressions: 0000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

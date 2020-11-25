@@ -63,6 +63,11 @@ public class SceneManager : MonoBehaviour
             TriggerTutorial();
             FingerPointerXal.SetActive(false);
         }
+        // Have him reset to reading his book if nothing is going on in the scene.
+        if (!_banterActive && !TutorialActive && ActiveChapter == 0)
+        {
+            SceneBackgroundController.Instance.UpdateSceneBackground(Expression.GenericDown);
+        }
         //Keep the next chapter up to date
         NextChapter = Chapters.FirstOrDefault(chapter => !chapter.SceneViewed);
         ManageExclamationPoint();
@@ -91,6 +96,7 @@ public class SceneManager : MonoBehaviour
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
 
         textMeshPro.text = chapter.Quotes[_chapterIndex];
+        SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
         
         if (_chapterIndex < chapter.Quotes.Length - 1)
         {
@@ -197,6 +203,7 @@ public class SceneManager : MonoBehaviour
     private void TriggerTutorial()
     {
         TutorialActive = true;
+        SceneBackgroundController.Instance.UpdateSceneBackground(Expression.Generic);
         if (_tutorialIndex < Tutorial.Length)
         {
             var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
@@ -285,6 +292,7 @@ public class SceneManager : MonoBehaviour
         TextBox.SetActive(true);
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
         textMeshPro.text = Banter[_banterIndex];
+        SceneBackgroundController.Instance.UpdateSceneBackground(Expression.Angry);
 
         if (_banterIndex < Banter.Length - 1)
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: A Blinding Need
   Number: 2
   LevelRequirement: 5
-  SceneViewed: 1
+  SceneViewed: 0
   Quotes:
   - Hello
   - "I hope things haven\u2019t been too confusing around here."
@@ -33,3 +33,4 @@ MonoBehaviour:
   - Xal, the royal protector of the realm! Breaker of expectations!
   - Just keep going, and we can make it!
   - Come back after you collected more influence and have raised a couple of levels.
+  Expressions: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\Model\Sound.cs" />
      <Compile Include="Assets\Scripts\NewsText.cs" />
      <Compile Include="Assets\Scripts\Scene\ChapterButton.cs" />
+     <Compile Include="Assets\Scripts\Scene\SceneBackgroundController.cs" />
      <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopBackButton.cs" />
