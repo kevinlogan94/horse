@@ -10,6 +10,9 @@ public class SceneManager : MonoBehaviour
     public Chapter[] Chapters;
     public GameObject TextBox;
     public Chapter NextChapter;
+    public GameObject Book;
+
+    private Animator _bookAnimator;
 
     public string[] Banter;
     private int _banterIndex = 0;
@@ -48,7 +51,7 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _bookAnimator = Book.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -67,6 +70,7 @@ public class SceneManager : MonoBehaviour
         if (!_banterActive && !TutorialActive && ActiveChapter == 0)
         {
             SceneBackgroundController.Instance.UpdateSceneBackground(Expression.GenericDown);
+            _bookAnimator.Play(BookAnimation.BookTurn.ToString());
         }
         //Keep the next chapter up to date
         NextChapter = Chapters.FirstOrDefault(chapter => !chapter.SceneViewed);
@@ -97,6 +101,7 @@ public class SceneManager : MonoBehaviour
 
         textMeshPro.text = chapter.Quotes[_chapterIndex];
         SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
+        _bookAnimator.Play(BookAnimation.Blank.ToString());
         
         if (_chapterIndex < chapter.Quotes.Length - 1)
         {
@@ -293,6 +298,7 @@ public class SceneManager : MonoBehaviour
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
         textMeshPro.text = Banter[_banterIndex];
         SceneBackgroundController.Instance.UpdateSceneBackground(Expression.Angry);
+        _bookAnimator.Play(BookAnimation.Blank.ToString());
 
         if (_banterIndex < Banter.Length - 1)
         {
@@ -313,4 +319,10 @@ public class SceneManager : MonoBehaviour
         }
     }
     #endregion
+}
+
+public enum BookAnimation
+{
+    Blank,
+    BookTurn
 }
