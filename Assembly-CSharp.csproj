@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Manager\AdvertisementManager.cs" />
      <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Manager\BottomNavManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\CanvasBackgroundController.cs" />
      <Compile Include="Assets\Scripts\Manager\LevelUp.cs" />
      <Compile Include="Assets\Scripts\Manager\Monitor.cs" />
      <Compile Include="Assets\Scripts\Manager\NewsManager.cs" />

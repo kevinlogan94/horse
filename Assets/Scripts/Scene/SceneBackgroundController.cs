@@ -71,3 +71,9 @@ public class SceneBackgroundController : MonoBehaviour
         gameObject.GetComponent<Image>().sprite = spriteToUse;
     }
 }
+
+public enum BookAnimation
+{
+    Blank,
+    BookTurn
+}

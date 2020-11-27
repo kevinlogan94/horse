@@ -101,6 +101,7 @@ public class SceneManager : MonoBehaviour
 
         textMeshPro.text = chapter.Quotes[_chapterIndex];
         SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
+        // CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.Altar);
         _bookAnimator.Play(BookAnimation.Blank.ToString());
         
         if (_chapterIndex < chapter.Quotes.Length - 1)
@@ -319,10 +320,4 @@ public class SceneManager : MonoBehaviour
         }
     }
     #endregion
-}
-
-public enum BookAnimation
-{
-    Blank,
-    BookTurn
 }

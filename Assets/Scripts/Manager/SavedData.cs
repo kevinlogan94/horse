@@ -12,6 +12,9 @@ public class SavedData
     public long TotalInfluenceEarned;
     public int PlayerLevel;
     
+    //CanvasBackgroundController
+    public CanvasBackground CanvasBackground;
+    
     // LevelUp
     public long InfluenceEarnedEveryLevelSoFar;
     public float ExperienceRequiredToReachNextLevel;
@@ -59,6 +62,9 @@ public class SavedData
         Influence = Monitor.Influence;
         TotalInfluenceEarned = Monitor.TotalInfluenceEarned;
         PlayerLevel = Monitor.PlayerLevel;
+        
+        //CanvasBackgroundController
+        CanvasBackground = CanvasBackgroundController.Instance.CurrentCanvasBackground;
 
         // LevelUp
         InfluenceEarnedEveryLevelSoFar = LevelUp.Instance.InfluenceEarnedEveryLevelSoFar;
@@ -127,6 +133,9 @@ public class SavedData
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
         Monitor.PlayerLevel = PlayerLevel;
         Monitor.LastSavedDateTime = SavedDateTime;
+        
+        // CanvasBackgroundController
+        CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground;
         
         // Level Up
         LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar;
