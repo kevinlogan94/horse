@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Void
   Description: 
-  LevelRequirement: 0
-  Cost: 0
+  LevelRequirement: 35
+  Cost: 100000
   DynamicCost: 0
-  Increment: 0
+  Increment: 100000
   DynamicIncrement: 0
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 43620fecf28c46f488a3a3181b8af25c, type: 2}

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Griffin
   m_EditorClassIdentifier: 
   Name: Griffin
-  Description: description
+  Description: The Griffin has the head and wings of an eagle. In comparison, the
+    rest of its body is that of a lion. With this creature having qualities of the
+    king of beasts and the king of beards, it is quite powerful.
   CreatureAnimation: 8

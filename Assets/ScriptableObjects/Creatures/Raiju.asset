@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Raiju
   m_EditorClassIdentifier: 
   Name: Raiju
-  Description: The thunder beasts are the faithful companions of the God of Lightning.
-    Generally, calm creatures, they become fierce predators in thunderstorms.
+  Description: The Raiju are the faithful companions of the God of Lightning. Generally,
+    they are calm creatures that become fierce predators in thunderstorms.
   CreatureAnimation: 4

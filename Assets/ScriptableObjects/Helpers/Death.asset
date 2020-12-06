@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Void Rift
   Description: 
-  LevelRequirement: 20
-  Cost: 200000
+  LevelRequirement: 25
+  Cost: 20000
   DynamicCost: 200000
-  Increment: 0
+  Increment: 3000
   DynamicIncrement: 0
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 6d1807075b2912448b5dcc1925634b4d, type: 2}

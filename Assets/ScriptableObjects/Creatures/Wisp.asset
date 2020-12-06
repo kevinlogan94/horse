@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b52435c8a83aff44b13a8ca273dbdc2, type: 3}
   m_Name: Wisp
   m_EditorClassIdentifier: 
-  Name: Wisp
-  Description: fun description
+  Name: Bluecap
+  Description: The Bluecap is a mythical creature from English Folklore. Legend has
+    it; if you treat them with respect, they will lead you to rich deposits of minerals.
   CreatureAnimation: 7

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rebirth
   Description: 
-  LevelRequirement: 0
-  Cost: 0
+  LevelRequirement: 30
+  Cost: 20000
   DynamicCost: 0
-  Increment: 0
+  Increment: 3000
   DynamicIncrement: 0
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: b9e81480acc216c4c964cf51606a2559, type: 2}

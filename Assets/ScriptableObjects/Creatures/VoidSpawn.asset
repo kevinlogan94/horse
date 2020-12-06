@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: VoidSpawn
   m_EditorClassIdentifier: 
   Name: Void Spawn
-  Description: void
+  Description: This monster comes from the darkest corner of known reality. Many
+    people spend their lives hoping never to see one.
   CreatureAnimation: 11

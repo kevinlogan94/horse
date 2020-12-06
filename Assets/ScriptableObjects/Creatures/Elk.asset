@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Elk
   m_EditorClassIdentifier: 
   Name: Elk
-  Description: special description
+  Description: In Native American Mythology, many tribes associated the elk with
+    Love. Considered guardians of women, they were said even to lead women back to
+    their homes if captured by enemy warriors.
   CreatureAnimation: 6

@@ -201,7 +201,6 @@ public enum CreatureAnimations
 {
     WaterHorseAnimation = 1,
     FireHorseAnimation = 2,
-    UnicornRunAnimation = 3,
     RaijuRunAnimation = 4,
     WraithAnimation = 5,
     ElkAnimation = 6,

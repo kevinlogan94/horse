@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Wraith
   m_EditorClassIdentifier: 
   Name: Wraith
-  Description: Darkness
+  Description: The Wraith is an undead creature from Scottish Folklore. Wraith's
+    are souls that have recently passed on that take pleasure from harming living
+    creatures.
   CreatureAnimation: 5

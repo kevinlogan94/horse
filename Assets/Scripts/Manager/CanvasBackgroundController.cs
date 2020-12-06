@@ -21,6 +21,11 @@ public class CanvasBackgroundController : MonoBehaviour
         _altarImage = Resources.Load<Sprite>("Backgrounds/Altar");
     }
 
+    void Update()
+    {
+        UpdateCanvasBackground(CurrentCanvasBackground);
+    }
+
     public void UpdateCanvasBackground(CanvasBackground background)
     {
         Sprite spriteToUse;

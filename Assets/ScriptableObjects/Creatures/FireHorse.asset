@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireHorse
   m_EditorClassIdentifier: 
   Name: FireHorse
-  Description: Abraxas is the immortal horse of the sun-god Helios in Greek Mythology.
-    The fire horse is the most unconventional and passionate of all the elemental
-    horses, making them keen leaders.
+  Description: The Fire Horse is the immortal horse of the sun-god Helios in Greek
+    Mythology. The fire horse is the most unconventional and passionate of all the
+    elemental horses, making them keen leaders.
   CreatureAnimation: 2
