@@ -1,11 +1,20 @@
 ﻿using UnityEngine.Audio;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] Sounds;
+    public List<String> BackgroundMusic = new List<string>
+    {
+        "Xals Theme",
+        "Barlogs Theme",
+        "Mountains",
+        "River",
+        "Meadow"
+    };
     
     void Awake()
     {
@@ -22,7 +31,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Play("Theme");
+        Play("Xals Theme");
     }
     
      public void Play(string songName, float? pitch = null)
@@ -49,14 +58,27 @@ public class AudioManager : MonoBehaviour
 
     public void MuteBackgroundMusic(bool mute)
     {
-        var theme = Array.Find(Sounds, sound => sound.Name == "Theme");
-        theme.Source.mute = !mute;
+        foreach (var backgroundMusic in BackgroundMusic)
+        {
+            var theme = Array.Find(Sounds, sound => sound.Name == backgroundMusic);
+            theme.Source.mute = !mute;
+        }
     }
-
+    
     public void MuteSoundEffects(bool mute)
     {
-        var soundEffectSounds = Sounds.Where(x => x.Name != "Theme");
-        foreach (var soundEffectSound in soundEffectSounds)
+        var soundEffects = Sounds.ToList();
+        foreach (var backgroundMusic in BackgroundMusic)
+        {
+            foreach (var sound in soundEffects)
+            {
+                if (sound.Name == backgroundMusic)
+                {
+                    soundEffects.Remove(sound);
+                }
+            }
+        }
+        foreach (var soundEffectSound in soundEffects)
         {
             soundEffectSound.Source.mute = !mute;
         }

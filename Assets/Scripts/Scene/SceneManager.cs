@@ -334,7 +334,9 @@ public class SceneManager : MonoBehaviour
     public void ManageBarlogDisplay()
     {
         //Startup
-        if (NextChapter.Number == 6 && BottomNavManager.Instance.ActiveView == Views.outlook.ToString())
+        if (NextChapter.Number == 6 
+            && BottomNavManager.Instance.ActiveView == Views.outlook.ToString() 
+            && !BarlogPanel.activeSelf)
         {
             BarlogPanel.SetActive(true);
             BarlogMessageBox.SetActive(false);
