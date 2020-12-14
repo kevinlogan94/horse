@@ -32,12 +32,19 @@ public class SceneManager : MonoBehaviour
     public Button OutlookButton;
     public GameObject InfluenceCrystal;
     public GameObject ChapterButtonGameObject;
+    
+    public GameObject BarlogPanel;
+    public GameObject BarlogMessageBox;
+    public GameObject BarlogAvatar;
+    public Text BarlogText;
 
     private int _chapterIndex;
     public int ActiveChapter;
 
     public bool TutorialActive;
     private int _tutorialIndex;
+    
+    private AudioManager _audioManager;
 
     #region Singleton
     public static SceneManager Instance;
@@ -52,6 +59,7 @@ public class SceneManager : MonoBehaviour
     void Start()
     {
         _bookAnimator = Book.GetComponent<Animator>();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -67,7 +75,7 @@ public class SceneManager : MonoBehaviour
             FingerPointerXal.SetActive(false);
         }
         // Have him reset to reading his book if nothing is going on in the scene.
-        if (!_banterActive && !TutorialActive && ActiveChapter == 0)
+        if (!_banterActive && !TutorialActive && ActiveChapter == 0 && ScenePanel.activeSelf)
         {
             SceneBackgroundController.Instance.UpdateSceneBackground(Expression.GenericDown);
             _bookAnimator.Play(BookAnimation.BookTurn.ToString());
@@ -83,7 +91,7 @@ public class SceneManager : MonoBehaviour
         if (chapter == null)
         {
             Debug.LogWarning("We couldn't find Chapter " + chapterNumber);
-            return;   
+            return;
         }
         if (ActiveChapter == 0 && Monitor.UseAnalytics)
         {
@@ -279,7 +287,7 @@ public class SceneManager : MonoBehaviour
             //If we have waited longer than the defined time, prompt the pointer.
             if (Time.time > _currentPointerWaitTime)
             {
-              StartChapterOneFingerPointer.SetActive(true);
+                StartChapterOneFingerPointer.SetActive(true);
             }
         } 
         else
@@ -318,6 +326,73 @@ public class SceneManager : MonoBehaviour
             _banterActive = false;
             TextBox.SetActive(false);
         }
+    }
+    #endregion
+
+    #region Barlog Methods
+
+    public void ManageBarlogDisplay()
+    {
+        //Startup
+        if (NextChapter.Number == 6 && BottomNavManager.Instance.ActiveView == Views.outlook.ToString())
+        {
+            BarlogPanel.SetActive(true);
+            BarlogMessageBox.SetActive(false);
+            BarlogAvatar.SetActive(true);
+
+            BottomNavManager.Instance.ToggleActiveButtons(false);
+            _audioManager.PlaySong("Barlogs Theme");
+            TriggerBarlogAnimation(barlog.BarlogAnimations.Fadein);
+            TriggerBarlogText();
+        }
+    }
+
+    public void TriggerBarlogText()
+    {
+        if (!BarlogMessageBox.activeSelf) return;
+        
+        var chapter = Chapters.FirstOrDefault(x => x.Number == 6);
+        if (chapter == null)
+        {
+            Debug.LogWarning("We couldn't find Chapter 6");
+            return;
+        }
+        if (ActiveChapter == 0 && Monitor.UseAnalytics)
+        {
+            Analytics.CustomEvent("ChapterTriggered", new Dictionary<string, object>
+            {
+                {"Chapter", 6}
+            });
+        }
+        
+        var textMeshPro = BarlogMessageBox.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshPro.text = chapter.Quotes[_chapterIndex];
+        
+        if (_chapterIndex < chapter.Quotes.Length - 1)
+        {
+            _chapterIndex++;   
+        }
+        else
+        {
+            _chapterIndex = 0;
+            chapter.SceneViewed = true;
+            TextBox.SetActive(false);
+            TriggerBarlogAnimation(barlog.BarlogAnimations.Fadeout);
+        }
+    }
+
+    public void TriggerBarlogAnimation(barlog.BarlogAnimations barlogAnimation)
+    {
+        var animator = BarlogAvatar.GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning("We couldn't find an animator on the object: Barlog Avatar");
+            return;
+        }
+
+        BottomNavManager.Instance.ToggleActiveButtons(true);
+        animator.Play(barlogAnimation.ToString());
+        _audioManager.PlaySong("Mountains");
     }
     #endregion
 }

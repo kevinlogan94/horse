@@ -12,21 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e8920b4ffffef498626c001915380f, type: 3}
   m_Name: Chapter 3
   m_EditorClassIdentifier: 
-  Name: Play Test
+  Name: Searching
   Number: 3
   LevelRequirement: 10
   SceneViewed: 0
   Quotes:
-  - Welcome Back!
-  - So...
-  - This is a little embarassing...
-  - I had something really cool to share with you.
-  - But it seems as if it I have nothing to say.
-  - As if someone writes out every word I say...
-  - And they didn't have the time.
-  - But, how could that be?
-  - I guess whoever that is better figure it out.
-  - Then again, why did they write all this out but not what I'm suppose to say?
-  - Better luck next time?
-  - Come back later!
-  Expressions: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - "So\u2026"
+  - 'What do you think? '
+  - "Interesting, aren\u2019t they?"
+  - 'All these creatures have a striking beauty. '
+  - "It makes you wonder\u2026 "
+  - 'Why would anyone hurt these beautiful animals?  '
+  - 'They have so much potential in the world. '
+  - 'Without them, there is no balance. '
+  - 'Without balance in the environment...  '
+  - 'We would all step into a disaster. '
+  - 'But, still, harming animals is the solution? '
+  - 'Does upsetting someone in power justify this? '
+  - "\u2026"
+  - 'Monsters... '
+  - They will do whatever it takes to get what they want.
+  - 'As if the world solely revolves around them. '
+  - "\u2026 "
+  - I am guilty of this too.
+  - I remember my glory days.
+  - Everyone would mention my name.
+  - 'Everyone loved me. '
+  - "They loved me\u2026 "
+  - "But what is love when it\u2019s completely relative? "
+  - "It only blinds you from someone\u2019s true intentions. "
+  - "Their own nature\u2026 "
+  - 'Can you blame them for being who they are? '
+  - 'Power can corrupt so much. '
+  - "And I\u2019m sick of it. "
+  - "\u2026"
+  - "Anyway\u2026 "
+  - You have cleared out our first area.
+  - "Let\u2019s press forward into new territory."
+  - We are going to be moving forward to the Galia river.
+  - "It\u2019s the river that you keep seeing in the distance outside. "
+  - Here is where you will find the Water and Air based creatures.
+  - "Alright, hold on\u2026"
+  - 'BAM '
+  - "Here we are now\u2026 "
+  - "I\u2019ll go ahead and give you more mana. "
+  - 'See me again after you have gained more Influence and have more experience. '
+  - "I\u2019m confident we will have what we are looking for by then. "
+  Expressions: 0000000000000000000000000000000000000000060000000600000006000000060000000600000006000000060000000600000004000000040000000400000004000000060000000600000006000000060000000600000006000000060000000600000006000000060000000400000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

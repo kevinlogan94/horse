@@ -119,6 +119,14 @@ public class BottomNavManager : MonoBehaviour
         OutlookButton.image.sprite = _basicImage;
         ShopButton.image.sprite = _basicImage;
     }
+
+    public void ToggleActiveButtons(bool active)
+    {
+        OutlookButton.interactable = active;
+        SceneButton.interactable = active;
+        ShopButton.interactable = active;
+        AchievementButton.interactable = active;
+    }
 }
 
 public enum Views {

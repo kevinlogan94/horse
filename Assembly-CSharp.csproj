@@ -100,6 +100,7 @@
      <Compile Include="Assets\Scripts\Scene\ChapterButton.cs" />
      <Compile Include="Assets\Scripts\Scene\SceneBackgroundController.cs" />
      <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />
+     <Compile Include="Assets\Scripts\Scene\barlog.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopBackButton.cs" />
      <Compile Include="Assets\Scripts\Shop\ShopHelper.cs" />
