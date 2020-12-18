@@ -12,6 +12,8 @@ public class BuffManager : MonoBehaviour
 
     public bool BuffTutorialCompleted;
     public bool BuffedThisLevel;
+    
+    private AudioManager _audioManager;
 
     #region Singleton
     public static BuffManager Instance;
@@ -25,7 +27,7 @@ public class BuffManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class BuffManager : MonoBehaviour
         CountDownSecondsRemaining = seconds;
         ManaBar.Instance.InfiniteManaBuffActive = true;
         BuffActive = true;
+        _audioManager.Play("Choir");
         
         BuffCountDown.SetActive(true);
         _currentWaitBeforeDecrement = Time.time + 1f; // wait time of 1 second
@@ -82,6 +85,7 @@ public class BuffManager : MonoBehaviour
             ManaBar.Instance.InfiniteManaBuffActive = false;
             BuffActive = false;
             CountDownStarted = false;
+            _audioManager.Play("DeBuff");
         }
     }
 }

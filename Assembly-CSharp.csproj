@@ -111,6 +111,7 @@
      <Compile Include="Assets\Scripts\Splash\CreaturePanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\InfluenceOverTimePanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\SplashManager.cs" />
+     <Compile Include="Assets\Scripts\TitleScreen.cs" />
      <Compile Include="Assets\Scripts\fingerPointer.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

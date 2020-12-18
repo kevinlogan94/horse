@@ -112,6 +112,7 @@ public class IncrementPanel : MonoBehaviour
         if (ManaBar.Instance.HasEnoughMana())
         {
             PerformIncrement();
+            _audioManager.Play("MagicSpell");
         }
         if (BuffManager.Instance.BuffActive)
         {

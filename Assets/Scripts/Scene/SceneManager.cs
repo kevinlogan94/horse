@@ -106,10 +106,22 @@ public class SceneManager : MonoBehaviour
         TextBox.SetActive(true);
         ExclamationPointXal.SetActive(false);
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
-
-        textMeshPro.text = chapter.Quotes[_chapterIndex];
+        var quote = chapter.Quotes[_chapterIndex];
+        textMeshPro.text = quote;
         SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
-        // CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.Altar);
+
+        if (quote == "BAM!")
+        {
+            switch (CanvasBackgroundController.Instance.CurrentCanvasBackground)
+            {
+                case CanvasBackground.Meadow:
+                    CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.River);
+                    break;
+                case CanvasBackground.River:
+                    CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.Altar);
+                    break;
+            }
+        }
         _bookAnimator.Play(BookAnimation.Blank.ToString());
         
         if (_chapterIndex < chapter.Quotes.Length - 1)

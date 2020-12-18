@@ -98,6 +98,7 @@ public class SplashManager : MonoBehaviour
         {
             AdvertisementManager.Instance.ShowSkippableAd();
         }
+        FindObjectOfType<AudioManager>().Play("Pop");
         // AchievementUIPanel.SetActive(false);
     }
 }

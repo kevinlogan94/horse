@@ -57,8 +57,7 @@ public class BottomNavManager : MonoBehaviour
                 if (Monitor.UseAnalytics)
                 {
                     AnalyticsEvent.ScreenVisit(Views.settings.ToString());
-                }
-                _audioManager.Play("Pop");
+                };
                 break;
             case "shop":
                 ShopPanel.SetActive(true);
@@ -67,7 +66,6 @@ public class BottomNavManager : MonoBehaviour
                 {
                     AnalyticsEvent.ScreenVisit(Views.shop.ToString());
                 }
-                _audioManager.Play("DoorBell");
                 break;
             case "achievements":
                 AchievementPanel.SetActive(true);
@@ -75,8 +73,7 @@ public class BottomNavManager : MonoBehaviour
                 if (Monitor.UseAnalytics)
                 {
                     AnalyticsEvent.ScreenVisit(Views.achievements.ToString());
-                }
-                _audioManager.Play("Pop");
+                };
                 break;
             case "scene":
                 ScenePanel.SetActive(true);
@@ -84,8 +81,7 @@ public class BottomNavManager : MonoBehaviour
                 if (Monitor.UseAnalytics)
                 {
                     AnalyticsEvent.ScreenVisit(Views.scene.ToString());
-                }
-                _audioManager.Play("Pop");
+                };
                 break;
             default:
                 OutlookButton.image.sprite = _activeImage;
@@ -93,8 +89,28 @@ public class BottomNavManager : MonoBehaviour
                 {
                     AnalyticsEvent.ScreenVisit(Views.outlook.ToString());
                 }
-                _audioManager.Play("Pop");
                 break;
+        }
+        _audioManager.Play("Pop");
+
+        if (view == Views.scene.ToString())
+        {
+            _audioManager.Play("Xals Theme");
+        }
+        else
+        {
+            switch (CanvasBackgroundController.Instance.CurrentCanvasBackground.ToString())
+            {
+                case "River":
+                    _audioManager.Play("River");
+                    break;
+                case "Meadow":
+                    _audioManager.Play("Meadow");
+                    break;
+                case "Altar":
+                    _audioManager.Play("Altar");
+                    break;
+            }
         }
 
         if (view == "outlook" && FingerPointerOutlook.activeSelf)

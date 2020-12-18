@@ -18,6 +18,7 @@ public class LevelUp : MonoBehaviour
     private long _levelUpReward = 20;
     public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
+    private AudioManager _audioManager;
 
     #region Singleton
     public static LevelUp Instance;
@@ -30,6 +31,7 @@ public class LevelUp : MonoBehaviour
     
     void Start()
     {
+        _audioManager = FindObjectOfType<AudioManager>();
     }
     
     // Update is called once per frame
@@ -80,6 +82,8 @@ public class LevelUp : MonoBehaviour
         
         //reset jingle
         _jinglePlayedThisLevel = false;
+        
+        _audioManager.Play("Pop");
             
         // Close Panel
         LevelUpPanel.SetActive(false);
@@ -108,7 +112,7 @@ public class LevelUp : MonoBehaviour
             }
             else if (!_jinglePlayedThisLevel)
             {
-                FindObjectOfType<AudioManager>().Play("LevelUp2");
+                _audioManager.Play("LevelUp2");
                 _jinglePlayedThisLevel = true;
             }
         }
@@ -131,7 +135,7 @@ public class LevelUp : MonoBehaviour
     {
         if (Slider.value >= Slider.maxValue)
         {
-            FindObjectOfType<AudioManager>().Play("LevelUp");
+            _audioManager.Play("LevelUp2");
             LevelUpPanel.SetActive(true);
             if (Monitor.UseAnalytics)
             {

@@ -56,6 +56,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             // ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.PlayAchievementSound();
         }
     }
 

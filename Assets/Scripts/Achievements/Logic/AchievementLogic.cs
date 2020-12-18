@@ -47,6 +47,7 @@ public class AchievementLogic : MonoBehaviour, IAchievement
     {
         if (ProgressBar.value >= ProgressBar.maxValue)
         {
+            AchievementManager.Instance.PlayAchievementSound();
             Monitor.Influence += _rewardValue;
             ProgressBar.maxValue *= 2;
             AchievementManager.Instance.TutorialCompleted = true;

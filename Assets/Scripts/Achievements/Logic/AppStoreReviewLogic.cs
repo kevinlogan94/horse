@@ -20,7 +20,6 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
     void Start()
     {
         
-        
         UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         RewardDescription.text = AchievementObject.RewardDescription;
@@ -58,6 +57,7 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
 
             AchievementManager.Instance.AchievementGoal++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.PlayAchievementSound();
         }
     }
     

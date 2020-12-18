@@ -45,6 +45,7 @@ public class TwitterLogic : MonoBehaviour, IAchievement
             Application.OpenURL(TwitterUrl);
             AchievementManager.Instance.AchievementGoal++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.PlayAchievementSound();
         }
     }
     

@@ -12,9 +12,12 @@ public class HelperLogic : MonoBehaviour, IAchievement
     public Image Image;
     public GameObject HelperExclamationPoint;
     
+    private AudioManager _audioManager;
+    
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = FindObjectOfType<AudioManager>();
         UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         RewardDescription.text = AchievementObject.RewardDescription;
@@ -55,6 +58,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.PlayAchievementSound();
         }
     }
 

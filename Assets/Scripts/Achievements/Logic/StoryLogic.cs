@@ -64,6 +64,7 @@ public class StoryLogic : MonoBehaviour
             TriggerBarRefresh();
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.PlayAchievementSound();
         }
     }
     

@@ -40,6 +40,8 @@ public class AchievementManager : MonoBehaviour
     
     //tutorial
     public bool TutorialCompleted = false;
+    
+    private AudioManager _audioManager;
 
     #region Singleton
     public static AchievementManager Instance;
@@ -53,6 +55,7 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = FindObjectOfType<AudioManager>();
         ClickerGoal = 300;
         HelperGoal = 30;
         VideoGoal = 10;
@@ -82,6 +85,11 @@ public class AchievementManager : MonoBehaviour
         {
             AchievementPointer.SetActive(false);
         }
+    }
+
+    public void PlayAchievementSound()
+    {
+        _audioManager.Play("LevelUp");
     }
 
     private void ManageExclamationPoint()
