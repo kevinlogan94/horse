@@ -41,11 +41,11 @@ public class BottomNavManager : MonoBehaviour
         _basicImage = Resources.Load<Sprite>("Pixel/DefaultNavButton");
         _activeImage = Resources.Load<Sprite>("Pixel/ActiveNavButton");
         
-        SelectView("outlook");
+        SelectView("outlook", true);
         SceneManager.Instance.CheckAndTriggerFirstChapter();
     }
 
-    public void SelectView(string view)
+    public void SelectView(string view, bool muteSound = false)
     {
         TurnOffEverything();
         ActiveView = view;
@@ -91,13 +91,21 @@ public class BottomNavManager : MonoBehaviour
                 }
                 break;
         }
+        
+        if (view == "outlook" && FingerPointerOutlook.activeSelf)
+        {
+            FingerPointerOutlook.SetActive(false);
+        }
+
+        if (muteSound) return;
+        
         _audioManager.Play("Pop");
 
         if (view == Views.scene.ToString())
         {
             _audioManager.Play("Xals Theme");
         }
-        else
+        else if (view == Views.outlook.ToString())
         {
             switch (CanvasBackgroundController.Instance.CurrentCanvasBackground.ToString())
             {
@@ -111,11 +119,6 @@ public class BottomNavManager : MonoBehaviour
                     _audioManager.Play("Altar");
                     break;
             }
-        }
-
-        if (view == "outlook" && FingerPointerOutlook.activeSelf)
-        {
-            FingerPointerOutlook.SetActive(false);
         }
     }
 

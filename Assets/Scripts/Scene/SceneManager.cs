@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -36,7 +37,8 @@ public class SceneManager : MonoBehaviour
     public GameObject BarlogPanel;
     public GameObject BarlogMessageBox;
     public GameObject BarlogAvatar;
-    public Text BarlogText;
+
+    public GameObject TitleScreenPanel;
 
     private int _chapterIndex;
     public int ActiveChapter;
@@ -79,7 +81,7 @@ public class SceneManager : MonoBehaviour
         {
             SceneBackgroundController.Instance.UpdateSceneBackground(Expression.GenericDown);
             _bookAnimator.Play(BookAnimation.BookTurn.ToString());
-        }
+        } 
         //Keep the next chapter up to date
         NextChapter = Chapters.FirstOrDefault(chapter => !chapter.SceneViewed);
         ManageExclamationPoint();
@@ -138,6 +140,9 @@ public class SceneManager : MonoBehaviour
             if (chapterNumber == 1)
             {
                 TriggerTutorial();
+            } else if (Chapters.FirstOrDefault(x=>!x.SceneViewed) == null)
+            {
+                SplashManager.Instance.TriggerSplash(SplashType.EndGame.ToString());
             }
             else
             {
@@ -279,7 +284,7 @@ public class SceneManager : MonoBehaviour
         if (!chapter1.SceneViewed)
         {
             BottomNavManager.Instance.HidePanel.SetActive(true);
-            BottomNavManager.Instance.SelectView("scene");
+            BottomNavManager.Instance.SelectView("scene", true);
             // TriggerChapter(1);
             OutlookButton.interactable = false;
         }
@@ -288,7 +293,7 @@ public class SceneManager : MonoBehaviour
     private void ManageStartChapterOneFingerPointer()
     {
         //no chapters have been viewed and we aren't in the middle of a chapter.
-        if (!Chapters.Any(x=>x.SceneViewed) && ActiveChapter == 0)
+        if (!Chapters.Any(x=>x.SceneViewed) && ActiveChapter == 0 && !TitleScreenPanel.activeSelf)
         {
             //Start the waiting session
             if (!StartChapterOneFingerPointer.activeSelf && !_waitingOnPlayer)

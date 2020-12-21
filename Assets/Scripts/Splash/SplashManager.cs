@@ -8,6 +8,7 @@ public class SplashManager : MonoBehaviour
     public GameObject AchievementPanel;
     public GameObject AdvertisementPanel;
     public GameObject InfluenceOverTimePanel;
+    public GameObject EndGamePanel;
     public GameObject BuffPanel;
     public GameObject LockAnimationObject;
     public GameObject CreaturePanel;
@@ -72,6 +73,10 @@ public class SplashManager : MonoBehaviour
         {
             BuffPanel.SetActive(true);
         }
+        else if (type == SplashType.EndGame.ToString())
+        {
+            EndGamePanel.SetActive(true);
+        }
         else
         {
             AdvertisementPanel.SetActive(true);
@@ -90,6 +95,7 @@ public class SplashManager : MonoBehaviour
         CreatureUIPanel.SetActive(false);
         AdvertisementPanel.SetActive(false);
         InfluenceOverTimePanel.SetActive(false);
+        EndGamePanel.SetActive(false);
         BuffPanel.SetActive(false);
         
         // show ad after speaking to Xal
@@ -109,5 +115,6 @@ public enum SplashType
     Achievement,
     Advertisement,
     InfluenceOverTime,
-    Buff
+    Buff,
+    EndGame
 }

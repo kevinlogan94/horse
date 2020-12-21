@@ -43,6 +43,15 @@ public class AudioManager : MonoBehaviour
             {
                 sound.Source.pitch = (float) pitch;
             }
+            //If this new song is background music, have it replace the existing background music.
+            foreach (var backgroundMusic in BackgroundMusic)
+            {
+                if (sound.Name == backgroundMusic)
+                {
+                    StopExistingBackgroundMusic();
+                }
+            }
+            
             sound.Source.Play();   
         }
         else
@@ -81,6 +90,20 @@ public class AudioManager : MonoBehaviour
         foreach (var soundEffectSound in soundEffects)
         {
             soundEffectSound.Source.mute = !mute;
+        }
+    }
+
+    private void StopExistingBackgroundMusic()
+    {
+        foreach (var sound in Sounds)
+        {
+            foreach (var backgroundSong in BackgroundMusic)
+            {
+                if (sound.Source.isPlaying && backgroundSong == sound.Name)
+                {
+                    sound.Source.Stop();
+                }   
+            }
         }
     }
 }
