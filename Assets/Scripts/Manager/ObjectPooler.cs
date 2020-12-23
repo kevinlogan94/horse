@@ -59,7 +59,7 @@ public class ObjectPooler : MonoBehaviour
         {
             //this is for the numberIncrement
             var index = GameObject.Find("IncrementPanel").transform.GetSiblingIndex();
-            objectToSpawn.transform.SetSiblingIndex(--index); // 0 is the background   
+            objectToSpawn.transform.SetSiblingIndex(--index); // 0 is the background
         }
 
         PoolDictionary[poolTag].Enqueue(objectToSpawn);

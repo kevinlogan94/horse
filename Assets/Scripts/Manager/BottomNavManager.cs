@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
 
@@ -43,6 +44,11 @@ public class BottomNavManager : MonoBehaviour
         
         SelectView("outlook", true);
         SceneManager.Instance.CheckAndTriggerFirstChapter();
+    }
+
+    public void SelectViewInterface(string view)
+    {
+        SelectView(view);
     }
 
     public void SelectView(string view, bool muteSound = false)

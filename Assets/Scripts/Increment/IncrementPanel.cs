@@ -54,11 +54,11 @@ public class IncrementPanel : MonoBehaviour
         
         if (randomNumber <= 0.03)
         {
-            increment = GetClickerIncrement(ClickerIncrement, 9);
+            increment = GetClickerIncrement(ClickerIncrement, 5);
         } 
         else if (randomNumber <= 0.30)
         {
-            increment = GetClickerIncrement(ClickerIncrement, 3);
+            increment = GetClickerIncrement(ClickerIncrement, 2);
         }
         else
         {

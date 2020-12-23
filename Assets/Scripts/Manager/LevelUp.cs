@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
+using Random = Unity.Mathematics.Random;
 
 public class LevelUp : MonoBehaviour
 {
@@ -19,6 +22,8 @@ public class LevelUp : MonoBehaviour
     public long InfluenceEarnedEveryLevelSoFar = 0;
     private bool _jinglePlayedThisLevel = false;
     private AudioManager _audioManager;
+
+    public bool LevelUpAdInProgress = false;
 
     #region Singleton
     public static LevelUp Instance;
@@ -44,6 +49,7 @@ public class LevelUp : MonoBehaviour
 
     public void LevelUpPlayer(bool watchAd = false)
     {
+        LevelUpAdInProgress = true;
         //level up reward 
         if (!watchAd)
         {
@@ -54,6 +60,12 @@ public class LevelUp : MonoBehaviour
             var bonusReward = _levelUpReward * 3;
             AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
         }
+        StartCoroutine(WaitForAdAndTriggerLevelUp());
+    }
+    
+    IEnumerator WaitForAdAndTriggerLevelUp()
+    {
+        yield return new WaitUntil(() => !LevelUpAdInProgress);
         
         //Update Level up progress bar
         Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
@@ -127,7 +139,7 @@ public class LevelUp : MonoBehaviour
     
     private void UpdateRewardCounter()
     {
-        _levelUpReward = Monitor.Instance.GetInfluenceReceivedOverTime(600); // 10 minutes
+        _levelUpReward = Monitor.Instance.GetInfluenceReceivedOverTime(300); // 5 minutes
         LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
     }
     

@@ -87,6 +87,8 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                 Debug.LogWarning("The ad didn't finish due to an error");
                 break;
         }
+        Debug.Log("here2");
+        LevelUp.Instance.LevelUpAdInProgress = false;
     }
     
     public void OnUnityAdsReady(string placementId)

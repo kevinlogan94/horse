@@ -18,8 +18,9 @@ MonoBehaviour:
   SceneViewed: 0
   Quotes:
   - What?
-  - "You\u2019re not supposed to be in here."
+  - You're not supposed to be in here.
   - How did you even..?
+  - Wait, now I remember.
   - "I hope things haven\u2019t been too confusing around here."
   - I get it.
   - The first day on the job can be weird.
@@ -30,43 +31,43 @@ MonoBehaviour:
   - No answer?
   - "Well, stranger\u2026 "
   - 'I guess I do owe you one. '
-  - "You\u2019re the first one to get in here. "
-  - "I don\u2019t know how you passed my barrier on the tower in the first place\u2026 "
+  - 'You''re the first one to get in here. '
+  - "I don't know how you passed my barrier on the tower in the first place\u2026 "
   - "But\u2026 "
   - I think I can make use of you.
   - 'What you did was a start. '
   - 'That should start to silence Barlog. '
-  - "As long as everyone is safe and my tower is protected, He\u2019s powerless."
+  - As long as everyone is safe and my tower is protected, He's powerless.
   - 'In case you forgot, Barlog is the Paragon of Nature. '
   - "I know what you\u2019re thinking\u2026 "
   - "\u201CHe must be a big scary grumpy guy!\u201D"
   - 'Well, yes, which is exactly why we...  '
   - 'and by we I mean you...  '
-  - "Can\u2019t just sit around..  "
-  - "He\u2019s been inflicting this sickness on everything. "
+  - 'Can''t just sit around..  '
+  - 'He''s been inflicting this sickness on everything. '
   - 'Ever since I decided to lock myself away in the tower... '
-  - "The worst part is that you can\u2019t see or notice it. "
-  - "If I didn\u2019t have my awareness, we wouldn\u2019t stand a chance. "
+  - 'The worst part is that you can''t see or notice it. '
+  - 'If I didn''t have my awareness, we wouldn''t stand a chance. '
   - "I know Barlog wants me to come out, and he\u2019s willing to do whatever it
     takes."
-  - "But\u2026 I can\u2019t\u2026 "
-  - "I just can\u2019t... "
-  - "I don\u2019t want to give up what I care about most... "
+  - "But\u2026 I can't\u2026 "
+  - 'I just can''t... '
+  - 'I don''t want to give up what I care about most... '
   - 'But, what is enough anymore? '
   - 'Keep moving forward, and you will be able to interact with several different
     forms of creatures. '
-  - "While progressing, I\u2019ll grant you rewards for your efforts. Don\u2019t
-    forget to take advantage of them. "
+  - 'While progressing, I''ll grant you rewards for your efforts. Don''t forget to
+    take advantage of them. '
   - 'I appreciate you helping a selfish old man. '
   - 'You have a set path ahead of you. '
-  - "I\u2019ll do my part and give you more mana. "
-  - "Just keep in mind, this power isn\u2019t yours. When we are done\u2026 "
+  - 'I''ll do my part and give you more mana. '
+  - "Just keep in mind, this power isn't yours. When we are done\u2026 "
   - 'I want it back. '
   - 'Oh! '
   - 'I almost forgot. '
   - 'Keep an eye out for the Pegasus. '
   - 'They are always helpful. '
   - 'Alright... '
-  - "That\u2019s enough sharing for now. "
+  - 'That''s enough sharing for now. '
   - 'Come back after you collected more Influence and have gained more experience. '
-  Expressions: 07000000070000000700000007000000070000000700000007000000060000000600000006000000060000000000000000000000000000000600000006000000000000000000000004000000040000000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000007000000070000000000000000000000000000000000000000000000
+  Expressions: 0700000007000000070000000000000000000000000000000000000000000000060000000600000006000000060000000000000000000000000000000600000006000000000000000000000004000000040000000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000007000000070000000000000000000000000000000000000000000000

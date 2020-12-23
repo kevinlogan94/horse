@@ -21,18 +21,18 @@ MonoBehaviour:
   - What?
   - Are you already done?
   - "\u2026"
-  - "It didn\u2019t work."
-  - "I didn\u2019t see anything."
-  - "I don\u2019t understand."
+  - It didn't work.
+  - I didn't see anything.
+  - I don't understand.
   - "I\u2026"
-  - "I can\u2019t"
-  - "I can\u2019t keep doing this."
+  - I can't
+  - I can't keep doing this.
   - I have no more magic.
-  - "Without my magic, I can\u2019t\u2026"
+  - "Without my magic, I can't\u2026"
   - "Survive\u2026"
   - No.
   - No, no-no.
-  - "If this isn\u2019t enough\u2026"
+  - "If this isn't enough\u2026"
   - "Was all of this\u2026"
   - For nothing?
   - Am I cursed?
@@ -44,13 +44,13 @@ MonoBehaviour:
   - A man lost in a tower...
   - "\u2026"
   - "I can\u2019t even read these books."
-  - "I\u2019ve become so weak."
+  - I've become so weak.
   - "I understand that I make mistakes, but\u2026"
   - "I\u2019m not perfect\u2026"
   - "\u2026"
   - Why would this happen?
   - Everything was going so well...
-  - "It\u2019s over."
+  - It's over.
   - "I\u2019m sorry for pulling you into this."
   - I only have a bit of magic left.
   - Just enough to get us back to the meadows where we started.
@@ -61,21 +61,21 @@ MonoBehaviour:
   - BAM!
   - What?
   - "I\u2026"
-  - "I don\u2019t understand."
+  - I don't understand.
   - "That\u2019s all I had left..."
   - How?
   - "\u2026"
   - "I\u2019m sorry. "
-  - "I can\u2019t even move us."
-  - "I\u2019m worthless. "
-  - "I don\u2019t know."
-  - "I don\u2019t know what to do."
+  - I can't even move us.
+  - 'I''m worthless. '
+  - I don't know.
+  - I don't know what to do.
   - Please.
   - I have no choice
   - 'Give me the magic back. '
-  - "If what I did isn\u2019t enough, then there is no use."
+  - If what I did isn't enough, then there is no use.
   - 'What? '
-  - "You won\u2019t give it back?"
+  - You won't give it back?
   - But, I helped you.
   - I brought you in.
   - "I\u2026"

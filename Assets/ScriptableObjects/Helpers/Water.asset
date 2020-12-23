@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: Pond
   Description: 
   LevelRequirement: 10
-  Cost: 3000
-  DynamicCost: 3000
-  Increment: 350
-  DynamicIncrement: 350
+  Cost: 75
+  DynamicCost: 75
+  Increment: 15
+  DynamicIncrement: 15
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 491b25042a9d8f54289e61da8f9df045, type: 2}
   Artwork: {fileID: 21300000, guid: 18136c7866eb52c439ee6f8c3472d937, type: 3}
