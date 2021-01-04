@@ -36,24 +36,24 @@ public class AchievementPanelScript : MonoBehaviour
         switch (Achievement.Name)
         {
             case "Helper":
-                BeforeText.text = Monitor.Instance.GetHelperPassiveIncome() / 2 + "/sec";
-                AfterText.text = Monitor.Instance.GetHelperPassiveIncome() + "/sec";
+                BeforeText.text = Monitor.FormatNumberToString(Monitor.Instance.GetHelperPassiveIncome() / 2) + "/sec";
+                AfterText.text = Monitor.FormatNumberToString(Monitor.Instance.GetHelperPassiveIncome()) + "/sec";
                 break;
             case "Clicker":
-                BeforeText.text = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement / ClickerLogic.ClickerIncrease, 1) + "/click";
-                AfterText.text = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1) + "/click";
+                BeforeText.text = Monitor.FormatNumberToString(IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement / ClickerLogic.ClickerIncrease, 1)) + "/click";
+                AfterText.text = Monitor.FormatNumberToString(IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1)) + "/click";
                 break;
             case "Xal":
                 BeforeText.text = 100 * (ManaBar.Instance.ManaLevel - 1) + " Mana";
                 AfterText.text = 100 * ManaBar.Instance.ManaLevel + " Mana";
                 break;
             case "Video": case "Story":
-                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(tenHoursInSeconds) + " influence"; // 10 hours
-                AfterText.text = Monitor.Influence + " influence";
+                BeforeText.text = Monitor.FormatNumberToString(Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(tenHoursInSeconds)) + " influence"; // 10 hours
+                AfterText.text = Monitor.FormatNumberToString(Monitor.Influence) + " influence";
                 break;
             default:
-                BeforeText.text = Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(hourInSeconds) + " influence"; // 1 hour
-                AfterText.text = Monitor.Influence + " influence";
+                BeforeText.text = Monitor.FormatNumberToString(Monitor.Influence - Monitor.Instance.GetInfluenceReceivedOverTime(hourInSeconds)) + " influence"; // 1 hour
+                AfterText.text = Monitor.FormatNumberToString(Monitor.Influence) + " influence";
                 break;
         }
     }

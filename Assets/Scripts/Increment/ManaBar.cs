@@ -36,7 +36,8 @@ public class ManaBar : MonoBehaviour
 
     private void ManaRegen()
     {
-        var regen = 0.6 / ManaLevel;
+        var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
+        var regen = 0.6 / denominator;
         if (_manabar.value + regen < _manabar.maxValue)
         {
             _manabar.value += (float) regen;
@@ -69,5 +70,12 @@ public class ManaBar : MonoBehaviour
         {
             _manabar.value = 0;
         }
+    }
+
+    public void LevelUpManaBar()
+    {
+        ManaLevel++;
+        // var manaBarRect = gameObject.GetComponent<Rect>();
+        // manaBarRect.width
     }
 }

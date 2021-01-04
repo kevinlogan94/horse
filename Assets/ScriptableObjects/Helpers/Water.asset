@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867dde4c191e81349a5069a825feb6f8, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  Name: Pond
+  Name: Water
   Description: 
   LevelRequirement: 10
-  Cost: 75
-  DynamicCost: 75
-  Increment: 15
-  DynamicIncrement: 15
+  Cost: 200
+  DynamicCost: 200
+  Increment: 10
+  DynamicIncrement: 10
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 491b25042a9d8f54289e61da8f9df045, type: 2}
   Artwork: {fileID: 21300000, guid: 18136c7866eb52c439ee6f8c3472d937, type: 3}

@@ -6,6 +6,7 @@ public class BuffManager : MonoBehaviour
     public GameObject BuffCreature;
     public int CountDownSecondsRemaining;
     private float _currentWaitBeforeDecrement;
+    public int ClickCountSinceLastBuff;
 
     public bool CountDownStarted;
     public bool BuffActive;
@@ -60,13 +61,9 @@ public class BuffManager : MonoBehaviour
 
     private void CheckAndSpawnBuffCreature()
     {
-        if (IncrementPanel.ClickCount > 0 
-            && IncrementPanel.ClickCount % 150 == 0 
-            && !BuffActive)
-        {
-            BuffCreature.SetActive(true);
-            BuffedThisLevel = true; // TODO consider removing this.
-        }
+        if (ClickCountSinceLastBuff < 200 || BuffActive) return;
+        BuffCreature.SetActive(true);
+        ClickCountSinceLastBuff = 0;
     }
 
     private void DecrementCountDown()

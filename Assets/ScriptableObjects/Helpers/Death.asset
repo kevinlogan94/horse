@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: Void Rift
   Description: 
   LevelRequirement: 25
-  Cost: 20000
-  DynamicCost: 20000
-  Increment: 35
-  DynamicIncrement: 35
+  Cost: 5000
+  DynamicCost: 5000
+  Increment: 6
+  DynamicIncrement: 24
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 6d1807075b2912448b5dcc1925634b4d, type: 2}
   Artwork: {fileID: 21300000, guid: b505de52c90e580428bf6d2573a77f36, type: 3}

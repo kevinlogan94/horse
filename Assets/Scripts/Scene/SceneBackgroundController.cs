@@ -74,6 +74,6 @@ public class SceneBackgroundController : MonoBehaviour
 
 public enum BookAnimation
 {
-    Blank,
+    BookSit,
     BookTurn
 }

@@ -41,6 +41,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     {
         BuffManager.Instance.TriggerBuff(buffType, seconds);
         Advertisement.Show(RewardVideoPlacementId);
+        Debug.Log(RewardVideoPlacementId);
     }
 
     public void ShowSkippableAd()
@@ -87,7 +88,6 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                 Debug.LogWarning("The ad didn't finish due to an error");
                 break;
         }
-        Debug.Log("here2");
         LevelUp.Instance.LevelUpAdInProgress = false;
     }
     

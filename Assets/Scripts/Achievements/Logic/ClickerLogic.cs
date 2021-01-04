@@ -10,7 +10,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
     public Slider ProgressBar;
     public Image Image;
     public GameObject ClickerExclamationPoint;
-    public const int ClickerIncrease = 10;
+    public const int ClickerIncrease = 15;
 
     // Start is called before the first frame update
     void Start()

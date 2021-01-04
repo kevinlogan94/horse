@@ -52,7 +52,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.HelperGoal = ProgressBar.maxValue;
             foreach (var helper in ShopManager.Instance.Helpers)
             {
-                helper.DynamicIncrement *= 2;
+                helper.DynamicIncrement *= 3;
             }
             // Monitor.Instance.UpdatePassiveIncomeText();
             AchievementManager.Instance.TutorialCompleted = true;

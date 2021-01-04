@@ -59,7 +59,7 @@ public class ShopManager : MonoBehaviour
             {
                 Monitor.Influence -= helper.DynamicCost;
                 //TODO Balance this
-                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.5, 0);
+                helper.DynamicCost = (int) Math.Round(helper.DynamicCost * 1.3, 0);
                 // Monitor.Instance.UpdatePassiveIncomeText();
                 _audioManager.Play("CoinToss");
                 if (helper.AmountOwned == 0)

@@ -56,7 +56,7 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         _audioManager = FindObjectOfType<AudioManager>();
-        ClickerGoal = 300;
+        ClickerGoal = 150;
         HelperGoal = 30;
         VideoGoal = 10;
         AchievementGoal = 10;

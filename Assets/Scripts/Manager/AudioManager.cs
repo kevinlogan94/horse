@@ -48,6 +48,9 @@ public class AudioManager : MonoBehaviour
             {
                 if (sound.Name == backgroundMusic)
                 {
+                    //If this background song is already playing, do nothing.
+                    if (sound.Source.isPlaying) return;
+                    
                     StopExistingBackgroundMusic();
                 }
             }

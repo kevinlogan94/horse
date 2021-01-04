@@ -124,7 +124,7 @@ public class SceneManager : MonoBehaviour
                     break;
             }
         }
-        _bookAnimator.Play(BookAnimation.Blank.ToString());
+        _bookAnimator.Play(BookAnimation.BookSit.ToString());
         
         if (_chapterIndex < chapter.Quotes.Length - 1)
         {
@@ -324,7 +324,7 @@ public class SceneManager : MonoBehaviour
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
         textMeshPro.text = Banter[_banterIndex];
         SceneBackgroundController.Instance.UpdateSceneBackground(Expression.Angry);
-        _bookAnimator.Play(BookAnimation.Blank.ToString());
+        _bookAnimator.Play(BookAnimation.BookSit.ToString());
 
         if (_banterIndex < Banter.Length - 1)
         {

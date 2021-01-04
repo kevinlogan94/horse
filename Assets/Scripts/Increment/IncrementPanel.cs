@@ -48,17 +48,17 @@ public class IncrementPanel : MonoBehaviour
     
     private void PerformIncrement()
     {
-        var randomNumber = Random.Range(0.0f, 3.0f);
+        var randomNumber = Random.Range(0.0f, 1.0f);
         long increment;
         var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature.CreatureAnimation;
         
-        if (randomNumber <= 0.03)
+        if (randomNumber <= 0.05)
         {
-            increment = GetClickerIncrement(ClickerIncrement, 5);
+            increment = GetClickerIncrement(ClickerIncrement, 10);
         } 
         else if (randomNumber <= 0.30)
         {
-            increment = GetClickerIncrement(ClickerIncrement, 2);
+            increment = GetClickerIncrement(ClickerIncrement, 5);
         }
         else
         {
@@ -66,7 +66,7 @@ public class IncrementPanel : MonoBehaviour
         }
             
         _audioManager.Play("Cork", randomNumber);
-        if (randomNumber <= 0.03)
+        if (randomNumber <= 0.05)
         {
             var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
             var child = obj.transform.Find("IncrementBonusTextChild")?.gameObject;
@@ -90,6 +90,10 @@ public class IncrementPanel : MonoBehaviour
             Monitor.Instance.IncrementInfluence(increment, (CreatureAnimations) creatureToSpawn);
         }
         ClickCount++;
+        if (!BuffManager.Instance.BuffActive)
+        {
+            BuffManager.Instance.ClickCountSinceLastBuff++;   
+        }
         IncrementsThisSecond+=increment;
         var pointer = GameObject.Find("FingerPointerIncrementPanel");
         if (pointer)

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TitleScreen : MonoBehaviour
 {
+    public GameObject TapToStart;
+    public GameObject Version;
+    public GameObject Title;
+
+    public GameObject IntriguePanel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +19,10 @@ public class TitleScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!IntriguePanel.activeSelf)
+        {
+            ShowTitle();
+        }
     }
 
     public void CloseTitleScreen()
@@ -32,5 +41,16 @@ public class TitleScreen : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("Altar");
                 break;
         }
+    }
+
+    public void ShowTitle()
+    {
+        Title.SetActive(true);
+    }
+
+    public void ShowDetails()
+    {
+        TapToStart.SetActive(true);
+        Version.SetActive(true);
     }
 }

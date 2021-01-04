@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: Earth
   Description: 
   LevelRequirement: 7
-  Cost: 50
-  DynamicCost: 50
-  Increment: 10
-  DynamicIncrement: 10
+  Cost: 100
+  DynamicCost: 100
+  Increment: 3
+  DynamicIncrement: 3
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: c1f479c50c9494c4bb4d6b840376ac34, type: 2}
   Artwork: {fileID: 21300000, guid: 6f0e689bcbc7cd54b802bcc3f320dc2f, type: 3}
