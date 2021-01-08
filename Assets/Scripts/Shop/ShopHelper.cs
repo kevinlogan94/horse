@@ -30,8 +30,8 @@ public class ShopHelper : MonoBehaviour
     void Start()
     {
         NameText.text = Helper.Name;
-        CostText.text = String.Format("{0:n0}", Helper.Cost);
-        PerSecondIncreaseText.text = Helper.Increment + "/sec";
+        CostText.text = Monitor.FormatNumberToString(Helper.DynamicCost);
+        PerSecondIncreaseText.text = Monitor.FormatNumberToString(Helper.DynamicIncrement) + "/sec";
     }
 
     void Update()
@@ -56,7 +56,7 @@ public class ShopHelper : MonoBehaviour
             PerSecondIncreaseText.text = Monitor.FormatNumberToString(Helper.DynamicIncrement) + "/sec";
         }
         
-        CostText.text = String.Format("{0:n0}", Helper.DynamicCost);
+        CostText.text = Monitor.FormatNumberToString(Helper.DynamicCost);
 
         var newCount = "0";
         var resultHelper = ShopManager.Instance.Helpers.FirstOrDefault(x => x.Name == Helper.Name);

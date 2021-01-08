@@ -29,7 +29,7 @@ MonoBehaviour:
   - 'Sometimes I wonder why. '
   - My charming, good looks, perhaps?
   - I mean, just look at me!
-  - "No, that can\u2019t be it. "
+  - 'No, that can''t be it. '
   - 'I was in a dark place when he found me. '
   - 'I had no hope. '
   - 'The world threw me away. '
@@ -42,11 +42,11 @@ MonoBehaviour:
   - Well done.
   - The lands are being cleansed.
   - Everything should be good for a while.
-  - "I still don\u2019t understand, though."
-  - "I haven\u2019t seen anything."
+  - I still don't understand, though.
+  - I haven't seen anything.
   - No sign.
   - No Message.
-  - "No clich\xE9."
+  - No cliche.
   - Nothing.
   - "Nothing. He doesn't have anything left\u2026 "
   - How could nothing have changed?
@@ -69,7 +69,7 @@ MonoBehaviour:
   - "I mean\u2026 "
   - 'Of course. '
   - 'Are you starting to go soft on me? '
-  - "I can\u2019t. "
+  - 'I can''t. '
   - "I can\u2019t stop. "
   - "\u2026 "
   - 'What am I if I don''t do this? '

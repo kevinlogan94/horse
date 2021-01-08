@@ -126,6 +126,7 @@ public class BottomNavManager : MonoBehaviour
                     break;
             }
         }
+        Handheld.Vibrate();
     }
 
     private void TurnOffEverything()

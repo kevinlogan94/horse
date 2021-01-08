@@ -65,7 +65,7 @@ public class IncrementPanel : MonoBehaviour
             increment = GetClickerIncrement(ClickerIncrement, 1);
         }
             
-        _audioManager.Play("Cork", randomNumber);
+        // _audioManager.Play("Cork", randomNumber);
         if (randomNumber <= 0.05)
         {
             var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
@@ -108,6 +108,7 @@ public class IncrementPanel : MonoBehaviour
         
         ManaBar.Instance.DeductMana();
         SpawnIncrementAnimation();
+        Handheld.Vibrate();
         // Monitor.DestroyObject("FingerPointerIncrementPanel");
     }
 

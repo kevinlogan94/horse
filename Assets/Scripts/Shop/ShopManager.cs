@@ -84,6 +84,7 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
+        Handheld.Vibrate();
     }
 
     public void ManageExclamationPoint()
