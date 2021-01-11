@@ -11,6 +11,7 @@ public class SavedData
     public long Influence;
     public long TotalInfluenceEarned;
     public int PlayerLevel;
+    public bool BetaSurveyDisplayed;
     
     //CanvasBackgroundController
     public CanvasBackground CanvasBackground;
@@ -62,6 +63,7 @@ public class SavedData
         Influence = Monitor.Influence;
         TotalInfluenceEarned = Monitor.TotalInfluenceEarned;
         PlayerLevel = Monitor.PlayerLevel;
+        BetaSurveyDisplayed = Monitor.BetaSurveyDisplayed;
         
         //CanvasBackgroundController
         CanvasBackground = CanvasBackgroundController.Instance.CurrentCanvasBackground;
@@ -133,6 +135,7 @@ public class SavedData
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
         Monitor.PlayerLevel = PlayerLevel;
         Monitor.LastSavedDateTime = SavedDateTime;
+        Monitor.BetaSurveyDisplayed = BetaSurveyDisplayed;
         
         // CanvasBackgroundController
         CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground;

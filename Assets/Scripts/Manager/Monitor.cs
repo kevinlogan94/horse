@@ -17,12 +17,14 @@ public class Monitor : MonoBehaviour
     public static int PlayerLevel = 1;
     public static DateTime? LastSavedDateTime;
     private ObjectPooler _objectPooler;
-    private float _bottomHorseSpawnerRegion;
-    private float _topHorseSpawnerRegion;
+    private float _bottomCreatureSpawnerRegion;
+    private float _topCreatureSpawnerRegion;
     private DateTime _timeOfLastFrame;
 
     //TODO turn analytics back on
     public static bool UseAnalytics = false;
+    public const bool UseBetaSurvey = true;
+    public static bool BetaSurveyDisplayed = false;
 
     #region Singleton
     public static Monitor Instance;
@@ -42,15 +44,23 @@ public class Monitor : MonoBehaviour
         }
         _timeOfLastFrame = DateTime.UtcNow; // Need to have it start somewhere
         _objectPooler = ObjectPooler.Instance;
-        // _bottomHorseSpawnerRegion = GameObject.Find("Background").GetComponent<RectTransform>().offsetMin.y;
-        // var backgroundHeight = GameObject.Find("Background").GetComponent<RectTransform>().rect.height;
-        // var scorePanelHeight = GameObject.Find("ScorePanel").GetComponent<RectTransform>().rect.height;
-        // _topHorseSpawnerRegion = backgroundHeight - _bottomHorseSpawnerRegion - scorePanelHeight;
+        var worldCorners = new Vector3[4];
+        GameObject.Find("SpawnPanel").GetComponent<RectTransform>().GetWorldCorners(worldCorners);
+        _topCreatureSpawnerRegion = worldCorners[1].y;
+        _bottomCreatureSpawnerRegion = worldCorners[0].y;
     }
 
     void Update()
     {
         IncrementInfluenceForTimeAwayFromGameWithoutKillingApp();
+        ManageBetaSurvey();
+    }
+
+    public void ManageBetaSurvey()
+    {
+        if (!UseBetaSurvey || PlayerLevel != 15 || !BetaSurveyDisplayed) return;
+        BetaSurveyDisplayed = true;
+        SplashManager.Instance.TriggerSplash(SplashType.Survey.ToString());
     }
 
     public void TriggerOutlookTutorial()
@@ -75,9 +85,7 @@ public class Monitor : MonoBehaviour
     IEnumerator SpawnCreatureAfterSeconds(float seconds, CreatureAnimations creatureAnimation)
     {
         yield return new WaitForSeconds(seconds);
-        // Debug.Log(_bottomHorseSpawnerRegion);
-        // Debug.Log(_topHorseSpawnerRegion);
-        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(350, 1200)));
+        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(_bottomCreatureSpawnerRegion, _topCreatureSpawnerRegion)));
         PlayAnimationOnGameObject(spawnedGameObject, creatureAnimation);
     }
 

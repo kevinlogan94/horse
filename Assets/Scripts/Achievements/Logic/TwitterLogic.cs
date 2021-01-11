@@ -43,7 +43,7 @@ public class TwitterLogic : MonoBehaviour, IAchievement
             ProgressBar.value = AchievementManager.ShareGoal;
             AchievementManager.Instance.FollowedOnTwitter = true;
             Application.OpenURL(TwitterUrl);
-            AchievementManager.Instance.AchievementGoal++;
+            AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
         }

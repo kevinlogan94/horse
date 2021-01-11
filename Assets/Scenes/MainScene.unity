@@ -2183,7 +2183,7 @@ PrefabInstance:
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -2258,7 +2258,7 @@ PrefabInstance:
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 366
+      value: -363
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -8957,7 +8957,7 @@ MonoBehaviour:
     Pitch: 1
     Loop: 1
     Source: {fileID: 0}
-  - Name: Mountains
+  - Name: Altar
     Clip: {fileID: 8300000, guid: 68397afa2fa2f4a4d97304a39f7bfb46, type: 3}
     Volume: 0.3
     Pitch: 1
@@ -8996,7 +8996,7 @@ MonoBehaviour:
   BackgroundMusic:
   - Xals Theme
   - Barlogs Theme
-  - Mountains
+  - Altar
   - River
   - Meadow
 --- !u!1 &720895476 stripped
@@ -9483,7 +9483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &765190658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11514,6 +11514,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e2dd46a9bc1ac8745b1a6307cd98691e,
         type: 2}
+    - target: {fileID: 11678371511780605, guid: e318d3db9d75ed54d97f22ee20a1320c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 263.92065
+      objectReference: {fileID: 0}
+    - target: {fileID: 11678371511780605, guid: e318d3db9d75ed54d97f22ee20a1320c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -481.18
+      objectReference: {fileID: 0}
     - target: {fileID: 11678372189963120, guid: e318d3db9d75ed54d97f22ee20a1320c,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -12611,9 +12621,9 @@ RectTransform:
   - {fileID: 394108010}
   - {fileID: 753539093}
   - {fileID: 545647822}
+  - {fileID: 1887553797}
   - {fileID: 190725127}
   - {fileID: 2045536985}
-  - {fileID: 1887553797}
   - {fileID: 5201931}
   - {fileID: 120293382}
   m_Father: {fileID: 1882496716}
@@ -18507,7 +18517,7 @@ PrefabInstance:
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -18582,7 +18592,7 @@ PrefabInstance:
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -363
+      value: 378
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
@@ -25584,7 +25594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1988067465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28294,7 +28304,7 @@ PrefabInstance:
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5596048976898173249, guid: e3922af1de80a124c85386562f2f4766,
         type: 3}

@@ -49,13 +49,13 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             ProgressBar.maxValue *= 2;
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.ClickerGoal = ProgressBar.maxValue;
-            
             // update horses
             // var coreHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel].HorseBreed;
             // var secondaryHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel + 1].HorseBreed;
             // ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.CurrentAchievementAmount++;
             AchievementManager.Instance.PlayAchievementSound();
         }
     }

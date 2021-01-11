@@ -17,7 +17,7 @@ MonoBehaviour:
   LevelRequirement: 13
   Cost: 500
   DynamicCost: 500
-  Increment: 11
+  Increment: 15
   DynamicIncrement: 11
   AmountOwned: 0
   Creature: {fileID: 11400000, guid: 61fe3e1ce5de07147a0dcc324856a84e, type: 2}

@@ -7,11 +7,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] Sounds;
-    public List<String> BackgroundMusic = new List<string>
+    public List<string> BackgroundMusic = new List<string>()
     {
         "Xals Theme",
         "Barlogs Theme",
-        "Mountains",
+        "Altar",
         "River",
         "Meadow"
     };

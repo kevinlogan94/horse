@@ -58,6 +58,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.TutorialCompleted = true;
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
+            AchievementManager.Instance.CurrentAchievementAmount++;
             AchievementManager.Instance.PlayAchievementSound();
         }
     }

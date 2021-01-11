@@ -49,14 +49,15 @@ public class LevelUp : MonoBehaviour
 
     public void LevelUpPlayer(bool watchAd = false)
     {
-        LevelUpAdInProgress = true;
         //level up reward 
         if (!watchAd)
         {
+            LevelUpAdInProgress = false;
             Monitor.Instance.IncrementInfluence(_levelUpReward);
         }
-        else
+        else 
         {
+            LevelUpAdInProgress = true;
             var bonusReward = _levelUpReward * 3;
             AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
         }
