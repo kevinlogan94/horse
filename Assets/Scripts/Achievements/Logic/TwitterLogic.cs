@@ -10,8 +10,7 @@ public class TwitterLogic : MonoBehaviour, IAchievement
     public Slider ProgressBar;
     public Image Image;
     
-    //TODO update TwitterUrl
-    private const string TwitterUrl = "https://twitter.com";
+    private const string TwitterUrl = "https://twitter.com/intrigue_games";
     
     private long _rewardValue;
     

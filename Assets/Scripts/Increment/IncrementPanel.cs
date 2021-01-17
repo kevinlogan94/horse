@@ -50,7 +50,7 @@ public class IncrementPanel : MonoBehaviour
     {
         var randomNumber = Random.Range(0.0f, 1.0f);
         long increment;
-        var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature.CreatureAnimation;
+        var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature;
         
         if (randomNumber <= 0.05)
         {
@@ -87,7 +87,7 @@ public class IncrementPanel : MonoBehaviour
 
         if (creatureToSpawn != null)
         {
-            Monitor.Instance.IncrementInfluence(increment, (CreatureAnimations) creatureToSpawn);
+            Monitor.Instance.IncrementInfluence(increment, creatureToSpawn);
         }
         ClickCount++;
         if (!BuffManager.Instance.BuffActive)

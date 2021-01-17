@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.iOS;
+using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
@@ -120,7 +121,8 @@ public class ShopManager : MonoBehaviour
                     var increment = helper.DynamicIncrement > helper.Increment
                         ? helper.DynamicIncrement
                         : helper.Increment;
-                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned);
+                    var waitToSpawn = 1 + Random.Range(0.0f, 2.0f);
+                    Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.Creature, waitToSpawn);
                 }
             }
         }

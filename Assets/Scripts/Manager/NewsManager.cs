@@ -28,20 +28,12 @@ public class NewsManager : MonoBehaviour
     void Update()
     {
         TutorialNews();
-        StoryNews();
-        LevelNews();
-        ScoreNews();
         AchievementNews();
-    }
-
-    private void StoryNews()
-    {
-        
     }
 
     private void TutorialNews()
     {
-        if (ShopManager.Instance.Helpers[1].AmountOwned == 1)
+        if (ShopManager.Instance.Helpers[1].AmountOwned == 3)
         {
             PlayNews("Tomes");
         }
@@ -49,7 +41,7 @@ public class NewsManager : MonoBehaviour
         {
             PlayNews("Outlook");
         }
-        if (Monitor.Influence >= 2)
+        if (Monitor.Influence >= 50)
         {
             PlayNews("Spells");
         }
@@ -59,7 +51,7 @@ public class NewsManager : MonoBehaviour
             PlayNews("Xal");
         }
     }
-
+    
     private void AchievementNews()
     {
         if (AchievementManager.Instance.CurrentClickedAmount >= AchievementManager.Instance.ClickerGoal)
@@ -74,49 +66,6 @@ public class NewsManager : MonoBehaviour
         {
             PlayNews("TomeAchievement");
         }
-    }
-
-    private void LevelNews()
-    {
-        switch (Monitor.PlayerLevel)
-        {
-            case 2:
-                PlayNews("Level2");
-                break;
-            case 4:
-                PlayNews("Noticed");
-                break;
-            case 7: 
-                PlayNews("Origin");
-                break;
-            case 10:
-                PlayNews("PlayTest");
-                break;
-        }
-    }
-
-    private void ScoreNews()
-    {
-        if (Monitor.TotalInfluenceEarned >= 1000 && Monitor.TotalInfluenceEarned < 10000)
-        {
-            PlayNews("1,000");
-        }
-        else if (Monitor.TotalInfluenceEarned >= 10000 && Monitor.TotalInfluenceEarned < 50000)
-        {
-            PlayNews("10,000");
-        } else if (Monitor.TotalInfluenceEarned >= 50000 && Monitor.TotalInfluenceEarned < 100000)
-        {
-            PlayNews("50,000");
-        } else if (Monitor.TotalInfluenceEarned >= 100000 && Monitor.TotalInfluenceEarned < 500000)
-        {
-            PlayNews("100,000");
-        } else if (Monitor.TotalInfluenceEarned >= 500000 && Monitor.TotalInfluenceEarned < 1000000)
-        {
-            PlayNews("500,000");
-        } else if (Monitor.TotalInfluenceEarned >= 1000000)
-        {
-            PlayNews("1,000,000");
-        } 
     }
 
     private void PlayNews(string logName)

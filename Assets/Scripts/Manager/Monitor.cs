@@ -69,15 +69,15 @@ public class Monitor : MonoBehaviour
         FingerPointerOutlook.SetActive(true);
     }
 
-    public void IncrementInfluence(long increment, CreatureAnimations creatureAnimation = CreatureAnimations.None, float lagSeconds = 0)
+    public void IncrementInfluence(long increment, Creature creature = null, float lagSeconds = 0)
     {
         SaveGame.Save();
         Influence += increment;
         TotalInfluenceEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
-        if (creatureAnimation != CreatureAnimations.None)
+        if (creature != null && CreatureCanSpawn(creature))
         {
-            StartCoroutine(SpawnCreatureAfterSeconds(lagSeconds, creatureAnimation));
+            StartCoroutine(SpawnCreatureAfterSeconds(lagSeconds, creature.CreatureAnimation));
         }
     }
     
@@ -125,6 +125,28 @@ public class Monitor : MonoBehaviour
     #endregion
 
     #region Helper Methods
+    
+    private bool CreatureCanSpawn(Creature creature)
+    {
+        switch (creature.Name)
+        {
+            case "Elk": 
+            case "Raiju":
+            case "Basilisk":
+                return CanvasBackgroundController.Instance.CurrentCanvasBackground == CanvasBackground.Meadow;
+            case "Hippocampus":
+            case "Bluecap":
+            case "Griffin":
+                return CanvasBackgroundController.Instance.CurrentCanvasBackground == CanvasBackground.River;
+            case "Abraxas":
+            case "Phoenix":
+            case "Void Spawn":
+            case "Wraith":
+                return CanvasBackgroundController.Instance.CurrentCanvasBackground == CanvasBackground.Altar;
+            default:
+                return false;
+        }
+    }
     
     // public bool PanelsAreDisplaying()
     // {
