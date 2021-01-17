@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ClickerAchievement
   m_EditorClassIdentifier: 
   Name: ClickerAchievement
-  Message: Your magic has begun to grow in strength. How strong can you become?
+  Message: Your magic has begun to grow in strength. Keep casting to get even more
+    potent.
   Displayed: 0

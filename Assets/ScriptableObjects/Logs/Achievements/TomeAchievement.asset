@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TomeAchievement
   m_EditorClassIdentifier: 
   Name: TomeAchievement
-  Message: The people much admire your experience in incantations from your tomes..
+  Message: Your experience in Tomes has dramatically increased. Keep purchasing Tomes
+    to increase their effectiveness.
   Displayed: 0

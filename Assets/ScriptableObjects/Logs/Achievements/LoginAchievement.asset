@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LoginAchievement
   m_EditorClassIdentifier: 
   Name: LoginAchievement
-  Message: Returning to the realm everyday will greatly influence the people.
+  Message: Return to the realm everyday to earn extra influence.
   Displayed: 0
