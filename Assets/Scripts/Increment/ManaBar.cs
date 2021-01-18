@@ -31,21 +31,13 @@ public class ManaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(1.0f / Time.smoothDeltaTime);
         ManaRegen();
     }
 
     private void ManaRegen()
     {
-        var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
-        var regen = 0.6 / denominator;
-        if (_manabar.value + regen < _manabar.maxValue)
-        {
-            _manabar.value += (float) regen;
-        }
-        else
-        {
-            _manabar.value = _manabar.maxValue;
-        }
+        StartCoroutine(PerformRegeneration(0.270f));
     }
 
     private float GetManaDeduction()
@@ -77,5 +69,21 @@ public class ManaBar : MonoBehaviour
         ManaLevel++;
         // var manaBarRect = gameObject.GetComponent<Rect>();
         // manaBarRect.width
+    }
+    
+    private IEnumerator PerformRegeneration(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("regen");
+        var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
+        var regen = 0.6 / denominator;
+        if (_manabar.value + regen < _manabar.maxValue)
+        {
+            _manabar.value += (float) regen;
+        }
+        else
+        {
+            _manabar.value = _manabar.maxValue;
+        }
     }
 }
