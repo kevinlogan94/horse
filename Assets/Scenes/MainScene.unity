@@ -9069,6 +9069,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76911d7e30c417c4daf231c287ea1b44, type: 2}
   - {fileID: 11400000, guid: e316d78b6c9d7a1469f8466553022e72, type: 2}
   - {fileID: 11400000, guid: 6339835f9893df147a3ecbb3553c373c, type: 2}
+  - {fileID: 11400000, guid: 38bdcbfa272c6c848b11f0f4f5a0bd3f, type: 2}
   Creatures:
   - {fileID: 11400000, guid: 63d295f0e8883d84389e08a03df56daf, type: 2}
   - {fileID: 11400000, guid: c1f479c50c9494c4bb4d6b840376ac34, type: 2}

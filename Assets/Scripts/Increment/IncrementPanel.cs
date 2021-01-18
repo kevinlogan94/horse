@@ -108,7 +108,7 @@ public class IncrementPanel : MonoBehaviour
         
         ManaBar.Instance.DeductMana();
         SpawnIncrementAnimation();
-        Handheld.Vibrate();
+        // Handheld.Vibrate();
         // Monitor.DestroyObject("FingerPointerIncrementPanel");
     }
 
