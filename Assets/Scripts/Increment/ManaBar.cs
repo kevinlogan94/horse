@@ -74,7 +74,6 @@ public class ManaBar : MonoBehaviour
     private IEnumerator PerformRegeneration(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        Debug.Log("regen");
         var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
         var regen = 0.6 / denominator;
         if (_manabar.value + regen < _manabar.maxValue)
