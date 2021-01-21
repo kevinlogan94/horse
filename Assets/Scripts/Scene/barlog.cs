@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class barlog : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class barlog : MonoBehaviour
     void DisplayTextBox()
     {
         BarlogMessageBox.SetActive(true);
+        SceneManager.Instance.TriggerBarlogText();
     }
     
     public enum BarlogAnimations

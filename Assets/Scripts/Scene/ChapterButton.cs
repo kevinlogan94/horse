@@ -80,7 +80,7 @@ public class ChapterButton : MonoBehaviour
         }
 
         //Manage how the clicker reward text displays
-        if (nextChapter.Number == 1)
+        if (nextChapter.Number == 1 || nextChapter.Number >= 5)
         {
             ClickerRewardText.text = "";
         }

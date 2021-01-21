@@ -2536,7 +2536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a41e227ce0fba419cffc7318a0b8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarlogMessageBox: {fileID: 0}
+  BarlogMessageBox: {fileID: 599334126}
 --- !u!95 &198375079
 Animator:
   serializedVersion: 3
@@ -7775,7 +7775,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 35
   m_fontSizeMax: 100
   m_fontStyle: 0
   m_textAlignment: 514
@@ -21664,7 +21664,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 55
+  m_fontSizeMin: 50
   m_fontSizeMax: 80
   m_fontStyle: 0
   m_textAlignment: 513
@@ -22675,7 +22675,7 @@ PrefabInstance:
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -29.000244
+      value: -29.000305
       objectReference: {fileID: 0}
     - target: {fileID: 1229392296870582759, guid: 5c2d422dd337dc94d849610addd0adad,
         type: 3}

@@ -214,6 +214,10 @@ public class SavedData
         foreach (var chapter in SceneManager.Instance.Chapters)
         {
             chapter.SceneViewed = false;
+            if (chapter.Number <= 4)
+            {
+                chapter.SceneViewed = true;
+            }
         }
     }
 }

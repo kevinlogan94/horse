@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Taken but Not Found
   Number: 5
-  LevelRequirement: 20
+  LevelRequirement: 1
   SceneViewed: 0
   Quotes:
   - What is it?
@@ -37,32 +37,32 @@ MonoBehaviour:
   - For nothing?
   - Am I cursed?
   - What did I do wrong?
-  - "I\u2019m so blind."
+  - I'm so blind.
   - So lost.
   - What am I without my magic?
   - A cold, lonely old man.
   - A man lost in a tower...
   - "\u2026"
-  - "I can\u2019t even read these books."
+  - I can't even read these books.
   - I've become so weak.
   - "I understand that I make mistakes, but\u2026"
-  - "I\u2019m not perfect\u2026"
+  - "I'm not perfect\u2026"
   - "\u2026"
   - Why would this happen?
   - Everything was going so well...
   - It's over.
-  - "I\u2019m sorry for pulling you into this."
+  - I'm sorry for pulling you into this.
   - I only have a bit of magic left.
   - Just enough to get us back to the meadows where we started.
-  - "I\u2019ll give you this last bit."
+  - I'll give you this last bit.
   - "And then\u2026"
-  - "I\u2019m done."
+  - I'm done.
   - "Hold on\u2026"
   - BAM!
   - What?
   - "I\u2026"
   - I don't understand.
-  - "That\u2019s all I had left..."
+  - That's all I had left...
   - How?
   - "\u2026"
   - "I\u2019m sorry. "

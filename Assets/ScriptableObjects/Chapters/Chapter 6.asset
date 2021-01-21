@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Returning Home
   Number: 6
-  LevelRequirement: 25
+  LevelRequirement: 1
   SceneViewed: 0
   Quotes:
   - 'Hello '
-  - "\u2026 "
+  - "\u2026"
   - You have done well.
   - Xal played right into your hands.
   - You did exactly what you were supposed to do.
   - "You see\u2026"
   - "Every 10,000 years\u2026"
-  - I choose a new protector.
-  - Someone to do my bidding and guide nature.
+  - I choose someone new.
+  - Someone to do my bidding.
   - "But\u2026"
   - It is up to the predecessor to pass it on.
   - "When Xal refused to pass down the mantle\u2026"
@@ -38,7 +38,7 @@ MonoBehaviour:
   - A weakness for me, but not others.
   - And that is when I summoned you.
   - You and my curse were critical.
-  - "I knew he couldn\u2019t resist."
+  - I knew he couldn't resist.
   - 'He was too afraid to leave his tower... '
   - and needed someone else to do the job.
   - He would have no choice but to pass on his strength.

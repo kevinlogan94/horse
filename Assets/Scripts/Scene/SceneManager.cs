@@ -70,6 +70,7 @@ public class SceneManager : MonoBehaviour
         DisableBanterAfterNoInteraction();
         ManageButtons();
         ManageStartChapterOneFingerPointer();
+        ManageBarlogDisplay();
         //progress in the tutorial after player purchases from the shop.
         if (_tutorialIndex == 2 && ShopManager.Instance.Helpers[0].AmountOwned >= 1 && ScenePanel.activeSelf)
         {
@@ -105,28 +106,33 @@ public class SceneManager : MonoBehaviour
 
         ActiveChapter = chapterNumber;
         _banterActive = false;
+        
         TextBox.SetActive(true);
         ExclamationPointXal.SetActive(false);
         var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
-        var quote = chapter.Quotes[_chapterIndex];
-        textMeshPro.text = quote;
-        SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
-
-        if (quote == "BAM!")
+        
+        if (_chapterIndex < chapter.Quotes.Length)
         {
-            switch (CanvasBackgroundController.Instance.CurrentCanvasBackground)
+            var quote = chapter.Quotes[_chapterIndex];
+            textMeshPro.text = quote;
+            SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
+
+            if (quote == "BAM!" && ActiveChapter < 5)
             {
-                case CanvasBackground.Meadow:
-                    CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.River);
-                    break;
-                case CanvasBackground.River:
-                    CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.Altar);
-                    break;
+                switch (CanvasBackgroundController.Instance.CurrentCanvasBackground)
+                {
+                    case CanvasBackground.Meadow:
+                        CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.River);
+                        break;
+                    case CanvasBackground.River:
+                        CanvasBackgroundController.Instance.UpdateCanvasBackground(CanvasBackground.Altar);
+                        break;
+                }
             }
         }
         _bookAnimator.Play(BookAnimation.BookSit.ToString());
         
-        if (_chapterIndex < chapter.Quotes.Length - 1)
+        if (_chapterIndex <= chapter.Quotes.Length - 1)
         {
             _chapterIndex++;   
         }
@@ -144,7 +150,7 @@ public class SceneManager : MonoBehaviour
             {
                 SplashManager.Instance.TriggerSplash(SplashType.EndGame.ToString());
             }
-            else
+            else if (chapterNumber < 5)
             {
                 var xalAchievement = SplashManager.Instance.Achievements.FirstOrDefault(x => x.Name == "Xal");
                 if (xalAchievement != null)
@@ -163,7 +169,10 @@ public class SceneManager : MonoBehaviour
 
     private void ManageButtons()
     {
-        if ((ActiveChapter != 0 || TutorialActive) && Chapters.Any(x=>x.SceneViewed == false))
+        if ((ActiveChapter != 0 
+             || TutorialActive 
+             || (NextChapter && NextChapter.Number == 6)) 
+            && Chapters.Any(x=>x.SceneViewed == false))
         {
             ChapterButtonGameObject.SetActive(false);
             InfluenceCrystal.SetActive(false);
@@ -351,7 +360,7 @@ public class SceneManager : MonoBehaviour
     public void ManageBarlogDisplay()
     {
         //Startup
-        if (NextChapter.Number == 6 
+        if ((NextChapter && NextChapter.Number == 6) 
             && BottomNavManager.Instance.ActiveView == Views.outlook.ToString() 
             && !BarlogPanel.activeSelf)
         {
@@ -411,7 +420,7 @@ public class SceneManager : MonoBehaviour
 
         BottomNavManager.Instance.ToggleActiveButtons(true);
         animator.Play(barlogAnimation.ToString());
-        _audioManager.PlaySong("Mountains");
+        // _audioManager.PlaySong("Mountains");
     }
     #endregion
 }
