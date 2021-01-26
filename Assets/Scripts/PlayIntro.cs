@@ -10,13 +10,18 @@ public class PlayIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(streamVideo(Movie));
+        // StartCoroutine(streamVideo(Movie));
     }
 
     private IEnumerator streamVideo(string video)
     {
         Handheld.PlayFullScreenMovie(video, new Color(0, 37/255f, 254/255f), FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.Fill);
         yield return new WaitForEndOfFrame();
+        TransitionToMainScene();
+    }
+
+    public void TransitionToMainScene()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 }

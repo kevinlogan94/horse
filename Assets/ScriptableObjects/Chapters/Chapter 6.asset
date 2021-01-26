@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Returning Home
   Number: 6
-  LevelRequirement: 1
+  LevelRequirement: 25
   SceneViewed: 0
   Quotes:
   - 'Hello '

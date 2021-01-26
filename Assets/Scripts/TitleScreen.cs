@@ -7,22 +7,16 @@ public class TitleScreen : MonoBehaviour
     public GameObject TapToStart;
     public GameObject Version;
     public GameObject Title;
-
-    public GameObject IntriguePanel;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        ShowTitle();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!IntriguePanel.activeSelf)
-        {
-            ShowTitle();
-        }
     }
 
     public void CloseTitleScreen()

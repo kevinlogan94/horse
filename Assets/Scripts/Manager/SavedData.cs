@@ -212,12 +212,12 @@ public class SavedData
             log.Displayed = false;
         }
         foreach (var chapter in SceneManager.Instance.Chapters)
-        {
+        { 
             chapter.SceneViewed = false;
-            if (chapter.Number <= 4)
-            {
-                chapter.SceneViewed = true;
-            }
+            // if (chapter.Number <= 4)
+            // {
+            //     chapter.SceneViewed = true;
+            // }
         }
     }
 }

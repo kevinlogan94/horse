@@ -58,7 +58,7 @@ public class Monitor : MonoBehaviour
 
     public void ManageBetaSurvey()
     {
-        if (!UseBetaSurvey || PlayerLevel != 15 || !BetaSurveyDisplayed) return;
+        if (!UseBetaSurvey || PlayerLevel != 2 || BetaSurveyDisplayed) return;
         BetaSurveyDisplayed = true;
         SplashManager.Instance.TriggerSplash(SplashType.Survey.ToString());
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public static class SaveGame
 {
     private static readonly string Path = Application.persistentDataPath + "/XalsPathGame.data";
+    private const bool loadSavedGame = true;
     
     public static void Save()
     {
@@ -22,24 +23,28 @@ public static class SaveGame
 
     public static void Load()
     {
-        SavedData.RefreshData();
-        return;
-        
-        if (File.Exists(Path))
+        if (loadSavedGame)
         {
-            var formatter = new BinaryFormatter();
-            var stream = new FileStream(Path, FileMode.Open);
+            if (File.Exists(Path))
+            {
+                var formatter = new BinaryFormatter();
+                var stream = new FileStream(Path, FileMode.Open);
         
-            var savedData = formatter.Deserialize(stream) as SavedData;
+                var savedData = formatter.Deserialize(stream) as SavedData;
             
-            //take our load data and load it into the managers across the app that need this data.
-            savedData?.DistributeLoadData();
-            stream.Close();
+                //take our load data and load it into the managers across the app that need this data.
+                savedData?.DistributeLoadData();
+                stream.Close();
+            }
+            else
+            {
+                Debug.LogError("Save file not found at:" + Path);
+                Debug.Log("Starting fresh saved file.");
+            }
         }
         else
         {
-            Debug.LogError("Save file not found at:" + Path);
-            Debug.Log("Starting fresh saved file.");
+            SavedData.RefreshData();
         }
     }
 }
