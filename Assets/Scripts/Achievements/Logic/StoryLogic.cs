@@ -22,7 +22,7 @@ public class StoryLogic : MonoBehaviour
         RewardDescription.text = AchievementObject.RewardDescription;
         
         UpdateProgressValue();
-        ProgressBar.maxValue = AchievementManager.Instance.StoryGoal;
+        ProgressBar.maxValue = SceneManager.Instance.Chapters.Length;
         TriggerBarRefresh();
     }
 
@@ -40,7 +40,7 @@ public class StoryLogic : MonoBehaviour
         var lastReadChapter = SceneManager.Instance.Chapters.LastOrDefault(x=>x.SceneViewed);
         if (lastReadChapter != null && lastReadChapter.Number == SceneManager.Instance.Chapters.Length)
         {
-            ProgressBar.value = AchievementManager.Instance.StoryGoal;
+            ProgressBar.value = lastReadChapter.Number;
         }
         else
         {

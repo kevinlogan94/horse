@@ -219,5 +219,45 @@ public class SavedData
             //     chapter.SceneViewed = true;
             // }
         }
+        
+        // Monitor
+        Monitor.Influence = 0;
+        Monitor.TotalInfluenceEarned = 0;
+        Monitor.PlayerLevel = 1;
+        Monitor.LastSavedDateTime = null;
+        Monitor.BetaSurveyDisplayed = false;
+        
+        // CanvasBackgroundController
+        CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground.Meadow;
+        
+        // Level Up
+        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = 0;
+        // LevelUp.Instance.Slider.maxValue = 75;
+        
+        // Increment Panel
+        IncrementPanel.ClickCount = 0;
+        // IncrementPanel.ClickerIncrement = 0;
+        
+        // Achievement Manager
+        AchievementManager.Instance.LoginCount = 1;
+        AchievementManager.Instance.LoginGoal = 2;
+        AchievementManager.Instance.CurrentClickedAmount = 0;
+        AchievementManager.Instance.ClickerGoal = 0;
+        AchievementManager.Instance.CurrentHelperAmount = 0;
+        AchievementManager.Instance.HelperGoal = 0;
+        AchievementManager.Instance.CurrentVideoAmount = 0;
+        AchievementManager.Instance.VideoGoal = 0;
+        AchievementManager.Instance.CurrentAchievementAmount = 0;
+        AchievementManager.Instance.AchievementGoal = 0;
+        AchievementManager.Instance.AppStoreReviewed = false;
+        AchievementManager.Instance.FollowedOnTwitter = false;
+        AchievementManager.Instance.TutorialCompleted = false;
+        
+        //ManaBar
+        ManaBar.Instance.ManaLevel = 1;
+        
+        //BuffManager
+        BuffManager.Instance.BuffTutorialCompleted = false;
+        BuffManager.Instance.BuffedThisLevel = false;
     }
 }

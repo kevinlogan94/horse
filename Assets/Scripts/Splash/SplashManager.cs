@@ -14,6 +14,7 @@ public class SplashManager : MonoBehaviour
     public GameObject CreaturePanel;
     public GameObject CreatureUIPanel;
     public GameObject SurveyPanel;
+    public GameObject NewGamePanel;
 
     public Achievement[] Achievements;
     public Creature[] Creatures;
@@ -82,6 +83,10 @@ public class SplashManager : MonoBehaviour
         {
             SurveyPanel.SetActive(true);
         }
+        else if (type == SplashType.NewGame.ToString())
+        {
+            NewGamePanel.SetActive(true);
+        }
         else
         {
             AdvertisementPanel.SetActive(true);
@@ -123,5 +128,6 @@ public enum SplashType
     InfluenceOverTime,
     Buff,
     EndGame,
-    Survey
+    Survey,
+    NewGame
 }

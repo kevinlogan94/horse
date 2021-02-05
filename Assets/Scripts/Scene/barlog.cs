@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class barlog : MonoBehaviour
 {
     public GameObject BarlogMessageBox;
+    public GameObject BarlogPanel;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class barlog : MonoBehaviour
 
     void DestroyOnFadout()
     {
+        BarlogMessageBox.SetActive(false);
+        BarlogPanel.SetActive(false);
         gameObject.SetActive(false);
     }
 

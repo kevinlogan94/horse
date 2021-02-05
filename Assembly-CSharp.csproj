@@ -112,6 +112,7 @@
      <Compile Include="Assets\Scripts\Splash\CreaturePanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\GameCompletePanelScript.cs" />
      <Compile Include="Assets\Scripts\Splash\InfluenceOverTimePanelScript.cs" />
+     <Compile Include="Assets\Scripts\Splash\NewGame.cs" />
      <Compile Include="Assets\Scripts\Splash\SplashManager.cs" />
      <Compile Include="Assets\Scripts\Splash\SurveyScript.cs" />
      <Compile Include="Assets\Scripts\TitleScreen.cs" />

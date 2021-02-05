@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -21,30 +22,39 @@ public static class SaveGame
         stream.Close();
     }
 
+    public static void Delete()
+    {
+        try
+        {
+            File.Delete(Path);
+            SavedData.RefreshData();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
     public static void Load()
     {
-        if (loadSavedGame)
-        {
-            if (File.Exists(Path))
-            {
-                var formatter = new BinaryFormatter();
-                var stream = new FileStream(Path, FileMode.Open);
+        SavedData.RefreshData();
+        if (!loadSavedGame) return;
         
-                var savedData = formatter.Deserialize(stream) as SavedData;
+        if (File.Exists(Path))
+        {
+            var formatter = new BinaryFormatter();
+            var stream = new FileStream(Path, FileMode.Open);
+        
+            var savedData = formatter.Deserialize(stream) as SavedData;
             
-                //take our load data and load it into the managers across the app that need this data.
-                savedData?.DistributeLoadData();
-                stream.Close();
-            }
-            else
-            {
-                Debug.LogError("Save file not found at:" + Path);
-                Debug.Log("Starting fresh saved file.");
-            }
+            //take our load data and load it into the managers across the app that need this data.
+            savedData?.DistributeLoadData();
+            stream.Close();
         }
         else
         {
-            SavedData.RefreshData();
+            Debug.LogError("Save file not found at:" + Path);
+            Debug.Log("Starting fresh saved file.");
         }
     }
 }

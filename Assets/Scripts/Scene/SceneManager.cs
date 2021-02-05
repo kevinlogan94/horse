@@ -385,6 +385,7 @@ public class SceneManager : MonoBehaviour
             Debug.LogWarning("We couldn't find Chapter 6");
             return;
         }
+        if (chapter.SceneViewed) return;
         if (ActiveChapter == 0 && Monitor.UseAnalytics)
         {
             Analytics.CustomEvent("ChapterTriggered", new Dictionary<string, object>
@@ -404,7 +405,7 @@ public class SceneManager : MonoBehaviour
         {
             _chapterIndex = 0;
             chapter.SceneViewed = true;
-            TextBox.SetActive(false);
+            // TextBox.SetActive(false);
             TriggerBarlogAnimation(barlog.BarlogAnimations.Fadeout);
         }
     }
