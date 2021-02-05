@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Full Circle
   Number: 7
-  LevelRequirement: 25
-  SceneViewed: 0
+  LevelRequirement: 1
+  SceneViewed: 1
   Quotes:
   - 'What? '
   - I thought I told you to...
@@ -32,7 +32,7 @@ MonoBehaviour:
   - "It caused me to lose what I cared about the most\u2026"
   - I guess...
   - Sometimes bad things happen and it's completely out of our control.
-  - "I don\u2019t know what to do with myself."
+  - I don't know what to do with myself.
   - Unfortunately, everything had to happen this way.
   - "You know\u2026"
   - I really loved being something meaningful.
@@ -45,7 +45,7 @@ MonoBehaviour:
   - "\u2026"
   - I do have some good news, at least.
   - It turns out I do still have a small bit of magic left.
-  - "But, I think I\u2019ve gotten the message."
+  - But, I think I've gotten the message.
   - "I\u2019m not going to tell you what to do anymore."
   - You're the boss now.
   - I'm only going to offer a helping hand.

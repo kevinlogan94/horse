@@ -2537,6 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarlogMessageBox: {fileID: 599334126}
+  BarlogPanel: {fileID: 2073187856}
 --- !u!95 &198375079
 Animator:
   serializedVersion: 3
@@ -3498,8 +3499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000017166, y: -36.6}
-  m_SizeDelta: {x: 939.6196, y: 355.2785}
+  m_AnchoredPosition: {x: 1.7998, y: -54.4}
+  m_SizeDelta: {x: 816.86633, y: 281.26617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275780979
 MonoBehaviour:
@@ -3548,7 +3549,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
+  m_fontSize: 82.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8211,8 +8212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8, y: 329}
-  m_SizeDelta: {x: 816.86584, y: 300}
+  m_AnchoredPosition: {x: 1.8, y: 305.7}
+  m_SizeDelta: {x: 816.86584, y: 253.39966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611259886
 MonoBehaviour:
@@ -11346,7 +11347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 558377702}
         m_MethodName: TransitionToCredits
         m_Mode: 1
         m_Arguments:
@@ -18080,10 +18081,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1326569600}
-    characterCount: 10
+    characterCount: 4
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -25437,8 +25438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00027466, y: -4}
-  m_SizeDelta: {x: 693.8751, y: 209.24393}
+  m_AnchoredPosition: {x: -2.7, y: -4}
+  m_SizeDelta: {x: 628.08655, y: 209.24393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778445838
 MonoBehaviour:
@@ -25529,10 +25530,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1778445838}
-    characterCount: 28
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 6
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -29035,6 +29036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarlogMessageBox: {fileID: 0}
+  BarlogPanel: {fileID: 0}
 --- !u!114 &2073187859
 MonoBehaviour:
   m_ObjectHideFlags: 0

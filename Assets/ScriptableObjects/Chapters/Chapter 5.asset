@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Taken but Not Found
   Number: 5
-  LevelRequirement: 25
-  SceneViewed: 0
+  LevelRequirement: 1
+  SceneViewed: 1
   Quotes:
   - What is it?
   - What?
@@ -65,7 +65,7 @@ MonoBehaviour:
   - That's all I had left...
   - How?
   - "\u2026"
-  - "I\u2019m sorry. "
+  - 'I''m sorry. '
   - I can't even move us.
   - 'I''m worthless. '
   - I don't know.
