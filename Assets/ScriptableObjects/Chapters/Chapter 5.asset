@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Taken but Not Found
   Number: 5
-  LevelRequirement: 1
-  SceneViewed: 1
+  LevelRequirement: 25
+  SceneViewed: 0
   Quotes:
   - What is it?
   - What?

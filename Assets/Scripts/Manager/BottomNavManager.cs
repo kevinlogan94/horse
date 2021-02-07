@@ -53,6 +53,11 @@ public class BottomNavManager : MonoBehaviour
 
     public void SelectView(string view, bool muteSound = false)
     {
+        if (ActiveView == view)
+        {
+            view = Views.outlook.ToString();
+        }
+        
         TurnOffEverything();
         ActiveView = view;
         switch (view)

@@ -40,8 +40,8 @@ public class ManaBar : MonoBehaviour
     {
         var numerator = 0.6;
         if (CurrentFrameRate < 75)
-        {
-            numerator = 2.25;
+        { 
+            numerator = 2.75;
         }
         else if(CurrentFrameRate < 135)
         {
