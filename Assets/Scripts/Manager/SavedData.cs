@@ -232,11 +232,11 @@ public class SavedData
         
         // Level Up
         LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = 0;
-        // LevelUp.Instance.Slider.maxValue = 75;
+        LevelUp.Instance.Slider.maxValue = 75;
         
         // Increment Panel
         IncrementPanel.ClickCount = 0;
-        // IncrementPanel.ClickerIncrement = 0;
+        IncrementPanel.ClickerIncrement = 1;
         
         // Achievement Manager
         AchievementManager.Instance.LoginCount = 1;
