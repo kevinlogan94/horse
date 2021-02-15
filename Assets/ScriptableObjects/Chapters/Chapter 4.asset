@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Find and Take
   Number: 4
-  LevelRequirement: 15
-  SceneViewed: 0
+  LevelRequirement: 20
+  SceneViewed: 1
   Quotes:
   - 'Heroes are always so straight forward in these books. '
   - But, in real life, it's never that clear.
