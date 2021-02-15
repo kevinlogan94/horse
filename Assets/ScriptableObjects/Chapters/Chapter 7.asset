@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Full Circle
   Number: 7
-  LevelRequirement: 25
+  LevelRequirement: 30
   SceneViewed: 0
   Quotes:
   - 'What? '
