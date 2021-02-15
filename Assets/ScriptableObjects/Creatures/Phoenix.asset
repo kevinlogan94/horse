@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Phoenix
   m_EditorClassIdentifier: 
   Name: Phoenix
-  Description: The Phoenix is known for being a positive omen that's associates with
+  Description: The Phoenix is known for being a positive omen that's associated with
     the sun. The sunbird can reincarnate itself from its ashes after death as well
     as heal any wound.
   CreatureAnimation: 10

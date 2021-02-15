@@ -9,6 +9,8 @@ public class AchievementPanelScript : MonoBehaviour
     public TextMeshProUGUI Description;
     public TextMeshProUGUI BeforeText;
     public TextMeshProUGUI AfterText;
+
+    private string _currentText;
     
     #region Singleton
     public static AchievementPanelScript Instance;
@@ -24,7 +26,13 @@ public class AchievementPanelScript : MonoBehaviour
     {
         Description.text = Achievement.RewardDescription;
         Image.sprite = Achievement.Artwork;
-        DefineBeforeAndAfterText();
+        
+        //I technically only want this to trigger everytime we have a new achievement being displayed.
+        if (_currentText != Description.text)
+        {
+            DefineBeforeAndAfterText();
+            _currentText = Description.text;
+        }
     }
 
     private void DefineBeforeAndAfterText()
