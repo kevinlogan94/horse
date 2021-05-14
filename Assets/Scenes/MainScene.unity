@@ -8979,8 +8979,8 @@ RectTransform:
   m_Father: {fileID: 2017327022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.59657574}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9719,6 +9719,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e316d78b6c9d7a1469f8466553022e72, type: 2}
   - {fileID: 11400000, guid: 6339835f9893df147a3ecbb3553c373c, type: 2}
   - {fileID: 11400000, guid: 38bdcbfa272c6c848b11f0f4f5a0bd3f, type: 2}
+  - {fileID: 11400000, guid: e5faf7c78ab3b2a46af41f5f157fc14b, type: 2}
   Creatures:
   - {fileID: 11400000, guid: 63d295f0e8883d84389e08a03df56daf, type: 2}
   - {fileID: 11400000, guid: c1f479c50c9494c4bb4d6b840376ac34, type: 2}
@@ -22225,9 +22226,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1486640319
 MonoBehaviour:
@@ -28086,7 +28087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1988067465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30256,7 +30257,7 @@ PrefabInstance:
     - target: {fileID: 6416706845382377357, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4895518e8c64dc4a98f1c631666bf65, type: 3}

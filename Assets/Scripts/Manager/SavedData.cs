@@ -33,6 +33,7 @@ public class SavedData
     // AchievementManager
     public int LoginCount;
     public float LoginGoal;
+    public DateTime LastLoginDate;
     public long CurrentClickedAmount;
     public float ClickerGoal;
     public int CurrentHelperAmount;
@@ -99,6 +100,7 @@ public class SavedData
         // AchievementManager
         LoginCount = AchievementManager.Instance.LoginCount;
         LoginGoal = AchievementManager.Instance.LoginGoal;
+        LastLoginDate = AchievementManager.Instance.LastLoginDate;
         CurrentClickedAmount = AchievementManager.Instance.CurrentClickedAmount;
         ClickerGoal = AchievementManager.Instance.ClickerGoal;
         CurrentHelperAmount = AchievementManager.Instance.CurrentHelperAmount;
@@ -171,6 +173,7 @@ public class SavedData
         // Achievement Manager
         AchievementManager.Instance.LoginCount = LoginCount;
         AchievementManager.Instance.LoginGoal = LoginGoal;
+        AchievementManager.Instance.LastLoginDate = LastLoginDate;
         AchievementManager.Instance.CurrentClickedAmount = CurrentClickedAmount;
         AchievementManager.Instance.ClickerGoal = ClickerGoal;
         AchievementManager.Instance.CurrentHelperAmount = CurrentHelperAmount;
@@ -241,6 +244,7 @@ public class SavedData
         // Achievement Manager
         AchievementManager.Instance.LoginCount = 1;
         AchievementManager.Instance.LoginGoal = 2;
+        AchievementManager.Instance.LastLoginDate = DateTime.UtcNow;
         AchievementManager.Instance.CurrentClickedAmount = 0;
         AchievementManager.Instance.ClickerGoal = 0;
         AchievementManager.Instance.CurrentHelperAmount = 0;

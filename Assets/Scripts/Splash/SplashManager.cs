@@ -100,7 +100,6 @@ public class SplashManager : MonoBehaviour
     public void CloseSplash()
     {
         SplashPanel.SetActive(false);
-        AchievementPanel.SetActive(false);
         CreaturePanel.SetActive(false);
         CreatureUIPanel.SetActive(false);
         AdvertisementPanel.SetActive(false);
@@ -111,10 +110,12 @@ public class SplashManager : MonoBehaviour
         
         // show ad after speaking to Xal
         if (AchievementPanelScript.Instance != null 
-            && AchievementPanelScript.Instance.Achievement.Name == "Xal")
+            && AchievementPanelScript.Instance.Achievement.Name == "Xal"
+            && AchievementPanel.activeSelf)
         {
             AdvertisementManager.Instance.ShowSkippableAd();
         }
+        AchievementPanel.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Pop");
         // AchievementUIPanel.SetActive(false);
     }

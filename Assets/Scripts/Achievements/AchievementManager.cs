@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
@@ -10,11 +11,12 @@ public class AchievementManager : MonoBehaviour
     //login
     public int LoginCount = 1;
     public float LoginGoal = 2;
+    public DateTime LastLoginDate = DateTime.UtcNow;
     
     //clicker
     public long CurrentClickedAmount;
     public float ClickerGoal;
-    
+
     //helper
     public int CurrentHelperAmount;
     public float HelperGoal;
@@ -65,6 +67,7 @@ public class AchievementManager : MonoBehaviour
     {
         ClickerProgress();
         HelperProgress();
+        LoginProgress();
         ManageExclamationPoint();
         Tutorial();
     }
@@ -122,5 +125,15 @@ public class AchievementManager : MonoBehaviour
     private void HelperProgress()
     {
         CurrentHelperAmount = ShopManager.Instance.Helpers.Sum(x => x.AmountOwned);
+    }
+
+    private void LoginProgress()
+    {
+        //Use .Date since we only want to compare the date and not the time
+        if ((DateTime.UtcNow.Date - LastLoginDate.Date).TotalDays >= 1)
+        {
+            LastLoginDate = DateTime.UtcNow;
+            LoginCount++;
+        }
     }
 }

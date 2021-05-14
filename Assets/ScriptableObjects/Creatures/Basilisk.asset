@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Basilisk
   m_EditorClassIdentifier: 
   Name: Basilisk
-  Description: The Basilisk is a magical serpent that is bred by dark mages. The
-    snake can take down any live things with a single strike, making it a king among
-    reptiles.
+  Description: The Basilisk is a magical serpent bred by dark mages. The snake can
+    take down any living thing with a single strike, making it a king among reptiles.
   CreatureAnimation: 9

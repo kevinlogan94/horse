@@ -82,7 +82,7 @@ public class AudioManager : MonoBehaviour
         var soundEffects = Sounds.ToList();
         foreach (var backgroundMusic in BackgroundMusic)
         {
-            foreach (var sound in soundEffects)
+            foreach (var sound in Sounds.ToList())
             {
                 if (sound.Name == backgroundMusic)
                 {
