@@ -22,6 +22,7 @@ public class TwitterLogic : MonoBehaviour, IAchievement
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = AchievementManager.Instance.FollowedOnTwitter ? AchievementManager.ShareGoal : 0;
         ProgressBar.maxValue = AchievementManager.ShareGoal;
+        TriggerBarRefresh();
     }
 
     void Update()
@@ -45,7 +46,15 @@ public class TwitterLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
+            TriggerBarRefresh();
         }
+    }
+    
+    public void TriggerBarRefresh()
+    {
+        //trigger bar change
+        ProgressBar.maxValue++;
+        ProgressBar.maxValue--;
     }
     
     public void UpdateRewardCounter()

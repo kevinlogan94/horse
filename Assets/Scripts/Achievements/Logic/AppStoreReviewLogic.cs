@@ -13,18 +13,19 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
     //TODO define android and apple store review url
     private const string AndroidAppStoreReviewUrl = "";
     private const string IosAppStoreReviewUrl = "";
+    private const string SurveyUrl = "https://www.surveymonkey.com/r/F9SWS9P";
     
     private long _rewardValue;
     
     // Start is called before the first frame update
     void Start()
     {
-        
         UpdateTitle();
         Image.sprite = AchievementObject.Artwork;
         RewardDescription.text = AchievementObject.RewardDescription;
         ProgressBar.value = AchievementManager.Instance.AppStoreReviewed ? AchievementManager.ShareGoal : 0;
         ProgressBar.maxValue = AchievementManager.ShareGoal;
+        TriggerBarRefresh();
     }
 
     void Update()
@@ -47,18 +48,26 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
             if (Application.platform == RuntimePlatform.Android)
             {
                 Debug.Log("Android App Store Review Prompt");
-                Application.OpenURL(AndroidAppStoreReviewUrl);
+                // Application.OpenURL(AndroidAppStoreReviewUrl);
             }
             else
             {
                 Debug.Log("Apple App Store Review Prompt");
-                Application.OpenURL(IosAppStoreReviewUrl);
+                // Application.OpenURL(IosAppStoreReviewUrl);
             }
+            Application.OpenURL(SurveyUrl);
 
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
+            TriggerBarRefresh();
         }
+    }
+    public void TriggerBarRefresh()
+    {
+        //trigger bar change
+        ProgressBar.maxValue++;
+        ProgressBar.maxValue--;
     }
     
     public void UpdateRewardCounter()

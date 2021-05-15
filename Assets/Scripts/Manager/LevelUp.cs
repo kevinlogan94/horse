@@ -81,6 +81,7 @@ public class LevelUp : MonoBehaviour
         }
 
         BuffManager.Instance.BuffedThisLevel = false;
+        SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel = false;
         // _levelUpReward = 2 * _levelUpReward;
         // LevelUpRewardText.text = _levelUpReward + " influence";
         // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();

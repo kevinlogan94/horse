@@ -32,6 +32,7 @@ public class SceneManager : MonoBehaviour
     public GameObject StartChapterOneFingerPointer;
     public Button OutlookButton;
     public GameObject InfluenceCrystal;
+    public bool InfluenceCrystalAdTriggeredThisLevel;
     public GameObject ChapterButtonGameObject;
     
     public GameObject BarlogPanel;
@@ -180,7 +181,8 @@ public class SceneManager : MonoBehaviour
         else
         {
             ChapterButtonGameObject.SetActive(true);
-            InfluenceCrystal.SetActive(true);
+            //Add an extra check just for the influence crystal
+            InfluenceCrystal.SetActive(!InfluenceCrystalAdTriggeredThisLevel);
         }
     }
 

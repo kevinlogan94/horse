@@ -33,6 +33,12 @@ public class InfluenceOverTimePanelScript : MonoBehaviour
 
         var now = DateTime.UtcNow;
         var timeSinceLastSave = (long) Math.Round(now.Subtract((DateTime) Monitor.LastSavedDateTime).TotalSeconds);
+        const int tenHoursInSeconds = 36000;
+        //We want to cap this at 10 hours.
+        if (timeSinceLastSave > tenHoursInSeconds)
+        {
+            timeSinceLastSave = tenHoursInSeconds;
+        }
         _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(timeSinceLastSave);
         RewardText.text = Monitor.FormatNumberToString(_rewardValue) + " influence";
     }

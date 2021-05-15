@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 [Serializable]
 public class SavedData
@@ -48,6 +49,7 @@ public class SavedData
 
     // SceneManager
     public List<SavedChapter> Chapters = new List<SavedChapter>();
+    public bool InfluenceCrystalAdTriggeredThisLevel;
     
     //ManaBar
     public int ManaLevel;
@@ -121,7 +123,8 @@ public class SavedData
             savedChapter.SceneViewed = chapter.SceneViewed;
             Chapters.Add(savedChapter);
         }
-        
+        InfluenceCrystalAdTriggeredThisLevel = SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel;
+
         //ManaBar
         ManaLevel = ManaBar.Instance.ManaLevel;
         
@@ -193,6 +196,7 @@ public class SavedData
                 Chapters.FirstOrDefault(loadedChapter => loadedChapter.Number == localChapter.Number);
             if (loadedMatchedChapter != null) localChapter.SceneViewed = loadedMatchedChapter.SceneViewed;
         }
+        SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel = InfluenceCrystalAdTriggeredThisLevel;
         
         //ManaBar
         ManaBar.Instance.ManaLevel = ManaLevel;
@@ -200,6 +204,9 @@ public class SavedData
         //BuffManager
         BuffManager.Instance.BuffTutorialCompleted = BuffTutorialCompleted;
         BuffManager.Instance.BuffedThisLevel = BuffedThisLevel;
+        
+        //advertisementManager
+        AdvertisementManager.Instance.FinishedAds = CurrentVideoAmount;
     }
 
     public static void RefreshData()
@@ -214,14 +221,18 @@ public class SavedData
         {
             log.Displayed = false;
         }
+        
+        //SceneManager
         foreach (var chapter in SceneManager.Instance.Chapters)
         { 
             chapter.SceneViewed = false;
+            //Testing
             // if (chapter.Number <= 4)
             // {
             //     chapter.SceneViewed = true;
             // }
         }
+        SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel = false;
         
         // Monitor
         Monitor.Influence = 0;

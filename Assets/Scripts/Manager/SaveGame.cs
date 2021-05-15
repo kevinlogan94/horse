@@ -57,4 +57,9 @@ public static class SaveGame
             Debug.Log("Starting fresh saved file.");
         }
     }
+
+    public static bool SaveFileExists()
+    {
+        return File.Exists(Path);
+    }
 }

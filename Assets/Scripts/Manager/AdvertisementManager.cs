@@ -9,6 +9,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     private const string AndroidGameId = "3857319";
     private const string RewardVideoPlacementId = "rewardedVideo";
     private const string SkippableAdPlacementId = "video";
+    public int FinishedAds = 0;
     //TODO turn ad testmode off
     public const bool TestMode = true;
 
@@ -61,7 +62,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished when placementId == RewardVideoPlacementId:
                 Debug.Log("Reward the player");
                 TriggerReward();
-                AchievementManager.Instance.CurrentVideoAmount++;
+                AchievementManager.Instance.CurrentVideoAmount = ++FinishedAds;
                 if(Monitor.UseAnalytics)
                 {
                     AnalyticsEvent.AdComplete(true);

@@ -113,9 +113,16 @@ public class Monitor : MonoBehaviour
     private void IncrementInfluenceForTimeAwayFromGameWithoutKillingApp()
     {
         var now = DateTime.UtcNow;
+        const int tenHoursInSeconds = 36000;
         var timeAwayFromGame = (long) Math.Round(now.Subtract(_timeOfLastFrame).TotalSeconds);
         if (timeAwayFromGame > 5)
         {
+            //I'm pretty sure iOS won't let the game sit in the background this long
+            //but let's handle this scenario anyway.
+            if (timeAwayFromGame > tenHoursInSeconds)
+            {
+                timeAwayFromGame = tenHoursInSeconds;
+            }
             Debug.Log("Giving influence for time since last frame processed.");
             IncrementInfluence(GetInfluenceReceivedOverTime(timeAwayFromGame));
         }

@@ -23,13 +23,14 @@ public class AdvertisementPanelScript : MonoBehaviour
 
     public void WatchAdAndCloseSplash()
     {
+        SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel = true;
         AdvertisementManager.Instance.ShowStandardRewardAd(_rewardValue);
         SplashManager.Instance.CloseSplash();
     }
     
     private void UpdateRewardCounter()
     {
-        _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(1800); // 30 minutes
-        RewardText.text = _rewardValue + " influence";
+        _rewardValue = Monitor.Instance.GetInfluenceReceivedOverTime(900); // 15 minutes
+        RewardText.text = Monitor.FormatNumberToString(_rewardValue) + " influence";
     }
 }

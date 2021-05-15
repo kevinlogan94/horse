@@ -9,9 +9,9 @@ public class AchievementManager : MonoBehaviour
     public GameObject AchievementExclamationPoint;
     
     //login
-    public int LoginCount = 1;
-    public float LoginGoal = 2;
-    public DateTime LastLoginDate = DateTime.UtcNow;
+    public int LoginCount;
+    public float LoginGoal;
+    public DateTime LastLoginDate;
     
     //clicker
     public long CurrentClickedAmount;
@@ -55,11 +55,17 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         _audioManager = FindObjectOfType<AudioManager>();
-        ClickerGoal = 150;
-        HelperGoal = 30;
-        VideoGoal = 10;
-        AchievementGoal = 10;
-        StoryGoal = 1;
+        if (!SaveGame.SaveFileExists())
+        {
+            ClickerGoal = 150;
+            HelperGoal = 30;
+            VideoGoal = 10;
+            AchievementGoal = 10;
+            StoryGoal = 1;
+            LoginCount = 1;
+            LoginGoal = 2;
+            LastLoginDate = DateTime.UtcNow;
+        }
     }
 
     // Update is called once per frame
