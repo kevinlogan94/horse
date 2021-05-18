@@ -123,6 +123,14 @@ public class IncrementPanel : MonoBehaviour
         {
             BuffManager.Instance.CountDownStarted = true;
         }
+
+        if (Monitor.UseAnalytics)
+        {
+            Analytics.CustomEvent("ClickIncrementButton", new Dictionary<string, object>
+            {
+                {"ClickCount", ClickCount}
+            });
+        }
     }
 
     private void SpawnIncrementAnimation()

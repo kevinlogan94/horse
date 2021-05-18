@@ -215,7 +215,6 @@ public class SceneManager : MonoBehaviour
         else if (TutorialActive)
         {
             TriggerTutorial();
-            // AnalyticsEvent.TutorialStart();
         }
         else if (ActiveChapter == 0)
         {
@@ -244,6 +243,10 @@ public class SceneManager : MonoBehaviour
     #region Tutorial methods
     private void TriggerTutorial()
     {
+        if (!TutorialActive && Monitor.UseAnalytics)
+        {
+            AnalyticsEvent.TutorialStart();
+        }
         TutorialActive = true;
         SceneBackgroundController.Instance.UpdateSceneBackground(Expression.Generic);
         if (_tutorialIndex < Tutorial.Length)
@@ -281,6 +284,10 @@ public class SceneManager : MonoBehaviour
             _tutorialIndex = 0;
             TutorialActive = false;
             TextBox.SetActive(false);
+            if (Monitor.UseAnalytics)
+            {
+                AnalyticsEvent.TutorialComplete();
+            }
         }
     }
 
