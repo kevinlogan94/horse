@@ -12297,7 +12297,7 @@ MonoBehaviour:
   m_text: Hello Traveler
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
-  m_sharedMaterial: {fileID: 1013541675797250659, guid: 6fb4145059d6c7e43aa5bb3d742148ff,
+  m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12323,12 +12323,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 130
+  m_fontSize: 80
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 130
+  m_fontSizeMax: 80
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -12375,7 +12375,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
