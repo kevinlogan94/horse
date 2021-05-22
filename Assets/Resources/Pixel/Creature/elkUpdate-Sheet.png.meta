@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: eb6a859bb7053be44af999f53d2ca399
+guid: fe507a1107ff2ec4cb60f58a33b083d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3178513626202531693
-    second: elk-Sheet_0
+      213: -4451122116796291794
+    second: elkUpdate-Sheet_0
   - first:
-      213: 2148928439897140481
-    second: elk-Sheet_1
+      213: 2041167354383810056
+    second: elkUpdate-Sheet_1
   - first:
-      213: 4468907994372762760
-    second: elk-Sheet_2
+      213: -1275980111141725548
+    second: elkUpdate-Sheet_2
   - first:
-      213: -988895105044702004
-    second: elk-Sheet_3
+      213: 7537880526202145071
+    second: elkUpdate-Sheet_3
   - first:
-      213: -8215315389342613809
-    second: elk-Sheet_4
-  - first:
-      213: -5922502182278252302
-    second: elk-Sheet_5
+      213: -4367411173437611821
+    second: elkUpdate-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,7 +114,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: elk-Sheet_0
+      name: elkUpdate-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398957c82b6a3e3d0800000000000000
-      internalID: -3178513626202531693
+      spriteID: e25e87094007a32c0800000000000000
+      internalID: -4451122116796291794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elk-Sheet_1
+      name: elkUpdate-Sheet_1
       rect:
         serializedVersion: 2
         x: 70
@@ -152,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10dadc3d70782dd10800000000000000
-      internalID: 2148928439897140481
+      spriteID: 80ebb2de4eea35c10800000000000000
+      internalID: 2041167354383810056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elk-Sheet_2
+      name: elkUpdate-Sheet_2
       rect:
         serializedVersion: 2
         x: 140
@@ -173,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ced72c420c40e30800000000000000
-      internalID: 4468907994372762760
+      spriteID: 49a1fee69deca4ee0800000000000000
+      internalID: -1275980111141725548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elk-Sheet_3
+      name: elkUpdate-Sheet_3
       rect:
         serializedVersion: 2
         x: 210
@@ -194,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc10bf242db642f0800000000000000
-      internalID: -988895105044702004
+      spriteID: f290d93b66eeb9860800000000000000
+      internalID: 7537880526202145071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elk-Sheet_4
+      name: elkUpdate-Sheet_4
       rect:
         serializedVersion: 2
         x: 280
@@ -215,8 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcefe641e265dfd80800000000000000
-      internalID: -8215315389342613809
+      spriteID: 3d0ed236da6d363c0800000000000000
+      internalID: -4367411173437611821
       vertices: []
       indices: 
       edges: []
