@@ -21,7 +21,14 @@ public class NotificationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(RequestAuthorizationAndTriggerNotification());
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            //Android notification logic  
+        }
+        else
+        {
+            StartCoroutine(RequestAuthorizationAndTriggerNotification());  
+        }
     }
 
     // Update is called once per frame
@@ -41,20 +48,19 @@ public class NotificationManager : MonoBehaviour
         {
             Debug.Log($"Removing Notification: {scheduledNotifications[0].Title}");
             iOSNotificationCenter.RemoveScheduledNotification(scheduledNotifications[0].Identifier);
-            Debug.Log($"Notifcation Removed");
+            Debug.Log("Notification Removed");
         }
         
         var timeTrigger = new iOSNotificationTimeIntervalTrigger
         {
-            TimeInterval = new TimeSpan(0, 0, 20),
+            TimeInterval = new TimeSpan(10, 0, 0),
             Repeats = false
         };
 
         var notification = new iOSNotification
         {
-            Title = "Hey, can you help an old man out?",
-            Body = "Scheduled at: " + DateTime.Now.ToShortDateString() + " triggered in 20 seconds",
-            Subtitle = "This is a subtitle, something, something important...",
+            Title = "You need to see this, Stranger!",
+            Body = "You have so much influence! Don't forget to come back and buy more tomes!",
             ShowInForeground = false, // Don't make it prompt during gameplay
             CategoryIdentifier = "category_a",
             ThreadIdentifier = "thread1",
@@ -62,7 +68,7 @@ public class NotificationManager : MonoBehaviour
         };
 
         iOSNotificationCenter.ScheduleNotification(notification);
-        Debug.Log("Notification Triggered");
+        Debug.Log("Timed Notification Scheduled");
     }
 
     
