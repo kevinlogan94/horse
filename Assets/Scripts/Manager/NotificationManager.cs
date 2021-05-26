@@ -59,8 +59,8 @@ public class NotificationManager : MonoBehaviour
 
         var notification = new iOSNotification
         {
-            Title = "You need to see this, Stranger!",
-            Body = "You have so much influence! Don't forget to come back and buy more tomes!",
+            Title = "Hey, Stranger!",
+            Body = "You have earned a lot of influence while you've been gone! Don't forget to come back and buy more tomes!",
             ShowInForeground = false, // Don't make it prompt during gameplay
             CategoryIdentifier = "category_a",
             ThreadIdentifier = "thread1",
