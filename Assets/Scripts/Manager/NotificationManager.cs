@@ -1,13 +1,23 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Notifications.Android;
 using Unity.Notifications.iOS;
 using UnityEngine;
+using UnityEngine.Analytics;
+
+//https://docs.unity3d.com/Packages/com.unity.mobile.notifications@1.0/manual/index.html#android
 
 public class NotificationManager : MonoBehaviour
 {
 
-    private string _deviceToken;
-    private bool _notificationPermissionGranted;
+    private string _iosDeviceToken;
+    private bool _iosNotificationPermissionGranted;
+
+    private const string AndroidChannelId = "Default_Channel_Id";
+
+    private const string TitleText = "Hey, Stranger!";
+    private const string BodyText = "You have earned a lot of influence while you've been gone! Don't forget to come back and buy more tomes!";
     
     #region Singleton
     public static NotificationManager Instance;
@@ -23,7 +33,7 @@ public class NotificationManager : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            //Android notification logic  
+            GenerateAndroidNotificationChannelAndScheduleNotification();
         }
         else
         {
@@ -32,16 +42,15 @@ public class NotificationManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // GenerateTimedNotification();
-    }
+    // void Update()
+    // {
+    // }
 
     #region iOS
     
-    public void GenerateTimedNotification()
+    private void GenerateTimedNotification()
     {
-        if (!_notificationPermissionGranted) return;
+        if (!_iosNotificationPermissionGranted) return;
         
         var scheduledNotifications = iOSNotificationCenter.GetScheduledNotifications();
         if (scheduledNotifications.Length > 0)
@@ -49,6 +58,10 @@ public class NotificationManager : MonoBehaviour
             Debug.Log($"Removing Notification: {scheduledNotifications[0].Title}");
             iOSNotificationCenter.RemoveScheduledNotification(scheduledNotifications[0].Identifier);
             Debug.Log("Notification Removed");
+            if (Monitor.UseAnalytics)
+            {
+                Analytics.CustomEvent("Notification_ReScheduled", new Dictionary<string, object> {{"Device", "iOS"}});
+            }
         }
         
         var timeTrigger = new iOSNotificationTimeIntervalTrigger
@@ -59,8 +72,8 @@ public class NotificationManager : MonoBehaviour
 
         var notification = new iOSNotification
         {
-            Title = "Hey, Stranger!",
-            Body = "You have earned a lot of influence while you've been gone! Don't forget to come back and buy more tomes!",
+            Title = TitleText,
+            Body = BodyText,
             ShowInForeground = false, // Don't make it prompt during gameplay
             CategoryIdentifier = "category_a",
             ThreadIdentifier = "thread1",
@@ -68,6 +81,10 @@ public class NotificationManager : MonoBehaviour
         };
 
         iOSNotificationCenter.ScheduleNotification(notification);
+        if (Monitor.UseAnalytics)
+        {
+            Analytics.CustomEvent("Notification_Scheduled", new Dictionary<string, object> {{"Device", "iOS"}});
+        }
         Debug.Log("Timed Notification Scheduled");
     }
 
@@ -93,8 +110,8 @@ public class NotificationManager : MonoBehaviour
             //store the device token to be used for sending later notifications.
             if (String.IsNullOrEmpty(req.DeviceToken))
             {
-                _deviceToken = req.DeviceToken;
-                _notificationPermissionGranted = req.Granted;
+                _iosDeviceToken = req.DeviceToken;
+                _iosNotificationPermissionGranted = req.Granted;
                 GenerateTimedNotification();
             }
         }
@@ -103,7 +120,39 @@ public class NotificationManager : MonoBehaviour
 
     #region Android
 
-    
+    private void GenerateAndroidNotificationChannelAndScheduleNotification()
+    {
+        var channel = new AndroidNotificationChannel
+        {
+            Id = AndroidChannelId,
+            Name = "Default Channel",
+            Importance = Importance.High,
+            Description = "Generic notifications",
+        };
+        AndroidNotificationCenter.RegisterNotificationChannel(channel);
+        GenerateAndroidTimedNotification();
+    }
+
+    private void GenerateAndroidTimedNotification()
+    {
+        var notification = new AndroidNotification
+        {
+            Title = TitleText, 
+            Text = BodyText,
+            FireTime = DateTime.UtcNow.AddHours(10)
+        };
+        
+        // NOTE: By Default, apps remove scheduled notifications when the device restarts. So, let's always have this trigger on start.
+        // This will need to be changed if you toggle on Edit -> Project Settings -> Mobile Notifications -> Android -> Reschedule on Device Restart
+        // https://docs.unity3d.com/Packages/com.unity.mobile.notifications@1.0/manual/index.html#android
+        //TODO: Test This
+        if (Monitor.UseAnalytics)
+        {
+            Analytics.CustomEvent("Notification_Scheduled", new Dictionary<string, object> {{"Device", "Android"}});
+        }
+        AndroidNotificationCenter.SendNotification(notification, AndroidChannelId);
+        Debug.Log("Timed Notification Scheduled");
+    }
 
     #endregion
 }
