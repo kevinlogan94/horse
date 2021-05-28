@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Notifications.Android;
-using Unity.Notifications.iOS;
 using UnityEngine;
 using UnityEngine.Analytics;
+
+#if UNITY_IOS
+using Unity.Notifications.iOS;
+#elif UNITY_ANDROID
+using Unity.Notifications.Android;
+#endif
 
 //https://docs.unity3d.com/Packages/com.unity.mobile.notifications@1.0/manual/index.html#android
 
@@ -31,14 +35,11 @@ public class NotificationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            GenerateAndroidNotificationChannelAndScheduleNotification();
-        }
-        else
-        {
-            StartCoroutine(RequestAuthorizationAndTriggerNotification());  
-        }
+#if UNITY_ANDROID
+                GenerateAndroidNotificationChannelAndScheduleNotification();
+#elif UNITY_IOS
+        StartCoroutine(RequestAuthorizationAndTriggerNotification());  
+#endif
     }
 
     // Update is called once per frame
@@ -47,7 +48,8 @@ public class NotificationManager : MonoBehaviour
     // }
 
     #region iOS
-    
+
+#if UNITY_IOS
     private void GenerateTimedNotification()
     {
         if (!_iosNotificationPermissionGranted) return;
@@ -116,10 +118,13 @@ public class NotificationManager : MonoBehaviour
             }
         }
     }
+#endif
+    
     #endregion
 
     #region Android
 
+#if UNITY_ANDROID
     private void GenerateAndroidNotificationChannelAndScheduleNotification()
     {
         var channel = new AndroidNotificationChannel
@@ -153,6 +158,8 @@ public class NotificationManager : MonoBehaviour
         AndroidNotificationCenter.SendNotification(notification, AndroidChannelId);
         Debug.Log("Timed Notification Scheduled");
     }
+#endif
+    
 
     #endregion
 }
