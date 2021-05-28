@@ -116,9 +116,10 @@ public class Monitor : MonoBehaviour
     
     private void ManageUIElementsBasedOnScreenResolution()
     {
-        var resolutionWidth = Screen.currentResolution.width;
+        //http://answers.unity.com/answers/1558286/view.html
+        var screenRatio = Screen.currentResolution.height / Screen.currentResolution.width;
         const int moveUp = 70;
-        if (resolutionWidth >= 1920) return;
+        if (screenRatio < 2.1) return;
         Debug.Log("Updating UI for IPhone8 screens and below.");
         ScorePanel.transform.position = 
             new Vector3(ScorePanel.transform.position.x, 
