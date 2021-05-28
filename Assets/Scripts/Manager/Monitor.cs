@@ -26,6 +26,9 @@ public class Monitor : MonoBehaviour
     public const bool UseBetaSurvey = true;
     public static bool BetaSurveyDisplayed = false;
 
+    public GameObject ScorePanel;
+    public GameObject LevelUpButton;
+
     #region Singleton
     public static Monitor Instance;
 
@@ -42,6 +45,7 @@ public class Monitor : MonoBehaviour
         {
             SplashManager.Instance.TriggerSplash(SplashType.InfluenceOverTime.ToString());
         }
+        ManageUIElementsBasedOnScreenResolution();
         _timeOfLastFrame = DateTime.UtcNow; // Need to have it start somewhere
         _objectPooler = ObjectPooler.Instance;
         var worldCorners = new Vector3[4];
@@ -109,6 +113,24 @@ public class Monitor : MonoBehaviour
     }
 
     #region Private Methods
+    
+    private void ManageUIElementsBasedOnScreenResolution()
+    {
+        var resolutionWidth = Screen.currentResolution.width;
+        const int moveUp = 70;
+        if (resolutionWidth >= 1920) return;
+        Debug.Log("Updating UI for IPhone8 screens and below.");
+        ScorePanel.transform.position = 
+            new Vector3(ScorePanel.transform.position.x, 
+                ScorePanel.transform.position.y + moveUp, 
+                ScorePanel.transform.position.z);
+        
+        LevelUpButton.transform.position = 
+            new Vector3(LevelUpButton.transform.position.x, 
+                LevelUpButton.transform.position.y + moveUp, 
+                LevelUpButton.transform.position.z);
+    }
+    
     //This is if the player closes the app to go to a different one then comes back to it later without killing the app.
     private void IncrementInfluenceForTimeAwayFromGameWithoutKillingApp()
     {

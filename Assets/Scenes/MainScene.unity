@@ -4745,6 +4745,8 @@ MonoBehaviour:
   FingerPointerIncrementButton: {fileID: 29631867}
   FingerPointerOutlook: {fileID: 1793168346}
   PassiveIncomeText: {fileID: 1798112441}
+  ScorePanel: {fileID: 1777269905}
+  LevelUpButton: {fileID: 439122354}
 --- !u!224 &323479885 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 11678370928482434, guid: e318d3db9d75ed54d97f22ee20a1320c,
