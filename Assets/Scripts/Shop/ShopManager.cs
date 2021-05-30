@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Analytics;
-using UnityEngine.iOS;
 using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
@@ -69,7 +69,10 @@ public class ShopManager : MonoBehaviour
                 helper.AmountOwned++;
                 if (Monitor.UseAnalytics)
                 {
-                    AnalyticsEvent.AchievementStep(Helpers.Sum(x=>x.AmountOwned), "HelperCount");
+                    Analytics.CustomEvent("HelperCount", new Dictionary<string, object>
+                    {
+                        {"Count", Helpers.Sum(x => x.AmountOwned)}
+                    });
                 }
             }
 
@@ -120,7 +123,7 @@ public class ShopManager : MonoBehaviour
                     var increment = helper.DynamicIncrement > helper.Increment
                         ? helper.DynamicIncrement
                         : helper.Increment;
-                    var waitToSpawn = 1 + Random.Range(0.0f, 2.0f);
+                    var waitToSpawn = 1 + Random.Range(0.0f, 2.0f); //Set a random lag for the next creature to spawn.
                     Monitor.Instance.IncrementInfluence(increment * helper.AmountOwned, helper.Creature, waitToSpawn);
                 }
             }

@@ -103,7 +103,10 @@ public class IncrementPanel : MonoBehaviour
 
         if (ClickCount%10 == 0 && Monitor.UseAnalytics)
         {
-                AnalyticsEvent.AchievementStep((int)ClickCount, "ClickCount");
+                Analytics.CustomEvent("ClickIncrementButton", new Dictionary<string, object>
+                {
+                    {"ClickCount", ClickCount}
+                });
         }
         
         ManaBar.Instance.DeductMana();
@@ -122,14 +125,6 @@ public class IncrementPanel : MonoBehaviour
         if (BuffManager.Instance.BuffActive)
         {
             BuffManager.Instance.CountDownStarted = true;
-        }
-
-        if (Monitor.UseAnalytics)
-        {
-            Analytics.CustomEvent("ClickIncrementButton", new Dictionary<string, object>
-            {
-                {"ClickCount", ClickCount}
-            });
         }
     }
 

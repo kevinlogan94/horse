@@ -173,7 +173,7 @@ public class SceneManager : MonoBehaviour
         if ((ActiveChapter != 0 
              || TutorialActive 
              || (NextChapter && NextChapter.Number == 6)) 
-            && Chapters.Any(x=>x.SceneViewed == false))
+            || Chapters.All(x=>x.SceneViewed))
         {
             ChapterButtonGameObject.SetActive(false);
             InfluenceCrystal.SetActive(false);
