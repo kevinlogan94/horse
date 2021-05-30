@@ -12,18 +12,18 @@ using Random = Unity.Mathematics.Random;
 public class LevelUp : MonoBehaviour
 {
     public Slider Slider;
-    public GameObject LevelUpPanel;
-    public TextMeshProUGUI LevelUpRewardText;
+    public GameObject LevelUpPanelGameObject;
     public GameObject FingerPointerLevel;
     public GameObject LevelExclamationPoint;
     public GameObject LevelUpTutorialPanel;
     public GameObject BottomNavHidePanel;
-    private long _levelUpReward = 20;
-    public long InfluenceEarnedEveryLevelSoFar = 0;
+    public long LevelUpReward = 20;
+    public long InfluenceEarnedEveryLevelSoFar = 0; //Deprecated
     private bool _jinglePlayedThisLevel = false;
     private AudioManager _audioManager;
 
     public bool LevelUpAdInProgress = false;
+    public bool LevelUpInProgress;
 
     #region Singleton
     public static LevelUp Instance;
@@ -49,19 +49,23 @@ public class LevelUp : MonoBehaviour
 
     public void LevelUpPlayer(bool watchAd = false)
     {
-        //level up reward 
-        if (!watchAd)
+        if (ReadyToLevelUp() && !LevelUpInProgress)
         {
-            LevelUpAdInProgress = false;
-            Monitor.Instance.IncrementInfluence(_levelUpReward);
+            LevelUpInProgress = true;
+            //level up reward 
+            if (!watchAd)
+            {
+                LevelUpAdInProgress = false;
+                Monitor.Instance.IncrementInfluence(LevelUpReward);
+            }
+            else 
+            {
+                LevelUpAdInProgress = true;
+                var bonusReward = LevelUpReward * 3;
+                AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
+            }
+            StartCoroutine(WaitForAdAndTriggerLevelUp());   
         }
-        else 
-        {
-            LevelUpAdInProgress = true;
-            var bonusReward = _levelUpReward * 3;
-            AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
-        }
-        StartCoroutine(WaitForAdAndTriggerLevelUp());
     }
     
     IEnumerator WaitForAdAndTriggerLevelUp()
@@ -71,7 +75,17 @@ public class LevelUp : MonoBehaviour
         //Update Level up progress bar
         Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
         Slider.value = 0; 
-        InfluenceEarnedEveryLevelSoFar = Monitor.TotalInfluenceEarned;
+        // InfluenceEarnedEveryLevelSoFar = Monitor.TotalInfluenceEarned; DEPRECATED
+
+        if (Monitor.UseAnalytics)
+        {
+            Analytics.CustomEvent("TotalInfluenceEarnedThisLevel", new Dictionary<string, object>
+            {
+                {"Influence", Monitor.TotalInfluenceEarned}
+            });
+        }
+        //Let's reset this each level otherwise this number will get massive.
+        Monitor.TotalInfluenceEarned = 0;
             
         // Level Up Character
         Monitor.PlayerLevel++;
@@ -82,9 +96,6 @@ public class LevelUp : MonoBehaviour
 
         BuffManager.Instance.BuffedThisLevel = false;
         SceneManager.Instance.InfluenceCrystalAdTriggeredThisLevel = false;
-        // _levelUpReward = 2 * _levelUpReward;
-        // LevelUpRewardText.text = _levelUpReward + " influence";
-        // GameObject.Find("LevelUpText").GetComponent<TextMeshProUGUI>().text = Monitor.PlayerLevel.ToString();
             
         //close tutorial
         if (Monitor.PlayerLevel==2)
@@ -94,30 +105,32 @@ public class LevelUp : MonoBehaviour
             BottomNavHidePanel.SetActive(false);
         }
         
-        //reset jingle
+        //reset fields
         _jinglePlayedThisLevel = false;
+        LevelUpPanel.Instance.RewardCounterUpdatedThisLevel = false;
         
         _audioManager.Play("Pop");
             
         // Close Panel
-        LevelUpPanel.SetActive(false);
+        LevelUpPanelGameObject.SetActive(false);
+        LevelUpInProgress = false;
     }
 
-    private long InfluenceEarnedThisLevel()
-    { 
-        return Monitor.TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
-    }
-
-    private void ReadyToLevelUp()
+    private bool ReadyToLevelUp()
     {
         if (Slider.value >= Slider.maxValue)
         {
-            if (SceneManager.Instance.ActiveChapter == 0)
+            if (LevelUpPanelGameObject.activeSelf) return true;
+            
+            //If we aren't in the middle of a scene
+            if (SceneManager.Instance.ActiveChapter == 0 && !LevelExclamationPoint.activeSelf)
             {
                 LevelExclamationPoint.SetActive(true);
             }
-            UpdateRewardCounter();
-            gameObject.GetComponent<Button>().interactable = true;
+            if (!gameObject.GetComponent<Button>().interactable)
+            {
+                gameObject.GetComponent<Button>().interactable = true;
+            }
             if (Monitor.PlayerLevel == 1 && BottomNavManager.Instance.ActiveView == Views.outlook.ToString())
             {
                 BottomNavHidePanel.SetActive(true);
@@ -129,28 +142,21 @@ public class LevelUp : MonoBehaviour
                 _audioManager.Play("LevelUp2");
                 _jinglePlayedThisLevel = true;
             }
+            return true;
         }
-        else
-        {
-            gameObject.GetComponent<Button>().interactable = false;
-            LevelExclamationPoint.SetActive(false);
-        }
+        gameObject.GetComponent<Button>().interactable = false;
+        LevelExclamationPoint.SetActive(false);
+        return false;
     }
 
     #region UI Methods
-    
-    private void UpdateRewardCounter()
-    {
-        _levelUpReward = Monitor.Instance.GetInfluenceReceivedOverTime(300); // 5 minutes
-        LevelUpRewardText.text = Monitor.FormatNumberToString(_levelUpReward) + " influence";
-    }
     
     public void OpenLevelUpPanel()
     {
         if (Slider.value >= Slider.maxValue)
         {
             _audioManager.Play("LevelUp2");
-            LevelUpPanel.SetActive(true);
+            LevelUpPanelGameObject.SetActive(true);
             if (Monitor.UseAnalytics)
             {
                 AnalyticsEvent.AdOffer(true);
@@ -160,9 +166,9 @@ public class LevelUp : MonoBehaviour
 
     private void UpdateSliderProgress()
     {
-        if (InfluenceEarnedThisLevel() < Slider.maxValue)
+        if (Monitor.TotalInfluenceEarned < Slider.maxValue)
         {
-            Slider.value = InfluenceEarnedThisLevel();
+            Slider.value = Monitor.TotalInfluenceEarned;
         }
         else
         {

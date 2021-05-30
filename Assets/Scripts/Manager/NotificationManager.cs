@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 
+//https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
 #if UNITY_IOS
 using Unity.Notifications.iOS;
 #elif UNITY_ANDROID

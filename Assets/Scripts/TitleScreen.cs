@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TitleScreen : MonoBehaviour
@@ -12,6 +13,7 @@ public class TitleScreen : MonoBehaviour
     void Start()
     {
         ShowTitle();
+        Version.GetComponent<TextMeshProUGUI>().text = Monitor.Version;
     }
 
     // Update is called once per frame

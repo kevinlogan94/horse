@@ -7,7 +7,7 @@ using UnityEngine;
 public class SavedData
 {
     public DateTime SavedDateTime;
-    
+
     // Monitor
     public long Influence;
     public long TotalInfluenceEarned;
@@ -61,7 +61,7 @@ public class SavedData
     public SavedData()
     {
         SavedDateTime = DateTime.UtcNow;
-        
+
         // Monitor
         Influence = Monitor.Influence;
         TotalInfluenceEarned = Monitor.TotalInfluenceEarned;
@@ -72,7 +72,7 @@ public class SavedData
         CanvasBackground = CanvasBackgroundController.Instance.CurrentCanvasBackground;
 
         // LevelUp
-        InfluenceEarnedEveryLevelSoFar = LevelUp.Instance.InfluenceEarnedEveryLevelSoFar;
+        InfluenceEarnedEveryLevelSoFar = LevelUp.Instance.InfluenceEarnedEveryLevelSoFar; //Deprecated
         ExperienceRequiredToReachNextLevel = LevelUp.Instance.Slider.maxValue;
         
         // IncrementPanel
@@ -138,6 +138,11 @@ public class SavedData
         // Monitor
         Monitor.Influence = Influence;
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
+        if (Monitor.Version.Contains("0.1.4") && InfluenceEarnedEveryLevelSoFar > 0)
+        {
+            Monitor.TotalInfluenceEarned = GetNewTotalInfluenceForJustTheLevel();
+            InfluenceEarnedEveryLevelSoFar = 0; //This field is now deprecated.
+        }
         Monitor.PlayerLevel = PlayerLevel;
         Monitor.LastSavedDateTime = SavedDateTime;
         Monitor.BetaSurveyDisplayed = BetaSurveyDisplayed;
@@ -146,7 +151,7 @@ public class SavedData
         CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground;
         
         // Level Up
-        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar;
+        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = InfluenceEarnedEveryLevelSoFar; //Deprecated
         LevelUp.Instance.Slider.maxValue = ExperienceRequiredToReachNextLevel;
         
         // Increment Panel
@@ -245,7 +250,7 @@ public class SavedData
         CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground.Meadow;
         
         // Level Up
-        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = 0;
+        LevelUp.Instance.InfluenceEarnedEveryLevelSoFar = 0; //Deprecated
         LevelUp.Instance.Slider.maxValue = 75;
         
         // Increment Panel
@@ -274,5 +279,11 @@ public class SavedData
         //BuffManager
         BuffManager.Instance.BuffTutorialCompleted = false;
         BuffManager.Instance.BuffedThisLevel = false;
+    }
+
+    //TODO: Remove this logic later once everyone has updated to v0.1.4
+    private long GetNewTotalInfluenceForJustTheLevel()
+    {
+        return TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
     }
 }
