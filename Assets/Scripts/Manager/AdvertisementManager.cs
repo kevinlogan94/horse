@@ -89,7 +89,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                 break;
         }
         LevelUp.Instance.LevelUpAdInProgress = false;
-        AudioManager.Instance.MuteBackgroundMusic(false);
+        AudioManager.Instance.MuteBackgroundMusic(true);
     }
     
     public void OnUnityAdsReady(string placementId)
@@ -104,7 +104,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidStart(string placementId)
     {
-        AudioManager.Instance.MuteBackgroundMusic(true);
+        AudioManager.Instance.MuteBackgroundMusic(false);
         if (Monitor.UseAnalytics)
         {
             if (placementId == RewardVideoPlacementId)

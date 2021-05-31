@@ -31,6 +31,9 @@ public class Monitor : MonoBehaviour
     public GameObject ScorePanel;
     public GameObject LevelUpButton;
 
+    private float _saveWaitTime = 2.0f;
+    private float _currentSaveWaitTime = 2.0f;
+
     #region Singleton
     public static Monitor Instance;
 
@@ -60,6 +63,7 @@ public class Monitor : MonoBehaviour
     {
         IncrementInfluenceForTimeAwayFromGameWithoutKillingApp();
         ManageBetaSurvey();
+        TriggerSaveGameEveryCoupleSecond();
     }
 
     public void ManageBetaSurvey()
@@ -77,7 +81,6 @@ public class Monitor : MonoBehaviour
 
     public void IncrementInfluence(long increment, Creature creature = null, float lagSeconds = 0)
     {
-        SaveGame.Save();
         Influence += increment;
         TotalInfluenceEarned += increment;
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
@@ -115,6 +118,13 @@ public class Monitor : MonoBehaviour
     }
 
     #region Private Methods
+
+    private void TriggerSaveGameEveryCoupleSecond()
+    {
+        if (!(Time.time > _currentSaveWaitTime)) return;
+        _currentSaveWaitTime = Time.time + _saveWaitTime;
+        SaveGame.Save();
+    }
     
     private void ManageUIElementsBasedOnScreenResolution()
     {

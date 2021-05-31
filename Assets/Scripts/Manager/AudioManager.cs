@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     
     public static AudioManager Instance; //Singleton
     
-    void Awake()
+    void Awake() 
     {
         Instance = this; // Set Singleton        
         foreach (var sound in Sounds)
@@ -71,6 +71,8 @@ public class AudioManager : MonoBehaviour
         Play(songName);
     }
 
+    //NOTE: with how this is designed with the ui in settings, it's inverted
+    //      False - Muted, True - NotMuted
     public void MuteBackgroundMusic(bool mute)
     {
         foreach (var backgroundMusic in BackgroundMusic)
