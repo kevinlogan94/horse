@@ -16,8 +16,11 @@ public class AudioManager : MonoBehaviour
         "Meadow"
     };
     
+    public static AudioManager Instance; //Singleton
+    
     void Awake()
     {
+        Instance = this; // Set Singleton        
         foreach (var sound in Sounds)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();

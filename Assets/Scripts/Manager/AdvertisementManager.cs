@@ -42,7 +42,6 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     {
         BuffManager.Instance.TriggerBuff(buffType, seconds);
         Advertisement.Show(RewardVideoPlacementId);
-        Debug.Log(RewardVideoPlacementId);
     }
 
     public void ShowSkippableAd()
@@ -90,6 +89,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
                 break;
         }
         LevelUp.Instance.LevelUpAdInProgress = false;
+        AudioManager.Instance.MuteBackgroundMusic(false);
     }
     
     public void OnUnityAdsReady(string placementId)
@@ -104,6 +104,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidStart(string placementId)
     {
+        AudioManager.Instance.MuteBackgroundMusic(true);
         if (Monitor.UseAnalytics)
         {
             if (placementId == RewardVideoPlacementId)
