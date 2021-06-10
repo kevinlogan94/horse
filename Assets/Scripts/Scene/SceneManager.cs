@@ -141,6 +141,7 @@ public class SceneManager : MonoBehaviour
         {
             _chapterIndex = 0;
             chapter.SceneViewed = true;
+            NextChapter = Chapters.FirstOrDefault(c => !c.SceneViewed); // Adding this here so we don't wait till the next frame to get this. I don't want the chapter button to flicker for a frame.
             ActiveChapter = 0;
             TextBox.SetActive(false);
             
@@ -369,8 +370,8 @@ public class SceneManager : MonoBehaviour
     public void ManageBarlogDisplay()
     {
         //Startup
-        if ((NextChapter && NextChapter.Number == 6) 
-            && BottomNavManager.Instance.ActiveView == Views.outlook.ToString() 
+        if ((NextChapter && NextChapter.Number == 6)
+            && BottomNavManager.Instance.ActiveView == Views.outlook.ToString()
             && !BarlogPanel.activeSelf)
         {
             BarlogPanel.SetActive(true);
