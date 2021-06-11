@@ -38,14 +38,15 @@ public class StoryLogic : MonoBehaviour
     private void UpdateProgressValue()
     {
         var lastReadChapter = SceneManager.Instance.Chapters.LastOrDefault(x=>x.SceneViewed);
-        if (lastReadChapter != null && lastReadChapter.Number == SceneManager.Instance.Chapters.Length)
-        {
-            ProgressBar.value = lastReadChapter.Number;
-        }
-        else
-        {
+        //TODO Fix this.
+        // if (lastReadChapter != null && lastReadChapter.Number == SceneManager.Instance.Chapters.Length)
+        // {
+        //     ProgressBar.value = lastReadChapter.Number;
+        // }
+        // else
+        // {
             ProgressBar.value = 0;
-        }
+        // }
     }
 
     private void UpdateTitle()
