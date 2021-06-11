@@ -87,6 +87,12 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
+
+        var allCreaturesOwned = Helpers.All(x => x.AmountOwned > 0);
+        if (allCreaturesOwned)
+        {
+            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Master.ToString(), 100);
+        }
         // Handheld.Vibrate();
     }
 

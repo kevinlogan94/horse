@@ -61,7 +61,7 @@ public class AchievementManager : MonoBehaviour
             HelperGoal = 30;
             VideoGoal = 10;
             AchievementGoal = 10;
-            StoryGoal = 1;
+            StoryGoal = 2;
             LoginCount = 1;
             LoginGoal = 2;
             LastLoginDate = DateTime.UtcNow;

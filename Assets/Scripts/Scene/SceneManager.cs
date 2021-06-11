@@ -164,6 +164,16 @@ public class SceneManager : MonoBehaviour
                     Debug.LogWarning("We couldn't find the Xal achievement to display in the splash panel.");
                 }
             }
+            if (chapterNumber == 4)
+            {
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Guardian.ToString(),
+                    100);
+            }
+            if (chapterNumber == 7)
+            {
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.EndOfAnAge.ToString(),
+                    100);
+            }
         }
     }
     
@@ -289,6 +299,7 @@ public class SceneManager : MonoBehaviour
             {
                 AnalyticsEvent.TutorialComplete();
             }
+            // GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Beginning.ToString(), 100);
         }
     }
 

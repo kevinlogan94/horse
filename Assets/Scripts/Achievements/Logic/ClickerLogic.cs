@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,14 +50,16 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             ProgressBar.maxValue *= 2;
             AchievementManager.Instance.TutorialCompleted = true;
             AchievementManager.Instance.ClickerGoal = ProgressBar.maxValue;
-            // update horses
-            // var coreHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel].HorseBreed;
-            // var secondaryHorse = ShopManager.Instance.Helpers[IncrementPanel.ClickerLevel + 1].HorseBreed;
-            // ObjectPooler.Instance.ReOptimizeHorsePools(coreHorse, secondaryHorse);
             TriggerBarRefresh();
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.CurrentAchievementAmount++;
             AchievementManager.Instance.PlayAchievementSound();
+            //Trigger this after your third time upgrading
+            if (IncrementPanel.ClickerIncrement > 1000)
+            {
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Caster.ToString(),
+                    100);
+            }
         }
     }
 

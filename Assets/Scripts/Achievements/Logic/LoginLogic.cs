@@ -48,6 +48,7 @@ public class LoginLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
+            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.WelcomeBack.ToString(), 100);
         }
     }
 
