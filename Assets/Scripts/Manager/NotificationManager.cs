@@ -43,11 +43,6 @@ public class NotificationManager : MonoBehaviour
 #endif
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    // }
-
     #region iOS
 
 #if UNITY_IOS
@@ -109,6 +104,14 @@ public class NotificationManager : MonoBehaviour
             res += "\n error:  " + req.Error;
             res += "\n deviceToken:  " + req.DeviceToken;
             Debug.Log(res);
+
+            if (Monitor.UseAnalytics)
+            {
+                AnalyticsEvent.PushNotificationEnable(new Dictionary<string, object>
+                {
+                    {"OS", "iOS"}
+                });
+            }
         
             //store the device token to be used for sending later notifications.
             if (String.IsNullOrEmpty(req.DeviceToken))
