@@ -388,11 +388,11 @@ public class SceneManager : MonoBehaviour
             BarlogPanel.SetActive(true);
             BarlogMessageBox.SetActive(false);
             BarlogAvatar.SetActive(true);
-
-            BottomNavManager.Instance.ToggleActiveButtons(false);
+            
             _audioManager.PlaySong("Barlogs Theme");
             TriggerBarlogAnimation(barlog.BarlogAnimations.Fadein);
             TriggerBarlogText();
+            BottomNavManager.Instance.ToggleActiveButtons(false);
         }
     }
 
