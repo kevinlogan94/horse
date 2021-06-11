@@ -57,7 +57,7 @@ public class ClickerLogic : MonoBehaviour, IAchievement
             //Trigger this after your third time upgrading
             if (IncrementPanel.ClickerIncrement > 1000)
             {
-                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Caster.ToString(),
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Caster.Value(),
                     100);
             }
         }

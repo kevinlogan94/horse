@@ -61,7 +61,7 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
             TriggerBarRefresh();
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Appraiser.ToString(), 100);
+            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Appraiser.Value(), 100);
         }
     }
     public void TriggerBarRefresh()

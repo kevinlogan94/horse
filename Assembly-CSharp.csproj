@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Buff\BuffCountDown.cs" />
      <Compile Include="Assets\Scripts\Buff\BuffCreature.cs" />
      <Compile Include="Assets\Scripts\Buff\BuffManager.cs" />
+     <Compile Include="Assets\Scripts\Extensions.cs" />
      <Compile Include="Assets\Scripts\Increment\IncrementPanel.cs" />
      <Compile Include="Assets\Scripts\Increment\ManaBar.cs" />
      <Compile Include="Assets\Scripts\LevelUp\LevelUp.cs" />

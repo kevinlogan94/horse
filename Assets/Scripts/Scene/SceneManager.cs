@@ -166,12 +166,12 @@ public class SceneManager : MonoBehaviour
             }
             if (chapterNumber == 4)
             {
-                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Guardian.ToString(),
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Guardian.Value(),
                     100);
             }
             if (chapterNumber == 7)
             {
-                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.EndOfAnAge.ToString(),
+                GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.EndOfAnAge.Value(),
                     100);
             }
         }
@@ -299,7 +299,7 @@ public class SceneManager : MonoBehaviour
             {
                 AnalyticsEvent.TutorialComplete();
             }
-            // GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Beginning.ToString(), 100);
+            // GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Beginning.Value(), 100);
         }
     }
 
