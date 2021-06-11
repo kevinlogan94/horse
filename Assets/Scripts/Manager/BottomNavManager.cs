@@ -53,6 +53,7 @@ public class BottomNavManager : MonoBehaviour
 
     public void SelectView(string view, bool muteSound = false)
     {
+        // If we click the same button we used to open the panel, simply revert to the outlook.
         if (ActiveView == view)
         {
             view = Views.outlook.ToString();
