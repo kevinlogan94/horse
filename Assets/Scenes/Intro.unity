@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1336084326}
-  videoToPlay: {fileID: 32900000, guid: 3e3591e5584e6974ab91fccddbc878c6, type: 3}
+  videoToPlay: {fileID: 32900000, guid: 65045aa6d7e782741ba3c31b26a70440, type: 3}
   loadPanel: {fileID: 1004823626}
 --- !u!4 &192911818
 Transform:
