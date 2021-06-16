@@ -51,7 +51,7 @@ public class GameCenterManager : MonoBehaviour
             });
             if (achievement == null)
             {
-                Debug.Log($"Not Found: Achievement {achievementId} was not found when trying to report for {Social.localUser.userName}.");
+                Debug.Log($"Not Found: Achievement {achievementId} was not found when trying to report progress for {Social.localUser.userName}.");
                 return;
             }
             if (achievement.completed)
