@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Analytics;
 
+// https://gamegorillaz.com/blog/game-center-setup-in-unity/
 public class GameCenterManager : MonoBehaviour
 {
     // public string LeaderBoardId;

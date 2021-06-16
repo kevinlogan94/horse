@@ -299,7 +299,7 @@ public class SceneManager : MonoBehaviour
             {
                 AnalyticsEvent.TutorialComplete();
             }
-            // GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Beginning.Value(), 100);
+            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Beginning.Value(), 100);
         }
     }
 
