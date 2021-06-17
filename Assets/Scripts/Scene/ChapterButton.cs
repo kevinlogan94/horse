@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +47,11 @@ public class ChapterButton : MonoBehaviour
             {
                 ManaBar.Instance.ManaLevel++;
             }
+            
+            //prep the button for when it reappears -- Fix for button flicker between active and disabled button
+            gameObject.GetComponent<Image>().sprite = _disabledImage;
+            Avatar.sprite = _lockedImage;
+            
             SceneManager.Instance.TriggerChapter(nextChapter.Number);
         }
     }
