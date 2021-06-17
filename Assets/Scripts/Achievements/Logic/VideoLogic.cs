@@ -49,7 +49,7 @@ public class VideoLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.ThankYou.Value(), 100);
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.ThankYou.Value());
         }
     }
 

@@ -16,7 +16,7 @@ public static class SaveGame
         //store all the saved data we need here.
         var savedData = new SavedData();
         
-        Debug.Log("Saving game at: " + Path);
+        // Debug.Log("Saving game at: " + Path);
         //store all the saved data on a new file on the path above.
         formatter.Serialize(stream, savedData);
         stream.Close();

@@ -55,7 +55,7 @@ public class AchievementLogic : MonoBehaviour, IAchievement
             TriggerBarRefresh();
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Collector.Value(), 100);
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Collector.Value());
         };
     }
     

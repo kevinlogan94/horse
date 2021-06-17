@@ -1,82 +1,49 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Serialization;
+using CloudOnce;
 using UnityEngine;
 using UnityEngine.Analytics;
 
 // https://gamegorillaz.com/blog/game-center-setup-in-unity/
 public class GameCenterManager : MonoBehaviour
 {
-    // public string LeaderBoardId;
-    public static UnityEngine.SocialPlatforms.IAchievement[] LoadedAchievements; 
-    
     // Start is called before the first frame update
     void Start()
     {
-        AuthenticateUser();
     }
 
-    private void AuthenticateUser()
+    public static void ReportAchievementUnlocked(string achievementId)
     {
-        Social.localUser.Authenticate(success =>
+        if (!Cloud.IsSignedIn)
         {
-            if (success)
-            {
-                if (Monitor.UseAnalytics)
-                {
-                    AnalyticsEvent.UserSignup(Social.Active.ToString());
-                }
-                Debug.Log($"Login Successful for {Social.localUser.userName}.");
-                Social.LoadAchievements(achievements =>
-                {
-                    Debug.Log(achievements.Length == 0
-                        ? "No Achievements found."
-                        : $"Achievements Loaded Successfully. Count: {achievements.Length}.");
-                    LoadedAchievements = achievements;
-                });
-                return;
-            }
-            Debug.Log("Login Failure");
-        });
-    }
-    
-    public static void ReportAchievementProgress(string achievementId, double progress)
-    {
-        if (Social.localUser.authenticated)
-        {
-            UnityEngine.SocialPlatforms.IAchievement achievement = null;
-            Social.LoadAchievements(achievements =>
-            {
-                achievement = achievements.SingleOrDefault(x => x.id == achievementId);
-            });
-            if (achievement == null)
-            {
-                Debug.Log($"Not Found: Achievement {achievementId} was not found when trying to report progress for {Social.localUser.userName}.");
-                return;
-            }
-            if (achievement.completed)
-            {
-                Debug.Log($"Completed: Achievement {achievementId} has already been completed by {Social.localUser.userName}");
-                return;
-            }
-            
-            Social.ReportProgress(achievementId, progress, success =>
-            {
-                if (success)
-                {
-                    Debug.Log($"Progress reported successfully for user {Social.localUser.userName} on achievement {achievementId}");
-                    if (Monitor.UseAnalytics && (int)progress == 100)
-                    {
-                        AnalyticsEvent.AchievementUnlocked(achievementId);
-                    }
-                    Social.ShowAchievementsUI();
-                    return;
-                }
-                Debug.Log($"Progress report failed for user {Social.localUser.userName} on achievement {achievementId}");
-            });
+            Debug.Log($"Player is not signed in. Cancelling achievement unlock for {Cloud.PlayerDisplayName}");
             return;
         }
-        Debug.Log("User is not logged in. Achievement report failed.");
+        var achievement = Achievements.All.FirstOrDefault(x => x.ID == achievementId);
+        if (achievement == null)
+        {
+            Debug.Log($"Not Found: Achievement {achievementId} was not found when trying to report progress for {Cloud.PlayerDisplayName}.");
+            return;
+        }
+        if (achievement.IsUnlocked)
+        {
+            Debug.Log($"Completed: Achievement {achievementId} has already been completed by {Cloud.PlayerDisplayName}");
+            return;
+        }
+        
+        achievement.Unlock(success =>
+        {
+            if (success.Result)
+            {
+                Debug.Log($"Progress reported successfully for {Cloud.PlayerDisplayName} on achievement: {achievementId}");
+                if (Monitor.UseAnalytics)
+                {
+                    AnalyticsEvent.AchievementUnlocked(achievementId);
+                }
+                return;
+            }
+            Debug.Log($"Progress report failed for user {Cloud.PlayerDisplayName} on achievement: {achievementId}");
+        });
     }
 
     // public void PostScoreOnLeaderBoard(int myScore)

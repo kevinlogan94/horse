@@ -47,7 +47,7 @@ public class TwitterLogic : MonoBehaviour, IAchievement
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
             TriggerBarRefresh();
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Follower.Value(), 100);
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Follower.Value());
         }
     }
     

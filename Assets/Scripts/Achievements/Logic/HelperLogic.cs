@@ -60,8 +60,7 @@ public class HelperLogic : MonoBehaviour, IAchievement
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.CurrentAchievementAmount++;
             AchievementManager.Instance.PlayAchievementSound();
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Scholar.Value(),
-                100);
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Scholar.Value());
         }
     }
 

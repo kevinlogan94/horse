@@ -91,7 +91,7 @@ public class ShopManager : MonoBehaviour
         var allCreaturesOwned = Helpers.All(x => x.AmountOwned > 0);
         if (allCreaturesOwned)
         {
-            GameCenterManager.ReportAchievementProgress(GameCenterManager.GameCenterAchievement.Master.Value(), 100);
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Master.Value());
         }
         // Handheld.Vibrate();
     }
