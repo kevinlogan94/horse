@@ -138,7 +138,7 @@ public class SavedData
         // Monitor
         Monitor.Influence = Influence;
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
-        if ((Monitor.Version.Contains("0.1.4") || Monitor.Version.Contains("0.1.4")) && InfluenceEarnedEveryLevelSoFar > 0)
+        if (InfluenceEarnedEveryLevelSoFar > 0)
         {
             Monitor.TotalInfluenceEarned = GetNewTotalInfluenceForJustTheLevel();
             InfluenceEarnedEveryLevelSoFar = 0; //This field is now deprecated.
