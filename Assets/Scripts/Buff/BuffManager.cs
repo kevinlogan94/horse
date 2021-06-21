@@ -7,6 +7,7 @@ public class BuffManager : MonoBehaviour
     public int CountDownSecondsRemaining;
     private float _currentWaitBeforeDecrement;
     public int ClickCountSinceLastBuff;
+    public int ClickCountForThisBuffSession;
 
     public bool CountDownStarted;
     public bool BuffActive;
@@ -38,6 +39,10 @@ public class BuffManager : MonoBehaviour
         {
             RemoveBuffs();
             DecrementCountDown();
+        }
+        if (ClickCountForThisBuffSession >= 100)
+        {
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Tapper.ToString());
         }
         CheckAndSpawnBuffCreature();
     }
@@ -82,6 +87,7 @@ public class BuffManager : MonoBehaviour
             ManaBar.Instance.InfiniteManaBuffActive = false;
             BuffActive = false;
             CountDownStarted = false;
+            ClickCountForThisBuffSession = 0;
             _audioManager.Play("DeBuff");
         }
     }

@@ -94,6 +94,10 @@ public class IncrementPanel : MonoBehaviour
         {
             BuffManager.Instance.ClickCountSinceLastBuff++;   
         }
+        else
+        {
+            BuffManager.Instance.ClickCountForThisBuffSession++;
+        }
         IncrementsThisSecond+=increment;
         var pointer = GameObject.Find("FingerPointerIncrementPanel");
         if (pointer)

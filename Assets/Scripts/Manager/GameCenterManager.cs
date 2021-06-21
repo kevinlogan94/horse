@@ -82,7 +82,7 @@ public class GameCenterManager : MonoBehaviour
         [EnumMember(Value = "welcome_back")]
         WelcomeBack,
         [EnumMember(Value = "cycle")]
-        Cycle,
+        Cycle, //TODO Add replay in to the game for this.
         [EnumMember(Value = "appraiser")]
         Appraiser,
         [EnumMember(Value = "thank_you")]

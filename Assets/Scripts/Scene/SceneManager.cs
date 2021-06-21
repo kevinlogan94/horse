@@ -171,6 +171,10 @@ public class SceneManager : MonoBehaviour
             if (chapterNumber == 7)
             {
                 GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.EndOfAnAge.Value());
+                if (AchievementManager.Instance.LoginCount == 1)
+                {
+                    GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.HighAchiever.ToString());
+                }
             }
         }
     }
