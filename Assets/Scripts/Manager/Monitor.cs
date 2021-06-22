@@ -94,20 +94,20 @@ public class Monitor : MonoBehaviour
     IEnumerator SpawnCreatureAfterSeconds(float seconds, CreatureAnimations creatureAnimation)
     {
         yield return new WaitForSeconds(seconds);
-        var spawnedGameObject = _objectPooler.SpawnFromPool("Creature", new Vector3(0, Random.Range(_bottomCreatureSpawnerRegion, _topCreatureSpawnerRegion)));
+        var spawnedGameObject = _objectPooler.SpawnFromPool("CreatureRegion", new Vector3(0, Random.Range(_bottomCreatureSpawnerRegion, _topCreatureSpawnerRegion)));
         PlayAnimationOnGameObject(spawnedGameObject, creatureAnimation);
     }
 
     // https://www.youtube.com/watch?v=nBkiSJ5z-hE
     private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, CreatureAnimations creatureAnimation)
     {
-        var animator = gameObjectToTriggerAnimation.GetComponent<Animator>();
-        if (animator == null)
+        var creatureAnimator = gameObjectToTriggerAnimation.transform.GetChild(0).GetComponent<Animator>();
+        if (creatureAnimator == null)
         {
-          Debug.LogWarning("We couldn't find an animator on the object: " + gameObjectToTriggerAnimation.name);
-          return;
+            Debug.LogWarning($"We couldn't find an animator on the object: {gameObjectToTriggerAnimation.name}'s Child.");
+            return;
         }
-        animator.Play(creatureAnimation.ToString());
+        creatureAnimator.Play(creatureAnimation.ToString());
     }
     
     public void UpdatePassiveIncomeText()
