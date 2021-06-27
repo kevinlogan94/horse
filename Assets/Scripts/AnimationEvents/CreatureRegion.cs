@@ -44,10 +44,10 @@ public class CreatureRegion : MonoBehaviour
 
     public void TriggerMagicOnCreature()
     {
-        if (ManaBar.Instance.HasEnoughMana() && !MagicObject.activeSelf)
+        if (ManaBar.Instance.HasEnoughMana())
         {
-            MagicObject.SetActive(true);
             PerformIncrement();
+            MagicObject.SetActive(true);
             _audioManager.Play("MagicSpell");
         }
         if (BuffManager.Instance.BuffActive)
@@ -60,20 +60,20 @@ public class CreatureRegion : MonoBehaviour
     {
         long increment;
         var randomNumber = Random.Range(0.0f, 1.0f);
-        if (randomNumber <= 0.20)
+        if (MagicObject.activeSelf)
+        {
+            increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1);
+            TriggerIncrementText(increment, IncrementTexts.IncrementText);
+        }
+        else if (randomNumber <= 0.20)
         {
             increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 8);
+            TriggerIncrementText(increment, IncrementTexts.IncrementBonusText);
         }
         else
         {
             increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 5);
-        }
-        
-        var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
-        var child = obj.transform.Find("IncrementBonusTextChild")?.gameObject;
-        if (child != null)
-        {
-            child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+            TriggerIncrementText(increment, IncrementTexts.IncrementBonusText);
         }
 
         ManaBar.Instance.DeductMana();
@@ -104,10 +104,35 @@ public class CreatureRegion : MonoBehaviour
             });
         }
     }
+
+    private void TriggerIncrementText(long increment, IncrementTexts incrementText)
+    {
+        var obj = _objectPooler.SpawnFromPool(incrementText.ToString(), Input.mousePosition);
+        GameObject child;
+        if (incrementText == IncrementTexts.IncrementBonusText)
+        {
+            child = obj.transform.Find(IncrementTexts.IncrementBonusTextChild.ToString())?.gameObject;
+        }
+        else
+        {
+            child = obj.transform.Find(IncrementTexts.IncrementTextChild.ToString())?.gameObject;
+        }
+        if (child != null)
+            child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
+    }
 }
 
 public enum MagicAnimations
 {
     MagicEffect,
     MagicIdle
+}
+
+
+public enum IncrementTexts
+{
+    IncrementBonusText,
+    IncrementBonusTextChild,
+    IncrementText,
+    IncrementTextChild
 }
