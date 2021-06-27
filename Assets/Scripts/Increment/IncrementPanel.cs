@@ -48,41 +48,14 @@ public class IncrementPanel : MonoBehaviour
     
     private void PerformIncrement()
     {
-        var randomNumber = Random.Range(0.0f, 1.0f);
-        long increment;
         var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature;
-        
-        if (randomNumber <= 0.05)
-        {
-            increment = GetClickerIncrement(ClickerIncrement, 10);
-        } 
-        else if (randomNumber <= 0.30)
-        {
-            increment = GetClickerIncrement(ClickerIncrement, 5);
-        }
-        else
-        {
-            increment = GetClickerIncrement(ClickerIncrement, 1);
-        }
+        var increment = GetClickerIncrement(ClickerIncrement, 1);
             
-        // _audioManager.Play("Cork", randomNumber);
-        if (randomNumber <= 0.05)
+        var obj = _objectPooler.SpawnFromPool("IncrementText", Input.mousePosition);
+        var child = obj.transform.Find("IncrementTextChild")?.gameObject;
+        if (child != null)
         {
-            var obj = _objectPooler.SpawnFromPool("IncrementBonusText", Input.mousePosition);
-            var child = obj.transform.Find("IncrementBonusTextChild")?.gameObject;
-            if (child != null)
-            {
-                child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
-            }
-        }
-        else
-        {
-            var obj = _objectPooler.SpawnFromPool("IncrementText", Input.mousePosition);
-            var child = obj.transform.Find("IncrementTextChild")?.gameObject;
-            if (child != null)
-            {
-                child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
-            }
+            child.GetComponentInChildren<TextMeshProUGUI>().text = "+" + Monitor.FormatNumberToString(increment);
         }
 
         if (creatureToSpawn != null)
@@ -107,14 +80,14 @@ public class IncrementPanel : MonoBehaviour
 
         if (ClickCount%10 == 0 && Monitor.UseAnalytics)
         {
-                Analytics.CustomEvent("ClickIncrementButton", new Dictionary<string, object>
-                {
-                    {"ClickCount", ClickCount}
-                });
+            Analytics.CustomEvent("ClickIncrementButton", new Dictionary<string, object>
+            {
+                {"ClickCount", ClickCount}
+            });
         }
         
         ManaBar.Instance.DeductMana();
-        SpawnIncrementAnimation();
+        SpawnIncrementCastAnimation();
         // Handheld.Vibrate();
         // Monitor.DestroyObject("FingerPointerIncrementPanel");
     }
@@ -132,7 +105,7 @@ public class IncrementPanel : MonoBehaviour
         }
     }
 
-    private void SpawnIncrementAnimation()
+    private void SpawnIncrementCastAnimation()
     {
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
