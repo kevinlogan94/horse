@@ -73,7 +73,7 @@ public class LevelUp : MonoBehaviour
         yield return new WaitUntil(() => !LevelUpAdInProgress);
         
         //Update Level up progress bar
-        Slider.maxValue = (int) Math.Round(Slider.maxValue * 3);
+        Slider.maxValue = (int) Math.Round(Slider.maxValue * 4);
         Slider.value = 0; 
         // InfluenceEarnedEveryLevelSoFar = Monitor.TotalInfluenceEarned; DEPRECATED
 
