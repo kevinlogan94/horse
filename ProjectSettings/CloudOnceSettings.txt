@@ -3,85 +3,85 @@
 		{
 			"InternalID":"welcome_back",
 			"AppleID":"welcome_back",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQAA"
 		},
 		{
 			"InternalID":"appraiser",
 			"AppleID":"appraiser",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQAQ"
 		},
 		{
 			"InternalID":"follower",
 			"AppleID":"follower",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQAg"
 		},
 		{
 			"InternalID":"the_beginning",
 			"AppleID":"the_beginning",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQBA"
 		},
 		{
 			"InternalID":"thank_you",
 			"AppleID":"thank_you",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQDQ"
 		},
 		{
 			"InternalID":"collector",
 			"AppleID":"collector",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQBw"
 		},
 		{
 			"InternalID":"traveler",
 			"AppleID":"traveler",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQAw"
 		},
 		{
 			"InternalID":"guardian",
 			"AppleID":"guardian",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQCw"
 		},
 		{
 			"InternalID":"cycle",
 			"AppleID":"cycle",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQCg"
 		},
 		{
 			"InternalID":"tapper",
 			"AppleID":"tapper",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQCA"
 		},
 		{
 			"InternalID":"end_of_an_age",
 			"AppleID":"end_of_an_age",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQDA"
 		},
 		{
 			"InternalID":"high_achiever",
 			"AppleID":"high_achiever",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQDg"
 		},
 		{
 			"InternalID":"caster",
 			"AppleID":"caster",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQBg"
 		},
 		{
 			"InternalID":"scholar",
 			"AppleID":"scholar",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQBQ"
 		},
 		{
 			"InternalID":"master",
 			"AppleID":"master",
-			"GoogleID":""
+			"GoogleID":"CgkIq532yZIMEAIQCQ"
 		}
 	],
 	"LeaderboardIDs":[],
 	"CloudVariables":[],
 	"AppleSupported":true,
-	"GoogleSupported":false,
-	"GoogleAppID":"",
-	"GoogleSetupRun":false,
+	"GoogleSupported":true,
+	"GoogleAppID":"417303727787",
+	"GoogleSetupRun":true,
 	"DebugModeEnabled":false,
 	"Version":"2.7.2",
 	"SettingsLocation":"0"

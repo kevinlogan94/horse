@@ -26,7 +26,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQAA";
 #else
                     return string.Empty;
 #endif
@@ -46,7 +46,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQAQ";
 #else
                     return string.Empty;
 #endif
@@ -66,7 +66,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQAg";
 #else
                     return string.Empty;
 #endif
@@ -86,7 +86,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQBA";
 #else
                     return string.Empty;
 #endif
@@ -106,7 +106,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQDQ";
 #else
                     return string.Empty;
 #endif
@@ -126,7 +126,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQBw";
 #else
                     return string.Empty;
 #endif
@@ -146,7 +146,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQAw";
 #else
                     return string.Empty;
 #endif
@@ -166,7 +166,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQCw";
 #else
                     return string.Empty;
 #endif
@@ -186,7 +186,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQCg";
 #else
                     return string.Empty;
 #endif
@@ -206,7 +206,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQCA";
 #else
                     return string.Empty;
 #endif
@@ -226,7 +226,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQDA";
 #else
                     return string.Empty;
 #endif
@@ -246,7 +246,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQDg";
 #else
                     return string.Empty;
 #endif
@@ -266,7 +266,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQBg";
 #else
                     return string.Empty;
 #endif
@@ -286,7 +286,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQBQ";
 #else
                     return string.Empty;
 #endif
@@ -306,7 +306,7 @@ namespace CloudOnce
                 {
 #if UNITY_ANDROID && !UNITY_EDITOR
 #if CLOUDONCE_GOOGLE
-                    return "";
+                    return "CgkIq532yZIMEAIQCQ";
 #else
                     return string.Empty;
 #endif

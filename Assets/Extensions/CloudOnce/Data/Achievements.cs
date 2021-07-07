@@ -18,7 +18,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "welcome_back"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQAA"
 #else
             "welcome_back"
 #endif
@@ -33,7 +33,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "appraiser"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQAQ"
 #else
             "appraiser"
 #endif
@@ -48,7 +48,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "follower"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQAg"
 #else
             "follower"
 #endif
@@ -63,7 +63,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "the_beginning"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQBA"
 #else
             "the_beginning"
 #endif
@@ -78,7 +78,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "thank_you"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQDQ"
 #else
             "thank_you"
 #endif
@@ -93,7 +93,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "collector"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQBw"
 #else
             "collector"
 #endif
@@ -108,7 +108,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "traveler"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQAw"
 #else
             "traveler"
 #endif
@@ -123,7 +123,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "guardian"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQCw"
 #else
             "guardian"
 #endif
@@ -138,7 +138,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "cycle"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQCg"
 #else
             "cycle"
 #endif
@@ -153,7 +153,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "tapper"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQCA"
 #else
             "tapper"
 #endif
@@ -168,7 +168,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "end_of_an_age"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQDA"
 #else
             "end_of_an_age"
 #endif
@@ -183,7 +183,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "high_achiever"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQDg"
 #else
             "high_achiever"
 #endif
@@ -198,7 +198,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "caster"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQBg"
 #else
             "caster"
 #endif
@@ -213,7 +213,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "scholar"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQBQ"
 #else
             "scholar"
 #endif
@@ -228,7 +228,7 @@ namespace CloudOnce
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             "master"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            ""
+            "CgkIq532yZIMEAIQCQ"
 #else
             "master"
 #endif
