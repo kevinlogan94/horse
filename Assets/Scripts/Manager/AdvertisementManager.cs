@@ -10,8 +10,7 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     private const string RewardVideoPlacementId = "rewardedVideo";
     private const string SkippableAdPlacementId = "video";
     public int FinishedAds = 0;
-    //TODO turn ad testmode off
-    public const bool TestMode = true;
+    public const bool TestMode = false;
 
     private long _reward;
     

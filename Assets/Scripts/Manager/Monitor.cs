@@ -23,8 +23,7 @@ public class Monitor : MonoBehaviour
     private float _topCreatureSpawnerRegion;
     private DateTime _timeOfLastFrame;
 
-    //TODO turn analytics back on
-    public static bool UseAnalytics = false;
+    public static bool UseAnalytics = true;
     public const bool UseBetaSurvey = true;
     public static bool BetaSurveyDisplayed = false;
 
