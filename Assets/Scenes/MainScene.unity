@@ -4832,7 +4832,7 @@ RectTransform:
   - {fileID: 1983115470}
   - {fileID: 431427058}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -10528,7 +10528,7 @@ RectTransform:
   m_Children:
   - {fileID: 1375509838}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12840,7 +12840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 98.69602}
+  m_AnchoredPosition: {x: 0, y: 98.6958}
   m_SizeDelta: {x: 0, y: -197.39209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985911628
@@ -13788,12 +13788,12 @@ RectTransform:
   - {fileID: 2021058622}
   - {fileID: 2073187857}
   - {fileID: 657037168}
-  - {fileID: 323923463}
-  - {fileID: 1480275291}
   - {fileID: 1694319520}
-  - {fileID: 784571320}
   - {fileID: 1298386580}
   - {fileID: 1379602030}
+  - {fileID: 323923463}
+  - {fileID: 1480275291}
+  - {fileID: 784571320}
   - {fileID: 912054426}
   - {fileID: 910994503}
   - {fileID: 1988067465}
@@ -14185,7 +14185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 98.70001}
+  m_AnchoredPosition: {x: 0, y: 98.700195}
   m_SizeDelta: {x: 0, y: -197.38501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087526416
@@ -14296,7 +14296,7 @@ PrefabInstance:
     - target: {fileID: 868846589387999739, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.0998535
+      value: 3.1000977
       objectReference: {fileID: 0}
     - target: {fileID: 1650447202361675867, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -14321,7 +14321,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -14396,7 +14396,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.153
+      value: -94.15283
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
@@ -19014,7 +19014,7 @@ PrefabInstance:
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9088865344994058361, guid: 68cef713d17601d4bb976efbd2908799,
         type: 3}
@@ -21217,7 +21217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -191.95}
+  m_AnchoredPosition: {x: 0, y: -191.9502}
   m_SizeDelta: {x: 0, y: -1203.5074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475831854
@@ -21569,7 +21569,7 @@ RectTransform:
   - {fileID: 384291062}
   - {fileID: 1650264860}
   m_Father: {fileID: 1015238788}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -23110,6 +23110,7 @@ MonoBehaviour:
   VideoGoal: 0
   CurrentAchievementAmount: 0
   AchievementGoal: 0
+  CurrentStoryAmount: 0
   StoryGoal: 0
   AppStoreReviewed: 0
   FollowedOnTwitter: 0
@@ -29492,7 +29493,7 @@ PrefabInstance:
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2557987598372021681, guid: a4895518e8c64dc4a98f1c631666bf65,
         type: 3}

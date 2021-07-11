@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StoryLogic : MonoBehaviour
 {
-   public Achievement AchievementObject; 
+    public Achievement AchievementObject; 
     public TextMeshProUGUI Title;
     public TextMeshProUGUI RewardDescription;
     public Slider ProgressBar;
@@ -22,7 +22,7 @@ public class StoryLogic : MonoBehaviour
         RewardDescription.text = AchievementObject.RewardDescription;
         
         UpdateProgressValue();
-        ProgressBar.maxValue = SceneManager.Instance.Chapters.Length;
+        ProgressBar.maxValue = AchievementManager.Instance.StoryGoal;
         TriggerBarRefresh();
     }
 
@@ -37,16 +37,7 @@ public class StoryLogic : MonoBehaviour
     
     private void UpdateProgressValue()
     {
-        var lastReadChapter = SceneManager.Instance.Chapters.LastOrDefault(x=>x.SceneViewed);
-        //TODO Fix this.
-        // if (lastReadChapter != null && lastReadChapter.Number == SceneManager.Instance.Chapters.Length)
-        // {
-        //     ProgressBar.value = lastReadChapter.Number;
-        // }
-        // else
-        // {
-            ProgressBar.value = 0;
-        // }
+        ProgressBar.value = AchievementManager.Instance.CurrentStoryAmount;
     }
 
     private void UpdateTitle()
@@ -66,6 +57,7 @@ public class StoryLogic : MonoBehaviour
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             AchievementManager.Instance.PlayAchievementSound();
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Cycle.Value());
         }
     }
     

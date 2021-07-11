@@ -239,7 +239,7 @@ public class SavedData
         Monitor.TotalInfluenceEarned = 0;
         Monitor.PlayerLevel = 1;
         Monitor.LastSavedDateTime = null;
-        Monitor.BetaSurveyDisplayed = false;
+        // Monitor.BetaSurveyDisplayed = false;
         
         // CanvasBackgroundController
         CanvasBackgroundController.Instance.CurrentCanvasBackground = CanvasBackground.Meadow;
@@ -254,19 +254,17 @@ public class SavedData
         
         // Achievement Manager
         AchievementManager.Instance.LoginCount = 1;
-        AchievementManager.Instance.LoginGoal = 2;
         AchievementManager.Instance.LastLoginDate = DateTime.UtcNow;
         AchievementManager.Instance.CurrentClickedAmount = 0;
-        AchievementManager.Instance.ClickerGoal = 0;
         AchievementManager.Instance.CurrentHelperAmount = 0;
-        AchievementManager.Instance.HelperGoal = 0;
         AchievementManager.Instance.CurrentVideoAmount = 0;
-        AchievementManager.Instance.VideoGoal = 0;
         AchievementManager.Instance.CurrentAchievementAmount = 0;
-        AchievementManager.Instance.AchievementGoal = 0;
-        AchievementManager.Instance.AppStoreReviewed = false;
-        AchievementManager.Instance.FollowedOnTwitter = false;
-        AchievementManager.Instance.TutorialCompleted = false;
+        AchievementManager.Instance.SetAchievementGoalDefaults();
+        // AchievementManager.Instance.CurrentStoryAmount -- We want this to stay what it already is.
+        // AchievementManager.Instance.StoryGoal -- We want this to stay what it already is.
+        // AchievementManager.Instance.AppStoreReviewed = false;
+        // AchievementManager.Instance.FollowedOnTwitter = false;
+        // AchievementManager.Instance.TutorialCompleted = false;
         
         //ManaBar
         ManaBar.Instance.ManaLevel = 1;

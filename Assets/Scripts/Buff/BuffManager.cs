@@ -39,6 +39,7 @@ public class BuffManager : MonoBehaviour
         {
             RemoveBuffs();
             DecrementCountDown();
+            CheckAndTriggerTapperGameCenterAchievement();
         }
         CheckAndSpawnBuffCreature();
     }
@@ -65,6 +66,7 @@ public class BuffManager : MonoBehaviour
         if (ClickCountSinceLastBuff < 200 || BuffActive) return;
         BuffCreature.SetActive(true);
         ClickCountSinceLastBuff = 0;
+        ClickCountForThisBuffSession = 0;
     }
 
     private void DecrementCountDown()
@@ -85,6 +87,12 @@ public class BuffManager : MonoBehaviour
             CountDownStarted = false;
             _audioManager.Play("DeBuff");
         }
+    }
+
+    private void CheckAndTriggerTapperGameCenterAchievement()
+    {
+        if (ClickCountForThisBuffSession >= 100)
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Tapper.Value());
     }
 }
 

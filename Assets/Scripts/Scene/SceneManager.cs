@@ -148,10 +148,7 @@ public class SceneManager : MonoBehaviour
             if (chapterNumber == 1)
             {
                 TriggerTutorial();
-            } else if (Chapters.FirstOrDefault(x=>!x.SceneViewed) == null)
-            {
-                SplashManager.Instance.TriggerSplash(SplashType.EndGame.ToString());
-            }
+            } 
             else if (chapterNumber < 5)
             {
                 var xalAchievement = SplashManager.Instance.Achievements.FirstOrDefault(x => x.Name == "Xal");
@@ -168,13 +165,14 @@ public class SceneManager : MonoBehaviour
             {
                 GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Guardian.Value());
             }
+            //final chapter
             if (chapterNumber == 7)
             {
+                SplashManager.Instance.TriggerSplash(SplashType.EndGame.ToString());
+                AchievementManager.Instance.CurrentStoryAmount++;
                 GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.EndOfAnAge.Value());
                 if (AchievementManager.Instance.LoginCount == 1)
-                {
-                    GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.HighAchiever.ToString());
-                }
+                    GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.HighAchiever.Value());
             }
         }
     }

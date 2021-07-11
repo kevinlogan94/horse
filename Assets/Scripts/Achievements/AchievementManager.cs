@@ -29,8 +29,8 @@ public class AchievementManager : MonoBehaviour
     public int CurrentAchievementAmount;
     public float AchievementGoal;
     
-    //story - not saving this in saved file because this is just total chapters
-    public float StoryGoal; 
+    public int CurrentStoryAmount;
+    public float StoryGoal;
 
     //sharing and/or reviewing the app
     public const int ShareGoal = 1;
@@ -57,14 +57,7 @@ public class AchievementManager : MonoBehaviour
         _audioManager = FindObjectOfType<AudioManager>();
         if (!SaveGame.SaveFileExists())
         {
-            ClickerGoal = 150;
-            HelperGoal = 30;
-            VideoGoal = 10;
-            AchievementGoal = 10;
-            StoryGoal = 2;
-            LoginCount = 1;
-            LoginGoal = 2;
-            LastLoginDate = DateTime.UtcNow;
+            SetAchievementGoalDefaults();
         }
     }
 
@@ -76,6 +69,19 @@ public class AchievementManager : MonoBehaviour
         LoginProgress();
         ManageExclamationPoint();
         Tutorial();
+    }
+
+    public void SetAchievementGoalDefaults()
+    {
+        ClickerGoal = 150;
+        HelperGoal = 30;
+        VideoGoal = 10;
+        AchievementGoal = 10;
+        StoryGoal = 2;
+        LoginCount = 1;
+        LoginGoal = 2;
+        StoryGoal = 2;
+        LastLoginDate = DateTime.UtcNow;
     }
 
     public void Tutorial()

@@ -45,7 +45,7 @@ public class Monitor : MonoBehaviour
     void Start()
     {
         SaveGame.Load();
-        if (LastSavedDateTime != null)
+        if (LastSavedDateTime != null && SceneManager.Instance.Chapters[0].SceneViewed)
         {
             SplashManager.Instance.TriggerSplash(SplashType.InfluenceOverTime.ToString());
         }

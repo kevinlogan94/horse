@@ -26,7 +26,9 @@ public class NewGame : MonoBehaviour
 
     public void StartNewGame()
     {
-        SaveGame.Delete();
+        // SaveGame.Delete();
+        SavedData.RefreshData();
+        SaveGame.Save();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
