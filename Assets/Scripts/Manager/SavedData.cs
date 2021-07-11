@@ -138,11 +138,6 @@ public class SavedData
         // Monitor
         Monitor.Influence = Influence;
         Monitor.TotalInfluenceEarned = TotalInfluenceEarned;
-        if (InfluenceEarnedEveryLevelSoFar > 0)
-        {
-            Monitor.TotalInfluenceEarned = GetNewTotalInfluenceForJustTheLevel();
-            InfluenceEarnedEveryLevelSoFar = 0; //This field is now deprecated.
-        }
         Monitor.PlayerLevel = PlayerLevel;
         Monitor.LastSavedDateTime = SavedDateTime;
         Monitor.BetaSurveyDisplayed = BetaSurveyDisplayed;
@@ -279,11 +274,5 @@ public class SavedData
         //BuffManager
         BuffManager.Instance.BuffTutorialCompleted = false;
         BuffManager.Instance.BuffedThisLevel = false;
-    }
-
-    //TODO: Remove this logic later once everyone has updated to v0.1.4
-    private long GetNewTotalInfluenceForJustTheLevel()
-    {
-        return TotalInfluenceEarned - InfluenceEarnedEveryLevelSoFar;
     }
 }
