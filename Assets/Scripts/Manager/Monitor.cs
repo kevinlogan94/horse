@@ -130,7 +130,7 @@ public class Monitor : MonoBehaviour
         //http://answers.unity.com/answers/1558286/view.html
         var screenRatio = (double) Screen.currentResolution.height / Screen.currentResolution.width;
         const int moveUp = 70;
-        if (screenRatio >= 2) return;
+        if (screenRatio >= 2 && Application.platform != RuntimePlatform.Android) return;
         Debug.Log("Updating UI for IPhone8 screens and below.");
         ScorePanel.transform.position = 
             new Vector3(ScorePanel.transform.position.x, 
