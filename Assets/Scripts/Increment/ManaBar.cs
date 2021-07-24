@@ -39,9 +39,8 @@ public class ManaBar : MonoBehaviour
     private void ManaRegen()
     {
         var numerator = 0.6;
-        if (CurrentFrameRate < 75)
+        if (CurrentFrameRate < 75) // ios Frame rate
         { 
-            // numerator = 2.75;
             numerator = 3;
         }
         else if(CurrentFrameRate < 135)
