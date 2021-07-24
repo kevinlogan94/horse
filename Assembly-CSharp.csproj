@@ -268,7 +268,10 @@
      <None Include="Assets\App-ads.txt" />
      <None Include="Assets\Extensions\CloudOnce\Internal\Data\Templates\LeaderboardsPropertyTemplate.cs.txt" />
      <None Include="Assets\Extensions\CloudOnce\Internal\Data\Templates\CloudVariablesPropertyTemplate.cs.txt" />
+     <None Include="Assets\Resources\AppIcons\android\AndroidStudioGeneratedFiles\launcher_icons\launcher_icons.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\Resources\AppIcons\android\AndroidStudioGeneratedFiles\ic_launcher_round\ic_launcher_round.xml" />
+     <None Include="Assets\Resources\AppIcons\android\AndroidStudioGeneratedFiles\ic_launcher\ic_launcher.xml" />
      <None Include="Assets\TextMesh Pro\Glyph Report 2.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Extensions\CloudOnce\Internal\Data\Templates\AchievementsPropertyTemplate.cs.txt" />
@@ -280,6 +283,7 @@
      <None Include="Assets\Extensions\CloudOnce\Internal\Data\Templates\LeaderboardsTemplate.cs.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Glyph Report 3.txt" />
+     <None Include="Assets\Resources\AppIcons\android\AndroidStudioGeneratedFiles\launcher_icons_round\launcher_icons_round.xml" />
      <None Include="Assets\Extensions\GooglePlayGames\Plugins\Android\GooglePlayGamesManifest.plugin\AndroidManifest.xml" />
      <None Include="Assets\Extensions\CloudOnce\readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
