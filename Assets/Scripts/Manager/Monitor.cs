@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
 {
-    public static string Version = "v0.2.2";
+    public static string Version = "v0.2.3";
     
     public GameObject SettingsPanel;
     public GameObject CreditsPanel;
