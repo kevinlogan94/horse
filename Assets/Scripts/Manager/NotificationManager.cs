@@ -23,6 +23,9 @@ public class NotificationManager : MonoBehaviour
 
     private const string TitleText = "Hey, Stranger!";
     private const string BodyText = "You have earned a lot of influence while you've been gone! Don't forget to come back and buy more tomes!";
+
+    private const string AndroidTitleText = "You have earned a lot of influence while you've been gone!";
+    private const string AndroidBodyText = "Don't forget to come back and buy more tomes!";
     
     #region Singleton
     public static NotificationManager Instance;
@@ -146,15 +149,15 @@ public class NotificationManager : MonoBehaviour
     {
         var notification = new AndroidNotification
         {
-            Title = TitleText, 
-            Text = BodyText,
+            Title = AndroidTitleText,
+            Text = AndroidBodyText,
+            SmallIcon = "basic_icon",
             FireTime = DateTime.UtcNow.AddHours(10)
         };
         
         // NOTE: By Default, apps remove scheduled notifications when the device restarts. So, let's always have this trigger on start.
         // This will need to be changed if you toggle on Edit -> Project Settings -> Mobile Notifications -> Android -> Reschedule on Device Restart
         // https://docs.unity3d.com/Packages/com.unity.mobile.notifications@1.0/manual/index.html#android
-        //TODO: Test This
         if (Monitor.UseAnalytics)
         {
             Analytics.CustomEvent("Notification_Scheduled", new Dictionary<string, object> {{"Device", "Android"}});
