@@ -23,6 +23,7 @@ public class TitleScreen : MonoBehaviour
 
     public void CloseTitleScreen()
     {
+        if (!TapToStart.activeSelf) return;
         gameObject.SetActive(false);
         if(SceneManager.Instance.ScenePanel.activeSelf) return;
         switch (CanvasBackgroundController.Instance.CurrentCanvasBackground.ToString())
