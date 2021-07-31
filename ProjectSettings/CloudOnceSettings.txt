@@ -3,84 +3,84 @@
 		{
 			"InternalID":"welcome_back",
 			"AppleID":"welcome_back",
-			"GoogleID":"CgkIq532yZIMEAIQAA"
+			"GoogleID":"CgkIrZfJ_dMZEAIQAA"
 		},
 		{
 			"InternalID":"appraiser",
 			"AppleID":"appraiser",
-			"GoogleID":"CgkIq532yZIMEAIQAQ"
+			"GoogleID":"CgkIrZfJ_dMZEAIQAQ"
 		},
 		{
 			"InternalID":"follower",
 			"AppleID":"follower",
-			"GoogleID":"CgkIq532yZIMEAIQAg"
+			"GoogleID":"CgkIrZfJ_dMZEAIQBg"
 		},
 		{
 			"InternalID":"the_beginning",
 			"AppleID":"the_beginning",
-			"GoogleID":"CgkIq532yZIMEAIQBA"
+			"GoogleID":"CgkIrZfJ_dMZEAIQAg"
 		},
 		{
 			"InternalID":"thank_you",
 			"AppleID":"thank_you",
-			"GoogleID":"CgkIq532yZIMEAIQDQ"
+			"GoogleID":"CgkIrZfJ_dMZEAIQCw"
 		},
 		{
 			"InternalID":"collector",
 			"AppleID":"collector",
-			"GoogleID":"CgkIq532yZIMEAIQBw"
+			"GoogleID":"CgkIrZfJ_dMZEAIQDQ"
 		},
 		{
 			"InternalID":"traveler",
 			"AppleID":"traveler",
-			"GoogleID":"CgkIq532yZIMEAIQAw"
+			"GoogleID":"CgkIrZfJ_dMZEAIQDg"
 		},
 		{
 			"InternalID":"guardian",
 			"AppleID":"guardian",
-			"GoogleID":"CgkIq532yZIMEAIQCw"
+			"GoogleID":"CgkIrZfJ_dMZEAIQBw"
 		},
 		{
 			"InternalID":"cycle",
 			"AppleID":"cycle",
-			"GoogleID":"CgkIq532yZIMEAIQCg"
+			"GoogleID":"CgkIrZfJ_dMZEAIQBA"
 		},
 		{
 			"InternalID":"tapper",
 			"AppleID":"tapper",
-			"GoogleID":"CgkIq532yZIMEAIQCA"
+			"GoogleID":"CgkIrZfJ_dMZEAIQCg"
 		},
 		{
 			"InternalID":"end_of_an_age",
 			"AppleID":"end_of_an_age",
-			"GoogleID":"CgkIq532yZIMEAIQDA"
+			"GoogleID":"CgkIrZfJ_dMZEAIQBQ"
 		},
 		{
 			"InternalID":"high_achiever",
 			"AppleID":"high_achiever",
-			"GoogleID":"CgkIq532yZIMEAIQDg"
+			"GoogleID":"CgkIrZfJ_dMZEAIQCA"
 		},
 		{
 			"InternalID":"caster",
 			"AppleID":"caster",
-			"GoogleID":"CgkIq532yZIMEAIQBg"
+			"GoogleID":"CgkIrZfJ_dMZEAIQAw"
 		},
 		{
 			"InternalID":"scholar",
 			"AppleID":"scholar",
-			"GoogleID":"CgkIq532yZIMEAIQBQ"
+			"GoogleID":"CgkIrZfJ_dMZEAIQCQ"
 		},
 		{
 			"InternalID":"master",
 			"AppleID":"master",
-			"GoogleID":"CgkIq532yZIMEAIQCQ"
+			"GoogleID":"CgkIrZfJ_dMZEAIQDA"
 		}
 	],
 	"LeaderboardIDs":[],
 	"CloudVariables":[],
 	"AppleSupported":true,
 	"GoogleSupported":true,
-	"GoogleAppID":"417303727787",
+	"GoogleAppID":"881536945069",
 	"GoogleSetupRun":true,
 	"DebugModeEnabled":false,
 	"Version":"2.7.2",
