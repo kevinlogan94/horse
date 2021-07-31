@@ -10,9 +10,8 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
     public Slider ProgressBar;
     public Image Image;
     
-    //TODO define android and apple store review url
-    private const string AndroidAppStoreReviewUrl = "";
-    private const string IosAppStoreReviewUrl = "";
+    private const string AndroidAppStoreReviewUrl = "https://play.google.com/store/apps/details?id=com.IntrigueGames.XalsPath";
+    private const string IosAppStoreReviewUrl = "https://apps.apple.com/us/app/xals-path/id1566474908";
     private const string SurveyUrl = "https://www.surveymonkey.com/r/F9SWS9P";
     
     private long _rewardValue;
@@ -45,17 +44,23 @@ public class AppStoreReviewLogic : MonoBehaviour, IAchievement
             Monitor.Influence += _rewardValue;
             ProgressBar.value = AchievementManager.ShareGoal;
             AchievementManager.Instance.AppStoreReviewed = true;
-            if (Application.platform == RuntimePlatform.Android)
+            if (Monitor.useBetaFeatures)
             {
-                Debug.Log("Android App Store Review Prompt");
-                // Application.OpenURL(AndroidAppStoreReviewUrl);
+                Application.OpenURL(SurveyUrl);
             }
             else
             {
-                Debug.Log("Apple App Store Review Prompt");
-                // Application.OpenURL(IosAppStoreReviewUrl);
+                if (Application.platform == RuntimePlatform.Android)
+                {
+                    Debug.Log("Android App Store Review Prompt");
+                    Application.OpenURL(AndroidAppStoreReviewUrl);
+                }
+                else
+                {
+                    Debug.Log("Apple App Store Review Prompt");
+                    Application.OpenURL(IosAppStoreReviewUrl);
+                }  
             }
-            Application.OpenURL(SurveyUrl);
 
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
