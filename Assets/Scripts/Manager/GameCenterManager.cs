@@ -10,13 +10,20 @@ public class GameCenterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Application.platform != RuntimePlatform.Android || Monitor.useAllCloudServices)
+        {
+            Cloud.SignIn(false, result =>
+            {
+                Debug.Log($"Cloud Services Sign in Status: {result}");
+            });
+        }
     }
 
     public static void ReportAchievementUnlocked(string achievementId)
     {
         if (!Cloud.IsSignedIn)
         {
-            Debug.Log($"Player is not signed in. Cancelling achievement unlock for {Cloud.PlayerDisplayName}");
+            Debug.Log("Player is not signed in. Cancelling achievement unlock.");
             return;
         }
         var achievement = Achievements.All.FirstOrDefault(x => x.ID == achievementId);

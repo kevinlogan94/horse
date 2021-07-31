@@ -24,7 +24,8 @@ public class Monitor : MonoBehaviour
     private DateTime _timeOfLastFrame;
 
     public static bool UseAnalytics = true;
-    public const bool UseBetaSurvey = true;
+    public const bool useBetaFeatures = true;
+    public const bool useAllCloudServices = false;
     public static bool BetaSurveyDisplayed = false;
 
     public GameObject ScorePanel;
@@ -67,7 +68,7 @@ public class Monitor : MonoBehaviour
 
     public void ManageBetaSurvey()
     {
-        if (!UseBetaSurvey || PlayerLevel != 11 || BetaSurveyDisplayed) return;
+        if (!useBetaFeatures || PlayerLevel != 11 || BetaSurveyDisplayed) return;
         BetaSurveyDisplayed = true;
         SplashManager.Instance.TriggerSplash(SplashType.Survey.ToString());
     }

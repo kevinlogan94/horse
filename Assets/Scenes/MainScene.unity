@@ -5077,7 +5077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudSaveEnabled: 0
-  autoSignIn: 1
+  autoSignIn: 0
   autoCloudLoad: 0
 --- !u!1 &381601095
 GameObject:
