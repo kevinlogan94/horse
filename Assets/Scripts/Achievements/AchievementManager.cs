@@ -142,7 +142,7 @@ public class AchievementManager : MonoBehaviour
     private void LoginProgress()
     {
         //Use .Date since we only want to compare the date and not the time
-        if ((DateTime.UtcNow.Date - LastLoginDate.ToUniversalTime().Date).TotalDays >= 1)
+        if ((DateTime.UtcNow.Date - LastLoginDate.Date).TotalDays >= 1)
         {
             LastLoginDate = DateTime.UtcNow;
             LoginCount++;
