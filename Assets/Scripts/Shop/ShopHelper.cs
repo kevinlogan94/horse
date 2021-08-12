@@ -55,7 +55,7 @@ public class ShopHelper : MonoBehaviour
         {
             PerSecondIncreaseText.text = Monitor.FormatNumberToString(Helper.DynamicIncrement) + "/sec";
         }
-        
+
         CostText.text = Monitor.FormatNumberToString(Helper.DynamicCost);
 
         var newCount = "0";

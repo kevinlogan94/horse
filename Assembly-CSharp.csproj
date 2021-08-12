@@ -206,6 +206,7 @@
      <Compile Include="Assets\Extensions\CloudOnce\Data\CloudVariables.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Internal\Utils\InternetConnectionUtils.cs" />
      <Compile Include="Assets\Scripts\Manager\SaveGame.cs" />
+     <Compile Include="Assets\Scripts\Manager\SettingsManager.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Quick Start Scripts\DeactivateOnAwakeIfNotGoogle.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\Platforms\Android\AndroidEventsClient.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Data\CloudRequestResult.cs" />
@@ -262,7 +263,6 @@
      <Compile Include="Assets\Scripts\Buff\BuffCountDown.cs" />
      <Compile Include="Assets\Scripts\Manager\Monitor.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\ISocialPlatform\PlayGamesLeaderboard.cs" />
-     <Compile Include="Assets\Scripts\Manager\SettingsManager.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

@@ -21,6 +21,7 @@ public class LevelUp : MonoBehaviour
     public long InfluenceEarnedEveryLevelSoFar = 0; //Deprecated
     private bool _jinglePlayedThisLevel = false;
     private AudioManager _audioManager;
+    private const int MaxLevel = 50;
 
     public bool LevelUpAdInProgress = false;
     public bool LevelUpInProgress;
@@ -73,7 +74,15 @@ public class LevelUp : MonoBehaviour
         yield return new WaitUntil(() => !LevelUpAdInProgress);
         
         //Update Level up progress bar
-        Slider.maxValue = (int) Math.Round(Slider.maxValue * 3.25);
+        const float levelMultiplier = 3.25f;
+        if ((Slider.maxValue * levelMultiplier) < float.MaxValue)
+        {
+            Slider.maxValue = (int) Math.Round(Slider.maxValue * levelMultiplier);   
+        }
+        else
+        {
+            Slider.maxValue = float.MaxValue;
+        }
         Slider.value = 0; 
         // InfluenceEarnedEveryLevelSoFar = Monitor.TotalInfluenceEarned; DEPRECATED
 
@@ -166,7 +175,11 @@ public class LevelUp : MonoBehaviour
 
     private void UpdateSliderProgress()
     {
-        if (Monitor.TotalInfluenceEarned < Slider.maxValue)
+        if (Monitor.PlayerLevel >= MaxLevel || Slider.maxValue >= float.MaxValue)
+        {
+            Slider.value = Slider.minValue;
+        }
+        else if (Monitor.TotalInfluenceEarned < Slider.maxValue)
         {
             Slider.value = Monitor.TotalInfluenceEarned;
         }
