@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Runtime.Serialization;
 using CloudOnce;
 using UnityEngine;
@@ -25,6 +26,11 @@ public class GameCenterManager : MonoBehaviour
         {
             Debug.Log("Player is not signed in. Cancelling achievement unlock.");
             return;
+        }
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            achievementId = ((GooglePlayAchievement)Enum.Parse(typeof(GooglePlayAchievement), achievementId)).Value();
         }
         var achievement = Achievements.All.FirstOrDefault(x => x.ID == achievementId);
         if (achievement == null)
@@ -100,5 +106,40 @@ public class GameCenterManager : MonoBehaviour
         Traveler, //TODO Add the portal in to the game for this.
         [EnumMember(Value = "guardian")]
         Guardian
+    }
+    
+    // ReSharper disable InconsistentNaming
+    private enum GooglePlayAchievement
+    {
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQDA")]
+        master,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQCQ")]
+        scholar,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQAw")]
+        caster,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQCA")]
+        high_achiever,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQBg")]
+        follower,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQBQ")]
+        end_of_an_age,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQCg")]
+        tapper,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQAg")]
+        the_beginning,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQAA")]
+        welcome_back,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQBA")]
+        cycle,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQAQ")]
+        appraiser,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQCw")]
+        thank_you,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQDQ")]
+        collector,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQDg")]
+        traveler,
+        [EnumMember(Value = "CgkIrZfJ_dMZEAIQBw")]
+        guardian
     }
 }

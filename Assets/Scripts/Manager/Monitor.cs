@@ -25,7 +25,7 @@ public class Monitor : MonoBehaviour
 
     public static bool UseAnalytics = true;
     public const bool useBetaFeatures = true;
-    public const bool useAllCloudServices = false;
+    public const bool useAllCloudServices = true;
     public static bool BetaSurveyDisplayed = false;
 
     public GameObject ScorePanel;
