@@ -56,7 +56,7 @@ public class AchievementLogic : MonoBehaviour, IAchievement
             AchievementManager.Instance.CurrentAchievementAmount++;
             SplashManager.Instance.TriggerSplash(SplashType.Achievement.ToString(), AchievementObject.Name);
             GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Collector.Value());
-        };
+        }
     }
     
     private void ManageExclamationPoint()

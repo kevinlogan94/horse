@@ -58,6 +58,7 @@ public class AchievementManager : MonoBehaviour
         if (!SaveGame.SaveFileExists())
         {
             SetAchievementGoalDefaults();
+            StoryGoal = 2; // keeping this separate because we need this across playthroughs.
         }
     }
 
@@ -77,10 +78,8 @@ public class AchievementManager : MonoBehaviour
         HelperGoal = 30;
         VideoGoal = 10;
         AchievementGoal = 10;
-        StoryGoal = 2;
         LoginCount = 1;
         LoginGoal = 2;
-        StoryGoal = 2;
         LastLoginDate = DateTime.UtcNow;
     }
 
