@@ -60,6 +60,10 @@ public class AchievementManager : MonoBehaviour
             SetAchievementGoalDefaults();
             StoryGoal = 2; // keeping this separate because we need this across playthroughs.
         }
+        else if (StoryGoal == 0) //TODO remove this after 0.2.6
+        {
+            StoryGoal = 2;
+        }
     }
 
     // Update is called once per frame
