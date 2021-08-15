@@ -8,7 +8,9 @@ public class ManaBar : MonoBehaviour
     private Slider _manabar;
     public int ManaLevel;
     public bool InfiniteManaBuffActive;
-    private float CurrentFrameRate;
+    
+    private float _waitTimeTillRegen = 1f/75f;
+    private float _currentWaitTimeTillRegen = 1f/75f;
     
     #region Singleton
     public static ManaBar Instance;
@@ -32,30 +34,27 @@ public class ManaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentFrameRate = 1.0f / Time.smoothDeltaTime;
         ManaRegen();
     }
 
     private void ManaRegen()
     {
-        var numerator = 0.6;
-        if (CurrentFrameRate < 75) // ios Frame rate
-        { 
-            numerator = 3;
-        }
-        else if(CurrentFrameRate < 135)
+        if (Time.time > _currentWaitTimeTillRegen)
         {
-            numerator = 1.65;
-        }
-        var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
-        var regen = numerator / denominator;
-        if (_manabar.value + regen < _manabar.maxValue)
-        {
-            _manabar.value += (float) regen;
-        }
-        else
-        {
-            _manabar.value = _manabar.maxValue;
+            _currentWaitTimeTillRegen = Time.time + _waitTimeTillRegen;
+            if (_manabar.value >= _manabar.maxValue) return;
+        
+            const float numerator = 1.65f;
+            var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
+            var regen = numerator / denominator;
+            if (_manabar.value + regen < _manabar.maxValue)
+            {
+                _manabar.value += (float) regen;
+            }
+            else
+            {
+                _manabar.value = _manabar.maxValue;
+            }
         }
     }
 
@@ -81,10 +80,5 @@ public class ManaBar : MonoBehaviour
         {
             _manabar.value = 0;
         }
-    }
-
-    public void LevelUpManaBar()
-    {
-        ManaLevel++;
     }
 }
