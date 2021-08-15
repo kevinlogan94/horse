@@ -168,7 +168,7 @@ public class Monitor : MonoBehaviour
 
     #region Helper Methods
     
-    private bool CreatureCanSpawn(Creature creature)
+    public static bool CreatureCanSpawn(Creature creature)
     {
         switch (creature.Name)
         {

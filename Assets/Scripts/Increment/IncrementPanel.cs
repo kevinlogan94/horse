@@ -48,7 +48,11 @@ public class IncrementPanel : MonoBehaviour
     
     private void PerformIncrement()
     {
-        var creatureToSpawn = ShopManager.Instance.Helpers.LastOrDefault(helper => helper.AmountOwned > 0)?.Creature;
+        var creaturesThatCanSpawn = ShopManager.Instance.Helpers
+            .Where(helper => Monitor.CreatureCanSpawn(helper.Creature) && helper.AmountOwned > 0)
+            .Select(helper => helper.Creature).ToList();
+        var randomIndex = Random.Range(0, creaturesThatCanSpawn.Count);
+        var creatureToSpawn = creaturesThatCanSpawn.ElementAt(randomIndex);
         var increment = GetClickerIncrement(ClickerIncrement, 1);
             
         var obj = _objectPooler.SpawnFromPool("IncrementText", Input.mousePosition);
