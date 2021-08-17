@@ -86,28 +86,35 @@ public class Monitor : MonoBehaviour
         // _objectPooler.SpawnFromPool(horseBreed, new Vector3(0, Random.Range(250, 1500)));
         if (creature != null && CreatureCanSpawn(creature))
         {
-            StartCoroutine(SpawnCreatureAfterSeconds(lagSeconds, creature.CreatureAnimation));
+            StartCoroutine(SpawnCreatureAfterSeconds(lagSeconds, creature));
         }
     }
     
     //https://forum.unity.com/threads/hide-object-after-time.291287/
-    IEnumerator SpawnCreatureAfterSeconds(float seconds, CreatureAnimations creatureAnimation)
+    IEnumerator SpawnCreatureAfterSeconds(float seconds, Creature creature)
     {
         yield return new WaitForSeconds(seconds);
         var spawnedGameObject = _objectPooler.SpawnFromPool("CreatureRegion", new Vector3(0, Random.Range(_bottomCreatureSpawnerRegion, _topCreatureSpawnerRegion)));
-        PlayAnimationOnGameObject(spawnedGameObject, creatureAnimation);
+        PlayAnimationOnGameObject(spawnedGameObject, creature);
     }
 
     // https://www.youtube.com/watch?v=nBkiSJ5z-hE
-    private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, CreatureAnimations creatureAnimation)
+    private void PlayAnimationOnGameObject(GameObject gameObjectToTriggerAnimation, Creature creature)
     {
-        var creatureAnimator = gameObjectToTriggerAnimation.transform.GetChild(0).GetComponent<Animator>();
+        var creatureObject = gameObjectToTriggerAnimation.transform.GetChild(0);
+        var creatureScript = creatureObject.GetComponent<CreatureScript>();
+        var creatureAnimator = creatureObject.GetComponent<Animator>();
+        if (creatureScript == null)
+        {
+            Debug.LogWarning($"We couldn't find a creature script on the object: {gameObjectToTriggerAnimation.name}'s Child.");
+            return;
+        }
         if (creatureAnimator == null)
         {
             Debug.LogWarning($"We couldn't find an animator on the object: {gameObjectToTriggerAnimation.name}'s Child.");
             return;
         }
-        creatureAnimator.Play(creatureAnimation.ToString());
+        creatureAnimator.Play(creature.CreatureAnimation.ToString());
     }
     
     public void UpdatePassiveIncomeText()
