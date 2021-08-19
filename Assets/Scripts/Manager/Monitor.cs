@@ -114,6 +114,7 @@ public class Monitor : MonoBehaviour
             Debug.LogWarning($"We couldn't find an animator on the object: {gameObjectToTriggerAnimation.name}'s Child.");
             return;
         }
+        creatureScript.CreatureName = creature.Name; //I ended up not using this but I'll leave it in case I need it later.
         creatureAnimator.Play(creature.CreatureAnimation.ToString());
     }
     

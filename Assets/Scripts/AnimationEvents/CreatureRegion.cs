@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Random = UnityEngine.Random;
 
 //Note: The Magic and CreatureRegion gameobjects share this.
 public class CreatureRegion : MonoBehaviour
@@ -65,9 +68,9 @@ public class CreatureRegion : MonoBehaviour
             increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 1);
             TriggerIncrementText(increment, IncrementTexts.IncrementText);
         }
-        else if (randomNumber <= 0.20)
+        else if (randomNumber <= 0.15)
         {
-            increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 8);
+            increment = IncrementPanel.GetClickerIncrement(IncrementPanel.ClickerIncrement, 10);
             TriggerIncrementText(increment, IncrementTexts.IncrementBonusText);
         }
         else
