@@ -46,6 +46,10 @@ public class SceneManager : MonoBehaviour
 
     public bool TutorialActive;
     private int _tutorialIndex;
+
+    public GameObject BackStoryButton;
+    public GameObject BackStoryBarlogButton;
+    private bool _backButtonWasJustUsed;
     
     private AudioManager _audioManager;
 
@@ -104,19 +108,22 @@ public class SceneManager : MonoBehaviour
                 {"Chapter", chapterNumber}
             });
         }
+        if (_backButtonWasJustUsed)
+        {
+            _chapterIndex++;
+            _backButtonWasJustUsed = false;
+        }
 
         ActiveChapter = chapterNumber;
         _banterActive = false;
         
         TextBox.SetActive(true);
         ExclamationPointXal.SetActive(false);
-        var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
         
         if (_chapterIndex < chapter.Quotes.Length)
         {
             var quote = chapter.Quotes[_chapterIndex];
-            textMeshPro.text = quote;
-            SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
+            UpdateDialogAndExpression();
 
             if (quote == "BAM!" && ActiveChapter < 5)
             {
@@ -144,6 +151,7 @@ public class SceneManager : MonoBehaviour
             NextChapter = Chapters.FirstOrDefault(c => !c.SceneViewed); // Adding this here so we don't wait till the next frame to get this. I don't want the chapter button to flicker for a frame.
             ActiveChapter = 0;
             TextBox.SetActive(false);
+            _backButtonWasJustUsed = false;
             
             if (chapterNumber == 1)
             {
@@ -176,6 +184,33 @@ public class SceneManager : MonoBehaviour
             }
         }
     }
+
+    private void UpdateDialogAndExpression()
+    {
+        if (ActiveChapter == 0)
+        {
+            Debug.LogWarning("There is no active chapter.");
+            return;
+        }
+        var chapter = Chapters.FirstOrDefault(x => x.Number == ActiveChapter);
+        if (chapter == null)
+        {
+            Debug.LogWarning("We couldn't find Chapter " + ActiveChapter);
+            return;
+        }
+
+        if (ActiveChapter != 6)
+        {
+            var textMeshPro = TextBox.GetComponentInChildren<TextMeshProUGUI>();
+            textMeshPro.text = chapter.Quotes[_chapterIndex];
+            SceneBackgroundController.Instance.UpdateSceneBackground(chapter.Expressions[_chapterIndex]);
+        }
+        else
+        {
+            var textMeshPro = BarlogMessageBox.GetComponentInChildren<TextMeshProUGUI>();
+            textMeshPro.text = chapter.Quotes[_chapterIndex];   
+        }
+    }
     
     #region UI Interaction methods
 
@@ -188,10 +223,12 @@ public class SceneManager : MonoBehaviour
         {
             ChapterButtonGameObject.SetActive(false);
             InfluenceCrystal.SetActive(false);
+            BackStoryButton.SetActive(_chapterIndex > 0);
         }
         else
         {
             ChapterButtonGameObject.SetActive(true);
+            BackStoryButton.SetActive(false);
             //Add an extra check just for the influence crystal
             InfluenceCrystal.SetActive(!InfluenceCrystalAdTriggeredThisLevel);
         }
@@ -246,6 +283,23 @@ public class SceneManager : MonoBehaviour
         else
         {
             TriggerChat();
+        }
+    }
+
+    public void TriggerBackButton()
+    {
+        if (!_backButtonWasJustUsed && _chapterIndex > 0)
+        {
+            _chapterIndex--;
+            if (_chapterIndex - 1 >= 0) _chapterIndex--;
+            UpdateDialogAndExpression();
+            _backButtonWasJustUsed = true;
+        }
+        else if (_chapterIndex > 0)
+        {
+            _chapterIndex--;
+            UpdateDialogAndExpression();
+            _backButtonWasJustUsed = true;
         }
     }
     
@@ -394,6 +448,14 @@ public class SceneManager : MonoBehaviour
             TriggerBarlogText();
             BottomNavManager.Instance.ToggleActiveButtons(false);
         }
+
+        if (ActiveChapter == 6)
+        {
+            var chapter = Chapters.FirstOrDefault(x => x.Number == 6);
+            var textMeshPro = BarlogMessageBox.GetComponentInChildren<TextMeshProUGUI>();
+            // only show this when we are on the second dialog and the text matches as well.
+            BackStoryBarlogButton.SetActive(_chapterIndex > 0 && chapter?.Quotes[0] != textMeshPro.text);
+        }
     }
 
     public void TriggerBarlogText()
@@ -407,6 +469,7 @@ public class SceneManager : MonoBehaviour
             return;
         }
         if (chapter.SceneViewed) return;
+        ActiveChapter = 6;
         if (ActiveChapter == 0 && Monitor.UseAnalytics)
         {
             Analytics.CustomEvent("ChapterTriggered", new Dictionary<string, object>
@@ -414,18 +477,25 @@ public class SceneManager : MonoBehaviour
                 {"Chapter", 6}
             });
         }
+
+        if (_backButtonWasJustUsed)
+        {
+            _chapterIndex++;
+            _backButtonWasJustUsed = false;
+        }
         
-        var textMeshPro = BarlogMessageBox.GetComponentInChildren<TextMeshProUGUI>();
-        textMeshPro.text = chapter.Quotes[_chapterIndex];
+        UpdateDialogAndExpression();
         
         if (_chapterIndex < chapter.Quotes.Length - 1)
         {
-            _chapterIndex++;   
+            _chapterIndex++;
         }
         else
         {
+            ActiveChapter = 0;
             _chapterIndex = 0;
             chapter.SceneViewed = true;
+            _backButtonWasJustUsed = false;
             // TextBox.SetActive(false);
             TriggerBarlogAnimation(barlog.BarlogAnimations.Fadeout);
         }

@@ -233,7 +233,7 @@ public class SavedData
         { 
             chapter.SceneViewed = false;
             //Testing
-            // if (chapter.Number <= 4)
+            // if (chapter.Number <= 5)
             // {
             //     chapter.SceneViewed = true;
             // }
