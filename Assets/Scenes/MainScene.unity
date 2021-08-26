@@ -903,7 +903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256.19183, y: 467}
+  m_AnchoredPosition: {x: 256.19183, y: 637}
   m_SizeDelta: {x: 393.88937, y: 1242.094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99098131
@@ -929,8 +929,9 @@ MonoBehaviour:
   m_text: "Kevin Logan\n\nKevin Logan\n\nSteven Logan\n\nfreesound.org\n\nKevin Logan
     \nShayne Gadd\n\nKevin Logan\nElliot Maynard\n\nBrock Johnson\n\nRyan Schalk\nMichaela
     Schalk\nKyle Werling\nSteven Logan\nSteve G. Logan\nShayne Gadd\nKatie Waldrop\nCollin
-    Hammond\nKevin Hammond\nElliot Maynard\nMichael Leone\nLisa Logan\n\nKyle Ihli\nMiguel
-    Ortiz\nCody Platt\nTravis Mikolay\nTyler Kidwell\n\nElliot Maynard"
+    Hammond\nKevin Hammond\nElliot Maynard\nMichael Leone\nLisa Logan\nWill Logan\nElisabeth
+    Logan\n\nKyle Ihli\nMiguel Ortiz\nCody Platt\nTravis Mikolay\nTyler Kidwell\n\nElliot
+    Maynard"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -4913,7 +4914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.552612, y: 1453.7142}
+  m_AnchoredPosition: {x: 12.552612, y: 1623.7142}
   m_SizeDelta: {x: 832.5813, y: 138.61162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330913806
@@ -14964,7 +14965,7 @@ RectTransform:
   m_Father: {fileID: 1113464792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6330122}
+  m_AnchorMin: {x: 0, y: 0.66788185}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -16663,7 +16664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229.86841, y: 456.40027}
+  m_AnchoredPosition: {x: -229.86841, y: 626.40015}
   m_SizeDelta: {x: 396.07794, y: 1260.8301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222789908
@@ -16711,6 +16712,8 @@ MonoBehaviour:
 
     iOS
     Testers
+
+
 
 
 
@@ -22681,7 +22684,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1125234462}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.36698782
+  m_Size: 0.33211812
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29622,7 +29625,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 3165.4348}
+  m_SizeDelta: {x: 0, y: 3497.7795}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2115799158
 GameObject:
