@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Monitor : MonoBehaviour
 {
-    public static string Version = "v0.2.8";
+    public static string Version = "v1.0.0";
     
     public GameObject SettingsPanel;
     public GameObject CreditsPanel;
@@ -24,7 +24,7 @@ public class Monitor : MonoBehaviour
     private DateTime _timeOfLastFrame;
 
     public static bool UseAnalytics = true;
-    public const bool useBetaFeatures = true;
+    public const bool useBetaFeatures = false;
     public const bool useAllCloudServices = true;
     public static bool BetaSurveyDisplayed = false;
 
