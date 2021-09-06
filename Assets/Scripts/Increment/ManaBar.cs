@@ -44,7 +44,7 @@ public class ManaBar : MonoBehaviour
             _currentWaitTimeTillRegen = Time.time + _waitTimeTillRegen;
             if (_manabar.value >= _manabar.maxValue) return;
         
-            const float numerator = 1.65f;
+            const float numerator = 2.25f;
             var denominator = ManaLevel > 1 ? ManaLevel * 1.25 : 1;
             var regen = numerator / denominator;
             if (_manabar.value + regen < _manabar.maxValue)
