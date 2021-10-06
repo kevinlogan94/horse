@@ -81,4 +81,9 @@ public class ManaBar : MonoBehaviour
             _manabar.value = 0;
         }
     }
+
+    public void DeductAllMana()
+    {
+        _manabar.value -= _manabar.value;
+    }
 }
