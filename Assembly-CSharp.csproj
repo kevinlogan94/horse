@@ -118,6 +118,7 @@
      <Compile Include="Assets\Extensions\GooglePlayGames\BasicApi\LeaderboardScoreData.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\Platforms\Native\NativeEventClient.cs" />
      <Compile Include="Assets\Scripts\LevelUp\LevelUp.cs" />
+     <Compile Include="Assets\Scripts\Splash\Portal\TeleportButton.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\HelperLogic.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\BasicApi\Video\iVideoClient.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\BasicApi\PlayerProfile.cs" />
@@ -129,6 +130,7 @@
      <Compile Include="Assets\Scripts\AnimationEvents\IncrementText.cs" />
      <Compile Include="Assets\Scripts\Achievements\Logic\ClickerLogic.cs" />
      <Compile Include="Assets\Scripts\Manager\GameCenterManager.cs" />
+     <Compile Include="Assets\Scripts\Splash\Portal\PortalPanel.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Internal\Interfaces\ICloudStorageProvider.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Providers\DummyProvider\DummyStorageWrapper.cs" />
      <Compile Include="Assets\Extensions\CloudOnce\Providers\AppleGameCenter\iOSCloudProvider.cs" />
@@ -265,7 +267,6 @@
      <Compile Include="Assets\Scripts\Buff\BuffCountDown.cs" />
      <Compile Include="Assets\Scripts\Manager\Monitor.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\ISocialPlatform\PlayGamesLeaderboard.cs" />
-     <Compile Include="Assets\Scripts\Splash\PortalPanel.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

@@ -15,6 +15,7 @@ public class SplashManager : MonoBehaviour
     public GameObject CreatureUIPanel;
     public GameObject SurveyPanel;
     public GameObject NewGamePanel;
+    public GameObject PortalPanel;
 
     public Achievement[] Achievements;
     public Creature[] Creatures;
@@ -87,6 +88,10 @@ public class SplashManager : MonoBehaviour
         {
             NewGamePanel.SetActive(true);
         }
+        else if (type == SplashType.Portal.ToString())
+        {
+            PortalPanel.SetActive(true);
+        }
         else
         {
             AdvertisementPanel.SetActive(true);
@@ -107,6 +112,7 @@ public class SplashManager : MonoBehaviour
         EndGamePanel.SetActive(false);
         BuffPanel.SetActive(false);
         SurveyPanel.SetActive(false);
+        PortalPanel.SetActive(false);
         
         // show ad after speaking to Xal
         if (AchievementPanelScript.Instance != null 
@@ -130,5 +136,6 @@ public enum SplashType
     Buff,
     EndGame,
     Survey,
-    NewGame
+    NewGame,
+    Portal
 }
