@@ -34,7 +34,7 @@ public class VideoLogic : MonoBehaviour, IAchievement
 
     public void UpdateTitle()
     {
-        Title.text = "Watch " + ProgressBar.maxValue + " projections";
+        Title.text = "Watch " + ProgressBar.maxValue + " Ads";
     }
 
     public void Receive()

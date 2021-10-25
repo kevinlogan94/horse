@@ -17961,7 +17961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Watch a projection
+  m_text: Watch an Ad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -19956,7 +19956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: watch a projection
+  m_text: Watch an Ad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -28894,7 +28894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Watch a projection
+  m_text: Watch an Ad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
@@ -31600,7 +31600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Projection
+  m_text: Advertisement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd141f8be1d8a64ab0e822428c6286a, type: 2}
   m_sharedMaterial: {fileID: -1747991190788208838, guid: 2dd141f8be1d8a64ab0e822428c6286a,
