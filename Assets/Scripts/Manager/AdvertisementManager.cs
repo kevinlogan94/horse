@@ -40,11 +40,19 @@ public class AdvertisementManager : MonoBehaviour, IUnityAdsListener
     public void ShowBuffRewardAd(BuffType buffType, int seconds)
     {
         BuffManager.Instance.TriggerBuff(buffType, seconds);
-        Advertisement.Show(RewardVideoPlacementId);
+        Advertisement.Show(Application.platform == RuntimePlatform.Android
+            ? SkippableAdPlacementId
+            : RewardVideoPlacementId);
     }
 
     public void ShowSkippableAd()
     {
+        Advertisement.Show(SkippableAdPlacementId);
+    }
+
+    public void ShowSkippableRewardAd(long reward)
+    {
+        _reward = reward;
         Advertisement.Show(SkippableAdPlacementId);
     }
 

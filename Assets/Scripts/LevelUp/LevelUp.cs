@@ -63,7 +63,14 @@ public class LevelUp : MonoBehaviour
             {
                 LevelUpAdInProgress = true;
                 var bonusReward = LevelUpReward * 3;
-                AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
+                if (Application.platform == RuntimePlatform.Android)
+                {
+                    AdvertisementManager.Instance.ShowSkippableRewardAd(bonusReward);
+                }
+                else
+                {
+                    AdvertisementManager.Instance.ShowStandardRewardAd(bonusReward);
+                }
             }
             StartCoroutine(WaitForAdAndTriggerLevelUp());   
         }
