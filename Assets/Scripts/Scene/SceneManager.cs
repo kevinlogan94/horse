@@ -245,10 +245,10 @@ public class SceneManager : MonoBehaviour
                 ExclamationPointXal.SetActive(true);
             }
         }
-        else
-        {
-            Debug.LogWarning("We couldn't find the next chapter in the story.");
-        }
+        // else
+        // {
+        //     Debug.LogWarning("We couldn't find the next chapter in the story.");
+        // }
     }
 
     public void TriggerChat()

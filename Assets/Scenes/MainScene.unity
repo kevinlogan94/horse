@@ -8500,7 +8500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 579584368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1310888976}
+        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
+        m_MethodName: OpenPortalPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &579584368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10711,7 +10723,7 @@ MonoBehaviour:
   CreatureUIPanel: {fileID: 9088865343634301953}
   SurveyPanel: {fileID: 625534886}
   NewGamePanel: {fileID: 1353166076}
-  PortalPanel: {fileID: 0}
+  PortalPanel: {fileID: 1283599341}
   Achievements:
   - {fileID: 11400000, guid: bcc76565f009c704abf1ba7325d805ca, type: 2}
   - {fileID: 11400000, guid: c596d3a02f19e7f4ea08005d51934a60, type: 2}
@@ -19683,7 +19695,7 @@ MonoBehaviour:
   TitleScreenPanel: {fileID: 1988067464}
   ActiveChapter: 0
   TutorialActive: 0
-  PortalButton: {fileID: 0}
+  PortalButton: {fileID: 579584365}
   BackStoryButton: {fileID: 626937208}
   BackStoryBarlogButton: {fileID: 1682773304}
 --- !u!1 &1320998659

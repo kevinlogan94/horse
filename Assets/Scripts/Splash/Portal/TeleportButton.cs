@@ -16,8 +16,8 @@ public class TeleportButton : MonoBehaviour
     void Start()
     {
         _audioManager = FindObjectOfType<AudioManager>();
-        _disableTeleportButtonImage = Resources.Load<Sprite>("reviewGameButton");
-        _activeTeleportButtonImage = Resources.Load<Sprite>("blueButton");
+        _disableTeleportButtonImage = Resources.Load<Sprite>("Pixel/buttons/reviewGameButton");
+        _activeTeleportButtonImage = Resources.Load<Sprite>("Pixel/buttons/blueButton");
     }
 
     // Update is called once per frame
