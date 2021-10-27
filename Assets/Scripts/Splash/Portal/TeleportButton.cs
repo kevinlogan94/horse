@@ -35,6 +35,7 @@ public class TeleportButton : MonoBehaviour
 
     public void PerformTeleport()
     {
+        GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Traveler.Value());
         if (CanvasBackgroundController.Instance.CurrentCanvasBackground != Background)
         {
             CanvasBackgroundController.Instance.UpdateCanvasBackground(Background);
