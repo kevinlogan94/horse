@@ -103,7 +103,7 @@ public class GameCenterManager : MonoBehaviour
         [EnumMember(Value = "collector")]
         Collector,
         [EnumMember(Value = "traveler")]
-        Traveler, //TODO Add the portal in to the game for this.
+        Traveler,
         [EnumMember(Value = "guardian")]
         Guardian
     }
