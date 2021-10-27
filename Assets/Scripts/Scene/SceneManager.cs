@@ -47,6 +47,7 @@ public class SceneManager : MonoBehaviour
     public bool TutorialActive;
     private int _tutorialIndex;
 
+    public GameObject PortalButton;
     public GameObject BackStoryButton;
     public GameObject BackStoryBarlogButton;
     private bool _backButtonWasJustUsed;
@@ -232,6 +233,7 @@ public class SceneManager : MonoBehaviour
             //Add an extra check just for the influence crystal
             InfluenceCrystal.SetActive(!InfluenceCrystalAdTriggeredThisLevel);
         }
+        PortalButton.SetActive(Chapters.All(x=>x.SceneViewed));
     }
 
     private void ManageExclamationPoint()
@@ -243,10 +245,10 @@ public class SceneManager : MonoBehaviour
                 ExclamationPointXal.SetActive(true);
             }
         }
-        else
-        {
-            Debug.LogWarning("We couldn't find the next chapter in the story.");
-        }
+        // else
+        // {
+        //     Debug.LogWarning("We couldn't find the next chapter in the story.");
+        // }
     }
 
     public void TriggerChat()
@@ -301,6 +303,11 @@ public class SceneManager : MonoBehaviour
             UpdateDialogAndExpression();
             _backButtonWasJustUsed = true;
         }
+    }
+
+    public void OpenPortalPanel()
+    {
+        SplashManager.Instance.TriggerSplash(SplashType.Portal.ToString());   
     }
     
     #endregion

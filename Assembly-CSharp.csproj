@@ -265,6 +265,8 @@
      <Compile Include="Assets\Scripts\Buff\BuffCountDown.cs" />
      <Compile Include="Assets\Scripts\Manager\Monitor.cs" />
      <Compile Include="Assets\Extensions\GooglePlayGames\ISocialPlatform\PlayGamesLeaderboard.cs" />
+     <Compile Include="Assets\Scripts\Splash\Portal\PortalPanel.cs" />
+     <Compile Include="Assets\Scripts\Splash\Portal\TeleportButton.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
