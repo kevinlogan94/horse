@@ -28,7 +28,7 @@ public class ObjectPooler : MonoBehaviour
 
     public List<Pool> Pools;
     public Dictionary<string, Queue<GameObject>> PoolDictionary;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +65,20 @@ public class ObjectPooler : MonoBehaviour
         PoolDictionary[poolTag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
+    }
+
+    public void WipeActiveCreatureRegions()
+    {
+        var creatureRegionGameObjects = PoolDictionary["CreatureRegion"];
+        if (creatureRegionGameObjects == null || creatureRegionGameObjects.Count == 0)
+        {
+            Debug.LogError("There are no creatureRegion prefabs in an object pool.");
+            return;
+        }
+        foreach (var creature in creatureRegionGameObjects.Where(creature => creature.activeSelf))
+        {
+            creature.SetActive(false);
+        }
     }
 
     private Queue<GameObject> GeneratePool(Pool pool)

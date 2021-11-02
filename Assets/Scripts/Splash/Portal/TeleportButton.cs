@@ -35,9 +35,10 @@ public class TeleportButton : MonoBehaviour
 
     public void PerformTeleport()
     {
-        GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Traveler.Value());
         if (CanvasBackgroundController.Instance.CurrentCanvasBackground != Background)
         {
+            GameCenterManager.ReportAchievementUnlocked(GameCenterManager.GameCenterAchievement.Traveler.Value());
+            ObjectPooler.Instance.WipeActiveCreatureRegions(); // We need to wipe what creatures are already there that don't belong in this new region.
             CanvasBackgroundController.Instance.UpdateCanvasBackground(Background);
             ManaBar.Instance.DeductAllMana();
             _audioManager.Play("MagicSpell");
